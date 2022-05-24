@@ -12,10 +12,8 @@ export class RNAVis {
 
     constructor(element: HTMLElement, data: RNAData) {
         this.data = data;
-        this.svg = d3.select(element).append('svg') 
-        .attr('viewBox', [0, 0, WIDTH, HEIGHT])
-        .attr('width', WIDTH)
-        .attr('height', HEIGHT);
+        this.svg = d3.select(element).append('svg');
+        this.setDimensions();
     }
 
     public draw(): void {
@@ -25,11 +23,27 @@ export class RNAVis {
         this.addLabels();
     }
 
-    private round (num: number): string {
-        return num.toFixed(2);
+    private setDimensions(): void {
+        const residues = this.data.rnaComplexes[0].rnaMolecules[0].sequence;
+        let width = Number.MIN_VALUE;
+        let height = Number.MIN_VALUE;
+        for (const res of residues) {
+            if (res.x > width)
+                width = res.x;
+            if (res.y > height)
+                height = res.y;
+        }
+        width += this.round(2 * this.margin);
+        height += this.round(2 * this.margin);
+        this.svg.attr('width', width)
+        .attr('height', height);
     }
 
-    private formCoor(coor: number): string {
+    private round (num: number): number {
+        return Number(num.toFixed(2));
+    }
+
+    private formCoor(coor: number): number {
         return this.round(coor + this.margin)
     }
 
