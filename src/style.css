@@ -9,3 +9,8 @@ body {
 svg {
     background-color: white;
 }
+
+p {
+    background-color:wheat;
+    padding: 5px;
+}
