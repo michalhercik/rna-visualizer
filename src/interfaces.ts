@@ -1,4 +1,4 @@
-export interface IResidue 
+export interface Residue 
 {
     x: number;
     y: number;
@@ -7,14 +7,14 @@ export interface IResidue
     classes: Array<string>;
 }
 
-export interface IBasePair 
+export interface BasePair 
 {
     residueIndex1: number;
     residueIndex2: number;
     basePairType: string;
 }
 
-export interface ILabelContent 
+export interface LabelContent 
 {
     classes: Array<string>;
     label: string;
@@ -22,7 +22,7 @@ export interface ILabelContent
     y: number;
 }
 
-export interface ILabelLine
+export interface LabelLine
 {
     classes: Array<string>;
     x1: number;
@@ -31,34 +31,34 @@ export interface ILabelLine
     y2: number;
 }
 
-export interface ILabel 
+export interface Label 
 {
-    labelContent: ILabelContent;
-    labelLine: ILabelLine;
+    labelContent: LabelContent;
+    labelLine: LabelLine;
     residueIndex: number; 
 }
 
-export interface IStyle 
+export interface Style 
 {
     name: string;
 }
 
-export interface IRNAMolecules
+export interface RNAMolecules
 {
     name: string;
-    basePairs: Array<IBasePair>;
-    labels: Array<ILabel>;
-    sequence: Array<IResidue>;
+    basePairs: Array<BasePair>;
+    labels: Array<Label>;
+    sequence: Array<Residue>;
 }
 
-export interface IRNAComplexes
+export interface RNAComplexes
 {
     name: string;
-    rnaMolecules: Array<IRNAMolecules>;
+    rnaMolecules: Array<RNAMolecules>;
 }
 
-export interface IRNAData
+export interface RNAData
 {
-    classes: Array<IStyle>;
-    rnaComplexes: Array<IRNAComplexes>;
+    classes: Array<Style>;
+    rnaComplexes: Array<RNAComplexes>;
 }

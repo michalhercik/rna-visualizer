@@ -1,9 +1,9 @@
 import './style.css';
-import {draw} from './rnavis';
+import { RNAVis } from './rnavis';
 import data from '../example_data/mouse_from_human.colored.json'
 
 
-const canvas = document.getElementById('canvas');
-draw(canvas, data);
-
+const svgSpace = document.getElementById('svg-space');
+const rnaVis = new RNAVis(svgSpace, data);
+rnaVis.draw();
 
