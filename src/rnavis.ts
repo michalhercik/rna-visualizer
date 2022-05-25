@@ -2,9 +2,6 @@ import * as d3 from 'd3';
 import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { classes } from './classes';
 
-const WIDTH = 1200;
-const HEIGHT = 1400;
-
 export class RNAVis {
     private margin = 10;
     private svg;    
@@ -88,39 +85,64 @@ export class RNAVis {
     }
 
     private addResidues(): void {
-        const rna = this.data.rnaComplexes[0].rnaMolecules[0];
-        const resX = (residue: Residue) => this.formCoor(residue.x);
-        const resY = (residue: Residue) => this.formCoor(residue.y);
-        const resTitle = (residue: Residue) => 
-        `${residue.residueIndex} (position.label in template: ${residue.residueIndex}.${residue.residueName}\')`;
+        const sequenceData = this.data.rnaComplexes[0].rnaMolecules[0].sequence;
         const residues = this.svg.append('g').attr('class', 'residues');
 
-        residues.selectAll('circle')
-        .data(rna.sequence)
-        .join('circle')
-        .attr('cx', resX)
-        .attr('cy', resY)
-        .attr('r', this.round(this.getFontSize(this.data.classes) * 0.75))
-        .attr('class', 'residue-circle');
+        const getX = (res: Residue) => this.formCoor(res.x);
+        const getY = (res: Residue) => this.formCoor(res.y);
+        const addLines = () => {
+            type Line = {res1: Residue, res2: Residue};
+            let lineData: Line[] = [];
+            for (let i = 1; i < sequenceData.length; ++i) {
+                lineData.push({
+                    res1: sequenceData[i-1], 
+                    res2: sequenceData[i], 
+                });
+            }
+            residues.selectAll('line')
+            .data(lineData)
+            .join('line')
+            .attr('x1', (line: Line) => getX(line.res1))
+            .attr('y1', (line: Line) => getY(line.res1))
+            .attr('x2', (line: Line) => getX(line.res2))
+            .attr('y2', (line: Line) => getY(line.res2))
+            .attr('class', 'bp-line res-line');
+        }
+        const addCircles = () => {
+            residues.selectAll('circle')
+            .data(sequenceData)
+            .join('circle')
+            .attr('cx', getX)
+            .attr('cy', getY)
+            .attr('r', this.round(this.getFontSize(this.data.classes) * 0.75))
+            .attr('class', 'residue-circle');
+        }
+        const addTitles = () => {
+            const resTitle = (residue: Residue) => 
+            `${residue.residueIndex} (position.label in template: ${residue.residueIndex}.${residue.residueName}\')`;
+            residues.selectAll('g')
+            .data(sequenceData)
+            .join('g')
+            .append('title')
+            .text(resTitle);
+            residues.selectAll('g').append('text')
+            .attr('x', getX)
+            .attr('y', getY)
+            .attr('class', (residue: Residue) => residue.classes.join(' '))
+            .text((residue: Residue) => residue.residueName);
+        }
 
-        residues.selectAll('g')
-        .data(rna.sequence)
-        .join('g')
-        .append('title')
-        .text(resTitle);
-        residues.selectAll('g').append('text')
-        .attr('x', resX)
-        .attr('y', resY)
-        .attr('class', (residue: Residue) => residue.classes.join(' '))
-        .text((residue: Residue) => residue.residueName);
+        addLines();
+        addCircles();
+        addTitles();
     }
 
     private addLabels(): void {
-        const rna = this.data.rnaComplexes[0].rnaMolecules[0];
+        const labelData = this.data.rnaComplexes[0].rnaMolecules[0].labels;
         const labels = this.svg.append('g').attr('class', 'labels');
 
         labels.selectAll('g')
-        .data(rna.labels)
+        .data(labelData)
         .join('g')
         .attr('class', 'label')
         .append('text')
