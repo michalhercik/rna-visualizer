@@ -1,6 +1,8 @@
 import * as d3 from 'd3';
 import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { classes } from './classes';
+import zoom from './zoom';
+
 
 export class RNAVis {
     private margin = 10;
@@ -9,8 +11,17 @@ export class RNAVis {
 
     constructor(element: HTMLElement, data: RNAData) {
         this.data = data;
-        this.svg = d3.select(element).append('svg');
+        this.svg = d3.select(element)
+        .append('svg')
         this.setDimensions();
+    }
+
+    public addZoom() {
+        const button = document.createElement('button');
+        button.innerText = 'Zoom';
+        button.addEventListener('click', () => zoom(this.data));
+        document.body.appendChild(button);
+        this.svg.call(zoom(this.data));
     }
 
     public draw(): void {
@@ -41,7 +52,7 @@ export class RNAVis {
     }
 
     private formCoor(coor: number): number {
-        return this.round(coor + this.margin)
+        return this.round(coor + this.margin);
     }
 
     private getFontSize(classes: Array<any>): number {
