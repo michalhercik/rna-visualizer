@@ -17,10 +17,6 @@ export class RNAVis {
     }
 
     public addZoom() {
-        const button = document.createElement('button');
-        button.innerText = 'Zoom';
-        button.addEventListener('click', () => zoom(this.data));
-        document.body.appendChild(button);
         this.svg.call(zoom(this.data));
     }
 
