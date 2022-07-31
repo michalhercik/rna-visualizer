@@ -1,5 +1,6 @@
 import './style.css';
 import { RNAVis } from './rnavis';
+import { SVGRNAVis } from './svgrnavis';
 import { RNAData } from './interfaces';
 import data01 from '../example_data/json/mouse_from_human.colored.json';
 import data02 from '../example_data/json/URS000075EC78_9606-HS_LSU_3D.json';
@@ -49,13 +50,16 @@ const dataPath = [
     'URS00000B1E10_489619-d.16.b.B.japonicum.json'
 ]
 const svgSpace = document.getElementById('svg-space');
-for (let i = 0; i < data.length ; ++i) { 
+for (let i = 7; i < data.length ; ++i) { 
     const p = document.createElement('p')
     p.innerText = dataPath[i];
     svgSpace.append(p);
     const rnaVis = new RNAVis(svgSpace, data[i]);
     rnaVis.addZoom();
     rnaVis.draw();
+    const svgRnaVis = new SVGRNAVis(svgSpace, data[i]);
+    svgRnaVis.addZoom();
+    svgRnaVis.draw();
     break;
 }
 
