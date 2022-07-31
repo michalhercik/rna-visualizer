@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { classes } from './classes';
-import zoom from './zoom';
+//import update from './zoom';
 
 
 export class RNAVis {
@@ -13,7 +13,7 @@ export class RNAVis {
     constructor(element: HTMLElement, data: RNAData) {
         this.data = data;
         this.canvas = d3.select(element)
-        .append('canvas')
+        .append('canvas');
         this.dataContainer = d3.select(document.createElement('custom'));
         this.setDimensions();
 
@@ -24,11 +24,60 @@ export class RNAVis {
     }
 
     public addZoom() {
-        //const button = document.createElement('button');
-        //button.innerText = 'Zoom';
-        //button.addEventListener('click', () => zoom(this.data));
-        //document.body.appendChild(button);
-        this.canvas.call(zoom(this.data));
+        const zoom = d3.zoom()
+        .scaleExtent([1,10])
+        .on('zoom', (event) => {
+            this.update(this.data, event);
+            this.draw();
+        });
+        this.canvas.call(zoom);
+    }
+
+    private update(data: RNAData, event: any) {
+        const x = d3.scaleLinear().domain([0, 1063]).range([0, 1063]);
+        const y = d3.scaleLinear().domain([0, 1375]).range([0, 1375]);
+
+        x.range([0, 1063].map(d => event.transform.applyX(d)));
+        y.range([0, 1375].map(d => event.transform.applyY(d)));
+
+        const rna = data.rnaComplexes[0].rnaMolecules[0];
+
+        const bpX = (resIndex: number) => this.formCoor(x(rna.sequence[resIndex].x));
+        const bpY = (resIndex: number) => this.formCoor(y(rna.sequence[resIndex].y));
+
+        this.dataContainer.selectAll('custom.bp-line:not(.res-line)')
+        .attr('x1', (bp: BasePair) => bpX(bp.residueIndex1))
+        .attr('y1', (bp: BasePair) => bpY(bp.residueIndex1))
+        .attr('x2', (bp: BasePair) => bpX(bp.residueIndex2))
+        .attr('y2', (bp: BasePair) => bpY(bp.residueIndex2));
+
+        const getX = (res: Residue) => this.formCoor(x(res.x));
+        const getY = (res: Residue) => this.formCoor(y(res.y));
+        type Line = {res1: Residue, res2: Residue};
+
+        this.dataContainer.selectAll('custom.res-type')
+        .attr('x', (res: Residue) => getX(res))
+        .attr('y', (res: Residue) => getY(res))
+        .style('font-size', this.getFontSize(data.classes) * 0.75 * event.transform.k);
+
+        this.dataContainer.selectAll('custom.res-circle')
+        .attr('cx', (res: Residue) => getX(res))
+        .attr('cy', (res: Residue) => getY(res))
+        .attr('r', this.round(this.getFontSize(data.classes) * 0.75) * event.transform.k); 
+
+        this.dataContainer.selectAll('custom.res-line')
+        .attr('x1', (line: Line) => getX(line.res1))
+        .attr('y1', (line: Line) => getY(line.res1))
+        .attr('x2', (line: Line) => getX(line.res2))
+        .attr('y2', (line: Line) => getY(line.res2))
+
+        this.dataContainer.selectAll('custom.label')
+        .attr('lx', (label: Label) => x(this.formCoor(label.labelContent.x)))
+        .attr('ly', (label: Label) => y(this.formCoor(label.labelContent.y)))
+        .attr('x1', (label: Label) => x(this.formCoor(label.labelLine.x1)))
+        .attr('x2', (label: Label) => x(this.formCoor(label.labelLine.x2)))
+        .attr('y1', (label: Label) => y(this.formCoor(label.labelLine.y1)))
+        .attr('y2', (label: Label) => y(this.formCoor(label.labelLine.y2)));
     }
 
     public draw(): void {
@@ -44,6 +93,7 @@ export class RNAVis {
 
     private setDimensions(): void {
         const residues = this.data.rnaComplexes[0].rnaMolecules[0].sequence;
+        const scale = 2;
         let width = Number.MIN_VALUE;
         let height = Number.MIN_VALUE;
         for (const res of residues) {
@@ -54,8 +104,11 @@ export class RNAVis {
         }
         width += this.round(2 * this.margin);
         height += this.round(2 * this.margin);
-        this.canvas.attr('width', width)
-        .attr('height', height);
+        this.canvas
+        .attr('width', scale * width)
+        .attr('height', scale * height)
+        .attr('style', 'width: ' + (+this.canvas.attr('width') / scale) + 'px');
+        this.canvas.node().getContext('2d').scale(scale, scale);
     }
 
     private round (num: number): number {
