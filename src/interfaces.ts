@@ -12,6 +12,7 @@ export interface BasePair
     residueIndex1: number;
     residueIndex2: number;
     basePairType: string;
+    classes: Array<any>;
 }
 
 export interface LabelContent 
@@ -59,6 +60,6 @@ export interface RNAComplexes
 
 export interface RNAData
 {
-    classes: Array<Style>;
+    classes: Array<any>;
     rnaComplexes: Array<RNAComplexes>;
 }
