@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { Styles } from './classes';
+import { LinesDrawer, CirclesDrawer, TextDrawer } from './draw';
 //import update from './zoom';
 
 
@@ -10,6 +11,9 @@ export class RNAVis {
     private data;
     private dataContainer;
     private styles;
+    private linesDrawer;
+    private circlesDrawer;
+    private textDrawer;
     private classComb = {
         line: new Set(),
         circle: new Set(),
@@ -23,11 +27,13 @@ export class RNAVis {
         .append('canvas');
         this.dataContainer = d3.select(document.createElement('custom'));
         this.setDimensions();
-
         this.addClasses();
         this.addBasePairs();
         this.addResidues();
         this.addLabels();
+        this.linesDrawer = new LinesDrawer(this.styles);
+        this.circlesDrawer = new CirclesDrawer(this.styles);
+        this.textDrawer = new TextDrawer(this.styles);
     }
 
     public addZoom() {
@@ -38,6 +44,10 @@ export class RNAVis {
             this.draw();
         });
         this.canvas.call(zoom);
+    }
+
+    private getFontSize(bla: any) {
+        return 5;
     }
 
     private update(data: RNAData, event: any) {
@@ -95,9 +105,11 @@ export class RNAVis {
         context.rect(0, 0, +this.canvas.attr('width'), +this.canvas.attr('height'));
         context.fill();
 
-        this.drawLines();
-        this.drawCircles();
-        this.drawText();
+        // const bla = new LinesDrawer(this.styles);
+        // bla.draw(this.canvas.node().getContext('2d'), this.classComb.line, this.dataContainer);
+        this.linesDrawer.draw(this.canvas.node().getContext('2d'), this.classComb.line, this.dataContainer);
+        this.circlesDrawer.draw(this.canvas.node().getContext('2d'), this.classComb.circle, this.dataContainer);
+        this.textDrawer.draw(this.canvas.node().getContext('2d'), this.classComb.text, this.dataContainer);
     }
 
     private setDimensions(): void {
@@ -128,27 +140,7 @@ export class RNAVis {
         return this.round(coor + this.margin);
     }
 
-    private getFontSize(classes: Array<any>): number {
-        //return classes.find((style) => style.name == 'font')['font-size'].slice(0,-2);
-        return 6;
-    }
-
     private addClasses(): void {
-        // let styles = '';
-        // this.data.classes.concat(classes).forEach((style: Style) => {
-        //     styles += '\n';
-        //     styles += Object.keys(style).includes('element-wise') ? '' : '.';
-        //     styles += style.name;
-        //     styles += ' {';
-        //     Object.entries(style).map(([key, value]) => {
-        //         if (key !== 'name')
-        //             styles += `\n\t${key}: ${value};`;
-        //     });
-        //     styles += '\n}';
-        // });
-        // this.canvas.append('style')
-        // .attr('type', 'text/css')
-        // .text(styles);
         this.data.classes.forEach((style: any) => {
             const name = style.name;
             delete style.name;
@@ -262,139 +254,6 @@ export class RNAVis {
             const c = label.labelLine.classes.join(' ') + ' label-line line';
             this.classComb.line.add(c);
             return c;
-        });
-    }
-
-    private drawLines() {
-        const context = this.canvas.node().getContext('2d');
-        this.classComb.line.forEach((comb: string) => {
-            const lineStyles = this.styles.get(comb);
-            context.strokeStyle = lineStyles['stroke'] || 'black';
-            context.lineWidth = lineStyles['stroke-width'] || 1;
-
-            this.dataContainer
-            .selectAll('[class="' + comb + '"]')
-            .each(function(d) {
-                const node = d3.select(this);
-                context.beginPath();
-                context.moveTo(+node.attr('x1'), +node.attr('y1'));
-                context.lineTo(+node.attr('x2'), +node.attr('y2'));
-                context.stroke();
-            });
-        });
-    }
-
-    private drawCircles() {
-        const context = this.canvas.node().getContext('2d');
-        this.classComb.circle.forEach((comb: string) => {
-            const circleStyles = this.styles.get(comb);
-            context.strokeStyle = circleStyles['stroke'] || 'black';
-            context.fillStyle = circleStyles['fill'] || 'white';
-            context.lineWidth = circleStyles['stroke-width'] || 1;
-
-            this.dataContainer
-            .selectAll('[class="' + comb + '"]')
-            .each(function(d) {
-                const node = d3.select(this);
-                context.beginPath();
-                context.arc(+node.attr('cx'), +node.attr('cy'), +node.attr('r'), 0, 2 * Math.PI);
-                context.fill();
-            });
-        });
-    }
-
-    private drawText() {
-        const translate = new Map();
-        translate.set('start', 'left');
-        translate.set('middle', 'center');
-        translate.set('end', 'right');
-        const context = this.canvas.node().getContext('2d');
-        this.classComb.text.forEach((comb: string) => {
-            const textStyles = this.styles.get(comb);
-            context.font = 
-                (textStyles['font-weight'] || 'normal') + ' ' + 
-                (textStyles['font-size'] || '6px') + ' ' + 
-                (textStyles['font-family'] || 'Helvetica');
-            context.fillStyle = textStyles['fill'] || 'black';
-            // TODO: ...
-            context.textAlign = translate.get(textStyles['text-anchor'] || 'middle');
-            context.textBaseline = textStyles['baseline'] || 'middle';
-
-            this.dataContainer
-            .selectAll('[class="' + comb + '"]')
-            .each(function(d) {
-                const node = d3.select(this);
-                context.fillText(node.attr('text'), +node.attr('x'), +node.attr('y'));
-            });
-        });
-    }
-
-    private drawBasePairs(): void {
-        const context = this.canvas.node().getContext('2d');
-        const lineStyles = this.styles.get('bp-line');
-        context.strokeStyle = lineStyles['stroke'] || 'black';
-        context.lineWidth = lineStyles['stroke-width'] || 1;
-
-        this.dataContainer
-        .selectAll('custom.bp-line')
-        .each(function(d) {
-            const node = d3.select(this);
-            context.beginPath();
-            context.moveTo(+node.attr('x1'), +node.attr('y1'));
-            context.lineTo(+node.attr('x2'), +node.attr('y2'));
-            context.stroke();
-        });
-    }
-
-    private drawResidues(): void {
-        const context = this.canvas.node().getContext('2d');  
-        context.fillStyle = 'white';
-
-        this.dataContainer
-        .selectAll('custom.res-circle')
-        .each(function(d) {
-            const node = d3.select(this);
-            context.beginPath();
-            context.arc(+node.attr('cx'), +node.attr('cy'), +node.attr('r'), 0, 2 * Math.PI);
-            context.fill();
-        });
-
-        context.font =  'bold 6px Helvetica';
-        context.fillStyle = 'black';
-        context.textAlign = 'center';
-        context.textBaseline = 'middle';
-
-        this.dataContainer
-        .selectAll('custom.res-type')
-        .each(function(d) {
-            const node = d3.select(this);
-            context.fillText(node.attr('text'), +node.attr('x'), +node.attr('y'));
-        });
-    }
-
-    private drawLabels(): void {
-        const context = this.canvas.node().getContext('2d');  
-
-         this.dataContainer
-        .selectAll('custom.label')
-        .each(function(d) {
-            const node = d3.select(this);
-
-            // TODO: dynamically
-            context.font = node.attr('fontSize') + 'px Helvetica';
-            context.fillStyle = 'black';
-
-            context.textAlign = 'center';
-            context.textBaseline = 'middle';
-            context.fillText(node.attr('text'), +node.attr('lx'), +node.attr('ly'));
-
-            context.strokeStyle = 'black';
-            context.lineWidth = 0.5;
-
-            context.beginPath();
-            context.moveTo(+node.attr('x1'), +node.attr('y1'));
-            context.lineTo(+node.attr('x2'), +node.attr('y2'));
-            context.stroke();
         });
     }
 }

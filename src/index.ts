@@ -55,7 +55,7 @@ for (let i = 0; i < data.length ; ++i) {
     p.innerText = dataPath[i];
     svgSpace.append(p);
     const rnaVis = new RNAVis(svgSpace, data[i]);
-    // rnaVis.addZoom();
+    rnaVis.addZoom();
     rnaVis.draw();
     // const svgRnaVis = new SVGRNAVis(svgSpace, data[i]);
     // svgRnaVis.addZoom();
