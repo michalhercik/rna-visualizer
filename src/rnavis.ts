@@ -2,7 +2,6 @@ import * as d3 from 'd3';
 import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { Styles } from './classes';
 import { LinesDrawer, CirclesDrawer, TextDrawer } from './draw';
-//import update from './zoom';
 
 
 export class RNAVis {
@@ -31,9 +30,18 @@ export class RNAVis {
         this.addBasePairs();
         this.addResidues();
         this.addLabels();
-        this.linesDrawer = new LinesDrawer(this.styles);
-        this.circlesDrawer = new CirclesDrawer(this.styles);
-        this.textDrawer = new TextDrawer(this.styles);
+        this.linesDrawer = new LinesDrawer(this.styles, 
+            this.canvas.node().getContext('2d'), 
+            this.classComb.line, 
+            this.dataContainer);
+        this.circlesDrawer = new CirclesDrawer(this.styles,
+            this.canvas.node().getContext('2d'), 
+            this.classComb.circle, 
+            this.dataContainer);
+        this.textDrawer = new TextDrawer(this.styles,
+            this.canvas.node().getContext('2d'), 
+            this.classComb.text, 
+            this.dataContainer);
     }
 
     public addZoom() {
@@ -44,10 +52,6 @@ export class RNAVis {
             this.draw();
         });
         this.canvas.call(zoom);
-    }
-
-    private getFontSize(bla: any) {
-        return 5;
     }
 
     private update(data: RNAData, event: any) {
@@ -72,16 +76,17 @@ export class RNAVis {
         const getY = (res: Residue) => this.formCoor(y(res.y));
         type Line = {res1: Residue, res2: Residue};
 
-        this.dataContainer.selectAll('custom.res-type')
+        this.styles.set('transform', {k: event.transform.k});
+
+        this.dataContainer.selectAll('custom.res-title')
         .attr('x', (res: Residue) => getX(res))
         .attr('y', (res: Residue) => getY(res))
-        .attr('fontSize', this.getFontSize(data.classes) * 0.75 * event.transform.k)
-        .style('font-size', this.getFontSize(data.classes) * 0.75 * event.transform.k);
+        .classed('transform', true);
 
         this.dataContainer.selectAll('custom.res-circle')
         .attr('cx', (res: Residue) => getX(res))
         .attr('cy', (res: Residue) => getY(res))
-        .attr('r', this.round(this.getFontSize(data.classes) * 0.75) * event.transform.k); 
+        .attr('r', this.styles.getProperty('font', 'font-size').slice(0,-2) * 0.75 * event.transform.k); 
 
         this.dataContainer.selectAll('custom.res-line')
         .attr('x1', (line: Line) => getX(line.res1))
@@ -89,14 +94,16 @@ export class RNAVis {
         .attr('x2', (line: Line) => getX(line.res2))
         .attr('y2', (line: Line) => getY(line.res2))
 
-        this.dataContainer.selectAll('custom.label')
-        .attr('lx', (label: Label) => x(this.formCoor(label.labelContent.x)))
-        .attr('ly', (label: Label) => y(this.formCoor(label.labelContent.y)))
+        this.dataContainer.selectAll('custom.label-text')
+        .attr('x', (label: Label) => x(this.formCoor(label.labelContent.x)))
+        .attr('y', (label: Label) => y(this.formCoor(label.labelContent.y)))
+        .classed('transform', true);
+
+        this.dataContainer.selectAll('custom.label-line')
         .attr('x1', (label: Label) => x(this.formCoor(label.labelLine.x1)))
         .attr('x2', (label: Label) => x(this.formCoor(label.labelLine.x2)))
         .attr('y1', (label: Label) => y(this.formCoor(label.labelLine.y1)))
-        .attr('y2', (label: Label) => y(this.formCoor(label.labelLine.y2)))
-        .attr('fontSize', this.getFontSize(data.classes) * 0.75 * event.transform.k);
+        .attr('y2', (label: Label) => y(this.formCoor(label.labelLine.y2)));
     }
 
     public draw(): void {
@@ -104,12 +111,9 @@ export class RNAVis {
         context.fillStyle = '#fff';
         context.rect(0, 0, +this.canvas.attr('width'), +this.canvas.attr('height'));
         context.fill();
-
-        // const bla = new LinesDrawer(this.styles);
-        // bla.draw(this.canvas.node().getContext('2d'), this.classComb.line, this.dataContainer);
-        this.linesDrawer.draw(this.canvas.node().getContext('2d'), this.classComb.line, this.dataContainer);
-        this.circlesDrawer.draw(this.canvas.node().getContext('2d'), this.classComb.circle, this.dataContainer);
-        this.textDrawer.draw(this.canvas.node().getContext('2d'), this.classComb.text, this.dataContainer);
+        this.linesDrawer.draw();
+        this.circlesDrawer.draw();
+        this.textDrawer.draw();
     }
 
     private setDimensions(): void {
@@ -154,8 +158,6 @@ export class RNAVis {
         const bpX = (resIndex: number) => this.formCoor(rna.sequence[resIndex].x);
         const bpY = (resIndex: number) => this.formCoor(rna.sequence[resIndex].y);
 
-        // const bps = this.canvas.append('g').attr('class', 'bps');
-
         this.dataContainer.selectAll('custom.bp-line')
         .data(rna.basePairs)
         .join('custom')
@@ -172,7 +174,6 @@ export class RNAVis {
 
     private addResidues(): void {
         const sequenceData = this.data.rnaComplexes[0].rnaMolecules[0].sequence;
-        //const residues = this.canvas.append('g').attr('class', 'residues');
 
         const getX = (res: Residue) => this.formCoor(res.x);
         const getY = (res: Residue) => this.formCoor(res.y);
@@ -202,7 +203,7 @@ export class RNAVis {
             .join('custom')
             .attr('cx', getX)
             .attr('cy', getY)
-            .attr('r', this.round(this.getFontSize(this.data.classes) * 0.75))
+            .attr('r', this.styles.getProperty('font', 'font-size').slice(0,-2) * 0.75)
             .attr('class', 'res-circle circle');
             this.classComb.circle.add('res-circle circle');
         }
@@ -217,7 +218,7 @@ export class RNAVis {
             .attr('y', getY)
             .attr('text', (residue: Residue) => residue.residueName)
             .attr('class', (residue: Residue) => {
-                const c = residue.classes.join(' ') + ' res-title label';
+                const c = residue.classes.join(' ') + ' res-title label transform';
                 this.classComb.text.add(c);
                 return c;
             });
@@ -238,7 +239,7 @@ export class RNAVis {
         .attr('x', (label: Label) => this.formCoor(label.labelContent.x))
         .attr('y', (label: Label) => this.formCoor(label.labelContent.y))
         .attr('class', (label: Label) => {
-            const c = label.labelContent.classes.join(' ') + ' label-text label';
+            const c = label.labelContent.classes.join(' ') + ' label-text label transform';
             this.classComb.text.add(c);
             return c;
         });

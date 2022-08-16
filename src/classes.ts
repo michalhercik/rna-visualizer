@@ -61,10 +61,17 @@ export class Styles {
         this.styles.set(name, value);
     }
 
-    public get(name: String): any {
+    public get(name: string): any {
         const returnStyles = {};
         name.split(' ').forEach((n) => Object.assign(returnStyles, this.styles.get(n)));
         return returnStyles;
+    }
+
+    public getProperty(name: string, property: string): any {
+        const returnStyles = {};
+        name.split(' ').forEach((n) => Object.assign(returnStyles, this.styles.get(n)));
+        type ObjectKey = keyof typeof returnStyles;
+        return returnStyles[property as ObjectKey];
     }
 }
 export const classes = [{
