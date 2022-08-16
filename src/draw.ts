@@ -64,20 +64,12 @@ export class CirclesDrawer extends DrawTemplate {
 }
 
 export class TextDrawer extends DrawTemplate {
-    private translate = new Map();
+    private translate = new Map([
+        ['start', 'left'],
+        ['middle', 'center'],
+        ['end', 'right']
+    ]);
 
-    public constructor(style: Styles,
-                       context: CanvasRenderingContext2D, 
-                       classComb: Set<unknown>, 
-                       dataContainer: any) {
-        super(style,
-             context,
-             classComb,
-             dataContainer);
-        this.translate.set('start', 'left');
-        this.translate.set('middle', 'center');
-        this.translate.set('end', 'right');
-    }
     protected setContext(objectStyles: any): void {
         const fontSize = () => {
             const k = objectStyles['k'] || 1;
@@ -89,7 +81,7 @@ export class TextDrawer extends DrawTemplate {
             (fontSize() || '6px') + ' ' + 
             (objectStyles['font-family'] || 'Helvetica');
         this.context.fillStyle = objectStyles['fill'] || 'black';
-        this.context.textAlign = this.translate.get(objectStyles['text-anchor'] || 'middle');
+        this.context.textAlign = this.translate.get(objectStyles['text-anchor'] || 'middle') as CanvasTextAlign;
         this.context.textBaseline = objectStyles['baseline'] || 'middle';
     }
 
