@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import { Styles } from './classes';
+import DataContainer from './dataContainer'
 
 abstract class DrawTemplate {
     protected styles;
@@ -10,7 +11,7 @@ abstract class DrawTemplate {
     public constructor(style: Styles, 
                        context: CanvasRenderingContext2D, 
                        classComb: Set<unknown>, 
-                       dataContainer: any) {
+                       dataContainer: DataContainer) {
         this.styles = style;
         this.classComb = classComb;
         this.context = context;
@@ -23,7 +24,7 @@ abstract class DrawTemplate {
             this.setContext(objectStyles);
             const r = this.render;
             const ctx = this.context;
-            this.dataContainer
+            this.dataContainer.container
             .selectAll(`[class="${comb}"]`)
             .each(function() {
                 r(d3.select(this), ctx);

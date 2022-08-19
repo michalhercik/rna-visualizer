@@ -1,6 +1,5 @@
 import './style.css';
 import { RNAVis } from './rnavis';
-import { SVGRNAVis } from './svgrnavis';
 import { RNAData } from './interfaces';
 import data01 from '../example_data/json/mouse_from_human.colored.json';
 import data02 from '../example_data/json/URS000075EC78_9606-HS_LSU_3D.json';
@@ -57,9 +56,6 @@ for (let i = 0; i < data.length ; ++i) {
     const rnaVis = new RNAVis(svgSpace, data[i]);
     rnaVis.addZoom();
     rnaVis.draw();
-    // const svgRnaVis = new SVGRNAVis(svgSpace, data[i]);
-    // svgRnaVis.addZoom();
-    // svgRnaVis.draw();
     break;
 }
 

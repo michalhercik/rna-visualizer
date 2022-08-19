@@ -1,3 +1,5 @@
+import { RNAData } from './interfaces'
+
 const BLACK = 'rgb(0, 0, 0)';
 const WHITE = 'rgb(255,255,255)';
 const RED = 'rgb(255, 0, 255)';
@@ -7,51 +9,57 @@ const GRAY = 'rgb(204, 204, 204)';
 const BROWN = 'rgb(211.65, 104.55, 30.6)';
 
 export class Styles {
-    public styles = new Map();
-
-    public constructor() {
-        this.styles.set('text-black', { fill: BLACK });
-        this.styles.set('text-red', { fill: RED });
-        this.styles.set('text-green', { fill: GREEN });
-        this.styles.set('text-blue', { fill: BLUE });
-        this.styles.set('text-gray', { fill: GRAY });
-        this.styles.set('text-brown', { fill: BROWN });
-        this.styles.set('text', {
+    public styles: Map<string, any> = new Map([
+        [ 'text-black', { fill: BLACK } ],
+        [ 'text-red', { fill: RED } ],
+        [ 'text-green', { fill: GREEN } ],
+        [ 'text-blue', { fill: BLUE } ],
+        [ 'text-gray', { fill: GRAY } ],
+        [ 'text-brown', { fill: BROWN } ],
+        [ 'text', {
             fill: BLACK,
             textAnchor: 'middle',
             baseline: 'middle'
-        });
-        this.styles.set('circle-black', {
+        }],
+        [ 'circle-black', {
             stroke: BLACK,
             fill: 'none'
-        }); 
-        this.styles.set('circle-red', {
+        }], 
+        [ 'circle-red', {
             stroke: RED,
             fill: 'none'
-        });
-        this.styles.set('circle-green', {
+        }],
+        [ 'circle-green', {
             stroke: GREEN,
             fill: 'none'
-        });
-        this.styles.set('circle-blue', {
+        }],
+        [ 'circle-blue', {
             stroke: BLUE,
             fill: 'none'
-        });
-        this.styles.set('circle-gray', {
+        }],
+        [ 'circle-gray', {
             stroke: GRAY,
             fill: 'none'
-        });
-        this.styles.set('circle-brown', {
+        }],
+        [ 'circle-brown', {
             stroke: BROWN,
             fill: 'none'
+        }],
+        [ 'circle', { stroke: BLACK } ],
+        [ 'numbering-label', { fill: GRAY } ],
+        [ 'numbering-line', { stroke: GRAY } ],
+        [ 'template', { visibility: 'hidden' } ],
+        [ 'bp-line', { stroke: BLACK } ],
+        [ 'residue-circle', { fill: WHITE } ],
+        [ 'res-line', { stroke: GRAY } ]
+    ]);
+
+    public constructor(data: RNAData) {
+        data.classes.forEach((style: any) => {
+            const name = style.name;
+            delete style.name;
+            this.styles.set(name, style);
         });
-        this.styles.set('circle', { stroke: BLACK });
-        this.styles.set('numbering-label', { fill: GRAY });
-        this.styles.set('numbering-line', { stroke: GRAY });
-        this.styles.set('template', { visibility: 'hidden' });
-        this.styles.set('bp-line', { stroke: BLACK });
-        this.styles.set('residue-circle', { fill: WHITE });
-        this.styles.set('res-line', { stroke: GRAY });
     }
 
     public set(name: string, value: any) {
