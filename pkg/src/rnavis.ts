@@ -60,4 +60,3 @@ export class RNAVis {
         this.textDrawer.draw();
     }
 }
-
