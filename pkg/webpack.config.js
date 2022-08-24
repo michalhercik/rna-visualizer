@@ -15,9 +15,10 @@ module.exports = {
      path: path.resolve(__dirname, 'dist'),
      clean: true,
      globalObject: 'this',
-     libraryTarget: 'umd',
-     library: 'rna-visualizer',
-     umdNamedDefine: true
+      library: {
+        name: 'rna-visualizer',
+        type: 'umd'
+      }
    },
   optimization: {
     runtimeChunk: 'single',
