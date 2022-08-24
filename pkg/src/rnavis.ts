@@ -4,7 +4,7 @@ import { Styles } from './classes';
 import { LinesDrawer, CirclesDrawer, TextDrawer } from './draw';
 import DataContainer from './dataContainer';
 
-
+export { RNAData } from './interfaces';
 export class RNAVis {
     private margin = 10;
     private canvas;    

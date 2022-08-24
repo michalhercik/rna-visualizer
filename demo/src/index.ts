@@ -1,6 +1,6 @@
 import './style.css';
-import { RNAVis } from 'rna-visualizer';
-// import { RNAData } from './interfaces';
+import { RNAVis, RNAData } from 'rna-visualizer';
+// import RNAVis from 'rna-visualizer';
 import data01 from '../example_data/json/mouse_from_human.colored.json';
 import data02 from '../example_data/json/URS000075EC78_9606-HS_LSU_3D.json';
 import data03 from '../example_data/json/add_bp_to_stem.json';
@@ -16,24 +16,22 @@ import data12 from '../example_data/json/URS000080E357_9606-mHS_LSU_3D.json';
 import data13 from '../example_data/json/URS0000000306_562.json';
 import data14 from '../example_data/json/URS00000B1E10_489619-d.16.b.B.japonicum.json';
 
-// const rna = require('rnavis');
-
-// const data: RNAData[] = [
-//     data01, 
-//     data02, 
-//     data03, 
-//     data04, 
-//     data05, 
-//     data06, 
-//     data07, 
-//     data08, 
-//     data09, 
-//     data10, 
-//     data11, 
-//     data12, 
-//     data13, 
-//     data14 
-// ];
+const data: RNAData[] = [
+    data01, 
+    data02, 
+    data03, 
+    data04, 
+    data05, 
+    data06, 
+    data07, 
+    data08, 
+    data09, 
+    data10, 
+    data11, 
+    data12, 
+    data13, 
+    data14 
+];
 const dataPath = [
     'mouse_from_human.colored.json',
     'URS000075EC78_9606-HS_LSU_3D.json',
@@ -50,14 +48,14 @@ const dataPath = [
     'URS0000000306_562.json',
     'URS00000B1E10_489619-d.16.b.B.japonicum.json'
 ]
-// const svgSpace = document.getElementById('svg-space');
-// for (let i = 0; i < data.length ; ++i) { 
-//     const p = document.createElement('p')
-//     p.innerText = dataPath[i];
-//     svgSpace.append(p);
-//     const rnaVis = new RNAVis(svgSpace, data[i]);
-//     rnaVis.addZoom();
-//     rnaVis.draw();
-//     break;
-// }
+const svgSpace = document.getElementById('svg-space');
+for (let i = 0; i < data.length ; ++i) { 
+    const p = document.createElement('p')
+    p.innerText = dataPath[i];
+    svgSpace.append(p);
+    const rnaVis = new RNAVis(svgSpace, data[i]);
+    rnaVis.addZoom();
+    rnaVis.draw();
+    break;
+}
 
