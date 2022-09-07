@@ -3,8 +3,10 @@ import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { Styles } from './classes';
 import { LinesDrawer, CirclesDrawer, TextDrawer } from './draw';
 import DataContainer from './dataContainer';
+import TitlePresenter from './titlePresenter';
 
-export { RNAData } from './interfaces';
+export * from './interfaces';
+
 export class RNAVis {
     private margin = 10;
     private canvas;    
@@ -12,13 +14,16 @@ export class RNAVis {
     private linesDrawer;
     private circlesDrawer;
     private textDrawer;
+    private titlePresenter
 
     constructor(element: HTMLElement, data: RNAData) {
         const styles = new Styles(data);
         this.dataContainer = new DataContainer(data, styles);
         this.canvas = d3.select(element)
-        .append('canvas');
+        .append('canvas')
         this.setDimensions();
+        const context = this.canvas.node().getContext('2d');
+        this.titlePresenter = new TitlePresenter(context, styles);
         this.linesDrawer = new LinesDrawer(styles, 
             this.canvas.node().getContext('2d'), 
             this.dataContainer.classComb.line, 
@@ -33,7 +38,6 @@ export class RNAVis {
             this.dataContainer);
     }
     private setDimensions(): void {
-        // TODO: same value in dataContainer
         const scale = 2;
         this.canvas
         .attr('width', scale * this.dataContainer.getWidth())
@@ -41,12 +45,32 @@ export class RNAVis {
         .attr('style', 'width: ' + (+this.canvas.attr('width') / scale) + 'px');
         this.canvas.node().getContext('2d').scale(scale, scale);
     }
+    private mouseMove(event: any) {
+        const rect = this.canvas.node().getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const res = this.dataContainer.getResByCoor(x, y); 
+        if (this.titlePresenter.updateRes(res)) {
+            this.draw();
+            if (res)
+                this.titlePresenter.presentResTitle();
+        }
+    }
     public addZoom() {
         const zoom = d3.zoom()
         .scaleExtent([1,10])
         .on('zoom', (event) => {
             this.dataContainer.update(event);
             this.draw();
+            this.mouseMove(event.sourceEvent);
+            const rect = this.canvas.node().getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const res = this.dataContainer.getResByCoor(x, y); 
+            this.titlePresenter.updateRes(res)
+            if (res) {
+                this.titlePresenter.presentResTitle();
+            }
         });
         this.canvas.call(zoom);
     }
@@ -59,4 +83,18 @@ export class RNAVis {
         this.circlesDrawer.draw();
         this.textDrawer.draw();
     }
+    public addHoverLabel() {
+        this.canvas.node().onmousemove = (event) => {
+            const rect = this.canvas.node().getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const res = this.dataContainer.getResByCoor(x, y); 
+            if (this.titlePresenter.updateRes(res)) {
+                this.draw();
+                if (res)
+                    this.titlePresenter.presentResTitle();
+            }
+        };
+    }
 }
+

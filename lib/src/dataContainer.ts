@@ -194,20 +194,37 @@ export default class DataContainer {
         .attr('y2', (line: Line) => getY(line.res2))
 
         this.container.selectAll('custom.label-text')
-        .attr('x', (label: Label) => x(this.formCoor(label.labelContent.x)))
-        .attr('y', (label: Label) => y(this.formCoor(label.labelContent.y)))
+        .attr('x', (label: Label) => this.formCoor(x(label.labelContent.x)))
+        .attr('y', (label: Label) => this.formCoor(y(label.labelContent.y)))
         .classed('transform', true);
 
         this.container.selectAll('custom.label-line')
-        .attr('x1', (label: Label) => x(this.formCoor(label.labelLine.x1)))
-        .attr('x2', (label: Label) => x(this.formCoor(label.labelLine.x2)))
-        .attr('y1', (label: Label) => y(this.formCoor(label.labelLine.y1)))
-        .attr('y2', (label: Label) => y(this.formCoor(label.labelLine.y2)));
+        .attr('x1', (label: Label) => this.formCoor(x(label.labelLine.x1)))
+        .attr('x2', (label: Label) => this.formCoor(x(label.labelLine.x2)))
+        .attr('y1', (label: Label) => this.formCoor(y(label.labelLine.y1)))
+        .attr('y2', (label: Label) => this.formCoor(y(label.labelLine.y2)));
     }
     public getWidth() {
         return this.width;
     }
     public getHeight() {
         return this.height;
+    }
+    public getResByCoor(x: number, y: number): any {
+        const styles = this.styles;
+        let res: any = null;
+        this.container.selectAll('.res-title').each(function () {
+            const node = d3.select(this);
+            const resStyles = styles.get(node.attr('class')); 
+            const k = resStyles['k'] || 1;
+            const shift = (+resStyles['font-size'].slice(0, -2) || 7) * k / 2;
+            if ( x >= +node.attr('x') - shift 
+               && x <= +node.attr('x') + shift
+               && y >= +node.attr('y') - shift 
+               && y <= +node.attr('y') + shift ) {
+                   res = node;
+               }
+        })
+        return res;
     }
 }
