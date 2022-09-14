@@ -11,6 +11,8 @@ export default class TitlePresenter {
         this.styles = styles;
     }
     public presentResTitle(): void {
+        if (!this.res)
+            return;
         const resStyles = this.styles.get(this.res.attr('class'));
         const size = +resStyles['font-size'].slice(0,-2) * (+resStyles['k'] || 1); 
         const margin = size/2;

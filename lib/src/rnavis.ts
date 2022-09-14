@@ -45,40 +45,22 @@ export class RNAVis {
         .attr('style', 'width: ' + (+this.canvas.attr('width') / scale) + 'px');
         this.canvas.node().getContext('2d').scale(scale, scale);
     }
-    private mouseMove(event: any) {
-        const rect = this.canvas.node().getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const res = this.dataContainer.getResByCoor(x, y); 
-        if (this.titlePresenter.updateRes(res)) {
-            this.draw();
-            if (res)
-                this.titlePresenter.presentResTitle();
-        }
-    }
     public addZoom() {
         const zoom = d3.zoom()
         .scaleExtent([1,10])
         .on('zoom', (event) => {
             this.dataContainer.update(event);
             this.draw();
-            this.mouseMove(event.sourceEvent);
-            const rect = this.canvas.node().getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            const res = this.dataContainer.getResByCoor(x, y); 
-            this.titlePresenter.updateRes(res)
-            if (res) {
-                this.titlePresenter.presentResTitle();
-            }
+            this.titlePresenter.updateRes(null);
         });
         this.canvas.call(zoom);
     }
     public draw(): void {
         const context = this.canvas.node().getContext('2d');
         context.fillStyle = '#fff';
-        context.rect(0, 0, +this.canvas.attr('width'), +this.canvas.attr('height'));
+        context.rect(0, 0, context.canvas.width, context.canvas.height);
         context.fill();
+        //context.clearRect(0, 0, context.canvas.width, context.canvas.height)
         this.linesDrawer.draw();
         this.circlesDrawer.draw();
         this.textDrawer.draw();
