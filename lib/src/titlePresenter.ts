@@ -41,17 +41,19 @@ export default class TitlePresenter {
     }
     private drawBg(margin: number, left: boolean): void {
         this.setFont();
-        const tMetrics = this.context.measureText(this.res.attr('title'));
         const titleWidth = this.getTitleWidth();
         const padding = 5;
         const x = left ? (+this.res.attr('x') - margin - this.getTitleWidth()) : (+this.res.attr('x') + margin)
-        this.context.rect(
+        this.context.fillRect(
             x - padding, 
             +this.res.attr('y') - margin, 
             titleWidth + 2 * padding, 
             this.fontSize + padding);
-        this.context.fill();
-        this.context.stroke();
+        this.context.strokeRect(
+            x - padding, 
+            +this.res.attr('y') - margin, 
+            titleWidth + 2 * padding, 
+            this.fontSize + padding);
     }
     private getTitleWidth(): number {
         this.setFont(); 
