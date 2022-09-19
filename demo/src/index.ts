@@ -1,6 +1,5 @@
 import './style.css';
 import { RNAVis, RNAData } from 'rna-visualizer';
-// import RNAVis from 'rna-visualizer';
 import data01 from '../example_data/json/mouse_from_human.colored.json';
 import data02 from '../example_data/json/URS000075EC78_9606-HS_LSU_3D.json';
 import data03 from '../example_data/json/add_bp_to_stem.json';
@@ -57,6 +56,5 @@ for (let i = 0; i < data.length ; ++i) {
     rnaVis.addZoom();
     rnaVis.addHoverLabel();
     rnaVis.draw();
-    break;
 }
 

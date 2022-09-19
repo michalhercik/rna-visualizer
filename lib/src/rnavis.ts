@@ -5,8 +5,6 @@ import { LinesDrawer, CirclesDrawer, TextDrawer } from './draw';
 import DataContainer from './dataContainer';
 import TitlePresenter from './titlePresenter';
 
-export * from './interfaces';
-
 export class RNAVis {
     private margin = 10;
     private canvas;    
@@ -38,14 +36,7 @@ export class RNAVis {
             this.dataContainer.classComb.text, 
             this.dataContainer);
     }
-    private setDimensions(): void {
-        const scale = 2;
-        this.canvas
-        .attr('width', scale * this.dataContainer.getWidth())
-        .attr('height', scale * this.dataContainer.getHeight())
-        .style('width', (+this.canvas.attr('width') / scale) + 'px');
-        this.canvas.node().getContext('2d').scale(scale, scale);
-    }
+
     public addZoom() {
         const zoom = d3.zoom()
         .scaleExtent([1,10])
@@ -56,6 +47,7 @@ export class RNAVis {
         });
         this.canvas.call(zoom);
     }
+
     public draw(): void {
         const context = this.canvas.node().getContext('2d', {alpha: false});
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
@@ -63,6 +55,7 @@ export class RNAVis {
         this.circlesDrawer.draw();
         this.textDrawer.draw();
     }
+
     public addHoverLabel() {
         this.canvas.node().onmousemove = (event) => {
             const rect = this.canvas.node().getBoundingClientRect();
@@ -75,6 +68,15 @@ export class RNAVis {
                     this.titlePresenter.presentResTitle();
             }
         };
+    }
+    
+    private setDimensions(): void {
+        const scale = 2;
+        this.canvas
+        .attr('width', scale * this.dataContainer.width)
+        .attr('height', scale * this.dataContainer.height)
+        .style('width', (+this.canvas.attr('width') / scale) + 'px');
+        this.canvas.node().getContext('2d').scale(scale, scale);
     }
 }
 

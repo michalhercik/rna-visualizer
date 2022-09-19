@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "main": "dist/rnavis.js",
-  "types": "dist/rnavis.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "webpack serve --open",
     "build": "npx tsc --build",
