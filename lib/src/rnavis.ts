@@ -4,6 +4,8 @@ import { Styles } from './classes';
 import { LinesDrawer, CirclesDrawer, TextDrawer } from './draw';
 import DataContainer from './dataContainer';
 import TitlePresenter from './titlePresenter';
+import ContainerUpdater from './containerUpdater';
+import ContainerFactory from './containerFactory';
 
 export class RNAVis {
     private margin = 10;
@@ -13,14 +15,18 @@ export class RNAVis {
     private circlesDrawer;
     private textDrawer;
     private titlePresenter
+    private updater;
 
     constructor(element: HTMLElement, data: RNAData) {
         const styles = new Styles(data);
-        this.dataContainer = new DataContainer(data, styles);
+        this.dataContainer = new ContainerFactory().create(data, styles);
+        this.updater = new ContainerUpdater(this.dataContainer);
+
         this.canvas = d3.select(element)
         .append('canvas')
         this.canvas.style('background-color', 'white');
         this.setDimensions();
+
         const context = this.canvas.node().getContext('2d', {alpha: false});
         this.titlePresenter = new TitlePresenter(context, styles);
         this.linesDrawer = new LinesDrawer(styles, 
@@ -41,7 +47,7 @@ export class RNAVis {
         const zoom = d3.zoom()
         .scaleExtent([1,10])
         .on('zoom', (event) => {
-            this.dataContainer.update(event);
+            this.updater.update(event);
             this.draw();
             this.titlePresenter.updateRes(null);
         });
