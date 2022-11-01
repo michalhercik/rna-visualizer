@@ -5,8 +5,8 @@ import { Styles } from './classes';
 export default class ContainerFactory {
     private container: DataContainer;
 
-    public create(data: RNAData, styles: Styles): DataContainer {
-        this.container = new DataContainer(data, styles);
+    public create(data: RNAData, styles: Styles, name: string): DataContainer {
+        this.container = new DataContainer(data, styles, name);
         this.setDimensions();
         this.addBasePairs();
         this.addResidues();
@@ -102,6 +102,8 @@ export default class ContainerFactory {
             .attr('x', getX)
             .attr('y', getY)
             .attr('text', (residue: Residue) => residue.residueName)
+            .attr('index', (residue: Residue) => residue.residueIndex)
+            .attr('tempIndex', (residue: Residue) => residue.templateResidueIndex)
             .attr('class', (residue: Residue) => {
                 const c = residue.classes.join(' ') + ' res-title label transform';
                 this.container.classComb.text.add(c);

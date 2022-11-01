@@ -4,6 +4,8 @@ export interface Residue
     y: number;
     residueName: string;
     residueIndex: number;
+    templateResidueIndex: number;
+    templateResidueName: string;
     classes: Array<string>;
 }
 

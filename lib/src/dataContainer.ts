@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
+import { BasePair, Label, Style, Residue, RNAData, LabelLine } from './interfaces';
 import { Styles } from './classes';
 
 export default class DataContainer {
@@ -15,10 +15,10 @@ export default class DataContainer {
         text: new Set()
     };
 
-    public constructor(data: RNAData, styles: Styles) {
+    public constructor(data: RNAData, styles: Styles, name: string) {
         this.data = data;
         this.styles = styles;
-        this.container = d3.select(document.createElement('custom'));
+        this.container = d3.select(document.createElement(name));
     }
 
     public getResByCoor(x: number, y: number): any {
@@ -39,3 +39,4 @@ export default class DataContainer {
         return res;
     }
 }
+

@@ -1,5 +1,5 @@
 import './style.css';
-import { RNAVis, RNAData } from 'rna-visualizer';
+import { RNAVis, RNAData, animation } from 'rna-visualizer';
 import data01 from '../example_data/json/mouse_from_human.colored.json';
 import data02 from '../example_data/json/URS000075EC78_9606-HS_LSU_3D.json';
 import data03 from '../example_data/json/add_bp_to_stem.json';
@@ -14,6 +14,16 @@ import data11 from '../example_data/json/URS00000B14F2_575540-d.5.b.P.brasiliens
 import data12 from '../example_data/json/URS000080E357_9606-mHS_LSU_3D.json';
 import data13 from '../example_data/json/URS0000000306_562.json';
 import data14 from '../example_data/json/URS00000B1E10_489619-d.16.b.B.japonicum.json';
+
+import template01 from '../example_data/template/human_from_human.colored.json';
+import template0208 from '../example_data/template/HS_LSU_3D_fromn_HS_LSU_3D.colored.json';
+import template0407 from '../example_data/template/d.16.b.Burkholderia.sp_fromn_d.16.b.Burkholderia.sp.colored.json';
+import template05 from '../example_data/template/d.5.b.A.madurae_fromn_d.5.b.A.madurae.colored.json';
+import template09 from '../example_data/template/DD_28S_3D_fromn_DD_28S_3D.colored.json';
+import template10 from '../example_data/template/EC_SSU_3D_fromn_EC_SSU_3D.colored.json';
+import template11 from '../example_data/template/d.5.b.P.brasiliensis_fromn_d.5.b.P.brasiliensis.colored.json';
+import template12 from '../example_data/template/mHS_LSU_3D_fromn_mHS_LSU_3D.colored.json';
+import template14 from '../example_data/template/d.16.b.B.japonicum_fromn_d.16.b.B.japonicum.colored.json';
 
 const data: RNAData[] = [
     data01, 
@@ -49,12 +59,30 @@ const dataPath = [
 ]
 const svgSpace = document.getElementById('svg-space');
 for (let i = 0; i < data.length ; ++i) { 
+    break;
     const p = document.createElement('p')
     p.innerText = dataPath[i];
     svgSpace.append(p);
     const rnaVis = new RNAVis(svgSpace, data[i]);
+    //rnaVis.addTemplate(template4);
     rnaVis.addZoom();
     rnaVis.addHoverLabel();
     rnaVis.draw();
+}
+const rnaVisT = new RNAVis(svgSpace, template05);
+rnaVisT.addZoom();
+rnaVisT.draw();
+
+const rnaVis = new RNAVis(svgSpace, data[4]);
+rnaVis.addTemplate(template05);
+rnaVis.addZoom();
+rnaVis.addHoverLabel();
+rnaVis.draw();
+
+const btn = document.createElement('button');
+btn.innerHTML = 'Animate';
+svgSpace.append(btn);
+btn.onclick = () => {
+    animation(rnaVis);
 }
 

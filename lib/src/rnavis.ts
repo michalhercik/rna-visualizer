@@ -1,26 +1,26 @@
 import * as d3 from 'd3';
 import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { Styles } from './classes';
-import { LinesDrawer, CirclesDrawer, TextDrawer } from './draw';
-import DataContainer from './dataContainer';
+import { Drawer, createDrawer } from './draw';
+import DataContainer from './dataContainer'
 import TitlePresenter from './titlePresenter';
 import ContainerUpdater from './containerUpdater';
 import ContainerFactory from './containerFactory';
+import { animation } from './animation';
 
 export class RNAVis {
     private margin = 10;
     private canvas;    
-    private dataContainer;
-    private linesDrawer;
-    private circlesDrawer;
-    private textDrawer;
-    private titlePresenter
-    private updater;
+    public readonly dataContainer: DataContainer;
+    public templDataContainer: DataContainer;
+    private titlePresenter: TitlePresenter;
+    private updater: ContainerUpdater;
+    private drawer: Drawer;
 
     constructor(element: HTMLElement, data: RNAData) {
         const styles = new Styles(data);
-        this.dataContainer = new ContainerFactory().create(data, styles);
-        this.updater = new ContainerUpdater(this.dataContainer);
+        this.dataContainer = new ContainerFactory().create(data, styles, "rna");
+        this.updater = new ContainerUpdater();
 
         this.canvas = d3.select(element)
         .append('canvas')
@@ -29,25 +29,18 @@ export class RNAVis {
 
         const context = this.canvas.node().getContext('2d', {alpha: false});
         this.titlePresenter = new TitlePresenter(context, styles);
-        this.linesDrawer = new LinesDrawer(styles, 
+        this.drawer = createDrawer(
             context,
-            this.dataContainer.classComb.line, 
-            this.dataContainer);
-        this.circlesDrawer = new CirclesDrawer(styles,
-            context,
-            this.dataContainer.classComb.circle, 
-            this.dataContainer);
-        this.textDrawer = new TextDrawer(styles,
-            context,
-            this.dataContainer.classComb.text, 
-            this.dataContainer);
+            styles,
+            this.dataContainer
+        );
     }
 
     public addZoom() {
         const zoom = d3.zoom()
         .scaleExtent([1,10])
         .on('zoom', (event) => {
-            this.updater.update(event);
+            this.updater.update(event, this.dataContainer);
             this.draw();
             this.titlePresenter.updateRes(null);
         });
@@ -55,11 +48,9 @@ export class RNAVis {
     }
 
     public draw(): void {
-        const context = this.canvas.node().getContext('2d', {alpha: false});
-        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-        this.linesDrawer.draw();
-        this.circlesDrawer.draw();
-        this.textDrawer.draw();
+        const ctx = this.canvas.node().getContext('2d', {alpha: false});
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        this.drawer.draw(this.dataContainer);
     }
 
     public addHoverLabel() {
@@ -75,6 +66,11 @@ export class RNAVis {
             }
         };
     }
+
+    public addTemplate(data: RNAData): void {
+        this.templDataContainer = new ContainerFactory().create(data, this.dataContainer.styles, "template");
+
+    }
     
     private setDimensions(): void {
         const scale = 2;
@@ -84,5 +80,6 @@ export class RNAVis {
         .style('width', (+this.canvas.attr('width') / scale) + 'px');
         this.canvas.node().getContext('2d').scale(scale, scale);
     }
+
 }
 

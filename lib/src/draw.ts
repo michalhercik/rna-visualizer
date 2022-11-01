@@ -18,13 +18,13 @@ abstract class DrawTemplate {
         this.dataContainer = dataContainer;
     }
 
-    public draw() {
-        this.classComb.forEach((comb: string) => {
+    public draw(dataContainer: DataContainer, classComb: Set<unknown>) {
+        classComb.forEach((comb: string) => {
             const objectStyles = this.styles.get(comb)
             this.setContext(objectStyles);
             const r = this.render;
             const ctx = this.context;
-            this.dataContainer.container
+            dataContainer.container
             .selectAll(`[class="${comb}"]`)
             .each(function() {
                 r(d3.select(this), ctx);
@@ -89,4 +89,40 @@ export class TextDrawer extends DrawTemplate {
     protected render(shape: any, context: CanvasRenderingContext2D): void {
         context.fillText(shape.attr('text'), +shape.attr('x'), +shape.attr('y'));
     }
+}
+
+export class Drawer {
+    private drawers: DrawTemplate[];
+    private ctx;
+
+    public constructor(context: CanvasRenderingContext2D, drawers: DrawTemplate[]) {
+        this.drawers = drawers;
+        this.ctx = context;
+    }
+
+    // TODO: think about this
+    public draw(dataContainer: DataContainer) {
+        //this.drawers.forEach((d) => d.draw();
+        this.drawers[0].draw(dataContainer, dataContainer.classComb.line);
+        this.drawers[1].draw(dataContainer, dataContainer.classComb.circle);
+        this.drawers[2].draw(dataContainer, dataContainer.classComb.text);
+    }
+}
+
+export function createDrawer(context: CanvasRenderingContext2D, 
+                             styles: Styles, 
+                             dataContainer: DataContainer): Drawer {
+    const linesDrawer = new LinesDrawer(styles, 
+        context,
+        dataContainer.classComb.line, 
+        dataContainer);
+    const circlesDrawer = new CirclesDrawer(styles,
+        context,
+        dataContainer.classComb.circle, 
+        dataContainer);
+    const textDrawer = new TextDrawer(styles,
+        context,
+        dataContainer.classComb.text, 
+        dataContainer);
+    return new Drawer(context, [linesDrawer, circlesDrawer, textDrawer]);
 }
