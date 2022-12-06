@@ -63,21 +63,20 @@ export class Styles {
     }
 
     public set(name: string, value: any) {
-        const v = this.get(name);
+        const v = this.get([name]);
         if (v)
             Object.assign(v, value);
         this.styles.set(name, value);
     }
 
-    public get(name: string): any {
+    public get(names: Array<string>): any {
         const returnStyles = {};
-        name.split(' ').forEach((n) => Object.assign(returnStyles, this.styles.get(n)));
+        names.forEach((n) => Object.assign(returnStyles, this.styles.get(n)));
         return returnStyles;
     }
 
-    public getProperty(name: string, property: string): any {
-        const returnStyles = {};
-        name.split(' ').forEach((n) => Object.assign(returnStyles, this.styles.get(n)));
+    public getProperty(names: Array<string>, property: string): any {
+        const returnStyles = this.get(names);
         type ObjectKey = keyof typeof returnStyles;
         return returnStyles[property as ObjectKey];
     }

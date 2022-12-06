@@ -1,128 +1,56 @@
 import * as d3 from 'd3';
 import { Styles } from './classes';
+import { Line, Text, Circle } from './interfaces';
 import DataContainer from './dataContainer'
 
-abstract class DrawTemplate {
-    protected styles;
-    protected classComb;
-    protected context;
-    protected dataContainer
+export function drawLines(lines: Array<Line>, ctx: CanvasRenderingContext2D, styles: Styles) {
+    lines.forEach((line: Line) => {
+        const lineStyles = styles.get(line.getClasses());
+        ctx.strokeStyle = lineStyles['stroke'] || 'black';
+        ctx.lineWidth = lineStyles['stroke-width'] || 1;
 
-    public constructor(style: Styles, 
-                       context: CanvasRenderingContext2D, 
-                       classComb: Set<unknown>, 
-                       dataContainer: DataContainer) {
-        this.styles = style;
-        this.classComb = classComb;
-        this.context = context;
-        this.dataContainer = dataContainer;
-    }
-
-    public draw(dataContainer: DataContainer, classComb: Set<unknown>) {
-        classComb.forEach((comb: string) => {
-            const objectStyles = this.styles.get(comb)
-            this.setContext(objectStyles);
-            const r = this.render;
-            const ctx = this.context;
-            dataContainer.container
-            .selectAll(`[class="${comb}"]`)
-            .each(function() {
-                r(d3.select(this), ctx);
-            });
-        });
-    }
-
-    protected abstract setContext(objectStyles: any): void;
-    protected abstract render(shape: object, context: CanvasRenderingContext2D): void;
+        ctx.beginPath();
+        ctx.moveTo(line.getX1(), line.getY1());
+        ctx.lineTo(line.getX2(), line.getY2());
+        ctx.stroke();
+    })
 }
 
-export class LinesDrawer extends DrawTemplate {
-    protected setContext(objectStyles: any): void {
-        this.context.strokeStyle = objectStyles['stroke'] || 'black';
-        this.context.lineWidth = objectStyles['stroke-width'] || 1;
-    }
-
-    protected render(shape: any, context: CanvasRenderingContext2D): void {
-        context.beginPath();
-        context.moveTo(+shape.attr('x1'), +shape.attr('y1'));
-        context.lineTo(+shape.attr('x2'), +shape.attr('y2'));
-        context.stroke();
-    }
-}
-
-export class CirclesDrawer extends DrawTemplate {
-    protected setContext(objectStyles: any): void {
-        this.context.strokeStyle = objectStyles['stroke'] || 'black';
-        this.context.fillStyle = objectStyles['fill'] || 'white';
-        this.context.lineWidth = objectStyles['stroke-width'] || 1;
-    }
-
-    protected render(shape: any, context: CanvasRenderingContext2D): void {
-        context.beginPath();
-        context.arc(+shape.attr('cx'), +shape.attr('cy'), +shape.attr('r'), 0, 2 * Math.PI);
-        context.fill();
-    }
-}
-
-export class TextDrawer extends DrawTemplate {
-    private translate = new Map([
+export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, styles: Styles) {
+    const translate = new Map([
         ['start', 'left'],
         ['middle', 'center'],
         ['end', 'right']
     ]);
 
-    protected setContext(objectStyles: any): void {
+    texts.forEach((text: Text) => {
+        const textStyles = styles.get(text.getClasses());
         const fontSize = () => {
-            const k = objectStyles['k'] || 1;
-            return objectStyles['font-size'].slice(0,-2) * k + 'px';
+            const k = textStyles['k'] || 1;
+            return textStyles['font-size'].slice(0,-2) * k + 'px';
         }
         fontSize();
-        this.context.font = 
-            (objectStyles['font-weight'] || 'normal') + ' ' + 
+        ctx.font = 
+            (textStyles['font-weight'] || 'normal') + ' ' + 
             (fontSize() || '6px') + ' ' + 
-            (objectStyles['font-family'] || 'Helvetica');
-        this.context.fillStyle = objectStyles['fill'] || 'black';
-        this.context.textAlign = this.translate.get(objectStyles['text-anchor'] || 'middle') as CanvasTextAlign;
-        this.context.textBaseline = objectStyles['baseline'] || 'middle';
-    }
+            (textStyles['font-family'] || 'Helvetica');
+        ctx.fillStyle = textStyles['fill'] || 'black';
+        ctx.textAlign = translate.get(textStyles['text-anchor'] || 'middle') as CanvasTextAlign;
+        ctx.textBaseline = textStyles['baseline'] || 'middle';
 
-    protected render(shape: any, context: CanvasRenderingContext2D): void {
-        context.fillText(shape.attr('text'), +shape.attr('x'), +shape.attr('y'));
-    }
+        ctx.fillText(text.getText(), text.getX(), text.getY());
+    })
 }
 
-export class Drawer {
-    private drawers: DrawTemplate[];
-    private ctx;
+export function drawCircles(circles: Array<Circle>, ctx: CanvasRenderingContext2D, styles: Styles) {
+    circles.forEach((circle: Circle) => {
+        const circleStyles = styles.get(circle.getClasses());
+        ctx.strokeStyle = circleStyles['stroke'] || 'black';
+        ctx.fillStyle = circleStyles['fill'] || 'white';
+        ctx.lineWidth = circleStyles['stroke-width'] || 1;
 
-    public constructor(context: CanvasRenderingContext2D, drawers: DrawTemplate[]) {
-        this.drawers = drawers;
-        this.ctx = context;
-    }
-
-    // TODO: think about this
-    public draw(dataContainer: DataContainer) {
-        //this.drawers.forEach((d) => d.draw();
-        this.drawers[0].draw(dataContainer, dataContainer.classComb.line);
-        this.drawers[1].draw(dataContainer, dataContainer.classComb.circle);
-        this.drawers[2].draw(dataContainer, dataContainer.classComb.text);
-    }
-}
-
-export function createDrawer(context: CanvasRenderingContext2D, 
-                             styles: Styles, 
-                             dataContainer: DataContainer): Drawer {
-    const linesDrawer = new LinesDrawer(styles, 
-        context,
-        dataContainer.classComb.line, 
-        dataContainer);
-    const circlesDrawer = new CirclesDrawer(styles,
-        context,
-        dataContainer.classComb.circle, 
-        dataContainer);
-    const textDrawer = new TextDrawer(styles,
-        context,
-        dataContainer.classComb.text, 
-        dataContainer);
-    return new Drawer(context, [linesDrawer, circlesDrawer, textDrawer]);
+        ctx.beginPath();
+        ctx.arc(circle.getX(), circle.getY(), circle.getR(), 0, 2 * Math.PI);
+        ctx.fill();
+    })
 }

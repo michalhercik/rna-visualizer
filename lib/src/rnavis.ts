@@ -1,12 +1,11 @@
 import * as d3 from 'd3';
 import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { Styles } from './classes';
-import { Drawer, createDrawer } from './draw';
+import { drawLines, drawTexts, drawCircles } from './draw';
 import DataContainer from './dataContainer'
 import TitlePresenter from './titlePresenter';
 import ContainerUpdater from './containerUpdater';
 import ContainerFactory from './containerFactory';
-import { animation } from './animation';
 
 export class RNAVis {
     private margin = 10;
@@ -15,11 +14,10 @@ export class RNAVis {
     public templDataContainer: DataContainer;
     private titlePresenter: TitlePresenter;
     private updater: ContainerUpdater;
-    private drawer: Drawer;
 
     constructor(element: HTMLElement, data: RNAData) {
         const styles = new Styles(data);
-        this.dataContainer = new ContainerFactory().create(data, styles, "rna");
+        this.dataContainer = new ContainerFactory().create(data, styles);
         this.updater = new ContainerUpdater();
 
         this.canvas = d3.select(element)
@@ -27,13 +25,8 @@ export class RNAVis {
         this.canvas.style('background-color', 'white');
         this.setDimensions();
 
-        const context = this.canvas.node().getContext('2d', {alpha: false});
-        this.titlePresenter = new TitlePresenter(context, styles);
-        this.drawer = createDrawer(
-            context,
-            styles,
-            this.dataContainer
-        );
+        const ctx = this.canvas.node().getContext('2d', {alpha: false});
+        this.titlePresenter = new TitlePresenter(ctx, styles);
     }
 
     public addZoom() {
@@ -50,7 +43,9 @@ export class RNAVis {
     public draw(): void {
         const ctx = this.canvas.node().getContext('2d', {alpha: false});
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        this.drawer.draw(this.dataContainer);
+        drawLines(this.dataContainer.getLines(), ctx, this.dataContainer.styles);
+        drawCircles(this.dataContainer.getCircles(), ctx, this.dataContainer.styles);
+        drawTexts(this.dataContainer.getTexts(), ctx, this.dataContainer.styles);
     }
 
     public addHoverLabel() {
@@ -68,7 +63,7 @@ export class RNAVis {
     }
 
     public addTemplate(data: RNAData): void {
-        this.templDataContainer = new ContainerFactory().create(data, this.dataContainer.styles, "template");
+        this.templDataContainer = new ContainerFactory().create(data, this.dataContainer.styles);
 
     }
     
@@ -80,6 +75,5 @@ export class RNAVis {
         .style('width', (+this.canvas.attr('width') / scale) + 'px');
         this.canvas.node().getContext('2d').scale(scale, scale);
     }
-
 }
 

@@ -13,7 +13,7 @@ export default class TitlePresenter {
     public presentResTitle(): void {
         if (!this.res)
             return;
-        const resStyles = this.styles.get(this.res.attr('class'));
+        const resStyles = this.styles.get(this.res.getClasses());
         const size = +resStyles['font-size'].slice(0,-2) * (+resStyles['k'] || 1); 
         const margin = size/2;
         const titleOverflow = this.doesTitleOverflow(margin);
@@ -31,7 +31,7 @@ export default class TitlePresenter {
     private doesTitleOverflow(margin: number): boolean {
         const canvasWidth = this.context.canvas.clientWidth;
         const titleWidth = this.getTitleWidth();
-        const titleEnd = +this.res.attr('x') + margin + titleWidth;
+        const titleEnd = this.res.getX() + margin + titleWidth;
         return titleEnd >= canvasWidth;
     }
     private setBgContext(): void {
@@ -43,21 +43,21 @@ export default class TitlePresenter {
         this.setFont();
         const titleWidth = this.getTitleWidth();
         const padding = 5;
-        const x = left ? (+this.res.attr('x') - margin - this.getTitleWidth()) : (+this.res.attr('x') + margin)
+        const x = left ? (this.res.getX() - margin - this.getTitleWidth()) : (this.res.getX() + margin)
         this.context.fillRect(
             x - padding, 
-            +this.res.attr('y') - margin, 
+            this.res.getY() - margin, 
             titleWidth + 2 * padding, 
             this.fontSize + padding);
         this.context.strokeRect(
             x - padding, 
-            +this.res.attr('y') - margin, 
+            this.res.getY() - margin, 
             titleWidth + 2 * padding, 
             this.fontSize + padding);
     }
     private getTitleWidth(): number {
         this.setFont(); 
-        return this.context.measureText(this.res.attr('title')).width;
+        return this.context.measureText(this.res.getTitle()).width;
     }
     private setFont(): void {
         this.context.font = `normal ${this.fontSize}px Helvetica`;
@@ -69,10 +69,10 @@ export default class TitlePresenter {
         this.context.textBaseline = 'top';
     }
     private drawText(margin: number, left: boolean): void {
-        const x = left ? (+this.res.attr('x') - margin - this.getTitleWidth()) : (+this.res.attr('x') + margin)
+        const x = left ? (this.res.getX() - margin - this.getTitleWidth()) : (this.res.getX() + margin)
         this.context.fillText(
-            this.res.attr('title'), 
+            this.res.getTitle(), 
             x, 
-            +this.res.attr('y') - margin + 4);
+            this.res.getY() - margin + 4);
     }
 }
