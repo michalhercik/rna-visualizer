@@ -70,19 +70,20 @@ for (let i = 0; i < data.length ; ++i) {
     rnaVis.draw();
 }
 const rnaVisT = new RNAVis(svgSpace, template05);
+rnaVisT.addData(data[4]);
 rnaVisT.addZoom();
 rnaVisT.draw();
 
-const rnaVis = new RNAVis(svgSpace, data[4]);
-rnaVis.addTemplate(template05);
-rnaVis.addZoom();
-rnaVis.addHoverLabel();
-rnaVis.draw();
+// const rnaVis = new RNAVis(svgSpace, data[4]);
+// rnaVis.addTemplate(template05);
+// rnaVis.addZoom();
+// rnaVis.addHoverLabel();
+// rnaVis.draw();
 
-const btn = document.createElement('button');
-btn.innerHTML = 'Animate';
-svgSpace.append(btn);
-btn.onclick = () => {
-    animation(rnaVis);
-}
+// const btn = document.createElement('button');
+// btn.innerHTML = 'Animate';
+// svgSpace.append(btn);
+// btn.onclick = () => {
+//     animation(rnaVis);
+// }
 

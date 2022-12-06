@@ -10,14 +10,14 @@ import ContainerFactory from './containerFactory';
 export class RNAVis {
     private margin = 10;
     private canvas;    
-    public readonly dataContainer: DataContainer;
-    public templDataContainer: DataContainer;
+    public readonly dataContainer: Array<DataContainer>;
     private titlePresenter: TitlePresenter;
     private updater: ContainerUpdater;
 
     constructor(element: HTMLElement, data: RNAData) {
         const styles = new Styles(data);
-        this.dataContainer = new ContainerFactory().create(data, styles);
+        this.dataContainer = new Array<DataContainer>();
+        this.dataContainer.push(new ContainerFactory().create(data, styles));
         this.updater = new ContainerUpdater();
 
         this.canvas = d3.select(element)
@@ -25,7 +25,8 @@ export class RNAVis {
         this.canvas.style('background-color', 'white');
         this.setDimensions();
 
-        const ctx = this.canvas.node().getContext('2d', {alpha: false});
+        const ctx = this.canvas.node().getContext('2d');
+        ctx.globalAlpha = 0.4;
         this.titlePresenter = new TitlePresenter(ctx, styles);
     }
 
@@ -33,7 +34,7 @@ export class RNAVis {
         const zoom = d3.zoom()
         .scaleExtent([1,10])
         .on('zoom', (event) => {
-            this.updater.update(event, this.dataContainer);
+            this.dataContainer.forEach((container) => this.updater.update(event, container));
             this.draw();
             this.titlePresenter.updateRes(null);
         });
@@ -43,9 +44,11 @@ export class RNAVis {
     public draw(): void {
         const ctx = this.canvas.node().getContext('2d', {alpha: false});
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        drawLines(this.dataContainer.getLines(), ctx, this.dataContainer.styles);
-        drawCircles(this.dataContainer.getCircles(), ctx, this.dataContainer.styles);
-        drawTexts(this.dataContainer.getTexts(), ctx, this.dataContainer.styles);
+        this.dataContainer.forEach((container) => {
+            drawLines(container.getLines(), ctx, container.styles);
+            drawCircles(container.getCircles(), ctx, container.styles);
+            drawTexts(container.getTexts(), ctx, container.styles);
+        });
     }
 
     public addHoverLabel() {
@@ -53,7 +56,7 @@ export class RNAVis {
             const rect = this.canvas.node().getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
-            const res = this.dataContainer.getResByCoor(x, y); 
+            const res = this.dataContainer[0].getResByCoor(x, y); 
             if (this.titlePresenter.updateRes(res)) {
                 this.draw();
                 if (res)
@@ -62,16 +65,16 @@ export class RNAVis {
         };
     }
 
-    public addTemplate(data: RNAData): void {
-        this.templDataContainer = new ContainerFactory().create(data, this.dataContainer.styles);
+    public addData(data: RNAData): void {
+        this.dataContainer.push(new ContainerFactory().create(data, this.dataContainer[0].styles));
 
     }
     
     private setDimensions(): void {
         const scale = 2;
         this.canvas
-        .attr('width', scale * this.dataContainer.width)
-        .attr('height', scale * this.dataContainer.height)
+        .attr('width', scale * this.dataContainer[0].width)
+        .attr('height', scale * this.dataContainer[0].height)
         .style('width', (+this.canvas.attr('width') / scale) + 'px');
         this.canvas.node().getContext('2d').scale(scale, scale);
     }
