@@ -6,6 +6,7 @@ import DataContainer from './dataContainer'
 import TitlePresenter from './titlePresenter';
 import ContainerUpdater from './containerUpdater';
 import ContainerFactory from './containerFactory';
+import { getBestGroup, Group, createGroups, translate } from './align';
 
 export class RNAVis {
     private margin = 10;
@@ -26,7 +27,6 @@ export class RNAVis {
         this.setDimensions();
 
         const ctx = this.canvas.node().getContext('2d');
-        ctx.globalAlpha = 0.4;
         this.titlePresenter = new TitlePresenter(ctx, styles);
     }
 
@@ -46,7 +46,11 @@ export class RNAVis {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         this.dataContainer.forEach((container) => {
             drawLines(container.getLines(), ctx, container.styles);
+        });
+        this.dataContainer.forEach((container) => {
             drawCircles(container.getCircles(), ctx, container.styles);
+        });
+        this.dataContainer.forEach((container) => {
             drawTexts(container.getTexts(), ctx, container.styles);
         });
     }
@@ -66,8 +70,26 @@ export class RNAVis {
     }
 
     public addData(data: RNAData): void {
-        this.dataContainer.push(new ContainerFactory().create(data, this.dataContainer[0].styles));
+        const cont = new ContainerFactory().create(data, this.dataContainer[0].styles);
+        this.dataContainer.push(cont);
+        this.align();
+        this.canvas.node().getContext('2d').globalAlpha = 1 / this.dataContainer.length;
+        console.log(createGroups(this.dataContainer[0], this.dataContainer[this.dataContainer.length - 1]));
+    }
 
+    public align(groupIndex: number = -1) {
+        let groups = createGroups(this.dataContainer[0], this.dataContainer[1]);
+        if (groupIndex >= groups.length) {
+            console.log("group index is too big!");
+            return;
+        }
+        let group = groupIndex == -1 ? getBestGroup(groups) : groups[groupIndex];
+        shift(this.dataContainer[1], group.xShift, group.yShift);
+        for (let i = 2; i < this.dataContainer.length; ++i) {
+            groups = createGroups(this.dataContainer[0], this.dataContainer[i], group);
+            let bestGroup = getBestGroup(groups);
+            shift(this.dataContainer[i], bestGroup.xShift, bestGroup.yShift);
+        }
     }
     
     private setDimensions(): void {

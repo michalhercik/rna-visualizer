@@ -5,6 +5,7 @@ export interface SingleCoorObject {
     setY(newY: number): void;
     getOrigX(): number;
     getOrigY(): number;
+    setOrig(newX: number, newY: number): void;
     getClasses(): Array<string>;
 }
 
@@ -29,6 +30,7 @@ export interface Line {
     getOrigX2(): number;
     getOrigY1(): number;
     getOrigY2(): number;
+    setOrig(newX1: number, newY1: number, newX2: number, newY2: number): void;
     getClasses(): Array<string>;
 }
 

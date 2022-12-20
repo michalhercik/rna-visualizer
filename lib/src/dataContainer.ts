@@ -6,7 +6,6 @@ export default class DataContainer {
     public readonly styles;
     public width: number;
     public height: number;
-    //public readonly container;
     public readonly data;
     public readonly classComb = {
         line: new Set(),
@@ -83,6 +82,10 @@ export default class DataContainer {
         });
         return result;
     }
+
+    public getResidues(): Array<Residue> {
+        return this.data.rnaComplexes[0].rnaMolecules[0].sequence;
+    }
 }
 
 export class BpLine implements Line {
@@ -155,6 +158,13 @@ export class BpLine implements Line {
     public getClasses() {
         return this.classes;
     };
+
+    public setOrig(newX1: number, newY1: number, newX2: number, newY2: number) {
+        this.residue1.x = newX1;
+        this.residue1.y = newY1;
+        this.residue2.x = newX2;
+        this.residue2.y = newY2;
+    }
 }
 
 export class LabelLine implements Line {
@@ -220,6 +230,13 @@ export class LabelLine implements Line {
         return this.data.y2;
     }
 
+    public setOrig(newX1: number, newY1: number, newX2: number, newY2: number) {
+        this.data.x1 = newX1;
+        this.data.y1 = newY1;
+        this.data.x1 = newX2;
+        this.data.y1 = newY2;
+    }
+
     public getClasses() {
         return this.data.classes;
     }
@@ -259,6 +276,11 @@ export class LabelText implements Text {
 
     public getOrigY() {
         return this.data.y;
+    }
+
+    public setOrig(newX: number, newY: number) {
+        this.data.x = newX;
+        this.data.y = newY;
     }
 
     public getText() {
@@ -313,6 +335,11 @@ export class ResidueCircle implements Circle {
         return this.residue.y;
     }
 
+    public setOrig(newX: number, newY: number) {
+        this.residue.x = newX;
+        this.residue.y = newY;
+    }
+
     public getClasses() {
         return ['res-circle', 'circle'];
     }
@@ -356,6 +383,11 @@ export class ResidueTitle implements Text {
 
     public getOrigY() {
         return this.residue.y;
+    }
+
+    public setOrig(newX: number, newY: number) {
+        this.residue.x = newX;
+        this.residue.y = newY;
     }
 
     public getText() {

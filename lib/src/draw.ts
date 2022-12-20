@@ -43,14 +43,17 @@ export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, sty
 }
 
 export function drawCircles(circles: Array<Circle>, ctx: CanvasRenderingContext2D, styles: Styles) {
+    ctx.save();
     circles.forEach((circle: Circle) => {
         const circleStyles = styles.get(circle.getClasses());
         ctx.strokeStyle = circleStyles['stroke'] || 'black';
         ctx.fillStyle = circleStyles['fill'] || 'white';
         ctx.lineWidth = circleStyles['stroke-width'] || 1;
+        ctx.globalAlpha = 1;
 
         ctx.beginPath();
         ctx.arc(circle.getX(), circle.getY(), circle.getR(), 0, 2 * Math.PI);
         ctx.fill();
     })
+    ctx.restore();
 }

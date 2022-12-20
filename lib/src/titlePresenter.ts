@@ -17,10 +17,12 @@ export default class TitlePresenter {
         const size = +resStyles['font-size'].slice(0,-2) * (+resStyles['k'] || 1); 
         const margin = size/2;
         const titleOverflow = this.doesTitleOverflow(margin);
+        this.context.save();
         this.setBgContext();
         this.drawBg(margin, titleOverflow);
         this.setTextContext();
         this.drawText(margin, titleOverflow);
+        this.context.restore();
     }
     public updateRes(res: any): boolean {
         const change = JSON.stringify(this.res) !== JSON.stringify(res);
@@ -35,6 +37,7 @@ export default class TitlePresenter {
         return titleEnd >= canvasWidth;
     }
     private setBgContext(): void {
+        this.context.globalAlpha = 1;
         this.context.strokeStyle = '#ccc';
         this.context.lineWidth = 1;
         this.context.fillStyle = '#eee';
@@ -64,6 +67,7 @@ export default class TitlePresenter {
     }
     private setTextContext(): void {
         this.setFont();
+        this.context.globalAlpha = 1;
         this.context.fillStyle = 'black';
         this.context.textAlign = 'left';
         this.context.textBaseline = 'top';
