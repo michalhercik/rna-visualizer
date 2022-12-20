@@ -3,6 +3,7 @@ import { BasePair, Label, Style, Residue, RNAData, DataLabelLine, LabelContent, 
 import { Styles } from './classes';
 
 export default class DataContainer {
+    public visible = true;
     public readonly styles;
     public width: number;
     public height: number;

@@ -73,15 +73,15 @@ const rnaVisT = new RNAVis(svgSpace, template0407);
 rnaVisT.addData(data[3]);
 rnaVisT.addData(data[6]);
 rnaVisT.addZoom();
+//rnaVisT.addHoverLabel();
 rnaVisT.draw();
-rnaVisT.addHoverLabel();
 
 let input = document.createElement('input');
 input.setAttribute('type', 'text');
 input.setAttribute('id', 'align-group');
 svgSpace.append(input);
 
-const btn = document.createElement('button');
+let btn = document.createElement('button');
 btn.innerHTML = 'align';
 svgSpace.append(btn);
 btn.onclick = () => {
@@ -89,7 +89,35 @@ btn.onclick = () => {
     rnaVisT.align(group);
     rnaVisT.draw();
 }
-//
+
+input = document.createElement('input');
+input.setAttribute('type', 'text');
+input.setAttribute('id', 'show');
+svgSpace.append(input);
+
+btn = document.createElement('button');
+btn.innerHTML = 'show';
+svgSpace.append(btn);
+btn.onclick = () => {
+    let index = +(document.getElementById('show') as HTMLInputElement).value;
+    rnaVisT.show(index);
+    rnaVisT.draw();
+}
+
+input = document.createElement('input');
+input.setAttribute('type', 'text');
+input.setAttribute('id', 'hide');
+svgSpace.append(input);
+
+btn = document.createElement('button');
+btn.innerHTML = 'hide';
+svgSpace.append(btn);
+btn.onclick = () => {
+    let index = +(document.getElementById('hide') as HTMLInputElement).value;
+    rnaVisT.hide(index);
+    rnaVisT.draw();
+}
+
 // const rnaVis = new RNAVis(svgSpace, data[4]);
 // rnaVis.addTemplate(template05);
 // rnaVis.addZoom();

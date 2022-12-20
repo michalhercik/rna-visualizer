@@ -45,13 +45,16 @@ export class RNAVis {
         const ctx = this.canvas.node().getContext('2d', {alpha: false});
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         this.dataContainer.forEach((container) => {
-            drawLines(container.getLines(), ctx, container.styles);
+            if (container.visible)
+                drawLines(container.getLines(), ctx, container.styles);
         });
         this.dataContainer.forEach((container) => {
-            drawCircles(container.getCircles(), ctx, container.styles);
+            if (container.visible)
+                drawCircles(container.getCircles(), ctx, container.styles);
         });
         this.dataContainer.forEach((container) => {
-            drawTexts(container.getTexts(), ctx, container.styles);
+            if (container.visible)
+                drawTexts(container.getTexts(), ctx, container.styles);
         });
     }
 
@@ -84,12 +87,20 @@ export class RNAVis {
             return;
         }
         let group = groupIndex == -1 ? getBestGroup(groups) : groups[groupIndex];
-        shift(this.dataContainer[1], group.xShift, group.yShift);
+        translate(this.dataContainer[1], group.xShift, group.yShift);
         for (let i = 2; i < this.dataContainer.length; ++i) {
             groups = createGroups(this.dataContainer[0], this.dataContainer[i], group);
             let bestGroup = getBestGroup(groups);
-            shift(this.dataContainer[i], bestGroup.xShift, bestGroup.yShift);
+            translate(this.dataContainer[i], bestGroup.xShift, bestGroup.yShift);
         }
+    }
+
+    public show(containerIndex: number) {
+        this.dataContainer[containerIndex].visible = true;
+    }
+
+    public hide(containerIndex: number) {
+        this.dataContainer[containerIndex].visible = false;
     }
     
     private setDimensions(): void {
