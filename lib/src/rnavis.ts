@@ -96,11 +96,24 @@ export class RNAVis {
     }
 
     public show(containerIndex: number) {
-        this.dataContainer[containerIndex].visible = true;
+        if (!this.dataContainer[containerIndex].visible) {
+            this.dataContainer[containerIndex].visible = true;
+            let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
+            oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
+            const newAlpha = 1 / (Math.round(1 / oldAlpha) + 1);
+            this.canvas.node().getContext('2d').globalAlpha = newAlpha;
+        }
     }
 
     public hide(containerIndex: number) {
-        this.dataContainer[containerIndex].visible = false;
+        if (this.dataContainer[containerIndex].visible) {
+            this.dataContainer[containerIndex].visible = false;
+            let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
+            oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
+            let visible = Math.round(1 / oldAlpha) - 1;
+            visible = visible > 0 ? visible : 1;
+            this.canvas.node().getContext('2d').globalAlpha = 1 / visible;
+        }
     }
     
     private setDimensions(): void {
