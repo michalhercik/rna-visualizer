@@ -54,8 +54,8 @@ export class Styles {
         [ 'res-line', { stroke: GRAY } ]
     ]);
 
-    public constructor(data: RNAData) {
-        data.classes.forEach((style: any) => {
+    public addFrom(classes: Array<any>) {
+        classes.forEach((style: any) => {
             const name = style.name;
             delete style.name;
             this.styles.set(name, style);

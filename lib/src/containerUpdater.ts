@@ -5,7 +5,6 @@ import { Styles } from './classes';
 import DataContainer from './dataContainer';
 
 export default class ContainerUpdater {
-
     public update(event: any, container: DataContainer) {
         const width = container.width;
         const height = container.height;
