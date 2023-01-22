@@ -57,66 +57,59 @@ const dataPath = [
     'URS0000000306_562.json',
     'URS00000B1E10_489619-d.16.b.B.japonicum.json'
 ]
-const svgSpace = document.getElementById('svg-space');
-for (let i = 0; i < data.length ; ++i) { 
-    break;
-    const p = document.createElement('p')
-    p.innerText = dataPath[i];
-    svgSpace.append(p);
-    const rnaVis = new RNAVis(svgSpace, data[i]);
-    //rnaVis.addTemplate(template4);
-    rnaVis.addZoom();
-    rnaVis.addHoverLabel();
-    rnaVis.draw();
-}
-const rnaVisT = new RNAVis(svgSpace, template0407);
+const layers = document.getElementById('layers-canvas');
+const controls = document.getElementById('controls');
+const visibility = document.getElementById('visibility');
+
+// Canvas
+const rnaVisT = new RNAVis(layers, template0407);
 rnaVisT.addData(data[3]);
 rnaVisT.addData(data[6]);
 rnaVisT.addZoom();
-//rnaVisT.addHoverLabel();
+// rnaVisT.addHoverLabel();
 rnaVisT.draw();
 
+// Visibility checkboxes
+for (let i = 0; i < rnaVisT.dataContainer.length; ++i) {
+    let listItem = document.createElement('li');
+    visibility.append(listItem);
+    let checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.setAttribute('id', i + '');
+    checkbox.setAttribute('name', i + '');
+    checkbox.setAttribute('checked', rnaVisT.dataContainer[i].visible ? "checked" : "");
+    checkbox.addEventListener('change', (event) => {
+        const checkbox = event.currentTarget as HTMLInputElement;
+        if (checkbox.checked) {
+            rnaVisT.show(+checkbox.getAttribute('id'));
+        } else {
+            rnaVisT.hide(+checkbox.getAttribute('id'));
+        }
+        rnaVisT.draw();
+    })
+    listItem.append(checkbox);
+
+    let label = document.createElement('label');
+    label.setAttribute('for', i + '');
+    label.innerHTML = 'checkbox' + i;
+    listItem.append(label);
+}
+
+// Input for aligning structures
 let input = document.createElement('input');
 input.setAttribute('type', 'text');
 input.setAttribute('id', 'align-group');
-svgSpace.append(input);
+controls.append(input);
 
 let btn = document.createElement('button');
 btn.innerHTML = 'align';
-svgSpace.append(btn);
+controls.append(btn);
 btn.onclick = () => {
     let group = +(document.getElementById('align-group') as HTMLInputElement).value;
     rnaVisT.align(group);
     rnaVisT.draw();
 }
 
-input = document.createElement('input');
-input.setAttribute('type', 'text');
-input.setAttribute('id', 'show');
-svgSpace.append(input);
-
-btn = document.createElement('button');
-btn.innerHTML = 'show';
-svgSpace.append(btn);
-btn.onclick = () => {
-    let index = +(document.getElementById('show') as HTMLInputElement).value;
-    rnaVisT.show(index);
-    rnaVisT.draw();
-}
-
-input = document.createElement('input');
-input.setAttribute('type', 'text');
-input.setAttribute('id', 'hide');
-svgSpace.append(input);
-
-btn = document.createElement('button');
-btn.innerHTML = 'hide';
-svgSpace.append(btn);
-btn.onclick = () => {
-    let index = +(document.getElementById('hide') as HTMLInputElement).value;
-    rnaVisT.hide(index);
-    rnaVisT.draw();
-}
 
 // const rnaVis = new RNAVis(svgSpace, data[4]);
 // rnaVis.addTemplate(template05);

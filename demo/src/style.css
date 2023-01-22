@@ -6,11 +6,21 @@ body {
     border: 1px solid black;
 }
 
-svg {
-    background-color: white;
+#controls {
+    background-color: wheat;
 }
 
-p {
-    background-color:wheat;
-    padding: 5px;
+#layers {
+    display: flex;
+}
+
+#layers > div {
+    margin: 2px;
+    padding: 10px;
+}
+
+#visibility {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
 }
