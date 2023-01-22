@@ -28,11 +28,13 @@ export class RNAVis {
     private titlePresenter: TitlePresenter;
     private updater: ContainerUpdater;
     private styles: Styles;
+    private zoom;
 
     constructor(element: HTMLElement) {
         this.styles = new Styles();
         this.layers = new Map<string, Layer>();
         this.updater = new ContainerUpdater();
+        this.zoom = d3.zoom();
 
         this.canvas = d3.select(element)
         .append('canvas')
@@ -43,14 +45,14 @@ export class RNAVis {
     }
 
     public addZoom() {
-        const zoom = d3.zoom()
+        this.zoom
         .scaleExtent([1,10])
         .on('zoom', (event) => {
             Array.from(this.layers.values()).forEach((layer) => this.updater.update(event, layer.data));
             this.draw();
             this.titlePresenter.updateRes(null);
         });
-        this.canvas.call(zoom);
+        this.canvas.call(this.zoom);
     }
 
     public draw(): void {
@@ -124,20 +126,19 @@ export class RNAVis {
     public show(id: string) {
         if (!this.layers.get(id).visible) {
             this.layers.get(id).visible = true;
-            if (this.layers.size > 0) {
+            if (this.layers.size > 1) {
                 let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
                 oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
                 const newAlpha = 1 / (Math.round(1 / oldAlpha) + 1);
                 this.canvas.node().getContext('2d').globalAlpha = newAlpha;
             }
         }
-        //console.log(this.canvas.node().getContext('2d').globalAlpha);
     }
 
     public hide(id: string) {
         if (this.layers.get(id).visible) {
             this.layers.get(id).visible = false;
-            if (this.layers.size > 0) {
+            if (this.layers.size > 1) {
                 let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
                 oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
                 let visible = Math.round(1 / oldAlpha) - 1;
@@ -145,11 +146,13 @@ export class RNAVis {
                 this.canvas.node().getContext('2d').globalAlpha = 1 / visible;
             }
         }
-        //console.log(this.canvas.node().getContext('2d').globalAlpha);
     }
 
     public resetPositions() {
-
+        for (let layer of Array.from(this.layers.values())) {
+            this.updater.resetPosition(layer.data);
+        }
+        this.canvas.call(this.zoom.transform, d3.zoomIdentity);
     }
     
     private setDimensions(data: DataContainer): void {

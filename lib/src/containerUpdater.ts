@@ -33,6 +33,26 @@ export default class ContainerUpdater {
         container.styles.set('transform', {k: event.transform.k});
     }
 
+    public resetPosition(container: DataContainer) {
+        container.getSingleCoorObjects().forEach((object: SingleCoorObject) => {
+            object.setX(object.getOrigX());
+            object.setY(object.getOrigY());
+        });
+
+        container.getLines().forEach((line: Line) => {
+            line.setX1(line.getOrigX1());
+            line.setY1(line.getOrigY1());
+            line.setX2(line.getOrigX2());
+            line.setY2(line.getOrigY2());
+        });
+
+        container.resCircles.forEach((circle: ResidueCircle) => {
+            circle.scaleRadius(1);
+        })
+
+        container.styles.set('transform', {k: 1});
+    }
+
     public animationUpdate(t: number) {
         const x = (node: any) => {
             return +node.attr('sx') * (1 - t) + (+node.attr('tx')) * t;

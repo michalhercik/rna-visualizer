@@ -71,6 +71,11 @@ rnaVisT.addZoom();
 // rnaVisT.addHoverLabel();
 rnaVisT.draw();
 
+resetBtn.addEventListener('click', (event) => {
+    rnaVisT.resetPositions();
+    rnaVisT.draw();
+})
+
 // Visibility
 for (let layer of Array.from(rnaVisT.layers.values())) {
     let listItem = document.createElement('li');
