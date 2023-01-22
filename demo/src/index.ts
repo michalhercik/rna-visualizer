@@ -60,42 +60,44 @@ const dataPath = [
 const layers = document.getElementById('layers-canvas');
 const controls = document.getElementById('controls');
 const visibility = document.getElementById('visibility');
+const resetBtn = document.getElementById('reset-pos');
 
 // Canvas
-const rnaVisT = new RNAVis(layers, template0407);
-rnaVisT.addData(data[3]);
-rnaVisT.addData(data[6]);
+const rnaVisT = new RNAVis(layers);
+rnaVisT.addData(template0407, 'template');
+rnaVisT.addData(data[3], dataPath[3]);
+rnaVisT.addData(data[6], dataPath[6]);
 rnaVisT.addZoom();
 // rnaVisT.addHoverLabel();
 rnaVisT.draw();
 
-// Visibility checkboxes
-for (let i = 0; i < rnaVisT.dataContainer.length; ++i) {
+// Visibility
+for (let layer of Array.from(rnaVisT.layers.values())) {
     let listItem = document.createElement('li');
     visibility.append(listItem);
     let checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('id', i + '');
-    checkbox.setAttribute('name', i + '');
-    checkbox.setAttribute('checked', rnaVisT.dataContainer[i].visible ? "checked" : "");
+    checkbox.setAttribute('id', layer.id);
+    checkbox.setAttribute('name', layer.id);
+    checkbox.setAttribute('checked', layer.visible ? "checked" : "");
     checkbox.addEventListener('change', (event) => {
         const checkbox = event.currentTarget as HTMLInputElement;
         if (checkbox.checked) {
-            rnaVisT.show(+checkbox.getAttribute('id'));
+            rnaVisT.show(checkbox.getAttribute('id'));
         } else {
-            rnaVisT.hide(+checkbox.getAttribute('id'));
+            rnaVisT.hide(checkbox.getAttribute('id'));
         }
         rnaVisT.draw();
     })
     listItem.append(checkbox);
 
     let label = document.createElement('label');
-    label.setAttribute('for', i + '');
-    label.innerHTML = 'checkbox' + i;
+    label.setAttribute('for', layer.id);
+    label.innerHTML = layer.id;
     listItem.append(label);
 }
 
-// Input for aligning structures
+// Aligning
 let input = document.createElement('input');
 input.setAttribute('type', 'text');
 input.setAttribute('id', 'align-group');
