@@ -25,7 +25,7 @@ export class Group {
     }
 }
 
-export function createGroups(contA: DataContainer, contB: DataContainer, group: Group = null, filter: number = 5) {
+export function createGroups(contA: DataContainer, contB: DataContainer, group: Group = null, filter: number = 5): Array<Group> {
     let tempRes = contA.getResidues();
     let shifts = new Map<string, Group>();
     contB.getResidues().forEach(res => {

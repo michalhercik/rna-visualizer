@@ -102,20 +102,23 @@ export class RNAVis {
         //console.log(createGroups(this.dataContainer[0], this.dataContainer[this.dataContainer.length - 1]));
     }
 
-    public align(groupIndex: number = -1) {
+    public align(groupIndex: number = -1, minGroupSize: number = 5) {
         if (this.layers.size < 2) {
             return;
         }
 
         const layers = Array.from(this.layers.values());
-        let groups = createGroups(layers[0].data, layers[1].data);
+        const containers = this.getDataContainers();
+        let groups = createGroups(containers[0], containers[1], null, minGroupSize);
+
         if (groupIndex >= groups.length) {
             console.log("group index is too big!");
             return;
         }
 
         let group = groupIndex == -1 ? getBestGroup(groups) : groups[groupIndex];
-        translate(layers[1].data, group.xShift, group.yShift);
+        translate(containers[1], group.xShift, group.yShift);
+
         for (let i = 2; i < layers.length; ++i) {
             groups = createGroups(layers[0].data, layers[i].data, group);
             let bestGroup = getBestGroup(groups);
@@ -123,10 +126,33 @@ export class RNAVis {
         }
     }
 
+    public addClickAlign() {
+        this.canvas.node().onclick = (event) => {
+            const rect = this.canvas.node().getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const containers = this.getDataContainers();
+            const bla = containers[0].getResByCoor(x, y); 
+
+            if (bla !== null) {
+                const target = bla.residue;
+                containers.forEach(container => {
+                    for (let residue of container.getResidues()) {
+                        if (residue.templateResidueIndex === target.residueIndex) {
+                            translate(container, target.x - residue.x, target.y - residue.y);
+                            break;
+                        }
+                    }
+                })
+                this.draw();
+            }
+        };
+    }
+
     public show(id: string) {
         if (!this.layers.get(id).visible) {
             this.layers.get(id).visible = true;
-            if (this.layers.size > 1) {
+            if (Array.from(this.layers.values()).filter(l => l.visible).length > 1) {
                 let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
                 oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
                 const newAlpha = 1 / (Math.round(1 / oldAlpha) + 1);
@@ -138,7 +164,7 @@ export class RNAVis {
     public hide(id: string) {
         if (this.layers.get(id).visible) {
             this.layers.get(id).visible = false;
-            if (this.layers.size > 1) {
+            if (Array.from(this.layers.values()).filter(l => l.visible).length > 0) {
                 let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
                 oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
                 let visible = Math.round(1 / oldAlpha) - 1;
@@ -149,12 +175,20 @@ export class RNAVis {
     }
 
     public resetPositions() {
-        for (let layer of Array.from(this.layers.values())) {
-            this.updater.resetPosition(layer.data);
-        }
         this.canvas.call(this.zoom.transform, d3.zoomIdentity);
+        for (let layer of Array.from(this.layers.values())) {
+            this.updater.update(d3.zoomIdentity, layer.data);
+        }
     }
-    
+
+    public getDataContainers(): Array<DataContainer> {
+        let containers = new Array<DataContainer>();
+        for (let l of Array.from(this.layers.values())) {
+            containers.push(l.data);
+        }
+        return containers
+    }
+
     private setDimensions(data: DataContainer): void {
         let alpha = this.canvas.node().getContext('2d').globalAlpha;
         const scale = 2;

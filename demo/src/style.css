@@ -24,3 +24,8 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
+#groups > input {
+    margin: 2px;
+    padding: 4px;
+}
