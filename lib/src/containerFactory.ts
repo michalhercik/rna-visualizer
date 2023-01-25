@@ -86,8 +86,8 @@ export default class ContainerFactory {
         const labelData = this.container.data.rnaComplexes[0].rnaMolecules[0].labels;
 
         labelData.forEach((label: Label) => {
-            this.container.addLabelText(new LabelText(label.labelContent));
-            this.container.addLabelLine(new LabelLine(label.labelLine));
+            this.container.addLabelText(new LabelText(label));
+            this.container.addLabelLine(new LabelLine(label));
         })
     }
 }

@@ -1,5 +1,5 @@
 import './style.css';
-import { RNAVis, RNAData, animation, createGroups } from 'rna-visualizer';
+import { RNAVis, RNAData, transformToTemplate, createGroups } from 'rna-visualizer';
 import data01 from '../example_data/json/mouse_from_human.colored.json';
 import data02 from '../example_data/json/URS000075EC78_9606-HS_LSU_3D.json';
 import data03 from '../example_data/json/add_bp_to_stem.json';
@@ -41,7 +41,7 @@ const data: RNAData[] = [
     data13, 
     data14 
 ];
-const dataPath = [
+const dataNames = [
     'mouse_from_human.colored.json',
     'URS000075EC78_9606-HS_LSU_3D.json',
     'add_bp_to_stem.json',
@@ -56,8 +56,10 @@ const dataPath = [
     'URS000080E357_9606-mHS_LSU_3D.json',
     'URS0000000306_562.json',
     'URS00000B1E10_489619-d.16.b.B.japonicum.json'
-]
+];
+
 const layers = document.getElementById('layers-canvas');
+const animation = document.getElementById('animation-canvas');
 const controls = document.getElementById('controls');
 const visibility = document.getElementById('visibility');
 const resetBtn = document.getElementById('reset-pos');
@@ -65,9 +67,9 @@ const groups = document.getElementById('groups');
 
 // Canvas
 const rnaVis = new RNAVis(layers);
-rnaVis.addData(template0407, 'template');
-rnaVis.addData(data[3], dataPath[3]);
-rnaVis.addData(data[6], dataPath[6]);
+rnaVis.addData(template0407, 'd.16.b.Burkholderia.sp_fromn_d.16.b.Burkholderia.sp.colored.json');
+rnaVis.addData(data[3], dataNames[3]);
+rnaVis.addData(data[6], dataNames[6]);
 rnaVis.addZoom();
 // rnaVis.addHoverLabel();
 rnaVis.addClickAlign();
@@ -105,7 +107,6 @@ for (let layer of Array.from(rnaVis.layers.values())) {
 }
 
 // Aligning
-
 const minGroupSize = 20;
 let ls = rnaVis.getDataContainers();
 
@@ -138,16 +139,18 @@ btn.onclick = () => {
 }
 
 
-// const rnaVis = new RNAVis(svgSpace, data[4]);
-// rnaVis.addTemplate(template05);
-// rnaVis.addZoom();
-// rnaVis.addHoverLabel();
-// rnaVis.draw();
+// Animation
 
-// const btn = document.createElement('button');
-// btn.innerHTML = 'Animate';
-// svgSpace.append(btn);
-// btn.onclick = () => {
-//     animation(rnaVis);
-// }
+const rnaVisAnim = new RNAVis(animation);
+rnaVisAnim.addData(template05, 'template', false);
+rnaVisAnim.addData(data[4], 'data');
+rnaVisAnim.addZoom();
+rnaVisAnim.draw();
+
+const animbtn = document.createElement('button');
+animbtn.innerHTML = 'Animate';
+animation.append(animbtn);
+animbtn.onclick = () => {
+    transformToTemplate(rnaVisAnim);
+}
 

@@ -3,7 +3,6 @@ import { BasePair, Label, Style, Residue, RNAData, DataLabelLine, LabelContent, 
 import { Styles } from './classes';
 
 export default class DataContainer {
-    public visible = true;
     public readonly styles;
     public width: number;
     public height: number;
@@ -169,18 +168,18 @@ export class BpLine implements Line {
 }
 
 export class LabelLine implements Line {
-    private data: DataLabelLine;
+    private label: Label;
     private x1: number;
     private y1: number;
     private x2: number;
     private y2: number;
 
-    public constructor(lineData: DataLabelLine) {
-        this.data = lineData;
-        this.x1 = this.data.x1;
-        this.y1 = this.data.y1;
-        this.x2 = this.data.x2;
-        this.y2 = this.data.y2;
+    public constructor(label: Label) {
+        this.label = label;
+        this.x1 = this.label.labelLine.x1;
+        this.y1 = this.label.labelLine.y1;
+        this.x2 = this.label.labelLine.x2;
+        this.y2 = this.label.labelLine.y2;
     }
 
     public getX1() {
@@ -216,43 +215,43 @@ export class LabelLine implements Line {
     }
 
     public getOrigX1() {
-        return this.data.x1;
+        return this.label.labelLine.x1;
     }
 
     public getOrigX2() {
-        return this.data.x2;
+        return this.label.labelLine.x2;
     }
 
     public getOrigY1() {
-        return this.data.y1;
+        return this.label.labelLine.y1;
     }
 
     public getOrigY2() {
-        return this.data.y2;
+        return this.label.labelLine.y2;
     }
 
     public setOrig(newX1: number, newY1: number, newX2: number, newY2: number) {
-        this.data.x1 = newX1;
-        this.data.y1 = newY1;
-        this.data.x1 = newX2;
-        this.data.y1 = newY2;
+        this.label.labelLine.x1 = newX1;
+        this.label.labelLine.y1 = newY1;
+        this.label.labelLine.x1 = newX2;
+        this.label.labelLine.y1 = newY2;
     }
 
     public getClasses() {
-        return this.data.classes;
+        return this.label.labelLine.classes;
     }
 }
 
 export class LabelText implements Text {
-    data: LabelContent;
+    private label: Label;
     private x: number;
     private y: number;
 
-    public constructor(label: LabelContent) {
-        this.data = label;
-        this.data.classes.push('transform');
-        this.x = label.x;
-        this.y = label.y;
+    public constructor(label: Label) {
+        this.label = label;
+        this.label.labelContent.classes.push('transform');
+        this.x = label.labelContent.x;
+        this.y = label.labelContent.y;
     }
 
     public setX(newX: number) {
@@ -272,24 +271,24 @@ export class LabelText implements Text {
     }
 
     public getOrigX() {
-        return this.data.x;
+        return this.label.labelContent.x;
     }
 
     public getOrigY() {
-        return this.data.y;
+        return this.label.labelContent.y;
     }
 
     public setOrig(newX: number, newY: number) {
-        this.data.x = newX;
-        this.data.y = newY;
+        this.label.labelContent.x = newX;
+        this.label.labelContent.y = newY;
     }
 
     public getText() {
-        return this.data.label;
+        return this.label.labelContent.label;
     }
 
     public getClasses() {
-        return this.data.classes;
+        return this.label.labelContent.classes;
     }
 }
 

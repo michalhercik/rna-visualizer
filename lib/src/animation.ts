@@ -4,139 +4,192 @@ import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
 import { drawLines, drawCircles, drawTexts } from './draw';
 import { RNAVis } from './rnavis';
 
+export class SingleCoorTarget {
+    public readonly x: number;
+    public readonly y: number;
 
-export function animation(rna: RNAVis): void {}
-// export function animation(rna: RNAVis): void {
-//     let data = rna.dataContainer;
-//     data.container.selectAll('custom.res-title').each(function() {
-//         const node = d3.select(this);
-//         const data: any = node.data()[0];
-//         node.attr('sx', node.attr('x'));
-//         node.attr('sy', node.attr('y'));
-//         const t = rna.templDataContainer.container.select(`.res-title[index="${data.templateResidueIndex}"]`);
-//         if (t.empty()) {
-//             node.attr('tx', node.attr('x'));
-//             node.attr('ty', node.attr('y'));
-//         } else {
-//             node.attr('tx', t.attr('x'));
-//             node.attr('ty', t.attr('y'));
-//         }
-//     });
-//     const tempSeq = rna.templDataContainer.data.rnaComplexes[0].rnaMolecules[0].sequence;
-//     const seq = rna.dataContainer.data.rnaComplexes[0].rnaMolecules[0].sequence;
-//     data.container.selectAll('custom.bp-line:not(.res-line)').each(function() {
-//         const node = d3.select(this);
-//         const data:any  = node.data()[0];
-//         const t1 = rna.templDataContainer.container.select(`.res-title[index="${seq[data.residueIndex1].templateResidueIndex}"]`);
-//         const t2 = rna.templDataContainer.container.select(`.res-title[index="${seq[data.residueIndex2].templateResidueIndex}"]`);
-//         node.attr('sx1', node.attr('x1'));
-//         node.attr('sy1', node.attr('y1'));
-//         node.attr('sx2', node.attr('x2'));
-//         node.attr('sy2', node.attr('y2'));
-//         if (t1.empty()) {
-//             node.attr('tx1', node.attr('x1'));
-//             node.attr('ty1', node.attr('y1'));
-//         } else {
-//             node.attr('tx1', t1.attr('x'));
-//             node.attr('ty1', t1.attr('y'));
-//         }
-//         if (t2.empty()) {
-//             node.attr('tx2', node.attr('x2'));
-//             node.attr('ty2', node.attr('y2'));
-//         } else {
-//             node.attr('tx2', t2.attr('x'));
-//             node.attr('ty2', t2.attr('y'));
-//         }
-//     });
-//     data.container.selectAll('custom.res-circle').each(function() {
-//         const node = d3.select(this);
-//         const data:any = node.data()[0];
-//         node.attr('scx', node.attr('x'));
-//         node.attr('scy', node.attr('y'));
-//         if (data.templateResidueIndex != -1) {
-//             const t = rna.templDataContainer.container.select(`.res-title[index="${data.templateResidueIndex}"]`);
-//             node.attr('tcx', t.attr('x'));
-//             node.attr('tcy', t.attr('y'));
-//         } else {
-//             node.attr('tcx', node.attr('scx'));
-//             node.attr('tcy', node.attr('scy'));
-//         }
-//     })
-// 
-//     const duration = 1500;
-//     const step = 300;
-//     const ease = d3.easeCubic;
-// 
-//     const rename = () => {
-//         let renameTimer = d3.interval((elpased) => {
-//             const n = data.container.select('.res-title.text-green')
-//             if (n.empty()) {
-//                 renameTimer.stop();
-//                 remove();
-//             } else {
-//                 n.attr('text', (res: Residue) => res.templateResidueName);
-//                 n.classed('text-green', false);
-//                 data.classComb.text.add(n.attr('class'));
-//             }
-//             rna.draw();
-//         }, step);
-//     }
-//     const remove = () => {
-//         let removeTimer = d3.interval((elpased) => {
-//             const n = data.container.select('.res-title[tempIndex="-1"]')
-//             if (n.empty()) {
-//                 removeTimer.stop();
-//                 move();
-//             } else {
-//                 n.remove();
-//             }
-//             rna.draw();
-//         }, step);
-//     }
-//     const move = () => {
-//         let moveTimer = d3.timer((elapsed) => {
-//             const t = Math.min(1, ease(elapsed / duration));
-//             const update = (start: number, target: number) => start * (1 - t) + (target) * t;
-//             data.container.selectAll('custom.res-title').each(function() {
-//                 const node = d3.select(this);
-//                 node.attr('x', update(+node.attr('sx'), +node.attr('tx')));
-//                 node.attr('y', update(+node.attr('sy'), +node.attr('ty')));
-//             });
-//             data.container.selectAll('custom.bp-line').each(function() {
-//                 const node = d3.select(this);
-//                 node.attr('x1', +node.attr('sx1') * (1 - t) + (+node.attr('tx1')) * t);
-//                 node.attr('y1', +node.attr('sy1') * (1 - t) + (+node.attr('ty1')) * t);
-//                 node.attr('x2', +node.attr('sx2') * (1 - t) + (+node.attr('tx2')) * t);
-//                 node.attr('y2', +node.attr('sy2') * (1 - t) + (+node.attr('ty2')) * t);
-//             });
-//             data.container.selectAll('custom.res-circle').each(function() {
-//                 const node = d3.select(this);
-//                 node.attr('cx', +node.attr('scx') * (1 - t) + (+node.attr('tcx')) * t);
-//                 node.attr('cy', +node.attr('scy') * (1 - t) + (+node.attr('tcy')) * t);
-//             })
-// 
-//             rna.draw();
-// 
-//             if (t == 1) {
-//                 moveTimer.stop();
-//                 add();
-//             }
-//         });
-//     }
-//     const add = () => {
-//         let i = 0;
-//         let addInterval = d3.interval((elpased) => {
-//             for (;!data.container.select(`.res-title[tempIndex="${i}"]`).empty(); ++i) {}
-//             if (i < tempSeq.length) {
-//                 const t = rna.templDataContainer.container.select(`.res-title[index="${i}"]`);
-//                 const tData: Residue = t.data()[0] as Residue;
-//                 console.log('add');
-//                 seq.push(tData);
-//                 rna.draw();
-//             } else {
-//                 addInterval.stop();        
-//             }
-//         }, step)
-//     }
-//     rename();
-// }
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+export class DoubleCoorTarget {
+    public readonly x1: number;
+    public readonly y1: number;
+    public readonly x2: number;
+    public readonly y2: number;
+
+    constructor(x1: number, y1: number, x2: number, y2: number) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+    }
+}
+
+export class AnimationState {
+    public readonly bpLines: Map<string, DoubleCoorTarget>;
+    public readonly labelLines: Map<string, DoubleCoorTarget>;
+    public readonly labelTexts: Map<string, SingleCoorTarget>;
+    public readonly residues: Map<string, SingleCoorTarget>;
+
+    constructor(bpLines: Map<string, DoubleCoorTarget>,
+                labelLines: Map<string, DoubleCoorTarget>,
+                labelTexts: Map<string, SingleCoorTarget>,
+                residues: Map<string, SingleCoorTarget>) {
+        this.bpLines = bpLines;
+        this.labelLines = labelLines;
+        this.labelTexts = labelTexts;
+        this.residues = residues;
+    }
+
+    public static fromDataContainer(container: DataContainer) : AnimationState {
+        let bpLines = new Map<string, DoubleCoorTarget>();
+        let labelLines = new Map<string, DoubleCoorTarget>();
+        let labelTexts = new Map<string, SingleCoorTarget>();
+        let residues = new Map<string, SingleCoorTarget>();
+
+        container.getResidues().forEach(res => {
+            const target = new SingleCoorTarget(res.x, res.y);
+            const key = res.residueIndex.toString();
+            residues.set(key, target);
+        })
+
+        return new AnimationState(bpLines, labelLines, labelTexts, residues);
+    }
+
+    public static fromTemplate(container: DataContainer, template: DataContainer): AnimationState {
+        let bpLines = new Map<string, DoubleCoorTarget>();
+        let labelLines = new Map<string, DoubleCoorTarget>();
+        let labelTexts = new Map<string, SingleCoorTarget>();
+        let residues = new Map<string, SingleCoorTarget>();
+
+        const containerResidues = container.getResidues();
+        const templateResidues = template.getResidues();
+
+        containerResidues.forEach(res => {
+            if (res.templateResidueIndex > -1) {
+                const tempRes = templateResidues[res.templateResidueIndex];
+                const target = new SingleCoorTarget(tempRes.x, tempRes.y);
+                const key = res.residueIndex + '';
+                residues.set(key, target);
+            }
+        })
+
+        return new AnimationState(bpLines, labelLines, labelTexts, residues);
+    }
+}
+
+export class Animation {
+    from: AnimationState;
+    to: AnimationState;
+    container: DataContainer;
+    duration: number;
+
+    constructor(container: DataContainer, to: AnimationState, duration: number) {
+        this.from = AnimationState.fromDataContainer(container);
+        this.to = to;
+        this.container = container;
+        this.duration = duration;
+    }
+
+    public do(elapsed: number) {
+        const ease = d3.easeCubic;
+        const t = Math.min(1, ease(elapsed / this.duration));
+        const update = (start: number, target: number) => start * (1 - t) + (target) * t;
+
+        this.container.getResidues().forEach(res => {
+            const key = res.residueIndex.toString();
+            if (this.from.residues.has(key) && this.to.residues.has(key)) {
+                const fromRes = this.from.residues.get(key);
+                const toRes = this.to.residues.get(key);
+                res.x = update(fromRes.x, toRes.x);
+                res.y = update(fromRes.y, toRes.y);
+            }
+        });
+
+        this.container.getSingleCoorObjects().forEach(object => {
+            object.setX(object.getOrigX());
+            object.setY(object.getOrigY());
+        })
+
+        this.container.getLines().forEach(object => {
+            object.setX1(object.getOrigX1());
+            object.setY1(object.getOrigY1());
+            object.setX2(object.getOrigX2());
+            object.setY2(object.getOrigY2());
+        })
+    }
+
+    public reverse() {
+        const tmp = this.from;
+        this.from = this.to;
+        this.to = tmp;
+    }
+}
+
+//export function animation(rna: RNAVis): void {}
+export function transformToTemplate(rna: RNAVis): void {
+    const duration = 1500;
+    const step = 300;
+    const ease = d3.easeCubic;
+
+    // const rename = () => {
+    //     let renameTimer = d3.interval((elpased) => {
+    //         const n = data.container.select('.res-title.text-green')
+    //         if (n.empty()) {
+    //             renameTimer.stop();
+    //             remove();
+    //         } else {
+    //             n.attr('text', (res: Residue) => res.templateResidueName);
+    //             n.classed('text-green', false);
+    //             data.classComb.text.add(n.attr('class'));
+    //         }
+    //         rna.draw();
+    //     }, step);
+    // }
+    // const remove = () => {
+    //     let removeTimer = d3.interval((elpased) => {
+    //         const n = data.container.select('.res-title[tempIndex="-1"]')
+    //         if (n.empty()) {
+    //             removeTimer.stop();
+    //             move();
+    //         } else {
+    //             n.remove();
+    //         }
+    //         rna.draw();
+    //     }, step);
+    // }
+    const move = () => {
+        const anim = new Animation(rna.layers.get('data').data, AnimationState.fromTemplate(rna.layers.get('data').data, rna.layers.get('template').data), duration);
+        let moveTimer = d3.timer((elapsed) => {
+            anim.do(elapsed);
+            rna.draw();
+
+            const ease = d3.easeCubic;
+            const t = Math.min(1, ease(elapsed / duration));
+            if (t == 1) {
+                moveTimer.stop();
+                //add();
+            }
+        });
+    }
+    // const add = () => {
+    //     let i = 0;
+    //     let addInterval = d3.interval((elpased) => {
+    //         for (;!data.container.select(`.res-title[tempIndex="${i}"]`).empty(); ++i) {}
+    //         if (i < tempSeq.length) {
+    //             const t = rna.templDataContainer.container.select(`.res-title[index="${i}"]`);
+    //             const tData: Residue = t.data()[0] as Residue;
+    //             console.log('add');
+    //             seq.push(tData);
+    //             rna.draw();
+    //         } else {
+    //             addInterval.stop();        
+    //         }
+    //     }, step)
+    // }
+    // rename();
+    move();
+}
