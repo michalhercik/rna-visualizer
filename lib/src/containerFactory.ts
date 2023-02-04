@@ -6,9 +6,11 @@ import { Styles } from './classes';
 export default class ContainerFactory {
     private readonly margin = 10;
     private container: DataContainer;
+    private styles: Styles;
 
     public create(data: RNAData, styles: Styles): DataContainer {
         this.container = new DataContainer(data, styles);
+        this.styles = styles;
         this.setDimensions();
         this.addMargin();
         this.addBasePairs();
@@ -76,7 +78,8 @@ export default class ContainerFactory {
             }));
         }
         sequenceData.forEach((res: Residue) => {
-            const r = this.container.styles.getProperty(res.classes, 'font-size').slice(0,-2) * 0.75;
+            res.visible = true;
+            const r = this.styles.getProperty(res.classes, 'font-size').slice(0,-2) * 0.75;
             this.container.addResCircle(new ResidueCircle(res, r));
             this.container.addResTitle(new ResidueTitle(res));
         })
@@ -86,6 +89,7 @@ export default class ContainerFactory {
         const labelData = this.container.data.rnaComplexes[0].rnaMolecules[0].labels;
 
         labelData.forEach((label: Label) => {
+            label.visible = true;
             this.container.addLabelText(new LabelText(label));
             this.container.addLabelLine(new LabelLine(label));
         })

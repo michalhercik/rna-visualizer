@@ -9,7 +9,7 @@ const GRAY = 'rgb(204, 204, 204)';
 const BROWN = 'rgb(211.65, 104.55, 30.6)';
 
 export class Styles {
-    public styles: Map<string, any> = new Map([
+    private default: Map<string, any> = new Map([
         [ 'text-black', { fill: BLACK } ],
         [ 'text-red', { fill: RED } ],
         [ 'text-green', { fill: GREEN } ],
@@ -52,12 +52,12 @@ export class Styles {
         [ 'bp-line', { stroke: BLACK } ],
         [ 'residue-circle', { fill: WHITE } ],
         [ 'res-line', { stroke: GRAY } ]
-    ]);
+    ])
+    public styles: Map<string, any> = new Map(this.default);
 
     public addFrom(classes: Array<any>) {
         classes.forEach((style: any) => {
             const name = style.name;
-            delete style.name;
             this.styles.set(name, style);
         });
     }
@@ -79,5 +79,9 @@ export class Styles {
         const returnStyles = this.get(names);
         type ObjectKey = keyof typeof returnStyles;
         return returnStyles[property as ObjectKey];
+    }
+
+    public reset(): void {
+        this.styles = new Map(this.default);
     }
 }

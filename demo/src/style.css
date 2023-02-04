@@ -2,30 +2,30 @@ body {
     background-color: grey;
 }
 
-#canvas {
+canvas {
     border: 1px solid black;
 }
 
-#controls {
+.controls {
     background-color: wheat;
 }
 
-#layers {
+.rna {
     display: flex;
 }
 
-#layers > div {
+.rna > div {
     margin: 2px;
     padding: 10px;
 }
 
-#visibility {
+.visibility {
     list-style: none;
     padding: 0px;
     margin: 0px;
 }
 
-#groups > input {
+.groups > input {
     margin: 2px;
     padding: 4px;
 }

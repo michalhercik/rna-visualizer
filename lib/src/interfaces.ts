@@ -7,6 +7,7 @@ export interface SingleCoorObject {
     getOrigY(): number;
     setOrig(newX: number, newY: number): void;
     getClasses(): Array<string>;
+    isVisible(): boolean;
 }
 
 export interface Text extends SingleCoorObject {
@@ -32,6 +33,7 @@ export interface Line {
     getOrigY2(): number;
     setOrig(newX1: number, newY1: number, newX2: number, newY2: number): void;
     getClasses(): Array<string>;
+    isVisible(): boolean;
 }
 
 export interface Residue 
@@ -43,6 +45,7 @@ export interface Residue
     templateResidueIndex: number;
     templateResidueName: string;
     classes: Array<string>;
+    visible: boolean;
 }
 
 export interface BasePair 
@@ -75,6 +78,7 @@ export interface Label
     labelContent: LabelContent;
     labelLine: DataLabelLine;
     residueIndex: number; 
+    visible: boolean;
 }
 
 export interface Style 
@@ -86,8 +90,10 @@ export interface RNAMolecules
 {
     name: string;
     basePairs: Array<BasePair>;
-    labels: Array<Label>;
-    sequence: Array<Residue>;
+    // labels: Array<Label>;
+    // sequence: Array<Residue>;
+    labels: Array<any>;
+    sequence: Array<any>;
 }
 
 export interface RNAComplexes

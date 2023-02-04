@@ -4,7 +4,9 @@ import { Line, Text, Circle } from './interfaces';
 import DataContainer from './dataContainer'
 
 export function drawLines(lines: Array<Line>, ctx: CanvasRenderingContext2D, styles: Styles) {
-    lines.forEach((line: Line) => {
+    for (let line of lines) {
+        if (!line.isVisible()) continue;
+
         const lineStyles = styles.get(line.getClasses());
         ctx.strokeStyle = lineStyles['stroke'] || 'black';
         ctx.lineWidth = lineStyles['stroke-width'] || 1;
@@ -13,7 +15,7 @@ export function drawLines(lines: Array<Line>, ctx: CanvasRenderingContext2D, sty
         ctx.moveTo(line.getX1(), line.getY1());
         ctx.lineTo(line.getX2(), line.getY2());
         ctx.stroke();
-    })
+    }
 }
 
 export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, styles: Styles) {
@@ -23,7 +25,9 @@ export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, sty
         ['end', 'right']
     ]);
 
-    texts.forEach((text: Text) => {
+    for (let text of texts) {
+        if (!text.isVisible()) continue;
+
         const textStyles = styles.get(text.getClasses());
         const fontSize = () => {
             const k = textStyles['k'] || 1;
@@ -39,12 +43,14 @@ export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, sty
         ctx.textBaseline = textStyles['baseline'] || 'middle';
 
         ctx.fillText(text.getText(), text.getX(), text.getY());
-    })
+    }
 }
 
 export function drawCircles(circles: Array<Circle>, ctx: CanvasRenderingContext2D, styles: Styles) {
     ctx.save();
-    circles.forEach((circle: Circle) => {
+    for (let circle of circles) {
+        if (!circle.isVisible()) continue;
+
         const circleStyles = styles.get(circle.getClasses());
         ctx.strokeStyle = circleStyles['stroke'] || 'black';
         ctx.fillStyle = circleStyles['fill'] || 'white';
@@ -54,6 +60,6 @@ export function drawCircles(circles: Array<Circle>, ctx: CanvasRenderingContext2
         ctx.beginPath();
         ctx.arc(circle.getX(), circle.getY(), circle.getR(), 0, 2 * Math.PI);
         ctx.fill();
-    })
+    }
     ctx.restore();
 }

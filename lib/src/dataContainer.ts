@@ -165,6 +165,10 @@ export class BpLine implements Line {
         this.residue2.x = newX2;
         this.residue2.y = newY2;
     }
+
+    public isVisible() {
+        return this.residue1.visible && this.residue2.visible;
+    }
 }
 
 export class LabelLine implements Line {
@@ -240,6 +244,10 @@ export class LabelLine implements Line {
     public getClasses() {
         return this.label.labelLine.classes;
     }
+
+    public isVisible() {
+        return this.label.visible;
+    }
 }
 
 export class LabelText implements Text {
@@ -289,6 +297,10 @@ export class LabelText implements Text {
 
     public getClasses() {
         return this.label.labelContent.classes;
+    }
+
+    public isVisible() {
+        return this.label.visible;
     }
 }
 
@@ -346,6 +358,10 @@ export class ResidueCircle implements Circle {
 
     public scaleRadius(k: number) {
         this.r = this.origR * k;
+    }
+
+    public isVisible() {
+        return this.residue.visible;
     }
 }
 
@@ -407,6 +423,10 @@ export class ResidueTitle implements Text {
 
     public getResidue() {
         return this.residue;
+    }
+
+    public isVisible() {
+        return this.residue.visible;
     }
 }
 

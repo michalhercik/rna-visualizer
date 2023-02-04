@@ -15,6 +15,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       title: 'Demo',
+      filename: 'index.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/animation.html',
+      title: 'Animation',
+      filename: 'animation.html',
     }),
   ],
   output: {

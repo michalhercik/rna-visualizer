@@ -92,14 +92,19 @@ export class RNAVis {
         const cont = new ContainerFactory().create(data, this.styles);
         const newLayer = new Layer(cont, id, !visible);
         this.layers.set(id, newLayer);
-        this.setDimensions(cont);
+        this.updateDimensions(cont);
         if (visible) {
             this.show(id);
         } else {
             this.hide(id);
         }
         this.align();
-        //console.log(createGroups(this.dataContainer[0], this.dataContainer[this.dataContainer.length - 1]));
+    }
+
+    public clear() {
+        this.styles.reset();
+        this.layers.clear();
+        this.setDimensions(100, 100, 1);
     }
 
     public align(groupIndex: number = -1, minGroupSize: number = 5) {
@@ -117,12 +122,14 @@ export class RNAVis {
         }
 
         let group = groupIndex == -1 ? getBestGroup(groups) : groups[groupIndex];
-        translate(containers[1], group.xShift, group.yShift);
+        if (group) {
+            translate(containers[1], group.xShift, group.yShift);
 
-        for (let i = 2; i < layers.length; ++i) {
-            groups = createGroups(layers[0].data, layers[i].data, group);
-            let bestGroup = getBestGroup(groups);
-            translate(layers[i].data, bestGroup.xShift, bestGroup.yShift);
+            for (let i = 2; i < layers.length; ++i) {
+                groups = createGroups(layers[0].data, layers[i].data, group);
+                let bestGroup = getBestGroup(groups);
+                translate(layers[i].data, bestGroup.xShift, bestGroup.yShift);
+            }
         }
     }
 
@@ -189,7 +196,15 @@ export class RNAVis {
         return containers
     }
 
-    private setDimensions(data: DataContainer): void {
+    private setDimensions(width: number, height: number, scale: number = 2) {
+        this.canvas
+        .attr('height', scale * height)
+        .attr('width', scale * width)
+        .style('width', width + 'px');
+        this.canvas.node().getContext('2d').scale(scale, scale);
+    }
+
+    private updateDimensions(data: DataContainer): void {
         let alpha = this.canvas.node().getContext('2d').globalAlpha;
         const scale = 2;
         if (scale * data.width > +this.canvas.attr('width')) {

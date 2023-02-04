@@ -82,13 +82,16 @@ export class AnimationState {
 }
 
 export class Animation {
-    from: AnimationState;
-    to: AnimationState;
-    container: DataContainer;
+    from: AnimationState[];
+    to: AnimationState[];
+    container: DataContainer[];
     duration: number;
 
-    constructor(container: DataContainer, to: AnimationState, duration: number) {
-        this.from = AnimationState.fromDataContainer(container);
+    constructor(container: DataContainer[], to: AnimationState[], duration: number) {
+        this.from = [];
+        for (let d of container) {
+            this.from.push(AnimationState.fromDataContainer(d));
+        }
         this.to = to;
         this.container = container;
         this.duration = duration;
@@ -99,27 +102,29 @@ export class Animation {
         const t = Math.min(1, ease(elapsed / this.duration));
         const update = (start: number, target: number) => start * (1 - t) + (target) * t;
 
-        this.container.getResidues().forEach(res => {
-            const key = res.residueIndex.toString();
-            if (this.from.residues.has(key) && this.to.residues.has(key)) {
-                const fromRes = this.from.residues.get(key);
-                const toRes = this.to.residues.get(key);
-                res.x = update(fromRes.x, toRes.x);
-                res.y = update(fromRes.y, toRes.y);
-            }
-        });
+        for (let i = 0; i < this.container.length; ++i) {
+            this.container[i].getResidues().forEach(res => {
+                const key = res.residueIndex.toString();
+                if (this.from[i].residues.has(key) && this.to[i].residues.has(key)) {
+                    const fromRes = this.from[i].residues.get(key);
+                    const toRes = this.to[i].residues.get(key);
+                    res.x = update(fromRes.x, toRes.x);
+                    res.y = update(fromRes.y, toRes.y);
+                }
+            });
 
-        this.container.getSingleCoorObjects().forEach(object => {
-            object.setX(object.getOrigX());
-            object.setY(object.getOrigY());
-        })
+            this.container[i].getSingleCoorObjects().forEach(object => {
+                object.setX(object.getOrigX());
+                object.setY(object.getOrigY());
+            })
 
-        this.container.getLines().forEach(object => {
-            object.setX1(object.getOrigX1());
-            object.setY1(object.getOrigY1());
-            object.setX2(object.getOrigX2());
-            object.setY2(object.getOrigY2());
-        })
+            this.container[i].getLines().forEach(object => {
+                object.setX1(object.getOrigX1());
+                object.setY1(object.getOrigY1());
+                object.setX2(object.getOrigX2());
+                object.setY2(object.getOrigY2());
+            })
+        }
     }
 
     public reverse() {
@@ -129,67 +134,32 @@ export class Animation {
     }
 }
 
-//export function animation(rna: RNAVis): void {}
-export function transformToTemplate(rna: RNAVis): void {
-    const duration = 1500;
-    const step = 300;
+export function remove(dataContainer: DataContainer): void {
+    dataContainer.getResidues().forEach(res => {
+        if (res.templateResidueIndex === -1) {
+            res.visible = false;
+        }
+    })
+}
+
+export function add(dataContainer: DataContainer): void {
+    dataContainer.getResidues().forEach(res => {
+        if (res.templateResidueIndex === -1) {
+            res.visible = true;
+        }
+    })
+}
+
+export function animate(anim: Animation, rna: RNAVis): void {
+    console.log(anim);
     const ease = d3.easeCubic;
+    let moveTimer = d3.timer((elapsed) => {
+        anim.do(elapsed);
+        rna.draw();
 
-    // const rename = () => {
-    //     let renameTimer = d3.interval((elpased) => {
-    //         const n = data.container.select('.res-title.text-green')
-    //         if (n.empty()) {
-    //             renameTimer.stop();
-    //             remove();
-    //         } else {
-    //             n.attr('text', (res: Residue) => res.templateResidueName);
-    //             n.classed('text-green', false);
-    //             data.classComb.text.add(n.attr('class'));
-    //         }
-    //         rna.draw();
-    //     }, step);
-    // }
-    // const remove = () => {
-    //     let removeTimer = d3.interval((elpased) => {
-    //         const n = data.container.select('.res-title[tempIndex="-1"]')
-    //         if (n.empty()) {
-    //             removeTimer.stop();
-    //             move();
-    //         } else {
-    //             n.remove();
-    //         }
-    //         rna.draw();
-    //     }, step);
-    // }
-    const move = () => {
-        const anim = new Animation(rna.layers.get('data').data, AnimationState.fromTemplate(rna.layers.get('data').data, rna.layers.get('template').data), duration);
-        let moveTimer = d3.timer((elapsed) => {
-            anim.do(elapsed);
-            rna.draw();
-
-            const ease = d3.easeCubic;
-            const t = Math.min(1, ease(elapsed / duration));
-            if (t == 1) {
-                moveTimer.stop();
-                //add();
-            }
-        });
-    }
-    // const add = () => {
-    //     let i = 0;
-    //     let addInterval = d3.interval((elpased) => {
-    //         for (;!data.container.select(`.res-title[tempIndex="${i}"]`).empty(); ++i) {}
-    //         if (i < tempSeq.length) {
-    //             const t = rna.templDataContainer.container.select(`.res-title[index="${i}"]`);
-    //             const tData: Residue = t.data()[0] as Residue;
-    //             console.log('add');
-    //             seq.push(tData);
-    //             rna.draw();
-    //         } else {
-    //             addInterval.stop();        
-    //         }
-    //     }, step)
-    // }
-    // rename();
-    move();
+        const t = Math.min(1, ease(elapsed / anim.duration));
+        if (t == 1) {
+            moveTimer.stop();
+        }
+    });
 }
