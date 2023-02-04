@@ -9,12 +9,12 @@ import ContainerFactory from './containerFactory';
 import { getBestGroup, Group, createGroups, translate } from './align';
 
 class Layer {
-    public id;
+    public name;
     public data;
     public visible = true;
 
-    constructor(data: DataContainer, id: string, visible: boolean = true) {
-        this.id = id;
+    constructor(data: DataContainer, name: string, visible: boolean = true) {
+        this.name = name;
         this.data = data;
         this.visible = visible;
     }
@@ -24,7 +24,7 @@ export class RNAVis {
     private margin = 10;
     private canvas;    
     // public readonly dataContainer: Array<DataContainer>;
-    public readonly layers: Map<string, Layer>;
+    public readonly layers: Array<Layer>;
     private titlePresenter: TitlePresenter;
     private updater: ContainerUpdater;
     private styles: Styles;
@@ -32,7 +32,7 @@ export class RNAVis {
 
     constructor(element: HTMLElement) {
         this.styles = new Styles();
-        this.layers = new Map<string, Layer>();
+        this.layers = new Array<Layer>();
         this.updater = new ContainerUpdater();
         this.zoom = d3.zoom();
 
@@ -87,28 +87,29 @@ export class RNAVis {
         };
     }
 
-    public addData(data: RNAData, id: string, visible: boolean = true): void {
+    public addData(data: RNAData, name: string, visible: boolean = true): void {
         this.styles.addFrom(data.classes);
         const cont = new ContainerFactory().create(data, this.styles);
-        const newLayer = new Layer(cont, id, !visible);
-        this.layers.set(id, newLayer);
+        const newLayer = new Layer(cont, name, !visible);
+        this.layers.push(newLayer);
         this.updateDimensions(cont);
+        const index = this.layers.length - 1;
         if (visible) {
-            this.show(id);
+            this.showByIndex(index);
         } else {
-            this.hide(id);
+            this.hideByIndex(index);
         }
         this.align();
     }
 
     public clear() {
         this.styles.reset();
-        this.layers.clear();
+        this.layers.length = 0;
         this.setDimensions(100, 100, 1);
     }
 
     public align(groupIndex: number = -1, minGroupSize: number = 5) {
-        if (this.layers.size < 2) {
+        if (this.layers.length < 2) {
             return;
         }
 
@@ -156,10 +157,22 @@ export class RNAVis {
         };
     }
 
-    public show(id: string) {
-        if (!this.layers.get(id).visible) {
-            this.layers.get(id).visible = true;
-            if (Array.from(this.layers.values()).filter(l => l.visible).length > 1) {
+    public getLayerIndex(name: string): number {
+        return this.layers.map(layer => layer.name).indexOf(name);
+    }
+
+    public showByName(name: string): void {
+        this.showByIndex(this.getLayerIndex(name));
+    }
+
+    public hideByName(name: string): void {
+        this.hideByIndex(this.getLayerIndex(name));
+    }
+
+    public showByIndex(index: number) {
+        if (!this.layers[index].visible) {
+            this.layers[index].visible = true;
+            if (this.layers.filter(l => l.visible).length > 1) {
                 let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
                 oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
                 const newAlpha = 1 / (Math.round(1 / oldAlpha) + 1);
@@ -168,10 +181,10 @@ export class RNAVis {
         }
     }
 
-    public hide(id: string) {
-        if (this.layers.get(id).visible) {
-            this.layers.get(id).visible = false;
-            if (Array.from(this.layers.values()).filter(l => l.visible).length > 0) {
+    public hideByIndex(index: number) {
+        if (this.layers[index].visible) {
+            this.layers[index].visible = false;
+            if (this.layers.filter(l => l.visible).length > 0) {
                 let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
                 oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
                 let visible = Math.round(1 / oldAlpha) - 1;
@@ -189,11 +202,7 @@ export class RNAVis {
     }
 
     public getDataContainers(): Array<DataContainer> {
-        let containers = new Array<DataContainer>();
-        for (let l of Array.from(this.layers.values())) {
-            containers.push(l.data);
-        }
-        return containers
+        return this.layers.map(layer => layer.data);
     }
 
     private setDimensions(width: number, height: number, scale: number = 2) {

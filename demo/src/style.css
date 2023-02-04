@@ -10,6 +10,10 @@ canvas {
     background-color: wheat;
 }
 
+.buttons {
+    margin-top: 10px;
+}
+
 .rna {
     display: flex;
 }

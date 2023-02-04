@@ -40,50 +40,44 @@ import datam from '../example_data/results/json/URS0000701843_9606,-d.5.e.I.igua
 import datan from '../example_data/results/json/URS000072BE72_9606,-d.5.e.I.iguana.colored.json';
 
 export class Data {
-  name: string;
-  structure: RNAData;
+    name: string;
+    structure: RNAData;
 
-  constructor(name: string, structure: RNAData) {
-    this.name = name;
-    this.structure = structure;
-  }
+    constructor(name: string, structure: RNAData) {
+        this.name = name;
+        this.structure = structure;
+    }
 }
 
 export class DataBundle {
-  template: Data;
-  data: Data[];
-  
-  constructor(template: Data, data: Data[]) {
-    this.template = template;
-    this.data = data;
-  }
+    template: Data;
+    data: Data[];
+
+    constructor(template: Data, data: Data[]) {
+        this.template = template;
+        this.data = data;
+    }
 }
 
 export const data: DataBundle[] = [
-  new DataBundle(
-    new Data('d.5.b.A.madurae', template05),
-    [
-      new Data('URS00000B9D9D_471852', data05)
-    ]
-  ),
-  new DataBundle(
-    new Data('d.16.b.Burkholderia.sp', template0407),
-    [
-      new Data('URS000000C6FF_36873', data04),
-      new Data('URS00000AA4F3_76731', data07)
-    ]
-  ),
-  new DataBundle(
-    new Data('HS_LSU_3D', template02),
-    [
-      new Data('URS000075EC78_9606', data02)
-    ]
-  ),
-  new DataBundle(
-    new Data('d.5.b.A.madurae', template05),
-    [
-      new Data('URS00000B9D9D_471852', data05)
-    ]
-  ),
+    new DataBundle(
+        new Data('d.5.b.A.madurae', template05),
+        [
+            new Data('URS00000B9D9D_471852', data05)
+        ]
+    ),
+    new DataBundle(
+        new Data('d.16.b.Burkholderia.sp', template0407),
+        [
+            new Data('URS000000C6FF_36873', data04),
+            new Data('URS00000AA4F3_76731', data07)
+        ]
+    ),
+    new DataBundle(
+        new Data('HS_LSU_3D', template02),
+        [
+            new Data('URS000075EC78_9606', data02)
+        ]
+    ),
 ];
 

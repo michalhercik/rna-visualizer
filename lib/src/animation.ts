@@ -82,19 +82,22 @@ export class AnimationState {
 }
 
 export class Animation {
+    container: DataContainer[];
     from: AnimationState[];
     to: AnimationState[];
-    container: DataContainer[];
+    isActive: boolean[];
     duration: number;
 
     constructor(container: DataContainer[], to: AnimationState[], duration: number) {
-        this.from = [];
-        for (let d of container) {
-            this.from.push(AnimationState.fromDataContainer(d));
-        }
+        this.from = container.map(c => AnimationState.fromDataContainer(c));
+        this.isActive = container.map(c => true);
         this.to = to;
         this.container = container;
         this.duration = duration;
+    }
+
+    public changeState(index: number, isActive: boolean) {
+        this.isActive[index] = isActive;
     }
 
     public do(elapsed: number) {
@@ -103,6 +106,10 @@ export class Animation {
         const update = (start: number, target: number) => start * (1 - t) + (target) * t;
 
         for (let i = 0; i < this.container.length; ++i) {
+            if (!this.isActive[i]) {
+                continue;
+            }
+
             this.container[i].getResidues().forEach(res => {
                 const key = res.residueIndex.toString();
                 if (this.from[i].residues.has(key) && this.to[i].residues.has(key)) {
@@ -151,7 +158,6 @@ export function add(dataContainer: DataContainer): void {
 }
 
 export function animate(anim: Animation, rna: RNAVis): void {
-    console.log(anim);
     const ease = d3.easeCubic;
     let moveTimer = d3.timer((elapsed) => {
         anim.do(elapsed);
