@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
 import { Styles } from './classes';
-import { Line, Text, Circle } from './interfaces';
+import { ILine, Text, Circle } from './rna/data-structures';
 import DataContainer from './dataContainer'
 
-export function drawLines(lines: Array<Line>, ctx: CanvasRenderingContext2D, styles: Styles) {
+export function drawLines(lines: Array<ILine>, ctx: CanvasRenderingContext2D, styles: Styles) {
     for (let line of lines) {
         if (!line.isVisible()) continue;
 
@@ -12,8 +12,8 @@ export function drawLines(lines: Array<Line>, ctx: CanvasRenderingContext2D, sty
         ctx.lineWidth = lineStyles['stroke-width'] || 1;
 
         ctx.beginPath();
-        ctx.moveTo(line.getX1(), line.getY1());
-        ctx.lineTo(line.getX2(), line.getY2());
+        ctx.moveTo(line.getTransformedX1(), line.getTransformedY1());
+        ctx.lineTo(line.getTransformedX2(), line.getTransformedY2());
         ctx.stroke();
     }
 }
@@ -42,7 +42,7 @@ export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, sty
         ctx.textAlign = translate.get(textStyles['text-anchor'] || 'middle') as CanvasTextAlign;
         ctx.textBaseline = textStyles['baseline'] || 'middle';
 
-        ctx.fillText(text.getText(), text.getX(), text.getY());
+        ctx.fillText(text.getText(), text.getTransformedX(), text.getTransformedY());
     }
 }
 
@@ -58,7 +58,7 @@ export function drawCircles(circles: Array<Circle>, ctx: CanvasRenderingContext2
         ctx.globalAlpha = 1;
 
         ctx.beginPath();
-        ctx.arc(circle.getX(), circle.getY(), circle.getR(), 0, 2 * Math.PI);
+        ctx.arc(circle.getTransformedX(), circle.getTransformedY(), circle.getScaledRadius(), 0, 2 * Math.PI);
         ctx.fill();
     }
     ctx.restore();

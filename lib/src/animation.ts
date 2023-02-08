@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import DataContainer from './dataContainer';
-import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
+import { BasePair, Label, Residue } from './rna/data-structures';
 import { drawLines, drawCircles, drawTexts } from './draw';
 import { RNAVis } from './rnavis';
 
@@ -50,9 +50,9 @@ export class AnimationState {
         let labelTexts = new Map<string, SingleCoorTarget>();
         let residues = new Map<string, SingleCoorTarget>();
 
-        container.getResidues().forEach(res => {
-            const target = new SingleCoorTarget(res.x, res.y);
-            const key = res.residueIndex.toString();
+        container.residues.forEach(res => {
+            const target = new SingleCoorTarget(res.getX(), res.getY());
+            const key = res.index.toString();
             residues.set(key, target);
         })
 
@@ -65,14 +65,12 @@ export class AnimationState {
         let labelTexts = new Map<string, SingleCoorTarget>();
         let residues = new Map<string, SingleCoorTarget>();
 
-        const containerResidues = container.getResidues();
-        const templateResidues = template.getResidues();
 
-        containerResidues.forEach(res => {
-            if (res.templateResidueIndex > -1) {
-                const tempRes = templateResidues[res.templateResidueIndex];
-                const target = new SingleCoorTarget(tempRes.x, tempRes.y);
-                const key = res.residueIndex + '';
+        container.residues.forEach(res => {
+            if (res.templateIndex > -1) {
+                const tempRes = template.residues[res.templateIndex];
+                const target = new SingleCoorTarget(tempRes.getX(), tempRes.getY());
+                const key = res.index + '';
                 residues.set(key, target);
             }
         })
@@ -110,26 +108,19 @@ export class Animation {
                 continue;
             }
 
-            this.container[i].getResidues().forEach(res => {
-                const key = res.residueIndex.toString();
+            this.container[i].residues.forEach(res => {
+                const key = res.index.toString();
                 if (this.from[i].residues.has(key) && this.to[i].residues.has(key)) {
                     const fromRes = this.from[i].residues.get(key);
                     const toRes = this.to[i].residues.get(key);
-                    res.x = update(fromRes.x, toRes.x);
-                    res.y = update(fromRes.y, toRes.y);
+                    res
+                    .setX(update(fromRes.x, toRes.x))
+                    .setY(update(fromRes.y, toRes.y));
                 }
             });
 
-            this.container[i].getSingleCoorObjects().forEach(object => {
-                object.setX(object.getOrigX());
-                object.setY(object.getOrigY());
-            })
-
-            this.container[i].getLines().forEach(object => {
-                object.setX1(object.getOrigX1());
-                object.setY1(object.getOrigY1());
-                object.setX2(object.getOrigX2());
-                object.setY2(object.getOrigY2());
+            this.container[i].labels.forEach(label => {
+                // TODO
             })
         }
     }
@@ -142,17 +133,17 @@ export class Animation {
 }
 
 export function remove(dataContainer: DataContainer): void {
-    dataContainer.getResidues().forEach(res => {
-        if (res.templateResidueIndex === -1) {
-            res.visible = false;
+    dataContainer.residues.forEach(res => {
+        if (res.templateIndex === -1) {
+            res.setVisible(false);
         }
     })
 }
 
 export function add(dataContainer: DataContainer): void {
-    dataContainer.getResidues().forEach(res => {
-        if (res.templateResidueIndex === -1) {
-            res.visible = true;
+    dataContainer.residues.forEach(res => {
+        if (res.templateIndex === -1) {
+            res.setVisible(true);
         }
     })
 }

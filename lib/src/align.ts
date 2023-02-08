@@ -1,5 +1,5 @@
 import DataContainer from './dataContainer';
-import { Residue } from './interfaces';
+import { Residue } from './rna/data-structures';
 
 export class Group {
     public xShift: number;
@@ -21,18 +21,18 @@ export class Group {
     }
 
     public has(index: number) {
-        return this.members.some((res: Residue) => res.residueIndex === index);
+        return this.members.some((res: Residue) => res.index === index);
     }
 }
 
 export function createGroups(contA: DataContainer, contB: DataContainer, group: Group = null, filter: number = 5): Array<Group> {
-    let tempRes = contA.getResidues();
+    let tempRes = contA.residues;
     let shifts = new Map<string, Group>();
-    contB.getResidues().forEach(res => {
-        if (res.templateResidueIndex !== -1 && (group === null || group.has(res.templateResidueIndex))) {
-            const tRes = tempRes[res.templateResidueIndex];
-            let x = Math.round(tRes.x - res.x);
-            let y = Math.round(tRes.y - res.y);
+    contB.residues.forEach(res => {
+        if (res.templateIndex !== -1 && (group === null || group.has(res.templateIndex))) {
+            const tRes = tempRes[res.templateIndex];
+            let x = Math.round(tRes.getX() - res.getX());
+            let y = Math.round(tRes.getY() - res.getY());
             let key = x + "," + y;
             if (shifts.has(key)) {
                 shifts.get(key).push(tRes);
@@ -56,25 +56,25 @@ export function getBestGroup(groups: Group[]) {
 }
 
 export function translate(cont: DataContainer, xShift: number, yShift: number) {
-    cont.getSingleCoorObjects().forEach(object => {
-        object.setOrig(
-            Math.round(object.getX() + xShift), 
-            Math.round(object.getY() + yShift)
-        );
-        object.setX(object.getX() + xShift);
-        object.setY(object.getY() + yShift);
-    })
+    // cont.getSingleCoorObjects().forEach(object => {
+    //     object.setOrig(
+    //         Math.round(object.getX() + xShift), 
+    //         Math.round(object.getY() + yShift)
+    //     );
+    //     object.setX(object.getX() + xShift);
+    //     object.setY(object.getY() + yShift);
+    // })
 
-    cont.getLines().forEach(line => {
-        line.setOrig(
-            Math.round(line.getX1() + xShift),
-            Math.round(line.getY1() + yShift),
-            Math.round(line.getX2() + xShift),
-            Math.round(line.getY2() + yShift)
-        );
-        line.setX1(line.getX1() + xShift);
-        line.setY1(line.getY1() + yShift);
-        line.setX2(line.getX2() + xShift);
-        line.setY2(line.getY2() + yShift);
-    })
+    // cont.getLines().forEach(line => {
+    //     line.setOrig(
+    //         Math.round(line.getX1() + xShift),
+    //         Math.round(line.getY1() + yShift),
+    //         Math.round(line.getX2() + xShift),
+    //         Math.round(line.getY2() + yShift)
+    //     );
+    //     line.setX1(line.getX1() + xShift);
+    //     line.setY1(line.getY1() + yShift);
+    //     line.setX2(line.getX2() + xShift);
+    //     line.setY2(line.getY2() + yShift);
+    // })
 }

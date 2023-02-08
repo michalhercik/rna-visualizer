@@ -36,7 +36,7 @@ export interface Line {
     isVisible(): boolean;
 }
 
-export interface Residue 
+export interface DataResidue 
 {
     x: number;
     y: number;
@@ -45,10 +45,9 @@ export interface Residue
     templateResidueIndex: number;
     templateResidueName: string;
     classes: Array<string>;
-    visible: boolean;
 }
 
-export interface BasePair 
+export interface DataBasePair 
 {
     residueIndex1: number;
     residueIndex2: number;
@@ -56,7 +55,7 @@ export interface BasePair
     classes: Array<any>;
 }
 
-export interface LabelContent 
+export interface DataLabelContent 
 {
     classes: Array<string>;
     label: string;
@@ -73,15 +72,14 @@ export interface DataLabelLine
     y2: number;
 }
 
-export interface Label 
+export interface DataLabel 
 {
-    labelContent: LabelContent;
+    labelContent: DataLabelContent;
     labelLine: DataLabelLine;
     residueIndex: number; 
-    visible: boolean;
 }
 
-export interface Style 
+export interface DataStyle 
 {
     name: string;
 }
@@ -89,11 +87,9 @@ export interface Style
 export interface RNAMolecules
 {
     name: string;
-    basePairs: Array<BasePair>;
-    // labels: Array<Label>;
-    // sequence: Array<Residue>;
-    labels: Array<any>;
-    sequence: Array<any>;
+    basePairs: Array<DataBasePair>;
+    labels: Array<DataLabel>;
+    sequence: Array<DataResidue>;
 }
 
 export interface RNAComplexes

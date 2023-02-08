@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { BasePair, Label, Style, Residue, RNAData } from './interfaces';
+import { RNAData } from './interfaces';
 import { Styles } from './classes';
 import { drawLines, drawTexts, drawCircles } from './draw';
 import DataContainer from './dataContainer'
@@ -7,6 +7,7 @@ import TitlePresenter from './titlePresenter';
 import ContainerUpdater from './containerUpdater';
 import ContainerFactory from './containerFactory';
 import { getBestGroup, Group, createGroups, translate } from './align';
+import { identity } from './rna/data-structures';
 
 class Layer {
     public name;
@@ -48,7 +49,7 @@ export class RNAVis {
         this.zoom
         .scaleExtent([1,10])
         .on('zoom', (event) => {
-            Array.from(this.layers.values()).forEach((layer) => this.updater.update(event, layer.data));
+            Array.from(this.layers.values()).forEach((layer) => layer.data.update(event));
             this.draw();
             this.titlePresenter.updateRes(null);
         });
@@ -60,16 +61,11 @@ export class RNAVis {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         let layers = Array.from(this.layers.values());
         layers.forEach((layer) => {
-            if (layer.visible)
+            if (layer.visible) {
                 drawLines(layer.data.getLines(), ctx, layer.data.styles);
-        });
-        layers.forEach((layer) => {
-            if (layer.visible)
                 drawCircles(layer.data.getCircles(), ctx, layer.data.styles);
-        });
-        layers.forEach((layer) => {
-            if (layer.visible)
-                drawTexts(layer.data.getTexts(), ctx, layer.data.styles);
+                drawTexts(layer.data.getText(), ctx, layer.data.styles);
+            }
         });
     }
 
@@ -143,11 +139,11 @@ export class RNAVis {
             const bla = containers[0].getResByCoor(x, y); 
 
             if (bla !== null) {
-                const target = bla.residue;
+                const target = bla;
                 containers.forEach(container => {
-                    for (let residue of container.getResidues()) {
-                        if (residue.templateResidueIndex === target.residueIndex) {
-                            translate(container, target.x - residue.x, target.y - residue.y);
+                    for (let residue of container.residues) {
+                        if (residue.templateIndex === target.index) {
+                            translate(container, target.getX() - residue.getX(), target.getY() - residue.getY());
                             break;
                         }
                     }
@@ -197,7 +193,7 @@ export class RNAVis {
     public resetPositions() {
         this.canvas.call(this.zoom.transform, d3.zoomIdentity);
         for (let layer of Array.from(this.layers.values())) {
-            this.updater.update(d3.zoomIdentity, layer.data);
+            layer.data.update(identity);
         }
     }
 
