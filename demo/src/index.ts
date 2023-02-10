@@ -11,7 +11,7 @@ const minGroupSize = 20;
 const rnaVis = new RNAVis(layers);
 rnaVis.addZoom();
 // rnaVis.addHoverLabel();
-rnaVis.addClickAlign();
+rnaVis.addClickAlign(1500);
 
 addSelection(rnaVis);
 load();
@@ -100,14 +100,13 @@ function load(): void {
 
     rnaVis.align();
 
-    const duration = 1500;
     let targets: AnimationState[] = [];
     let checkbox;
     for (let i = 1; i < rnaVis.layers.length; ++i) {
         targets.push(AnimationState.fromTemplate(rnaVis.layers[i].data, rnaVis.layers[0].data));
     }
     let conts = rnaVis.getDataContainers();
-    const animation = new Animation(conts.slice(1), targets, duration);
+    const animation = new Animation(conts.slice(1), targets);
 
     addVisibility(rnaVis);
     addGroups(rnaVis);

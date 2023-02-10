@@ -31,6 +31,7 @@ export function addAnim(rnaVis: RNAVis, anim: Animation): void {
 
 export function addAnimBtn(rnaVis: RNAVis, anim: Animation) {
     const animBtn = document.getElementById('animate-button');
+    const duration = document.getElementById('duration') as HTMLInputElement;
     if (animBtn) {
         let removed = false;
         animBtn.onclick = (event) => {
@@ -40,7 +41,7 @@ export function addAnimBtn(rnaVis: RNAVis, anim: Animation) {
                 rnaVis.draw();
             }
 
-            anim.animate(rnaVis, () => {
+            anim.animate(rnaVis, +duration.value, () => {
                 if (removed) {
                     anim.container.forEach(add);
                     rnaVis.draw();

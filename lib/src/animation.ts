@@ -152,13 +152,11 @@ export class Animation {
     from: AnimationState[];
     to: AnimationState[];
     isActive: boolean[];
-    duration: number;
 
-    constructor(container: DataContainer[], to: AnimationState[], duration: number) {
+    constructor(container: DataContainer[], to: AnimationState[]) {
         this.container = container;
         this.isActive = container.map(c => true);
         this.to = to;
-        this.duration = duration;
         this.updateFrom();
         
     }
@@ -172,9 +170,7 @@ export class Animation {
     }
 
     public do(elapsed: number) {
-        const ease = d3.easeCubic;
-        const t = Math.min(1, ease(elapsed / this.duration));
-        const update = (start: number, target: number) => start * (1 - t) + (target) * t;
+        const update = (start: number, target: number) => start * (1 - elapsed) + (target) * elapsed;
 
         for (let i = 0; i < this.container.length; ++i) {
             if (!this.isActive[i]) {
@@ -221,14 +217,14 @@ export class Animation {
         this.to = tmp;
     }
 
-    public animate(rna: RNAVis, after: () => void = () => {}): void {
+    public animate(rna: RNAVis, duration: number, after: () => void = () => {}): void {
         const ease = d3.easeCubic;
-        let timer = d3.timer((elapsed) => {
+        let timer = d3.timer((t) => {
+            const elapsed = Math.min(1, ease(t / duration));
             this.do(elapsed);
             rna.draw();
 
-            const t = Math.min(1, ease(elapsed / this.duration));
-            if (t == 1) {
+            if (elapsed == 1) {
                 timer.stop();
                 after();
             }

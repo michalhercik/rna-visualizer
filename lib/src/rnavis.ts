@@ -137,12 +137,12 @@ export class RNAVis {
                 targets.push(AnimationState.fromTranslation(layers[i].data, new Vector2(bestGroup.xShift, bestGroup.yShift)));
             }
 
-            new Animation(containers.slice(1), targets, duration).animate(this);
+            new Animation(containers.slice(1), targets).animate(this, duration);
         }
 
     }
 
-    public addClickAlign() {
+    public addClickAlign(duration: number = 0) {
         this.canvas.node().onclick = (event) => {
             const rect = this.canvas.node().getBoundingClientRect();
             const x = event.clientX - rect.left;
@@ -152,15 +152,18 @@ export class RNAVis {
 
             if (bla !== null) {
                 const target = bla;
-                containers.forEach(container => {
-                    for (let residue of container.residues) {
+                let animTargets: AnimationState[] = []
+                for (let i = 1; i < containers.length; ++i) {
+                    for (let residue of containers[i].residues) {
                         if (residue.templateIndex === target.index) {
-                            container.translate(new Vector2(target.getX() - residue.getX(), target.getY() - residue.getY()));
+                            const shift = Vector2.subtraction(target.getCoor(), residue.getCoor());
+                            animTargets.push(AnimationState.fromTranslation(containers[i], shift));
                             break;
                         }
                     }
-                })
-                this.draw();
+                }
+                const anim = new Animation(containers.slice(1), animTargets);
+                anim.animate(this, duration);
             }
         };
     }
