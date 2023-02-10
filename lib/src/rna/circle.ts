@@ -1,13 +1,13 @@
-import { Coordinate, Transformation, identity } from './data-structures';
+import { Vector2, Transformation, identity } from './data-structures';
 
 export class Circle {
-    private coor: Coordinate;
+    private coor: Vector2;
     private radius: number;
     private scale: number = 1;
     private visible: boolean = true;
     private transform: Transformation = identity;
 
-    public constructor(coor: Coordinate, radius: number) {
+    public constructor(coor: Vector2, radius: number) {
         this.coor = coor;
         this.radius = radius;
     }
@@ -43,6 +43,15 @@ export class Circle {
         return this;
     }
 
+    public setCoor(coor: Vector2): Circle {
+        this.coor = coor;
+        return this;
+    }
+
+    public getCoor(): Vector2 {
+        return this.coor.copy();
+    }
+
     public getScaledRadius() {
         return this.scale * this.radius;
     }
@@ -63,5 +72,10 @@ export class Circle {
 
     public getClasses(): string[] {
         return ['circle'];
+    }
+
+    public translate(shift: Vector2): Circle {
+        this.coor.add(shift);
+        return this;
     }
 }

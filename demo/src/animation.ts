@@ -1,4 +1,4 @@
-import { RNAVis, RNAData, remove, add, Animation, AnimationState, animate, createGroups } from 'rna-visualizer';
+import { RNAVis, RNAData, remove, add, Animation, AnimationState, createGroups } from 'rna-visualizer';
 import {data} from './data';
 import * as d3 from 'd3';
 
@@ -35,18 +35,19 @@ export function addAnimBtn(rnaVis: RNAVis, anim: Animation) {
         let removed = false;
         animBtn.onclick = (event) => {
             if (!removed) {
+                anim.updateFrom();
                 anim.container.forEach(remove);
                 rnaVis.draw();
             }
 
-            animate(anim, rnaVis);
-
-            if (removed) {
-                anim.container.forEach(add);
-                rnaVis.draw();
-            }
-            anim.reverse();
-            removed = !removed;
+            anim.animate(rnaVis, () => {
+                if (removed) {
+                    anim.container.forEach(add);
+                    rnaVis.draw();
+                }
+                anim.reverse();
+                removed = !removed;
+            });
         }
     }
 }

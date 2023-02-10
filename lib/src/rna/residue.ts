@@ -1,12 +1,12 @@
-import { Coordinate, Transformation, Text, Circle } from './data-structures';
+import { Vector2, Transformation, Text, Circle } from './data-structures';
 import { Styles } from '../classes';
 import { DataResidue } from '../interfaces';
 
 export class Residue {
-    public  name: string;
-    public  index: number;
-    public  templateIndex: number;
-    public  templateName: string;
+    public name: string;
+    public index: number;
+    public templateIndex: number;
+    public templateName: string;
     public circle: Circle;
     public text: Text;
     private visible: boolean = true;
@@ -26,11 +26,11 @@ export class Residue {
     }
 
     public static fromDataResidue(res: DataResidue, styles: Styles): Residue {
-        const textCoor = new Coordinate(res.x, res.y);
+        const textCoor = new Vector2(res.x, res.y);
         const classes = Object.assign([], res.classes);
         const text = new Text(textCoor, res.residueName, classes);
 
-        const circleCoor = new Coordinate(res.x, res.y);
+        const circleCoor = new Vector2(res.x, res.y);
         const radius = styles.getProperty(res.classes, 'font-size').slice(0,-2) * 0.75;
         const circle = new Circle(circleCoor, radius);
 
@@ -78,6 +78,16 @@ export class Residue {
         return this;
     }
 
+    public setCoor(coor: Vector2): Residue {
+       this.circle.setCoor(coor);
+       this.text.setCoor(coor);
+       return this;
+    }
+
+    public getCoor(): Vector2 {
+       return this.circle.getCoor();
+    }
+
     public setVisible(visible: boolean): Residue {
         this.circle.setVisible(visible);
         this.text.setVisible(visible);
@@ -91,5 +101,11 @@ export class Residue {
 
     public getClasses(): string[] {
         return this.text.getClasses();
+    }
+
+    public translate(shift: Vector2): Residue {
+        this.circle.translate(shift);
+        this.text.translate(shift);
+        return this;
     }
 }

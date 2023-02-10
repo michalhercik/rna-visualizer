@@ -1,5 +1,5 @@
 import { DataBasePair, DataLabel, DataStyle, DataResidue, RNAData } from './interfaces';
-import { Residue, BasePair, Label, Coordinate, Line, Text } from './rna/data-structures';
+import { Residue, BasePair, Label, Vector2, Line, Text } from './rna/data-structures';
 import DataContainer from './dataContainer';
 import { Styles } from './classes';
 
@@ -25,19 +25,14 @@ export default class ContainerFactory {
     }
 
     private addMargin(): void {
+        const shift = new Vector2(this.margin, this.margin);
+
         this.residues.forEach((res: Residue) => {
-            res.setX(res.getX() + this.margin);
-            res.setY(res.getY() + this.margin);
+            res.translate(shift)
         })
 
         this.labels.forEach((label: Label) => {
-            label.line.setX1(label.line.getX1() + this.margin);
-            label.line.setY1(label.line.getY1() + this.margin);
-            label.line.setX2(label.line.getX2() + this.margin);
-            label.line.setY2(label.line.getY2() + this.margin);
-
-            label.text.setX(label.text.getX());
-            label.text.setY(label.text.getY());
+            label.translate(shift);
         })
     }
 
@@ -76,12 +71,11 @@ export default class ContainerFactory {
             this.basePairs.push(basePair);
         })
 
-        const classes = ['bp-line', 'res-line'];
         for (let i = 1; i < this.residues.length; ++i) {
             const basePair = new BasePair(
                 this.residues[i - 1],
                 this.residues[i],
-                classes
+                ['bp-line', 'res-line']
             );
             this.basePairs.push(basePair);
         } 
@@ -100,12 +94,12 @@ export default class ContainerFactory {
         const labelData = this.data.rnaComplexes[0].rnaMolecules[0].labels;
 
         labelData.forEach((label: DataLabel) => {
-            const coor1 = new Coordinate(label.labelLine.x1, label.labelLine.y1);
-            const coor2 = new Coordinate(label.labelLine.x2, label.labelLine.y2);
+            const coor1 = new Vector2(label.labelLine.x1, label.labelLine.y1);
+            const coor2 = new Vector2(label.labelLine.x2, label.labelLine.y2);
             const lineClasses = Object.assign([], label.labelLine.classes);
             const line = new Line(coor1, coor2, lineClasses);
 
-            const coor = new Coordinate(label.labelContent.x, label.labelContent.y);
+            const coor = new Vector2(label.labelContent.x, label.labelContent.y);
             const textClasses = Object.assign([], label.labelContent.classes);
             const text = new Text(coor, label.labelContent.label, textClasses);
 

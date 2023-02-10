@@ -4,10 +4,10 @@ import { Styles } from './classes';
 import { drawLines, drawTexts, drawCircles } from './draw';
 import DataContainer from './dataContainer'
 import TitlePresenter from './titlePresenter';
-import ContainerUpdater from './containerUpdater';
 import ContainerFactory from './containerFactory';
-import { getBestGroup, Group, createGroups, translate } from './align';
-import { identity } from './rna/data-structures';
+import { getBestGroup, Group, createGroups} from './align';
+import { identity, Vector2 } from './rna/data-structures';
+import { Animation, AnimationState } from './animation';
 
 class Layer {
     public name;
@@ -24,17 +24,14 @@ class Layer {
 export class RNAVis {
     private margin = 10;
     private canvas;    
-    // public readonly dataContainer: Array<DataContainer>;
-    public readonly layers: Array<Layer>;
+    public readonly layers: Layer[];
     private titlePresenter: TitlePresenter;
-    private updater: ContainerUpdater;
     private styles: Styles;
     private zoom;
 
     constructor(element: HTMLElement) {
         this.styles = new Styles();
         this.layers = new Array<Layer>();
-        this.updater = new ContainerUpdater();
         this.zoom = d3.zoom();
 
         this.canvas = d3.select(element)
@@ -63,7 +60,17 @@ export class RNAVis {
         layers.forEach((layer) => {
             if (layer.visible) {
                 drawLines(layer.data.getLines(), ctx, layer.data.styles);
+            }
+        });
+
+        layers.forEach((layer) => {
+            if (layer.visible) {
                 drawCircles(layer.data.getCircles(), ctx, layer.data.styles);
+            }
+        });
+
+        layers.forEach((layer) => {
+            if (layer.visible) {
                 drawTexts(layer.data.getText(), ctx, layer.data.styles);
             }
         });
@@ -95,7 +102,6 @@ export class RNAVis {
         } else {
             this.hideByIndex(index);
         }
-        this.align();
     }
 
     public clear() {
@@ -104,12 +110,12 @@ export class RNAVis {
         this.setDimensions(100, 100, 1);
     }
 
-    public align(groupIndex: number = -1, minGroupSize: number = 5) {
+    public align(groupIndex: number = -1, minGroupSize: number = 5, duration: number = 0) {
         if (this.layers.length < 2) {
             return;
         }
 
-        const layers = Array.from(this.layers.values());
+        const layers = this.layers;
         const containers = this.getDataContainers();
         let groups = createGroups(containers[0], containers[1], null, minGroupSize);
 
@@ -118,16 +124,22 @@ export class RNAVis {
             return;
         }
 
+
         let group = groupIndex == -1 ? getBestGroup(groups) : groups[groupIndex];
         if (group) {
-            translate(containers[1], group.xShift, group.yShift);
+            let targets: AnimationState[] = [];
+
+            targets.push(AnimationState.fromTranslation(containers[1], new Vector2(group.xShift, group.yShift)));
 
             for (let i = 2; i < layers.length; ++i) {
                 groups = createGroups(layers[0].data, layers[i].data, group);
                 let bestGroup = getBestGroup(groups);
-                translate(layers[i].data, bestGroup.xShift, bestGroup.yShift);
+                targets.push(AnimationState.fromTranslation(layers[i].data, new Vector2(bestGroup.xShift, bestGroup.yShift)));
             }
+
+            new Animation(containers.slice(1), targets, duration).animate(this);
         }
+
     }
 
     public addClickAlign() {
@@ -143,7 +155,7 @@ export class RNAVis {
                 containers.forEach(container => {
                     for (let residue of container.residues) {
                         if (residue.templateIndex === target.index) {
-                            translate(container, target.getX() - residue.getX(), target.getY() - residue.getY());
+                            container.translate(new Vector2(target.getX() - residue.getX(), target.getY() - residue.getY()));
                             break;
                         }
                     }

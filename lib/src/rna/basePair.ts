@@ -12,7 +12,7 @@ export class BasePair implements ILine {
     private classes: string[];
 
     public constructor(residue1: Residue, residue2: Residue, classes: string[]) {
-        this.residue1 = residue2;
+        this.residue1 = residue1;
         this.residue2 = residue2;
         this.classes = classes;
     }

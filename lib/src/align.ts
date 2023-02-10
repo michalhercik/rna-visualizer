@@ -54,27 +54,3 @@ export function getBestGroup(groups: Group[]) {
     });
     return bestGroup;
 }
-
-export function translate(cont: DataContainer, xShift: number, yShift: number) {
-    // cont.getSingleCoorObjects().forEach(object => {
-    //     object.setOrig(
-    //         Math.round(object.getX() + xShift), 
-    //         Math.round(object.getY() + yShift)
-    //     );
-    //     object.setX(object.getX() + xShift);
-    //     object.setY(object.getY() + yShift);
-    // })
-
-    // cont.getLines().forEach(line => {
-    //     line.setOrig(
-    //         Math.round(line.getX1() + xShift),
-    //         Math.round(line.getY1() + yShift),
-    //         Math.round(line.getX2() + xShift),
-    //         Math.round(line.getY2() + yShift)
-    //     );
-    //     line.setX1(line.getX1() + xShift);
-    //     line.setY1(line.getY1() + yShift);
-    //     line.setX2(line.getX2() + xShift);
-    //     line.setY2(line.getY2() + yShift);
-    // })
-}

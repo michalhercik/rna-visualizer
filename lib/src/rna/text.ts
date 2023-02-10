@@ -1,13 +1,13 @@
-import { Label, Coordinate, Transformation, identity } from './data-structures';
+import { Label, Vector2, Transformation, identity } from './data-structures';
 
 export class Text {
     text: string;
-    coor: Coordinate;
+    coor: Vector2;
     classes: string[];
-    visible: boolean
+    visible: boolean = true;
     transform: Transformation = identity;
 
-    public constructor(coor: Coordinate, text: string, classes: string[]) {
+    public constructor(coor: Vector2, text: string, classes: string[]) {
         this.classes = classes;
         this.classes.push('transform');
         this.coor = coor;
@@ -45,6 +45,15 @@ export class Text {
         return this;
     }
 
+    public setCoor(coor: Vector2): Text {
+        this.coor = coor;
+        return this;
+    }
+
+    public getCoor(): Vector2 {
+        return this.coor.copy();
+    }
+
     public setVisible(visible: boolean): Text {
         this.visible = visible;
         return this;
@@ -60,5 +69,10 @@ export class Text {
 
     public getClasses() {
         return this.classes;
+    }
+
+    public translate(shift: Vector2): Text {
+        this.coor.add(shift);
+        return this;
     }
 }

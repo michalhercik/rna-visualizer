@@ -33,7 +33,7 @@ export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, sty
             const k = textStyles['k'] || 1;
             return textStyles['font-size'].slice(0,-2) * k + 'px';
         }
-        fontSize();
+
         ctx.font = 
             (textStyles['font-weight'] || 'normal') + ' ' + 
             (fontSize() || '6px') + ' ' + 

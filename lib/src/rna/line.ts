@@ -1,6 +1,6 @@
 import { 
     Label, 
-    Coordinate,
+    Vector2,
     Transformation, 
     identity,
 } from './data-structures';
@@ -20,13 +20,13 @@ export interface ILine {
 }
 
 export class Line implements ILine {
-    private coor1: Coordinate;
-    private coor2: Coordinate;
+    private coor1: Vector2;
+    private coor2: Vector2;
     private classes: string[];
-    private visible: boolean;
+    private visible: boolean = true;
     private transform: Transformation = identity;
 
-    public constructor(coor1: Coordinate, coor2: Coordinate, classes: string[]) {
+    public constructor(coor1: Vector2, coor2: Vector2, classes: string[]) {
         this.coor1 = coor1;
         this.coor2 = coor2;
         this.classes = classes;
@@ -89,6 +89,24 @@ export class Line implements ILine {
         return this.coor2.y;
     }
 
+    public setCoor1(coor: Vector2): Line {
+        this.coor1 = coor;
+        return this;
+    }
+
+    public getCoor1(): Vector2 {
+        return this.coor1.copy();
+    }
+
+    public setCoor2(coor: Vector2): Line {
+        this.coor2 = coor;
+        return this;
+    }
+
+    public getCoor2(): Vector2 {
+        return this.coor2.copy();
+    }
+
     public setVisible(visible: boolean): Line {
         this.visible = visible;
         return this;
@@ -100,5 +118,11 @@ export class Line implements ILine {
 
     public getClasses(): string[] {
         return this.classes;
+    }
+
+    public translate(shift: Vector2): Line {
+        this.coor1.add(shift);
+        this.coor2.add(shift);
+        return this;
     }
 }

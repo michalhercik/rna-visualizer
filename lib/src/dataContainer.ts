@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { DataBasePair, DataLabel, RNAData, DataLabelLine, DataLabelContent } from './interfaces';
-import { Label, BasePair, Residue, ILine, Text, Circle, Transformation } from './rna/data-structures';
+import { Label, BasePair, Residue, ILine, Text, Circle, Transformation, Vector2 } from './rna/data-structures';
 import { Styles } from './classes';
 
 export default class DataContainer {
@@ -33,11 +33,6 @@ export default class DataContainer {
         return this.residues.map(r => r.circle);
     }
 
-    // public getLines() {
-    //     return (this.bpLines as Array<unknown> as Array<Line>)
-    //     .concat(this.labelLines as Array<unknown> as Array<Line>);
-    // }
-    //
     public update(event: any) {
         const width = this.width;
         const height = this.height;
@@ -58,6 +53,10 @@ export default class DataContainer {
             label.setTransform(transform);
         });
 
+        this.basePairs.forEach((bp: BasePair) => {
+            bp.setTransform(transform);
+        })
+
         this.styles.set('transform', {k: event.transform.k});
     }
 
@@ -76,5 +75,15 @@ export default class DataContainer {
                }
         });
         return result;
+    }
+
+    public translate(shift: Vector2) {
+        this.residues.forEach(res => {
+            res.translate(shift);
+        });
+
+        this.labels.forEach(label => {
+            label.translate(shift);
+        });
     }
 }

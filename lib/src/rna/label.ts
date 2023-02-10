@@ -1,4 +1,4 @@
-import { Residue, Line, Text, Transformation } from './data-structures';
+import { Vector2, Residue, Line, Text, Transformation } from './data-structures';
 
 export class Label {
     public residue: Residue;
@@ -27,5 +27,11 @@ export class Label {
 
     public isVisible(): boolean {
         return this.visible;
+    }
+
+    public translate(shift: Vector2): Label {
+        this.line.translate(shift);
+        this.text.translate(shift);
+        return this;
     }
 }

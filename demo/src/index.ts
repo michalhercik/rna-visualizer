@@ -98,7 +98,7 @@ function load(): void {
       rnaVis.addData(d.structure, d.name);
     }
 
-    rnaVis.draw();
+    rnaVis.align();
 
     const duration = 1500;
     let targets: AnimationState[] = [];
@@ -108,7 +108,6 @@ function load(): void {
     }
     let conts = rnaVis.getDataContainers();
     const animation = new Animation(conts.slice(1), targets, duration);
-    animation.reverse();
 
     addVisibility(rnaVis);
     addGroups(rnaVis);

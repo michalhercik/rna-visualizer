@@ -1,5 +1,5 @@
 export { Residue } from './residue';
-export { Coordinate } from './coordinate';
+export { Vector2 } from './vector';
 export { Transformation, identity } from './transformation';
 export { Line, ILine } from './line';
 export { BasePair } from './basePair';
