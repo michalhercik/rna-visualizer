@@ -431,17 +431,17 @@ export const data: DataBundle[] = [
             new Data('URS00000AA4F3_76731', data07)
         ]
     ),
-    new DataBundle(
-        new Data('ruber', ruber),
-        [
-            new Data('URS00002E7035', ruber1),
-            new Data('URS0000380FEA', ruber2),
-            new Data('URS0000392402', ruber3),
-            new Data('URS00003F965A', ruber4),
-            new Data('URS0000458E34', ruber5),
-            new Data('URS00015E33A0', ruber6),
-            new Data('URS00022921C0', ruber7),
-        ]
-    ),
+    // new DataBundle(
+    //     new Data('ruber', ruber),
+    //     [
+    //         new Data('URS00002E7035', ruber1),
+    //         new Data('URS0000380FEA', ruber2),
+    //         new Data('URS0000392402', ruber3),
+    //         new Data('URS00003F965A', ruber4),
+    //         new Data('URS0000458E34', ruber5),
+    //         new Data('URS00015E33A0', ruber6),
+    //         new Data('URS00022921C0', ruber7),
+    //     ]
+    // ),
 ];
 

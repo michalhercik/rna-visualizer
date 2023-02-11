@@ -63,12 +63,14 @@ function addGroups(rnaVis: RNAVis): void {
             b.onclick = (event) => {
                 const shifts = rnaVis.align(+(event.target as HTMLElement).id, minGroupSize);
                 const containers = rnaVis.getDataContainers();
+                let targets: AnimationState[] = [];
 
                 for (let i = 0; i < shifts.length; ++i) {
-                    containers[i + 1].translate(shifts[i]);
+                    targets.push(AnimationState.fromTranslation(containers[i + 1], shifts[i]));
                 }
 
-                rnaVis.draw();
+                const anim = new Animation(containers.slice(1), targets);
+                anim.animate(rnaVis, 1500);
             }
             groups.append(b);
             ++i;

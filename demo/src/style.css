@@ -1,9 +1,32 @@
 body {
-    background-color: grey;
+    background-color: lightgrey;
+    margin: 0px;
+}
+
+main {
+    margin: 10px;
 }
 
 canvas {
-    border: 1px solid black;
+    border: 1px solid grey;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    margin-left: 10px;
+}
+
+nav > a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+nav > a:hover {
+    text-decoration: underline;
 }
 
 .controls {
