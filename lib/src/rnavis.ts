@@ -110,9 +110,11 @@ export class RNAVis {
         this.setDimensions(100, 100, 1);
     }
 
-    public align(groupIndex: number = -1, minGroupSize: number = 5, duration: number = 0) {
+    public align(groupIndex: number = -1, minGroupSize: number = 5): Vector2[] {
+        let shifts: Vector2[] = [];
+
         if (this.layers.length < 2) {
-            return;
+            return shifts;
         }
 
         const layers = this.layers;
@@ -121,25 +123,21 @@ export class RNAVis {
 
         if (groupIndex >= groups.length) {
             console.log("group index is too big!");
-            return;
+            return shifts;
         }
 
 
         let group = groupIndex == -1 ? getBestGroup(groups) : groups[groupIndex];
         if (group) {
-            let targets: AnimationState[] = [];
-
-            targets.push(AnimationState.fromTranslation(containers[1], new Vector2(group.xShift, group.yShift)));
+            shifts.push(new Vector2(group.xShift, group.yShift));
 
             for (let i = 2; i < layers.length; ++i) {
                 groups = createGroups(layers[0].data, layers[i].data, group);
                 let bestGroup = getBestGroup(groups);
-                targets.push(AnimationState.fromTranslation(layers[i].data, new Vector2(bestGroup.xShift, bestGroup.yShift)));
+                shifts.push(new Vector2(bestGroup.xShift, bestGroup.yShift));
             }
-
-            new Animation(containers.slice(1), targets).animate(this, duration);
         }
-
+        return shifts;
     }
 
     public addClickAlign(duration: number = 0) {
@@ -153,16 +151,18 @@ export class RNAVis {
             if (bla !== null) {
                 const target = bla;
                 let animTargets: AnimationState[] = []
+                let animCont: DataContainer[] = [];
                 for (let i = 1; i < containers.length; ++i) {
                     for (let residue of containers[i].residues) {
                         if (residue.templateIndex === target.index) {
                             const shift = Vector2.subtraction(target.getCoor(), residue.getCoor());
                             animTargets.push(AnimationState.fromTranslation(containers[i], shift));
+                            animCont.push(containers[i]);
                             break;
                         }
                     }
                 }
-                const anim = new Animation(containers.slice(1), animTargets);
+                const anim = new Animation(animCont, animTargets);
                 anim.animate(this, duration);
             }
         };
@@ -207,9 +207,6 @@ export class RNAVis {
 
     public resetPositions() {
         this.canvas.call(this.zoom.transform, d3.zoomIdentity);
-        for (let layer of Array.from(this.layers.values())) {
-            layer.data.update(identity);
-        }
     }
 
     public getDataContainers(): Array<DataContainer> {

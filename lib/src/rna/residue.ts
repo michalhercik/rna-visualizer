@@ -37,8 +37,8 @@ export class Residue {
         return new Residue(
             res.residueName,
             res.residueIndex,
-            res.templateResidueName,
-            res.templateResidueIndex,
+            res.templateResidueName ? res.templateResidueName : "",
+            res.templateResidueIndex ? res.templateResidueIndex : -1,
             circle,
             text
         )

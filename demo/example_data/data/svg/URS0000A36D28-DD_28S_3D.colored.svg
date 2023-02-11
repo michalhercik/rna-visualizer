@@ -1,0 +1,606 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width="381.949"
+	height="190.674"
+	style="font-size: 1.737882px; font-weight: bold; font-family: Helvetica; " >
+<g><style type="text/css" >
+<!-- create color definitions -->
+<![CDATA[
+text.red {fill: rgb(255, 0, 255); }
+text.green {fill: rgb(0, 255, 0); }
+text.blue {fill: rgb(0, 0, 255); }
+text.black {fill: rgb(0, 0, 0); }
+text.gray {fill: rgb(204, 204, 204); }
+text.brown {fill: rgb(211.65, 104.55, 30.6); }
+text {fill: rgb(0, 0, 0); text-anchor: middle; alignment-baseline: middle; }
+circle.red {stroke: rgb(255, 0, 255); fill: none; }
+circle.green {stroke: rgb(0, 255, 0); fill: none; }
+circle.blue {stroke: rgb(0, 0, 255); fill: none; }
+circle.black {stroke: rgb(0, 0, 0); fill: none; }
+circle.gray {stroke: rgb(204, 204, 204); fill: none; }
+circle.brown {stroke: rgb(211.65, 104.55, 30.6); fill: none; }
+circle {stroke: rgb(0, 0, 0); }
+line.red {stroke: rgb(255, 0, 255); stroke-width: 0.217235; }
+line.green {stroke: rgb(0, 255, 0); stroke-width: 0.217235; }
+line.blue {stroke: rgb(0, 0, 255); stroke-width: 0.217235; }
+line.black {stroke: rgb(0, 0, 0); stroke-width: 0.217235; }
+line.gray {stroke: rgb(204, 204, 204); stroke-width: 0.217235; }
+line.brown {stroke: rgb(211.65, 104.55, 30.6); stroke-width: 0.217235; }
+line {stroke: rgb(0, 0, 0); }
+text.numbering-label {fill: rgb(204, 204, 204);}
+line.numbering-line {stroke: rgb(204, 204, 204); stroke-width: 0.108618;}
+line.predicted {stroke: rgb(0, 0, 0); stroke-dasharray: 2}
+text.background {fill: rgb(255, 255, 255);
+.template {visibility:hidden}
+]]>
+</style></g>
+<g><title>0 (position.label in template: 0.5')</title><text x="224.845" y="67.8863" class="green" >5'</text></g>
+<g><title>1 (inserted)</title><text x="226.141" y="70.0055" class="red" >U</text></g>
+<g><title>2 (inserted)</title><text x="227.438" y="72.1247" class="red" >U</text></g>
+<g><title>3 (position.label in template: 18.U)</title><text x="228.735" y="74.244" class="black" >U</text></g>
+<g><title>4 (position.label in template: 19.C)</title><text x="230.031" y="76.3632" class="green" >U</text></g>
+<g><title>5 (inserted)</title><text x="232.159" y="77.6459" class="red" >C</text></g>
+<g><title>6 (inserted)</title><text x="234.287" y="78.9285" class="red" >A</text></g>
+<g><title>7 (inserted)</title><text x="236.414" y="80.2112" class="red" >C</text></g>
+<g><title>8 (inserted)</title><text x="238.542" y="81.4939" class="red" >U</text></g>
+<g><title>9 (inserted)</title><text x="240.67" y="82.7765" class="red" >C</text></g>
+<g><title>10 (inserted)</title><text x="242.798" y="84.0592" class="red" >G</text></g>
+<g><title>10 (inserted)</title><text x="244.816" y="80.7104" class="numbering-label sequential" >10</text></g>
+<g><line x1="243.336" y1="83.1662" x2="244.293" y2="81.5794" class="numbering-line sequential" /></g>
+<g><title>11 (inserted)</title><text x="244.925" y="85.3419" class="red" >A</text></g>
+<g><title>12 (inserted)</title><text x="247.053" y="86.6245" class="red" >A</text></g>
+<g><title>13 (inserted)</title><text x="249.181" y="87.9072" class="red" >A</text></g>
+<g><title>14 (inserted)</title><text x="251.308" y="89.1899" class="red" >C</text></g>
+<g><title>15 (inserted)</title><text x="253.436" y="90.4726" class="red" >U</text></g>
+<g><title>16 (position.label in template: 31.C)</title><text x="255.564" y="91.7552" class="green" >U</text></g>
+<g><title>17 (position.label in template: 32.G)</title><text x="257.453" y="90.142" class="black" >G</text></g>
+<g><title>18 (position.label in template: 33.A)</title><text x="259.516" y="88.7574" class="black" >A</text></g>
+<g><title>19 (position.label in template: 34.U)</title><text x="261.725" y="87.6195" class="black" >U</text></g>
+<g><title>20 (position.label in template: 35.G)</title><text x="264.049" y="86.7436" class="green" >A</text></g>
+<g><title>20 (inserted)</title><text x="262.884" y="83.0111" class="numbering-label sequential" >20</text></g>
+<g><line x1="263.739" y1="85.7483" x2="263.155" y2="83.8801" class="numbering-line sequential" /></g>
+<g><title>21 (position.label in template: 36.A)</title><text x="266.46" y="86.1407" class="green" >C</text></g>
+<g><title>22 (position.label in template: 37.A)</title><text x="268.923" y="85.82" class="black" >A</text></g>
+<g><line x1="270.082" y1="85.6462" x2="278.531" y2="85.6462" class="black" /></g>
+<g><title>23 (position.label in template: 38.G)</title><text x="270.165" y="83.335" class="black" >G</text></g>
+<g><line x1="271.324" y1="83.1614" x2="277.289" y2="83.1621" class="black" /></g>
+<g><title>24 (position.label in template: 39.A)</title><text x="270.165" y="80.851" class="black" >A</text></g>
+<g><line x1="271.324" y1="80.6772" x2="277.289" y2="80.6772" class="black" /></g>
+<g><title>25 (position.label in template: 40.C)</title><text x="270.166" y="78.366" class="green" >A</text></g>
+<g><line x1="271.325" y1="78.1924" x2="277.289" y2="78.1931" class="black" /></g>
+<g><title>26 (position.label in template: 41.C)</title><text x="268.299" y="76.951" class="green" >U</text></g>
+<g><line x1="267.903" y1="75.6885" x2="265.863" y2="70.0839" class="black" /></g>
+<g><title>27 (inserted)</title><text x="265.742" y="77.0405" class="red" >X</text></g>
+<g><title>28 (inserted)</title><text x="263.62" y="75.6096" class="red" >X</text></g>
+<g><title>29 (inserted)</title><text x="262.744" y="73.2048" class="red" >X</text></g>
+<g><title>30 (inserted)</title><text x="263.45" y="70.7447" class="red" >X</text></g>
+<g><title>30 (inserted)</title><text x="260.208" y="68.5584" class="numbering-label sequential" >30</text></g>
+<g><line x1="262.585" y1="70.1617" x2="261.251" y2="69.2616" class="numbering-line sequential" /></g>
+<g><title>31 (position.label in template: 54.G)</title><text x="265.466" y="69.169" class="green" >G</text></g>
+<g><title>32 (position.label in template: 55.A)</title><text x="266.353" y="65.864" class="black" >A</text></g>
+<g><title>33 (position.label in template: 56.U)</title><text x="268.407" y="63.127" class="black" >U</text></g>
+<g><title>34 (position.label in template: 57.A)</title><text x="271.332" y="61.352" class="black" >A</text></g>
+<g><title>35 (position.label in template: 58.A)</title><text x="274.707" y="60.793" class="black" >A</text></g>
+<g><title>36 (position.label in template: 59.U)</title><text x="278.049" y="61.532" class="black" >U</text></g>
+<g><title>37 (position.label in template: 60.U)</title><text x="280.874" y="63.462" class="black" >U</text></g>
+<g><line x1="281.27" y1="64.3769" x2="283.31" y2="69.9815" class="black" /></g>
+<g><title>38 (position.label in template: 61.C)</title><text x="283.209" y="62.613" class="black" >C</text></g>
+<g><line x1="283.606" y1="63.5279" x2="285.645" y2="69.1315" class="black" /></g>
+<g><title>39 (position.label in template: 62.A)</title><text x="287.439" y="61.035" class="black" >A</text></g>
+<g><line x1="287.836" y1="61.9499" x2="289.876" y2="67.5545" class="black" /></g>
+<g><title>40 (position.label in template: 63.C)</title><text x="289.773" y="60.185" class="black" >C</text></g>
+<g><line x1="290.17" y1="61.0999" x2="292.21" y2="66.7045" class="black" /></g>
+<g><title>41 (position.label in template: 64.U)</title><text x="292.108" y="59.335" class="black" >U</text></g>
+<g><line x1="292.505" y1="60.2499" x2="294.545" y2="65.8545" class="black" /></g>
+<g><title>42 (position.label in template: 65.U)</title><text x="292.596" y="56.898" class="black" >U</text></g>
+<g><title>43 (position.label in template: 66.G)</title><text x="293.665" y="54.655" class="black" >G</text></g>
+<g><title>44 (position.label in template: 67.A)</title><text x="295.251" y="52.741" class="black" >A</text></g>
+<g><title>45 (position.label in template: 68.A)</title><text x="297.256" y="51.273" class="black" >A</text></g>
+<g><title>46 (position.label in template: 69.U)</title><text x="299.56" y="50.341" class="black" >U</text></g>
+<g><title>47 (position.label in template: 70.U)</title><text x="302.022" y="50" class="black" >U</text></g>
+<g><title>48 (position.label in template: 71.G)</title><text x="304.492" y="50.272" class="black" >G</text></g>
+<g><title>49 (position.label in template: 72.C)</title><text x="306.822" y="51.14" class="black" >C</text></g>
+<g><title>50 (position.label in template: 73.A)</title><text x="308.867" y="52.551" class="black" >A</text></g>
+<g><title>50 (inserted)</title><text x="311.468" y="49.6309" class="numbering-label sequential" >50</text></g>
+<g><line x1="309.561" y1="51.7723" x2="310.694" y2="50.4998" class="numbering-line sequential" /></g>
+<g><title>51 (position.label in template: 74.G)</title><text x="310.505" y="54.42" class="black" >G</text></g>
+<g><title>52 (position.label in template: 75.C)</title><text x="311.637" y="56.632" class="black" >C</text></g>
+<g><title>53 (position.label in template: 76.C)</title><text x="312.193" y="59.055" class="black" >C</text></g>
+<g><title>54 (position.label in template: 77.U)</title><text x="312.139" y="61.54" class="black" >U</text></g>
+<g><title>55 (position.label in template: 78.A)</title><text x="311.48" y="63.936" class="black" >A</text></g>
+<g><title>56 (position.label in template: 79.C)</title><text x="310.254" y="66.098" class="black" >C</text></g>
+<g><title>57 (position.label in template: 80.U)</title><text x="308.536" y="67.894" class="black" >U</text></g>
+<g><title>58 (position.label in template: 81.G)</title><text x="306.431" y="69.216" class="black" >G</text></g>
+<g><title>59 (position.label in template: 82.G)</title><text x="304.068" y="69.982" class="black" >G</text></g>
+<g><title>60 (position.label in template: 83.G)</title><text x="301.588" y="70.148" class="black" >G</text></g>
+<g><title>61 (position.label in template: 84.A)</title><text x="299.143" y="69.701" class="black" >A</text></g>
+<g><title>62 (position.label in template: 85.U)</title><text x="296.881" y="68.67" class="black" >U</text></g>
+<g><title>63 (position.label in template: 86.A)</title><text x="294.941" y="67.117" class="black" >A</text></g>
+<g><title>64 (position.label in template: 87.G)</title><text x="292.606" y="67.967" class="black" >G</text></g>
+<g><title>65 (position.label in template: 88.U)</title><text x="290.272" y="68.817" class="black" >U</text></g>
+<g><title>66 (position.label in template: 89.U)</title><text x="288.618" y="70.833" class="black" >U</text></g>
+<g><title>67 (position.label in template: 90.G)</title><text x="286.041" y="70.394" class="black" >G</text></g>
+<g><title>68 (position.label in template: 91.A)</title><text x="283.706" y="71.244" class="black" >A</text></g>
+<g><title>69 (position.label in template: 92.A)</title><text x="283.239" y="73.531" class="black" >A</text></g>
+<g><title>70 (position.label in template: 93.A)</title><text x="282.138" y="75.589" class="black" >A</text></g>
+<g><title>71 (position.label in template: 94.U)</title><text x="280.495" y="77.247" class="black" >U</text></g>
+<g><title>72 (position.label in template: 95.G)</title><text x="278.447" y="78.367" class="green" >G</text></g>
+<g><title>73 (position.label in template: 96.U)</title><text x="278.447" y="80.851" class="black" >U</text></g>
+<g><title>74 (position.label in template: 97.U)</title><text x="278.447" y="83.336" class="black" >U</text></g>
+<g><title>75 (position.label in template: 98.G)</title><text x="279.689" y="85.82" class="black" >G</text></g>
+<g><title>76 (position.label in template: 99.A)</title><text x="281.445" y="87.478" class="black" >A</text></g>
+<g><title>77 (position.label in template: 100.A)</title><text x="283.842" y="88.293" class="black" >A</text></g>
+<g><title>78 (position.label in template: 101.C)</title><text x="285.504" y="86.805" class="black" >C</text></g>
+<g><title>79 (position.label in template: 102.G)</title><text x="286.512" y="84.915" class="black" >G</text></g>
+<g><line x1="287.597" y1="85.1487" x2="295.506" y2="88.1198" class="black" /></g>
+<g><title>80 (position.label in template: 103.C)</title><text x="288.549" y="83.026" class="black" >C</text></g>
+<g><line x1="289.634" y1="83.2598" x2="295.217" y2="85.3577" class="black" /></g>
+<g><title>81 (position.label in template: 104.A)</title><text x="289.423" y="80.7" class="black" >A</text></g>
+<g><line x1="290.508" y1="80.9338" x2="296.091" y2="83.0317" class="black" /></g>
+<g><title>82 (position.label in template: 105.C)</title><text x="292.613" y="78.359" class="black" >C</text></g>
+<g><title>83 (position.label in template: 106.A)</title><text x="296.317" y="79.751" class="black" >A</text></g>
+<g><title>84 (position.label in template: 107.U)</title><text x="297.175" y="83.613" class="black" >U</text></g>
+<g><title>85 (position.label in template: 108.G)</title><text x="296.301" y="85.939" class="black" >G</text></g>
+<g><title>86 (position.label in template: 109.A)</title><text x="296.59" y="88.701" class="black" >A</text></g>
+<g><title>87 (position.label in template: 110.U)</title><text x="295.712" y="91.854" class="black" >U</text></g>
+<g><title>88 (position.label in template: 111.G)</title><text x="295.655" y="95.504" class="green" >G</text></g>
+<g><line x1="296.33" y1="96.2717" x2="299.806" y2="101.119" class="black" /></g>
+<g><title>89 (position.label in template: 112.A)</title><text x="297.674" y="94.056" class="green" >G</text></g>
+<g><line x1="298.349" y1="94.8237" x2="301.825" y2="99.6707" class="black" /></g>
+<g><title>90 (position.label in template: 113.C)</title><text x="299.693" y="92.608" class="black" >C</text></g>
+<g><line x1="300.368" y1="93.3757" x2="303.844" y2="98.2227" class="black" /></g>
+<g><title>91 (position.label in template: 114.A)</title><text x="301.712" y="91.16" class="black" >A</text></g>
+<g><line x1="302.387" y1="91.9278" x2="305.863" y2="96.7756" class="black" /></g>
+<g><title>92 (position.label in template: 115.U)</title><text x="303.731" y="89.713" class="black" >U</text></g>
+<g><line x1="304.406" y1="90.4807" x2="307.882" y2="95.3277" class="black" /></g>
+<g><title>93 (position.label in template: 116.C)</title><text x="305.75" y="88.265" class="green" >U</text></g>
+<g><line x1="306.425" y1="89.0327" x2="309.901" y2="93.8797" class="black" /></g>
+<g><title>94 (position.label in template: 117.G)</title><text x="309.049" y="86.044" class="black" >G</text></g>
+<g><line x1="309.724" y1="86.8118" x2="313.199" y2="91.6586" class="black" /></g>
+<g><title>95 (position.label in template: 118.G)</title><text x="311.068" y="84.596" class="black" >G</text></g>
+<g><line x1="311.743" y1="85.3638" x2="315.218" y2="90.2106" class="black" /></g>
+<g><title>96 (position.label in template: 119.U)</title><text x="313.087" y="83.148" class="green" >C</text></g>
+<g><line x1="313.762" y1="83.9158" x2="317.237" y2="88.7626" class="black" /></g>
+<g><title>97 (position.label in template: 120.C)</title><text x="315.106" y="81.701" class="black" >C</text></g>
+<g><line x1="315.781" y1="82.4688" x2="319.256" y2="87.3156" class="black" /></g>
+<g><title>98 (position.label in template: 121.C)</title><text x="317.125" y="80.253" class="black" >C</text></g>
+<g><line x1="317.8" y1="81.0208" x2="321.275" y2="85.8676" class="black" /></g>
+<g><title>99 (position.label in template: 122.U)</title><text x="318.662" y="81.6754" class="blue" >U</text></g>
+<g><title>100 (position.label in template: 123.U)</title><text x="319.994" y="83.2911" class="blue" >U</text></g>
+<g><title>100 (inserted)</title><text x="323.172" y="81.0128" class="numbering-label sequential" >100</text></g>
+<g><line x1="320.841" y1="82.6836" x2="321.96" y2="81.8817" class="numbering-line sequential" /></g>
+<g><title>101 (position.label in template: 124.U)</title><text x="321.096" y="85.0711" class="blue" >U</text></g>
+<g><title>102 (position.label in template: 126.G)</title><text x="321.95" y="86.983" class="black" >G</text></g>
+<g><title>103 (position.label in template: 127.G)</title><text x="319.931" y="88.431" class="black" >G</text></g>
+<g><title>104 (position.label in template: 128.A)</title><text x="317.912" y="89.878" class="green" >G</text></g>
+<g><title>105 (position.label in template: 129.U)</title><text x="315.893" y="91.326" class="black" >U</text></g>
+<g><title>106 (position.label in template: 130.U)</title><text x="313.874" y="92.774" class="black" >U</text></g>
+<g><title>107 (position.label in template: 131.A)</title><text x="312.997" y="94.923" class="black" >A</text></g>
+<g><title>108 (position.label in template: 132.G)</title><text x="310.576" y="94.995" class="green" >A</text></g>
+<g><title>109 (position.label in template: 133.G)</title><text x="308.557" y="96.443" class="black" >G</text></g>
+<g><title>110 (position.label in template: 134.U)</title><text x="306.538" y="97.891" class="black" >U</text></g>
+<g><title>111 (position.label in template: 135.G)</title><text x="304.519" y="99.338" class="black" >G</text></g>
+<g><title>112 (position.label in template: 136.U)</title><text x="302.5" y="100.786" class="green" >U</text></g>
+<g><title>113 (position.label in template: 137.U)</title><text x="300.481" y="102.234" class="green" >C</text></g>
+<g><title>114 (position.label in template: 138.A)</title><text x="301.258" y="104.346" class="black" >A</text></g>
+<g><title>115 (position.label in template: 139.U)</title><text x="302.156" y="106.699" class="black" >U</text></g>
+<g><line x1="302.456" y1="107.644" x2="303.999" y2="113.405" class="black" /></g>
+<g><title>116 (position.label in template: 140.A)</title><text x="304.555" y="106.056" class="black" >A</text></g>
+<g><line x1="304.855" y1="107.001" x2="306.399" y2="112.762" class="black" /></g>
+<g><title>117 (position.label in template: 141.C)</title><text x="306.955" y="105.412" class="black" >C</text></g>
+<g><line x1="307.255" y1="106.357" x2="308.799" y2="112.119" class="black" /></g>
+<g><title>118 (position.label in template: 142.U)</title><text x="309.033" y="103.57" class="black" >U</text></g>
+<g><line x1="309.333" y1="104.515" x2="311.52" y2="112.675" class="black" /></g>
+<g><title>119 (inserted)</title><text x="311.06" y="100.86" class="red" >U</text></g>
+<g><title>120 (position.label in template: 144.G)</title><text x="312.479" y="103.932" class="black" >G</text></g>
+<g><line x1="312.779" y1="104.877" x2="314.323" y2="110.638" class="black" /></g>
+<g><title>121 (position.label in template: 145.G)</title><text x="314.879" y="103.289" class="black" >G</text></g>
+<g><line x1="315.179" y1="104.234" x2="316.723" y2="109.995" class="black" /></g>
+<g><title>122 (position.label in template: 146.G)</title><text x="317.279" y="102.646" class="green" >G</text></g>
+<g><line x1="317.579" y1="103.591" x2="319.122" y2="109.352" class="black" /></g>
+<g><title>123 (position.label in template: 147.U)</title><text x="319.679" y="102.003" class="black" >U</text></g>
+<g><line x1="319.979" y1="102.948" x2="321.522" y2="108.709" class="black" /></g>
+<g><title>124 (position.label in template: 148.G)</title><text x="322.078" y="101.36" class="black" >G</text></g>
+<g><line x1="322.378" y1="102.305" x2="323.922" y2="108.066" class="black" /></g>
+<g><title>125 (position.label in template: 149.A)</title><text x="324.478" y="100.716" class="black" >A</text></g>
+<g><line x1="324.778" y1="101.661" x2="326.322" y2="107.423" class="black" /></g>
+<g><title>126 (position.label in template: 150.G)</title><text x="326.878" y="100.073" class="black" >G</text></g>
+<g><line x1="327.178" y1="101.018" x2="328.721" y2="106.78" class="black" /></g>
+<g><title>127 (position.label in template: 151.A)</title><text x="329.021" y="100.073" class="blue" >A</text></g>
+<g><title>128 (inserted)</title><text x="330.878" y="101.145" class="red" >X</text></g>
+<g><title>129 (inserted)</title><text x="331.949" y="103.002" class="red" >X</text></g>
+<g><title>130 (inserted)</title><text x="331.949" y="105.145" class="red" >X</text></g>
+<g><title>131 (inserted)</title><text x="330.877" y="107.001" class="red" >X</text></g>
+<g><title>132 (position.label in template: 168.C)</title><text x="329.021" y="108.073" class="black" >C</text></g>
+<g><title>133 (position.label in template: 169.U)</title><text x="326.622" y="108.716" class="black" >U</text></g>
+<g><title>134 (position.label in template: 170.C)</title><text x="324.222" y="109.359" class="black" >C</text></g>
+<g><title>135 (position.label in template: 171.A)</title><text x="321.822" y="110.002" class="black" >A</text></g>
+<g><title>136 (position.label in template: 172.C)</title><text x="319.422" y="110.645" class="green" >U</text></g>
+<g><title>137 (position.label in template: 173.C)</title><text x="317.023" y="111.288" class="black" >C</text></g>
+<g><title>138 (position.label in template: 174.U)</title><text x="314.623" y="111.931" class="black" >U</text></g>
+<g><title>139 (position.label in template: 176.U)</title><text x="311.82" y="113.968" class="black" >U</text></g>
+<g><title>140 (position.label in template: 177.G)</title><text x="309.099" y="113.412" class="black" >G</text></g>
+<g><title>141 (position.label in template: 178.U)</title><text x="306.699" y="114.055" class="black" >U</text></g>
+<g><title>142 (position.label in template: 179.A)</title><text x="304.299" y="114.698" class="black" >A</text></g>
+<g><title>143 (position.label in template: 180.A)</title><text x="304.378" y="117.181" class="green" >U</text></g>
+<g><title>144 (position.label in template: 181.G)</title><text x="304.347" y="119.665" class="black" >G</text></g>
+<g><title>145 (position.label in template: 182.A)</title><text x="304.122" y="122.14" class="green" >U</text></g>
+<g><title>146 (position.label in template: 183.U)</title><text x="303.702" y="124.588" class="black" >U</text></g>
+<g><title>147 (position.label in template: 184.U)</title><text x="303.088" y="126.996" class="green" >A</text></g>
+<g><title>148 (position.label in template: 185.A)</title><text x="302.289" y="129.348" class="black" >A</text></g>
+<g><title>149 (inserted)</title><text x="299.805" y="129.299" class="red" >U</text></g>
+<g><title>150 (inserted)</title><text x="297.321" y="129.25" class="red" >C</text></g>
+<g><title>150 (inserted)</title><text x="297.244" y="133.16" class="numbering-label sequential" >150</text></g>
+<g><line x1="297.301" y1="130.293" x2="297.262" y2="132.291" class="numbering-line sequential" /></g>
+<g><title>151 (inserted)</title><text x="294.838" y="129.202" class="red" >C</text></g>
+<g><title>152 (inserted)</title><text x="292.354" y="129.153" class="red" >U</text></g>
+<g><title>153 (inserted)</title><text x="289.87" y="129.104" class="red" >U</text></g>
+<g><title>154 (inserted)</title><text x="287.386" y="129.055" class="red" >C</text></g>
+<g><title>155 (inserted)</title><text x="284.902" y="129.006" class="red" >U</text></g>
+<g><title>156 (inserted)</title><text x="282.418" y="128.957" class="red" >A</text></g>
+<g><title>157 (inserted)</title><text x="279.934" y="128.908" class="red" >A</text></g>
+<g><title>158 (inserted)</title><text x="277.45" y="128.859" class="red" >A</text></g>
+<g><title>159 (inserted)</title><text x="274.966" y="128.81" class="red" >A</text></g>
+<g><title>160 (inserted)</title><text x="272.482" y="128.761" class="red" >A</text></g>
+<g><title>161 (inserted)</title><text x="269.998" y="128.712" class="red" >A</text></g>
+<g><title>162 (inserted)</title><text x="267.514" y="128.663" class="red" >U</text></g>
+<g><title>163 (inserted)</title><text x="265.03" y="128.614" class="red" >U</text></g>
+<g><title>164 (inserted)</title><text x="262.546" y="128.565" class="red" >G</text></g>
+<g><title>165 (inserted)</title><text x="260.062" y="128.516" class="red" >G</text></g>
+<g><title>166 (inserted)</title><text x="257.578" y="128.468" class="red" >A</text></g>
+<g><title>167 (inserted)</title><text x="255.094" y="128.419" class="red" >G</text></g>
+<g><title>168 (inserted)</title><text x="252.61" y="128.37" class="red" >U</text></g>
+<g><title>169 (inserted)</title><text x="250.127" y="128.321" class="red" >G</text></g>
+<g><title>170 (inserted)</title><text x="247.643" y="128.272" class="red" >A</text></g>
+<g><title>171 (inserted)</title><text x="245.159" y="128.223" class="red" >C</text></g>
+<g><title>172 (inserted)</title><text x="242.675" y="128.174" class="red" >U</text></g>
+<g><title>173 (inserted)</title><text x="240.191" y="128.125" class="red" >C</text></g>
+<g><title>174 (inserted)</title><text x="237.707" y="128.076" class="red" >U</text></g>
+<g><title>175 (inserted)</title><text x="235.223" y="128.027" class="red" >U</text></g>
+<g><title>176 (inserted)</title><text x="232.739" y="127.978" class="red" >U</text></g>
+<g><title>177 (inserted)</title><text x="230.255" y="127.929" class="red" >U</text></g>
+<g><title>178 (inserted)</title><text x="227.771" y="127.88" class="red" >G</text></g>
+<g><title>179 (inserted)</title><text x="225.287" y="127.831" class="red" >U</text></g>
+<g><title>180 (inserted)</title><text x="222.803" y="127.782" class="red" >A</text></g>
+<g><title>181 (inserted)</title><text x="220.319" y="127.734" class="red" >U</text></g>
+<g><title>182 (inserted)</title><text x="217.835" y="127.685" class="red" >A</text></g>
+<g><title>183 (inserted)</title><text x="215.351" y="127.636" class="red" >A</text></g>
+<g><title>184 (inserted)</title><text x="212.867" y="127.587" class="red" >U</text></g>
+<g><title>185 (inserted)</title><text x="210.383" y="127.538" class="red" >C</text></g>
+<g><title>186 (inserted)</title><text x="207.9" y="127.489" class="red" >C</text></g>
+<g><title>187 (inserted)</title><text x="205.416" y="127.44" class="red" >A</text></g>
+<g><title>188 (inserted)</title><text x="202.932" y="127.391" class="red" >A</text></g>
+<g><title>189 (inserted)</title><text x="200.448" y="127.342" class="red" >A</text></g>
+<g><title>190 (inserted)</title><text x="197.964" y="127.293" class="red" >C</text></g>
+<g><title>191 (inserted)</title><text x="195.48" y="127.244" class="red" >A</text></g>
+<g><title>192 (inserted)</title><text x="192.996" y="127.195" class="red" >C</text></g>
+<g><title>193 (inserted)</title><text x="190.512" y="127.146" class="red" >U</text></g>
+<g><title>194 (inserted)</title><text x="188.028" y="127.097" class="red" >G</text></g>
+<g><title>195 (inserted)</title><text x="185.544" y="127.049" class="red" >A</text></g>
+<g><title>196 (inserted)</title><text x="183.06" y="127" class="red" >U</text></g>
+<g><title>197 (inserted)</title><text x="180.576" y="126.951" class="red" >A</text></g>
+<g><title>198 (inserted)</title><text x="178.092" y="126.902" class="red" >A</text></g>
+<g><title>199 (inserted)</title><text x="175.608" y="126.853" class="red" >A</text></g>
+<g><title>200 (inserted)</title><text x="173.124" y="126.804" class="red" >G</text></g>
+<g><title>200 (inserted)</title><text x="173.047" y="130.713" class="numbering-label sequential" >200</text></g>
+<g><line x1="173.104" y1="127.846" x2="173.064" y2="129.844" class="numbering-line sequential" /></g>
+<g><title>201 (inserted)</title><text x="170.64" y="126.755" class="red" >U</text></g>
+<g><title>202 (inserted)</title><text x="168.156" y="126.706" class="red" >A</text></g>
+<g><title>203 (inserted)</title><text x="165.672" y="126.657" class="red" >A</text></g>
+<g><title>204 (inserted)</title><text x="163.189" y="126.608" class="red" >C</text></g>
+<g><title>205 (inserted)</title><text x="160.705" y="126.559" class="red" >A</text></g>
+<g><title>206 (inserted)</title><text x="158.221" y="126.51" class="red" >A</text></g>
+<g><title>207 (inserted)</title><text x="155.737" y="126.461" class="red" >C</text></g>
+<g><title>208 (inserted)</title><text x="153.253" y="126.412" class="red" >U</text></g>
+<g><title>209 (inserted)</title><text x="150.769" y="126.363" class="red" >U</text></g>
+<g><title>210 (inserted)</title><text x="148.285" y="126.315" class="red" >U</text></g>
+<g><title>211 (inserted)</title><text x="145.801" y="126.266" class="red" >A</text></g>
+<g><title>212 (inserted)</title><text x="143.317" y="126.217" class="red" >U</text></g>
+<g><title>213 (inserted)</title><text x="140.833" y="126.168" class="red" >U</text></g>
+<g><title>214 (inserted)</title><text x="138.349" y="126.119" class="red" >G</text></g>
+<g><title>215 (inserted)</title><text x="135.865" y="126.07" class="red" >A</text></g>
+<g><title>216 (inserted)</title><text x="133.381" y="126.021" class="red" >G</text></g>
+<g><title>217 (inserted)</title><text x="130.897" y="125.972" class="red" >C</text></g>
+<g><title>218 (inserted)</title><text x="128.413" y="125.923" class="red" >A</text></g>
+<g><title>219 (inserted)</title><text x="125.929" y="125.874" class="red" >U</text></g>
+<g><title>220 (inserted)</title><text x="123.445" y="125.825" class="red" >U</text></g>
+<g><title>221 (inserted)</title><text x="120.961" y="125.776" class="red" >C</text></g>
+<g><title>222 (inserted)</title><text x="118.478" y="125.727" class="red" >U</text></g>
+<g><title>223 (inserted)</title><text x="115.994" y="125.678" class="red" >A</text></g>
+<g><title>224 (inserted)</title><text x="113.51" y="125.629" class="red" >A</text></g>
+<g><title>225 (inserted)</title><text x="111.026" y="125.581" class="red" >C</text></g>
+<g><title>226 (inserted)</title><text x="108.542" y="125.532" class="red" >C</text></g>
+<g><title>227 (inserted)</title><text x="106.058" y="125.483" class="red" >G</text></g>
+<g><title>228 (inserted)</title><text x="103.574" y="125.434" class="red" >G</text></g>
+<g><title>229 (inserted)</title><text x="101.09" y="125.385" class="red" >U</text></g>
+<g><title>230 (inserted)</title><text x="98.606" y="125.336" class="red" >U</text></g>
+<g><title>231 (inserted)</title><text x="96.122" y="125.287" class="red" >U</text></g>
+<g><title>232 (inserted)</title><text x="93.6381" y="125.238" class="red" >A</text></g>
+<g><title>233 (inserted)</title><text x="91.1541" y="125.189" class="red" >G</text></g>
+<g><title>234 (inserted)</title><text x="88.6702" y="125.14" class="red" >U</text></g>
+<g><title>235 (inserted)</title><text x="86.1863" y="125.091" class="red" >U</text></g>
+<g><title>236 (inserted)</title><text x="83.7023" y="125.042" class="red" >U</text></g>
+<g><title>237 (inserted)</title><text x="81.2184" y="124.993" class="red" >A</text></g>
+<g><title>238 (inserted)</title><text x="78.7344" y="124.944" class="red" >U</text></g>
+<g><title>239 (inserted)</title><text x="76.2505" y="124.895" class="red" >C</text></g>
+<g><title>240 (inserted)</title><text x="73.7665" y="124.847" class="red" >U</text></g>
+<g><title>241 (inserted)</title><text x="71.2826" y="124.798" class="red" >U</text></g>
+<g><title>242 (inserted)</title><text x="68.7986" y="124.749" class="red" >U</text></g>
+<g><title>243 (inserted)</title><text x="66.3147" y="124.7" class="red" >A</text></g>
+<g><title>244 (inserted)</title><text x="63.8308" y="124.651" class="red" >C</text></g>
+<g><title>245 (position.label in template: 267.U)</title><text x="61.3468" y="124.602" class="black" >U</text></g>
+<g><title>246 (inserted)</title><text x="59.1744" y="125.807" class="red" >G</text></g>
+<g><title>247 (inserted)</title><text x="57.002" y="127.013" class="red" >G</text></g>
+<g><title>248 (inserted)</title><text x="54.8296" y="128.218" class="red" >C</text></g>
+<g><title>249 (inserted)</title><text x="52.6572" y="129.424" class="red" >U</text></g>
+<g><title>250 (position.label in template: 272.C)</title><text x="50.4848" y="130.629" class="black" >C</text></g>
+<g><title>250 (inserted)</title><text x="47.3259" y="128.324" class="numbering-label sequential" >250</text></g>
+<g><line x1="49.6424" y1="130.014" x2="48.89" y2="129.465" class="numbering-line sequential" /></g>
+<g><title>251 (position.label in template: 273.A)</title><text x="50" y="133.066" class="black" >A</text></g>
+<g><title>252 (inserted)</title><text x="52.1365" y="134.334" class="red" >A</text></g>
+<g><title>253 (inserted)</title><text x="54.2729" y="135.602" class="red" >C</text></g>
+<g><title>254 (inserted)</title><text x="56.4094" y="136.87" class="red" >G</text></g>
+<g><title>255 (inserted)</title><text x="58.5458" y="138.138" class="red" >U</text></g>
+<g><title>256 (inserted)</title><text x="60.6823" y="139.406" class="red" >A</text></g>
+<g><title>257 (position.label in template: 279.C)</title><text x="62.8187" y="140.674" class="green" >G</text></g>
+<g><title>258 (position.label in template: 280.A)</title><text x="62.053" y="138.31" class="green" >U</text></g>
+<g><title>259 (position.label in template: 281.A)</title><text x="62.7239" y="135.918" class="black" >A</text></g>
+<g><title>260 (inserted)</title><text x="62.8213" y="133.436" class="red" >G</text></g>
+<g><title>261 (inserted)</title><text x="62.9186" y="130.953" class="red" >U</text></g>
+<g><title>262 (inserted)</title><text x="63.016" y="128.471" class="red" >A</text></g>
+<g><title>263 (inserted)</title><text x="63.1134" y="125.988" class="red" >U</text></g>
+<g><title>264 (position.label in template: 286.G)</title><text x="63.2108" y="123.506" class="green" >A</text></g>
+<g><title>265 (position.label in template: 3903.3')</title><text x="63.3082" y="121.023" class="green" >3'</text></g>
+<g><line x1="225.449" y1="68.7008" x2="225.537" y2="68.8435" class="gray" /></g>
+<g><line x1="226.746" y1="70.82" x2="226.833" y2="70.9627" class="gray" /></g>
+<g><line x1="228.043" y1="72.9392" x2="228.13" y2="73.0819" class="gray" /></g>
+<g><line x1="229.339" y1="75.0585" x2="229.427" y2="75.2011" class="gray" /></g>
+<g><line x1="231.024" y1="76.7876" x2="231.167" y2="76.8739" class="gray" /></g>
+<g><line x1="233.151" y1="78.0702" x2="233.295" y2="78.1566" class="gray" /></g>
+<g><line x1="235.279" y1="79.3529" x2="235.422" y2="79.4392" class="gray" /></g>
+<g><line x1="237.407" y1="80.6356" x2="237.55" y2="80.7219" class="gray" /></g>
+<g><line x1="239.534" y1="81.9182" x2="239.678" y2="82.0046" class="gray" /></g>
+<g><line x1="241.662" y1="83.2009" x2="241.805" y2="83.2873" class="gray" /></g>
+<g><line x1="243.79" y1="84.4836" x2="243.933" y2="84.5699" class="gray" /></g>
+<g><line x1="245.918" y1="85.7662" x2="246.061" y2="85.8526" class="gray" /></g>
+<g><line x1="248.045" y1="87.0489" x2="248.188" y2="87.1353" class="gray" /></g>
+<g><line x1="250.173" y1="88.3316" x2="250.316" y2="88.4179" class="gray" /></g>
+<g><line x1="252.301" y1="89.6143" x2="252.444" y2="89.7006" class="gray" /></g>
+<g><line x1="254.428" y1="90.8969" x2="254.572" y2="90.9833" class="gray" /></g>
+<g><line x1="256.445" y1="90.8291" x2="256.572" y2="90.7205" class="gray" /></g>
+<g><line x1="258.415" y1="89.3225" x2="258.554" y2="89.2293" class="gray" /></g>
+<g><line x1="260.546" y1="88.053" x2="260.695" y2="87.9764" class="gray" /></g>
+<g><line x1="262.809" y1="87.0372" x2="262.965" y2="86.9783" class="gray" /></g>
+<g><line x1="265.173" y1="86.2887" x2="265.336" y2="86.2481" class="gray" /></g>
+<g><line x1="267.609" y1="85.8174" x2="267.774" y2="85.7958" class="gray" /></g>
+<g><line x1="269.441" y1="84.6099" x2="269.647" y2="84.1976" class="gray" /></g>
+<g><line x1="270.165" y1="82.0026" x2="270.165" y2="81.8358" class="gray" /></g>
+<g><line x1="270.166" y1="79.5186" x2="270.166" y2="79.3508" class="gray" /></g>
+<g><line x1="269.243" y1="77.4924" x2="269.223" y2="77.477" class="gray" /></g>
+<g><line x1="267.141" y1="76.8177" x2="266.9" y2="76.8262" class="gray" /></g>
+<g><line x1="264.781" y1="76.2189" x2="264.58" y2="76.0836" class="gray" /></g>
+<g><line x1="263.224" y1="74.3471" x2="263.141" y2="74.1197" class="gray" /></g>
+<g><line x1="263.064" y1="71.9173" x2="263.13" y2="71.6847" class="gray" /></g>
+<g><line x1="264.363" y1="69.8576" x2="264.553" y2="69.7086" class="gray" /></g>
+<g><line x1="265.767" y1="67.8762" x2="266.053" y2="66.8092" class="gray" /></g>
+<g><line x1="267.049" y1="64.7635" x2="267.712" y2="63.8799" class="gray" /></g>
+<g><line x1="269.398" y1="62.3522" x2="270.342" y2="61.7793" class="gray" /></g>
+<g><line x1="272.475" y1="60.9889" x2="273.564" y2="60.8085" class="gray" /></g>
+<g><line x1="275.839" y1="60.8694" x2="276.918" y2="61.1081" class="gray" /></g>
+<g><line x1="279.006" y1="62.0118" x2="279.918" y2="62.6346" class="gray" /></g>
+<g><line x1="281.963" y1="62.8923" x2="282.12" y2="62.8351" class="gray" /></g>
+<g><line x1="284.295" y1="62.0343" x2="286.354" y2="61.2662" class="gray" /></g>
+<g><line x1="288.528" y1="60.4647" x2="288.685" y2="60.4077" class="gray" /></g>
+<g><line x1="290.862" y1="59.6149" x2="291.02" y2="59.5575" class="gray" /></g>
+<g><line x1="292.336" y1="58.0252" x2="292.369" y2="57.8602" class="gray" /></g>
+<g><line x1="293.095" y1="55.6783" x2="293.167" y2="55.5271" class="gray" /></g>
+<g><line x1="294.404" y1="53.5891" x2="294.512" y2="53.4593" class="gray" /></g>
+<g><line x1="296.186" y1="51.8828" x2="296.321" y2="51.7837" class="gray" /></g>
+<g><line x1="298.33" y1="50.6647" x2="298.486" y2="50.6017" class="gray" /></g>
+<g><line x1="300.708" y1="50.0083" x2="300.875" y2="49.9852" class="gray" /></g>
+<g><line x1="303.174" y1="49.953" x2="303.341" y2="49.9714" class="gray" /></g>
+<g><line x1="305.578" y1="50.5027" x2="305.737" y2="50.5618" class="gray" /></g>
+<g><line x1="307.776" y1="51.6242" x2="307.914" y2="51.7192" class="gray" /></g>
+<g><line x1="309.631" y1="53.2485" x2="309.742" y2="53.3749" class="gray" /></g>
+<g><line x1="311.033" y1="55.2776" x2="311.109" y2="55.4268" class="gray" /></g>
+<g><line x1="311.896" y1="57.5875" x2="311.934" y2="57.752" class="gray" /></g>
+<g><line x1="312.168" y1="60.0395" x2="312.164" y2="60.2079" class="gray" /></g>
+<g><line x1="311.832" y1="62.4833" x2="311.788" y2="62.6451" class="gray" /></g>
+<g><line x1="310.909" y1="64.77" x2="310.826" y2="64.9164" class="gray" /></g>
+<g><line x1="309.453" y1="66.7614" x2="309.337" y2="66.883" class="gray" /></g>
+<g><line x1="307.555" y1="68.3364" x2="307.412" y2="68.426" class="gray" /></g>
+<g><line x1="305.329" y1="69.3995" x2="305.17" y2="69.4509" class="gray" /></g>
+<g><line x1="302.912" y1="69.8856" x2="302.744" y2="69.8968" class="gray" /></g>
+<g><line x1="300.449" y1="69.7658" x2="300.283" y2="69.7356" class="gray" /></g>
+<g><line x1="298.089" y1="69.0467" x2="297.936" y2="68.9767" class="gray" /></g>
+<g><line x1="295.977" y1="67.7722" x2="295.846" y2="67.6673" class="gray" /></g>
+<g><line x1="293.853" y1="67.3395" x2="293.695" y2="67.3969" class="gray" /></g>
+<g><line x1="291.518" y1="68.1897" x2="291.361" y2="68.2467" class="gray" /></g>
+<g><line x1="289.537" y1="69.5389" x2="289.353" y2="69.7635" class="gray" /></g>
+<g><line x1="287.476" y1="70.4646" x2="287.183" y2="70.4148" class="gray" /></g>
+<g><line x1="284.953" y1="70.6165" x2="284.795" y2="70.6739" class="gray" /></g>
+<g><line x1="283.474" y1="72.2054" x2="283.471" y2="72.222" class="gray" /></g>
+<g><line x1="282.693" y1="74.3788" x2="282.685" y2="74.3936" class="gray" /></g>
+<g><line x1="281.323" y1="76.2382" x2="281.311" y2="76.2503" class="gray" /></g>
+<g><line x1="279.479" y1="77.6291" x2="279.464" y2="77.6373" class="gray" /></g>
+<g><line x1="278.447" y1="79.3518" x2="278.447" y2="79.5186" class="gray" /></g>
+<g><line x1="278.447" y1="81.8358" x2="278.447" y2="82.0036" class="gray" /></g>
+<g><line x1="278.965" y1="84.1985" x2="279.171" y2="84.6099" class="gray" /></g>
+<g><line x1="280.532" y1="86.4416" x2="280.603" y2="86.5088" class="gray" /></g>
+<g><line x1="282.542" y1="87.6772" x2="282.745" y2="87.7463" class="gray" /></g>
+<g><line x1="287.362" y1="83.9534" x2="287.7" y2="83.64" class="gray" /></g>
+<g><line x1="288.957" y1="81.7677" x2="289.016" y2="81.6108" class="gray" /></g>
+<g><line x1="290.357" y1="79.8407" x2="291.679" y2="78.8707" class="gray" /></g>
+<g><line x1="293.698" y1="78.5928" x2="295.233" y2="79.1696" class="gray" /></g>
+<g><line x1="296.569" y1="80.7082" x2="296.924" y2="82.3082" class="gray" /></g>
+<g><line x1="296.768" y1="84.5238" x2="296.709" y2="84.6807" class="gray" /></g>
+<g><line x1="296.422" y1="86.9175" x2="296.47" y2="87.3749" class="gray" /></g>
+<g><line x1="296.279" y1="89.6433" x2="296.023" y2="90.5641" class="gray" /></g>
+<g><line x1="295.694" y1="92.8387" x2="295.673" y2="94.1718" class="gray" /></g>
+<g><line x1="296.597" y1="94.655" x2="296.733" y2="94.5574" class="gray" /></g>
+<g><line x1="298.616" y1="93.207" x2="298.752" y2="93.1094" class="gray" /></g>
+<g><line x1="300.635" y1="91.759" x2="300.771" y2="91.6614" class="gray" /></g>
+<g><line x1="302.654" y1="90.3113" x2="302.79" y2="90.2141" class="gray" /></g>
+<g><line x1="304.673" y1="88.864" x2="304.809" y2="88.7664" class="gray" /></g>
+<g><line x1="306.711" y1="87.4442" x2="308.088" y2="86.5172" class="gray" /></g>
+<g><line x1="309.991" y1="85.195" x2="310.127" y2="85.0974" class="gray" /></g>
+<g><line x1="312.01" y1="83.747" x2="312.146" y2="83.6494" class="gray" /></g>
+<g><line x1="314.029" y1="82.2993" x2="314.165" y2="82.2021" class="gray" /></g>
+<g><line x1="316.048" y1="80.852" x2="316.184" y2="80.7544" class="gray" /></g>
+<g><line x1="321.009" y1="87.4844" x2="320.873" y2="87.582" class="gray" /></g>
+<g><line x1="318.99" y1="88.9321" x2="318.854" y2="89.0293" class="gray" /></g>
+<g><line x1="316.971" y1="90.3794" x2="316.835" y2="90.477" class="gray" /></g>
+<g><line x1="314.952" y1="91.8274" x2="314.816" y2="91.925" class="gray" /></g>
+<g><line x1="313.436" y1="93.6729" x2="313.435" y2="93.6765" class="gray" /></g>
+<g><line x1="311.839" y1="94.7837" x2="311.734" y2="94.7868" class="gray" /></g>
+<g><line x1="309.635" y1="95.4964" x2="309.499" y2="95.594" class="gray" /></g>
+<g><line x1="307.616" y1="96.9444" x2="307.48" y2="97.042" class="gray" /></g>
+<g><line x1="305.597" y1="98.3921" x2="305.461" y2="98.4893" class="gray" /></g>
+<g><line x1="303.578" y1="99.8394" x2="303.442" y2="99.937" class="gray" /></g>
+<g><line x1="301.559" y1="101.287" x2="301.423" y2="101.385" class="gray" /></g>
+<g><line x1="301.671" y1="105.255" x2="301.743" y2="105.443" class="gray" /></g>
+<g><line x1="303.275" y1="106.225" x2="303.436" y2="106.182" class="gray" /></g>
+<g><line x1="305.674" y1="105.582" x2="305.836" y2="105.538" class="gray" /></g>
+<g><line x1="307.822" y1="104.47" x2="308.166" y2="104.165" class="gray" /></g>
+<g><line x1="309.727" y1="102.468" x2="310.366" y2="101.614" class="gray" /></g>
+<g><line x1="311.546" y1="101.738" x2="311.993" y2="102.706" class="gray" /></g>
+<g><line x1="313.598" y1="103.458" x2="313.76" y2="103.415" class="gray" /></g>
+<g><line x1="315.998" y1="102.815" x2="316.16" y2="102.772" class="gray" /></g>
+<g><line x1="318.398" y1="102.172" x2="318.56" y2="102.129" class="gray" /></g>
+<g><line x1="320.798" y1="101.529" x2="320.959" y2="101.486" class="gray" /></g>
+<g><line x1="323.197" y1="100.886" x2="323.359" y2="100.843" class="gray" /></g>
+<g><line x1="325.597" y1="100.242" x2="325.759" y2="100.199" class="gray" /></g>
+<g><line x1="327.902" y1="108.199" x2="327.741" y2="108.242" class="gray" /></g>
+<g><line x1="325.503" y1="108.842" x2="325.341" y2="108.885" class="gray" /></g>
+<g><line x1="323.103" y1="109.485" x2="322.941" y2="109.528" class="gray" /></g>
+<g><line x1="320.703" y1="110.128" x2="320.541" y2="110.171" class="gray" /></g>
+<g><line x1="318.303" y1="110.771" x2="318.142" y2="110.814" class="gray" /></g>
+<g><line x1="315.904" y1="111.414" x2="315.742" y2="111.457" class="gray" /></g>
+<g><line x1="313.686" y1="112.438" x2="312.757" y2="113.113" class="gray" /></g>
+<g><line x1="310.685" y1="113.562" x2="310.234" y2="113.47" class="gray" /></g>
+<g><line x1="307.98" y1="113.538" x2="307.818" y2="113.581" class="gray" /></g>
+<g><line x1="305.58" y1="114.181" x2="305.418" y2="114.224" class="gray" /></g>
+<g><line x1="304.336" y1="115.682" x2="304.341" y2="115.849" class="gray" /></g>
+<g><line x1="304.363" y1="118.166" x2="304.361" y2="118.333" class="gray" /></g>
+<g><line x1="304.242" y1="120.645" x2="304.227" y2="120.812" class="gray" /></g>
+<g><line x1="303.926" y1="123.108" x2="303.898" y2="123.273" class="gray" /></g>
+<g><line x1="303.415" y1="125.537" x2="303.374" y2="125.699" class="gray" /></g>
+<g><line x1="302.715" y1="127.919" x2="302.662" y2="128.077" class="gray" /></g>
+<g><line x1="301.131" y1="129.152" x2="300.964" y2="129.148" class="gray" /></g>
+<g><line x1="298.647" y1="129.103" x2="298.48" y2="129.1" class="gray" /></g>
+<g><line x1="296.163" y1="129.054" x2="295.996" y2="129.051" class="gray" /></g>
+<g><line x1="293.679" y1="129.005" x2="293.512" y2="129.002" class="gray" /></g>
+<g><line x1="291.195" y1="128.956" x2="291.028" y2="128.953" class="gray" /></g>
+<g><line x1="288.711" y1="128.907" x2="288.544" y2="128.904" class="gray" /></g>
+<g><line x1="286.227" y1="128.858" x2="286.06" y2="128.855" class="gray" /></g>
+<g><line x1="283.743" y1="128.809" x2="283.576" y2="128.806" class="gray" /></g>
+<g><line x1="281.259" y1="128.76" x2="281.092" y2="128.757" class="gray" /></g>
+<g><line x1="278.776" y1="128.711" x2="278.608" y2="128.708" class="gray" /></g>
+<g><line x1="276.292" y1="128.662" x2="276.124" y2="128.659" class="gray" /></g>
+<g><line x1="273.808" y1="128.613" x2="273.64" y2="128.61" class="gray" /></g>
+<g><line x1="271.324" y1="128.565" x2="271.156" y2="128.561" class="gray" /></g>
+<g><line x1="268.84" y1="128.516" x2="268.673" y2="128.512" class="gray" /></g>
+<g><line x1="266.356" y1="128.467" x2="266.189" y2="128.463" class="gray" /></g>
+<g><line x1="263.872" y1="128.418" x2="263.705" y2="128.414" class="gray" /></g>
+<g><line x1="261.388" y1="128.369" x2="261.221" y2="128.366" class="gray" /></g>
+<g><line x1="258.904" y1="128.32" x2="258.737" y2="128.317" class="gray" /></g>
+<g><line x1="256.42" y1="128.271" x2="256.253" y2="128.268" class="gray" /></g>
+<g><line x1="253.936" y1="128.222" x2="253.769" y2="128.219" class="gray" /></g>
+<g><line x1="251.452" y1="128.173" x2="251.285" y2="128.17" class="gray" /></g>
+<g><line x1="248.968" y1="128.124" x2="248.801" y2="128.121" class="gray" /></g>
+<g><line x1="246.484" y1="128.075" x2="246.317" y2="128.072" class="gray" /></g>
+<g><line x1="244" y1="128.026" x2="243.833" y2="128.023" class="gray" /></g>
+<g><line x1="241.516" y1="127.977" x2="241.349" y2="127.974" class="gray" /></g>
+<g><line x1="239.032" y1="127.928" x2="238.865" y2="127.925" class="gray" /></g>
+<g><line x1="236.548" y1="127.879" x2="236.381" y2="127.876" class="gray" /></g>
+<g><line x1="234.065" y1="127.831" x2="233.897" y2="127.827" class="gray" /></g>
+<g><line x1="231.581" y1="127.782" x2="231.413" y2="127.778" class="gray" /></g>
+<g><line x1="229.097" y1="127.733" x2="228.929" y2="127.729" class="gray" /></g>
+<g><line x1="226.613" y1="127.684" x2="226.445" y2="127.68" class="gray" /></g>
+<g><line x1="224.129" y1="127.635" x2="223.962" y2="127.632" class="gray" /></g>
+<g><line x1="221.645" y1="127.586" x2="221.478" y2="127.583" class="gray" /></g>
+<g><line x1="219.161" y1="127.537" x2="218.994" y2="127.534" class="gray" /></g>
+<g><line x1="216.677" y1="127.488" x2="216.51" y2="127.485" class="gray" /></g>
+<g><line x1="214.193" y1="127.439" x2="214.026" y2="127.436" class="gray" /></g>
+<g><line x1="211.709" y1="127.39" x2="211.542" y2="127.387" class="gray" /></g>
+<g><line x1="209.225" y1="127.341" x2="209.058" y2="127.338" class="gray" /></g>
+<g><line x1="206.741" y1="127.292" x2="206.574" y2="127.289" class="gray" /></g>
+<g><line x1="204.257" y1="127.243" x2="204.09" y2="127.24" class="gray" /></g>
+<g><line x1="201.773" y1="127.194" x2="201.606" y2="127.191" class="gray" /></g>
+<g><line x1="199.289" y1="127.145" x2="199.122" y2="127.142" class="gray" /></g>
+<g><line x1="196.805" y1="127.097" x2="196.638" y2="127.093" class="gray" /></g>
+<g><line x1="194.321" y1="127.048" x2="194.154" y2="127.044" class="gray" /></g>
+<g><line x1="191.837" y1="126.999" x2="191.67" y2="126.995" class="gray" /></g>
+<g><line x1="189.354" y1="126.95" x2="189.186" y2="126.946" class="gray" /></g>
+<g><line x1="186.87" y1="126.901" x2="186.702" y2="126.898" class="gray" /></g>
+<g><line x1="184.386" y1="126.852" x2="184.218" y2="126.849" class="gray" /></g>
+<g><line x1="181.902" y1="126.803" x2="181.734" y2="126.8" class="gray" /></g>
+<g><line x1="179.418" y1="126.754" x2="179.251" y2="126.751" class="gray" /></g>
+<g><line x1="176.934" y1="126.705" x2="176.767" y2="126.702" class="gray" /></g>
+<g><line x1="174.45" y1="126.656" x2="174.283" y2="126.653" class="gray" /></g>
+<g><line x1="171.966" y1="126.607" x2="171.799" y2="126.604" class="gray" /></g>
+<g><line x1="169.482" y1="126.558" x2="169.315" y2="126.555" class="gray" /></g>
+<g><line x1="166.998" y1="126.509" x2="166.831" y2="126.506" class="gray" /></g>
+<g><line x1="164.514" y1="126.46" x2="164.347" y2="126.457" class="gray" /></g>
+<g><line x1="162.03" y1="126.412" x2="161.863" y2="126.408" class="gray" /></g>
+<g><line x1="159.546" y1="126.363" x2="159.379" y2="126.359" class="gray" /></g>
+<g><line x1="157.062" y1="126.314" x2="156.895" y2="126.31" class="gray" /></g>
+<g><line x1="154.578" y1="126.265" x2="154.411" y2="126.261" class="gray" /></g>
+<g><line x1="152.094" y1="126.216" x2="151.927" y2="126.212" class="gray" /></g>
+<g><line x1="149.61" y1="126.167" x2="149.443" y2="126.164" class="gray" /></g>
+<g><line x1="147.126" y1="126.118" x2="146.959" y2="126.115" class="gray" /></g>
+<g><line x1="144.643" y1="126.069" x2="144.475" y2="126.066" class="gray" /></g>
+<g><line x1="142.159" y1="126.02" x2="141.991" y2="126.017" class="gray" /></g>
+<g><line x1="139.675" y1="125.971" x2="139.507" y2="125.968" class="gray" /></g>
+<g><line x1="137.191" y1="125.922" x2="137.023" y2="125.919" class="gray" /></g>
+<g><line x1="134.707" y1="125.873" x2="134.54" y2="125.87" class="gray" /></g>
+<g><line x1="132.223" y1="125.824" x2="132.056" y2="125.821" class="gray" /></g>
+<g><line x1="129.739" y1="125.775" x2="129.572" y2="125.772" class="gray" /></g>
+<g><line x1="127.255" y1="125.726" x2="127.088" y2="125.723" class="gray" /></g>
+<g><line x1="124.771" y1="125.678" x2="124.604" y2="125.674" class="gray" /></g>
+<g><line x1="122.287" y1="125.629" x2="122.12" y2="125.625" class="gray" /></g>
+<g><line x1="119.803" y1="125.58" x2="119.636" y2="125.576" class="gray" /></g>
+<g><line x1="117.319" y1="125.531" x2="117.152" y2="125.527" class="gray" /></g>
+<g><line x1="114.835" y1="125.482" x2="114.668" y2="125.479" class="gray" /></g>
+<g><line x1="112.351" y1="125.433" x2="112.184" y2="125.43" class="gray" /></g>
+<g><line x1="109.867" y1="125.384" x2="109.7" y2="125.381" class="gray" /></g>
+<g><line x1="107.383" y1="125.335" x2="107.216" y2="125.332" class="gray" /></g>
+<g><line x1="104.899" y1="125.286" x2="104.732" y2="125.283" class="gray" /></g>
+<g><line x1="102.415" y1="125.237" x2="102.248" y2="125.234" class="gray" /></g>
+<g><line x1="99.9316" y1="125.188" x2="99.7643" y2="125.185" class="gray" /></g>
+<g><line x1="97.4476" y1="125.139" x2="97.2804" y2="125.136" class="gray" /></g>
+<g><line x1="94.9637" y1="125.09" x2="94.7965" y2="125.087" class="gray" /></g>
+<g><line x1="92.4797" y1="125.041" x2="92.3125" y2="125.038" class="gray" /></g>
+<g><line x1="89.9958" y1="124.992" x2="89.8286" y2="124.989" class="gray" /></g>
+<g><line x1="87.5118" y1="124.944" x2="87.3446" y2="124.94" class="gray" /></g>
+<g><line x1="85.0279" y1="124.895" x2="84.8607" y2="124.891" class="gray" /></g>
+<g><line x1="82.5439" y1="124.846" x2="82.3767" y2="124.842" class="gray" /></g>
+<g><line x1="80.06" y1="124.797" x2="79.8928" y2="124.793" class="gray" /></g>
+<g><line x1="77.5761" y1="124.748" x2="77.4088" y2="124.745" class="gray" /></g>
+<g><line x1="75.0921" y1="124.699" x2="74.9249" y2="124.696" class="gray" /></g>
+<g><line x1="72.6082" y1="124.65" x2="72.441" y2="124.647" class="gray" /></g>
+<g><line x1="70.1242" y1="124.601" x2="69.957" y2="124.598" class="gray" /></g>
+<g><line x1="67.6403" y1="124.552" x2="67.4731" y2="124.549" class="gray" /></g>
+<g><line x1="65.1563" y1="124.503" x2="64.9891" y2="124.5" class="gray" /></g>
+<g><line x1="62.6724" y1="124.454" x2="62.5052" y2="124.451" class="gray" /></g>
+<g><line x1="60.3337" y1="124.99" x2="60.1875" y2="125.071" class="gray" /></g>
+<g><line x1="58.1613" y1="126.196" x2="58.0151" y2="126.277" class="gray" /></g>
+<g><line x1="55.9889" y1="127.401" x2="55.8427" y2="127.482" class="gray" /></g>
+<g><line x1="53.8165" y1="128.606" x2="53.6703" y2="128.688" class="gray" /></g>
+<g><line x1="51.6441" y1="129.812" x2="51.4979" y2="129.893" class="gray" /></g>
+<g><line x1="50.2587" y1="131.591" x2="50.2261" y2="131.756" class="gray" /></g>
+<g><line x1="50.9963" y1="133.483" x2="51.1401" y2="133.569" class="gray" /></g>
+<g><line x1="53.1328" y1="134.751" x2="53.2766" y2="134.837" class="gray" /></g>
+<g><line x1="55.2692" y1="136.019" x2="55.413" y2="136.105" class="gray" /></g>
+<g><line x1="57.4057" y1="137.287" x2="57.5495" y2="137.373" class="gray" /></g>
+<g><line x1="59.5421" y1="138.555" x2="59.686" y2="138.641" class="gray" /></g>
+<g><line x1="61.6786" y1="139.823" x2="61.8224" y2="139.909" class="gray" /></g>
+<g><line x1="62.4617" y1="139.398" x2="62.4101" y2="139.239" class="gray" /></g>
+<g><line x1="62.3659" y1="137.021" x2="62.411" y2="136.86" class="gray" /></g>
+<g><line x1="62.7693" y1="134.587" x2="62.7758" y2="134.42" class="gray" /></g>
+<g><line x1="62.8667" y1="132.104" x2="62.8732" y2="131.937" class="gray" /></g>
+<g><line x1="62.9641" y1="129.622" x2="62.9706" y2="129.455" class="gray" /></g>
+<g><line x1="63.0615" y1="127.139" x2="63.068" y2="126.972" class="gray" /></g>
+<g><line x1="63.1588" y1="124.657" x2="63.1654" y2="124.49" class="gray" /></g>
+<g><line x1="63.2562" y1="122.174" x2="63.2628" y2="122.007" class="gray" /></g>
+</svg>

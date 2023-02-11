@@ -1,7 +1,7 @@
 import './style.css';
-import {addAnim, addAnimBtn} from './animation';
+import { addAnim, addAnimBtn, addAnimRange } from './animation';
 import { RNAVis, RNAData, createGroups, Animation, AnimationState } from 'rna-visualizer';
-import {data} from './data';
+import { data } from './data';
 
 const layers = document.getElementById('canvas-space');
 const selection = document.getElementById('rna-selection');
@@ -61,7 +61,13 @@ function addGroups(rnaVis: RNAVis): void {
             b.setAttribute('value', group.size() + '');
             b.setAttribute('id', i + '');
             b.onclick = (event) => {
-                rnaVis.align(+(event.target as HTMLElement).id, minGroupSize);
+                const shifts = rnaVis.align(+(event.target as HTMLElement).id, minGroupSize);
+                const containers = rnaVis.getDataContainers();
+
+                for (let i = 0; i < shifts.length; ++i) {
+                    containers[i + 1].translate(shifts[i]);
+                }
+
                 rnaVis.draw();
             }
             groups.append(b);
@@ -98,7 +104,15 @@ function load(): void {
       rnaVis.addData(d.structure, d.name);
     }
 
-    rnaVis.align();
+    const shifts = rnaVis.align();
+    const containers = rnaVis.getDataContainers();
+
+    for (let i = 0; i < shifts.length; ++i) {
+        containers[i + 1].translate(shifts[i]);
+    }
+
+    rnaVis.draw();
+
 
     let targets: AnimationState[] = [];
     let checkbox;
@@ -112,6 +126,7 @@ function load(): void {
     addGroups(rnaVis);
     addAnim(rnaVis, animation);
     addAnimBtn(rnaVis, animation);
+    addAnimRange(rnaVis, animation);
     addResetBtn(rnaVis);
 }
 

@@ -29,7 +29,7 @@ export function addAnim(rnaVis: RNAVis, anim: Animation): void {
     }
 }
 
-export function addAnimBtn(rnaVis: RNAVis, anim: Animation) {
+export function addAnimBtn(rnaVis: RNAVis, anim: Animation): void {
     const animBtn = document.getElementById('animate-button');
     const duration = document.getElementById('duration') as HTMLInputElement;
     if (animBtn) {
@@ -50,6 +50,17 @@ export function addAnimBtn(rnaVis: RNAVis, anim: Animation) {
                 removed = !removed;
             });
         }
+    }
+}
+
+export function addAnimRange(rnaVis: RNAVis, anim: Animation): void {
+    const range = document.getElementById('anim-range');
+    if (range) {
+        range.onchange = (event) => {
+            const value = +(event.target as HTMLInputElement).value;
+            anim.do(value);
+            rnaVis.draw();
+        };
     }
 }
 
