@@ -36,7 +36,6 @@ export function addAnimBtn(rnaVis: RNAVis, anim: Animation): void {
         let removed = false;
         animBtn.onclick = (event) => {
             if (!removed) {
-                anim.updateFrom();
                 anim.container.forEach(remove);
                 rnaVis.draw();
             }

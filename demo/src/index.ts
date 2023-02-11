@@ -11,7 +11,8 @@ const minGroupSize = 20;
 const rnaVis = new RNAVis(layers);
 rnaVis.addZoom();
 // rnaVis.addHoverLabel();
-rnaVis.addClickAlign(1500);
+// rnaVis.addClickAlign(1500);
+
 
 addSelection(rnaVis);
 load();
@@ -123,6 +124,21 @@ function load(): void {
     }
     let conts = rnaVis.getDataContainers();
     const animation = new Animation(conts.slice(1), targets);
+
+    rnaVis.canvas.node().onclick = (event) => {
+        const rect = rnaVis.canvas.node().getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const containers = rnaVis.getDataContainers();
+        const bla = containers[0].getResByCoor(x, y); 
+
+        if (bla !== null) {
+            const animTarget = rnaVis.getAlignmentToTempResidue(bla);
+            animation.setFrom(animTarget);
+            const anim = new Animation(containers.slice(1), animTarget);
+            anim.animate(rnaVis, 1500);
+        }
+    };
 
     addVisibility(rnaVis);
     addGroups(rnaVis);

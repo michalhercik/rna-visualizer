@@ -169,6 +169,13 @@ export class Animation {
         this.from = this.container.map(c => AnimationState.fromDataContainer(c));
     }
 
+    public setFrom(from: AnimationState[]): Animation {
+        if (from.length === this.to.length) {
+            this.from = from;
+        }
+        return this;
+    }
+
     public do(elapsed: number) {
         const update = (start: number, target: number) => start * (1 - elapsed) + (target) * elapsed;
 

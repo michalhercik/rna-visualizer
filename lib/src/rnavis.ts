@@ -6,7 +6,7 @@ import DataContainer from './dataContainer'
 import TitlePresenter from './titlePresenter';
 import ContainerFactory from './containerFactory';
 import { getBestGroup, Group, createGroups} from './align';
-import { identity, Vector2 } from './rna/data-structures';
+import { Vector2, Residue } from './rna/data-structures';
 import { Animation, AnimationState } from './animation';
 
 class Layer {
@@ -23,7 +23,7 @@ class Layer {
 
 export class RNAVis {
     private margin = 10;
-    private canvas;    
+    public canvas;    
     public readonly layers: Layer[];
     private titlePresenter: TitlePresenter;
     private styles: Styles;
@@ -138,6 +138,22 @@ export class RNAVis {
             }
         }
         return shifts;
+    }
+
+    public getAlignmentToTempResidue(tempRes: Residue): AnimationState[] {
+        let animTargets: AnimationState[] = [];
+        const containers = this.getDataContainers();
+
+        for (let i = 1; i < containers.length; ++i) {
+            const residue = containers[i].residues.find(res => res.templateIndex === tempRes.index);
+            if (residue) {
+                const shift = Vector2.subtraction(tempRes.getCoor(), residue.getCoor());
+                animTargets.push(AnimationState.fromTranslation(containers[i], shift));
+            } else {
+                animTargets.push(AnimationState.fromDataContainer(containers[i]));
+            }
+        }
+        return animTargets;
     }
 
     public addClickAlign(duration: number = 0) {
