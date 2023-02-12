@@ -2,16 +2,20 @@ import './style.css';
 import { addAnim, addAnimBtn, addAnimRange } from './animation';
 import { RNAVis, RNAData, createGroups, Animation, AnimationState } from 'rna-visualizer';
 import { data } from './data';
+import { newCheckboxList } from './checkboxList';
 
-const layers = document.getElementById('canvas-space');
+const layers = document.getElementById('canvas-space') as HTMLCanvasElement;
 const selection = document.getElementById('rna-selection');
 
+
+layers.getContext('2d').scale(2, 2);
+layers.style.width = (+layers.width / 2) + 'px';
+layers.style.height = (+layers.height / 2) + 'px';
 
 const minGroupSize = 20;
 const rnaVis = new RNAVis(layers);
 rnaVis.addZoom();
 // rnaVis.addHoverLabel();
-// rnaVis.addClickAlign(1500);
 
 
 addSelection(rnaVis);
@@ -22,30 +26,16 @@ function addVisibility(rnaVis: RNAVis): void {
     const visibility = document.getElementById('visibility');
     if (visibility) {
         visibility.replaceChildren();
-        for (let layer of Array.from(rnaVis.layers.values())) {
-            let listItem = document.createElement('li');
-            visibility.append(listItem);
-            let checkbox = document.createElement('input');
-            checkbox.setAttribute('type', 'checkbox');
-            checkbox.setAttribute('id', layer.name);
-            checkbox.setAttribute('name', layer.name);
-            checkbox.setAttribute('checked', layer.visible ? "checked" : "");
-            checkbox.addEventListener('change', (event) => {
-                const checkbox = event.currentTarget as HTMLInputElement;
-                if (checkbox.checked) {
-                    rnaVis.showByName(checkbox.getAttribute('id'));
-                } else {
-                    rnaVis.hideByName(checkbox.getAttribute('id'));
-                }
-                rnaVis.draw();
-            })
-            listItem.append(checkbox);
-
-            let label = document.createElement('label');
-            label.setAttribute('for', layer.name);
-            label.innerHTML = layer.name;
-            listItem.append(label);
-        }
+        const id = "visiblity";
+        newCheckboxList(rnaVis, id, visibility, (event: any) => {
+            const checkbox = event.currentTarget as HTMLInputElement;
+            if (checkbox.checked) {
+                rnaVis.showByName(checkbox.getAttribute('id').slice(0, -id.length));
+            } else {
+                rnaVis.hideByName(checkbox.getAttribute('id').slice(0, -id.length));
+            }
+            rnaVis.draw();
+        });
     }
 }
 
@@ -98,13 +88,31 @@ function addSelection(rnaVis: RNAVis): void {
     }
 }
 
+function addOnClickAlign(rnaVis: RNAVis, animation: Animation): void {
+    if (document.getElementById('click-align') !== null)
+        rnaVis.canvas.node().onclick = (event) => {
+            const rect = rnaVis.canvas.node().getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const containers = rnaVis.getDataContainers();
+            const bla = containers[0].getResByCoor(x, y); 
+
+            if (bla !== null) {
+                const animTarget = rnaVis.getAlignmentToTempResidue(bla);
+                animation.setFrom(animTarget);
+                const anim = new Animation(containers.slice(1), animTarget);
+                anim.animate(rnaVis, 1500);
+            }
+        };
+}
+
 function load(): void {
     const index = +(selection as HTMLSelectElement).selectedIndex;
     rnaVis.clear();
     const bundle = data[index];
     rnaVis.addData(bundle.template.structure, bundle.template.name);
     for (let d of bundle.data) {
-      rnaVis.addData(d.structure, d.name);
+        rnaVis.addData(d.structure, d.name);
     }
 
     const shifts = rnaVis.align();
@@ -124,24 +132,14 @@ function load(): void {
     }
     let conts = rnaVis.getDataContainers();
     const animation = new Animation(conts.slice(1), targets);
+    // for (let i = 1; i < rnaVis.layers.length; ++i) {
+    //     animation.changeState(i - 1, rnaVis.layers[i].visible);
+    // }
 
-    rnaVis.canvas.node().onclick = (event) => {
-        const rect = rnaVis.canvas.node().getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const containers = rnaVis.getDataContainers();
-        const bla = containers[0].getResByCoor(x, y); 
-
-        if (bla !== null) {
-            const animTarget = rnaVis.getAlignmentToTempResidue(bla);
-            animation.setFrom(animTarget);
-            const anim = new Animation(containers.slice(1), animTarget);
-            anim.animate(rnaVis, 1500);
-        }
-    };
 
     addVisibility(rnaVis);
     addGroups(rnaVis);
+    addOnClickAlign(rnaVis, animation);
     addAnim(rnaVis, animation);
     addAnimBtn(rnaVis, animation);
     addAnimRange(rnaVis, animation);

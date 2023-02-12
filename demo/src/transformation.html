@@ -4,24 +4,23 @@
     </head>
     <body>
         <header>
-            <h1>RNAVis Demo</h1>
+            <h1>Transformation Demo</h1>
         </header>
         <nav>
-            <a href="index.html">Groups</a>
-            <a href="animation.html">Animation</a>
+            <a href="groups.html">Groups</a>
+            <a href="layers.html">Layers</a>
+            <a href="transformation.html">Transformation</a>
+            <a href="combination.html">Combination</a>
         </nav>
         <main>
-            <h2>Animation</h2>
             <div id="layers" class="rna">
-                <div id="canvas-space"></div>
+                <canvas width="2000" height="3200" id="canvas-space"></canvas>
                 <div id="controls" class="controls">
                     <label for="rna-selection">Template: </label>
                     <select id="rna-selection" class="rna-selection"> </select>
                     <div class="buttons">
                         <input type="button" value="Reset position" id="reset-pos">
                     </div>
-                    <h3>Structures:</h3>
-                    <ul id="visibility" class="visibility"></ul>
                     <h3>Animation:</h3>
                     <ul id="animation" class="visibility"></ul>
                     <div class="buttons">

@@ -14,7 +14,9 @@ export function addAnim(rnaVis: RNAVis, anim: Animation): void {
             checkbox.setAttribute('type', 'checkbox');
             checkbox.setAttribute('id', 'anim' + i);
             checkbox.setAttribute('name', 'anim' + i);
-            checkbox.setAttribute('checked', "checked");
+            if (anim.isActive[i]) {
+                checkbox.setAttribute('checked', "checked");
+            }
             checkbox.addEventListener('change', (event) => {
                 const checkbox = event.currentTarget as HTMLInputElement;
                 anim.changeState(+checkbox.id.slice(4), checkbox.checked);
@@ -36,13 +38,21 @@ export function addAnimBtn(rnaVis: RNAVis, anim: Animation): void {
         let removed = false;
         animBtn.onclick = (event) => {
             if (!removed) {
-                anim.container.forEach(remove);
+                for (let i = 0; i < anim.container.length; ++i) {
+                    if (anim.isActive[i]) {
+                        remove(anim.container[i]);
+                    }
+                }
                 rnaVis.draw();
             }
 
             anim.animate(rnaVis, +duration.value, () => {
                 if (removed) {
-                    anim.container.forEach(add);
+                    for (let i = 0; i < anim.container.length; ++i) {
+                        if (anim.isActive[i]) {
+                            add(anim.container[i]);
+                        }
+                    }
                     rnaVis.draw();
                 }
                 anim.reverse();

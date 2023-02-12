@@ -9,7 +9,7 @@ import { getBestGroup, Group, createGroups} from './align';
 import { Vector2, Residue } from './rna/data-structures';
 import { Animation, AnimationState } from './animation';
 
-class Layer {
+export class Layer {
     public name;
     public data;
     public visible = true;
@@ -29,14 +29,12 @@ export class RNAVis {
     private styles: Styles;
     private zoom;
 
-    constructor(element: HTMLElement) {
+    constructor(element: HTMLCanvasElement) {
         this.styles = new Styles();
         this.layers = new Array<Layer>();
         this.zoom = d3.zoom();
 
         this.canvas = d3.select(element)
-        .append('canvas')
-        this.canvas.style('background-color', 'white');
 
         const ctx = this.canvas.node().getContext('2d');
         this.titlePresenter = new TitlePresenter(ctx, this.styles);
@@ -44,7 +42,7 @@ export class RNAVis {
 
     public addZoom() {
         this.zoom
-        .scaleExtent([1,10])
+        .scaleExtent([0,10])
         .on('zoom', (event) => {
             Array.from(this.layers.values()).forEach((layer) => layer.data.update(event));
             this.draw();
@@ -54,22 +52,23 @@ export class RNAVis {
     }
 
     public draw(): void {
-        const ctx = this.canvas.node().getContext('2d', {alpha: false});
+        const ctx = this.canvas.node().getContext('2d');
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        let layers = Array.from(this.layers.values());
-        layers.forEach((layer) => {
+        this.updateAlpha();
+
+        this.layers.forEach((layer) => {
             if (layer.visible) {
                 drawLines(layer.data.getLines(), ctx, layer.data.styles);
             }
         });
 
-        layers.forEach((layer) => {
+        this.layers.forEach((layer) => {
             if (layer.visible) {
                 drawCircles(layer.data.getCircles(), ctx, layer.data.styles);
             }
         });
 
-        layers.forEach((layer) => {
+        this.layers.forEach((layer) => {
             if (layer.visible) {
                 drawTexts(layer.data.getText(), ctx, layer.data.styles);
             }
@@ -95,7 +94,6 @@ export class RNAVis {
         const cont = new ContainerFactory().create(data, this.styles);
         const newLayer = new Layer(cont, name, !visible);
         this.layers.push(newLayer);
-        this.updateDimensions(cont);
         const index = this.layers.length - 1;
         if (visible) {
             this.showByIndex(index);
@@ -107,7 +105,8 @@ export class RNAVis {
     public clear() {
         this.styles.reset();
         this.layers.length = 0;
-        this.setDimensions(100, 100, 1);
+        const ctx = this.canvas.node().getContext('2d', {alpha: false});
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     }
 
     public align(groupIndex: number = -1, minGroupSize: number = 5): Vector2[] {
@@ -120,7 +119,6 @@ export class RNAVis {
         const layers = this.layers;
         const containers = this.getDataContainers();
         let groups = createGroups(containers[0], containers[1], null, minGroupSize);
-
         if (groupIndex >= groups.length) {
             console.log("group index is too big!");
             return shifts;
@@ -133,8 +131,14 @@ export class RNAVis {
 
             for (let i = 2; i < layers.length; ++i) {
                 groups = createGroups(layers[0].data, layers[i].data, group);
-                let bestGroup = getBestGroup(groups);
-                shifts.push(new Vector2(bestGroup.xShift, bestGroup.yShift));
+                if (groups.length > 0) {
+                    let bestGroup = getBestGroup(groups);
+                    shifts.push(new Vector2(bestGroup.xShift, bestGroup.yShift));
+                } else {
+                    groups = createGroups(layers[0].data, layers[i].data);
+                    let bestGroup = getBestGroup(groups);
+                    shifts.push(new Vector2(bestGroup.xShift, bestGroup.yShift));
+                }
             }
         }
         return shifts;
@@ -156,69 +160,56 @@ export class RNAVis {
         return animTargets;
     }
 
-    public addClickAlign(duration: number = 0) {
-        this.canvas.node().onclick = (event) => {
-            const rect = this.canvas.node().getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            const containers = this.getDataContainers();
-            const bla = containers[0].getResByCoor(x, y); 
-
-            if (bla !== null) {
-                const target = bla;
-                let animTargets: AnimationState[] = []
-                let animCont: DataContainer[] = [];
-                for (let i = 1; i < containers.length; ++i) {
-                    for (let residue of containers[i].residues) {
-                        if (residue.templateIndex === target.index) {
-                            const shift = Vector2.subtraction(target.getCoor(), residue.getCoor());
-                            animTargets.push(AnimationState.fromTranslation(containers[i], shift));
-                            animCont.push(containers[i]);
-                            break;
-                        }
-                    }
-                }
-                const anim = new Animation(animCont, animTargets);
-                anim.animate(this, duration);
-            }
-        };
-    }
-
     public getLayerIndex(name: string): number {
         return this.layers.map(layer => layer.name).indexOf(name);
     }
 
-    public showByName(name: string): void {
-        this.showByIndex(this.getLayerIndex(name));
+    public updateAlpha(): RNAVis {
+        let visibleCount = this.layers.filter(l => l.visible).length
+        visibleCount = visibleCount === 0 ? 1 : visibleCount;
+        this.canvas.node().getContext('2d').globalAlpha = 1 / visibleCount;
+        return this;
     }
 
-    public hideByName(name: string): void {
-        this.hideByIndex(this.getLayerIndex(name));
-    }
 
-    public showByIndex(index: number) {
-        if (!this.layers[index].visible) {
-            this.layers[index].visible = true;
-            if (this.layers.filter(l => l.visible).length > 1) {
-                let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
-                oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
-                const newAlpha = 1 / (Math.round(1 / oldAlpha) + 1);
-                this.canvas.node().getContext('2d').globalAlpha = newAlpha;
-            }
+    public setVisibility(index: number, visibility: boolean): RNAVis {
+        if (this.layers[index].visible !== visibility) {
+            this.layers[index].visible = visibility;
         }
+        return this;
     }
 
-    public hideByIndex(index: number) {
-        if (this.layers[index].visible) {
-            this.layers[index].visible = false;
-            if (this.layers.filter(l => l.visible).length > 0) {
-                let oldAlpha = this.canvas.node().getContext('2d').globalAlpha;
-                oldAlpha = oldAlpha > 0 ? oldAlpha : 1;
-                let visible = Math.round(1 / oldAlpha) - 1;
-                visible = visible > 0 ? visible : 1;
-                this.canvas.node().getContext('2d').globalAlpha = 1 / visible;
-            }
+    public showByName(name: string): RNAVis {
+        const index = this.getLayerIndex(name);
+        if (index > -1) {
+            this.showByIndex(index);
         }
+        return this;
+    }
+
+    public hideByName(name: string): RNAVis {
+        const index = this.getLayerIndex(name);
+        if (index > -1) {
+            this.hideByIndex(index);
+        }
+        return this;
+    }
+
+    public showByIndex(index: number): RNAVis {
+        this.setVisibility(index, true);
+        return this;
+    }
+
+    public hideByIndex(index: number): RNAVis {
+        this.setVisibility(index, false);
+        return this;
+    }
+
+    public hideAll(): RNAVis {
+        for (let i = 0; i < this.layers.length; ++i) {
+            this.hideByIndex(i);
+        }
+        return this;
     }
 
     public resetPositions() {
@@ -227,29 +218,6 @@ export class RNAVis {
 
     public getDataContainers(): Array<DataContainer> {
         return this.layers.map(layer => layer.data);
-    }
-
-    private setDimensions(width: number, height: number, scale: number = 2) {
-        this.canvas
-        .attr('height', scale * height)
-        .attr('width', scale * width)
-        .style('width', width + 'px');
-        this.canvas.node().getContext('2d').scale(scale, scale);
-    }
-
-    private updateDimensions(data: DataContainer): void {
-        let alpha = this.canvas.node().getContext('2d').globalAlpha;
-        const scale = 2;
-        if (scale * data.width > +this.canvas.attr('width')) {
-            this.canvas
-            .attr('width', scale * data.width)
-            .style('width', (data.width) + 'px');
-        }
-        if (scale * data.height > +this.canvas.attr('height')) {
-            this.canvas.attr('height', scale * data.height)
-        }
-        this.canvas.node().getContext('2d').scale(scale, scale);
-        this.canvas.node().getContext('2d').globalAlpha = alpha;
     }
 }
 

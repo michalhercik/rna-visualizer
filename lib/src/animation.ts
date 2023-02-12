@@ -225,17 +225,19 @@ export class Animation {
     }
 
     public animate(rna: RNAVis, duration: number, after: () => void = () => {}): void {
-        const ease = d3.easeCubic;
-        let timer = d3.timer((t) => {
-            const elapsed = Math.min(1, ease(t / duration));
-            this.do(elapsed);
-            rna.draw();
+        if (this.isActive.indexOf(true) > -1) {
+            const ease = d3.easeCubic;
+            let timer = d3.timer((t) => {
+                const elapsed = Math.min(1, ease(t / duration));
+                this.do(elapsed);
+                rna.draw();
 
-            if (elapsed == 1) {
-                timer.stop();
-                after();
-            }
-        });
+                if (elapsed == 1) {
+                    timer.stop();
+                    after();
+                }
+            });
+        }
     }
 }
 
@@ -254,4 +256,3 @@ export function add(dataContainer: DataContainer): void {
         }
     })
 }
-

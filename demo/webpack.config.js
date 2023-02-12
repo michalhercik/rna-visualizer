@@ -13,14 +13,24 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      title: 'Demo',
-      filename: 'index.html',
+      template: './src/groups.html',
+      title: 'Groups',
+      filename: 'groups.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/animation.html',
-      title: 'Animation',
-      filename: 'animation.html',
+      template: './src/transformation.html',
+      title: 'Transformation',
+      filename: 'transformation.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/layers.html',
+      title: 'Layers',
+      filename: 'layers.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/combination.html',
+      title: 'Combination',
+      filename: 'combination.html',
     }),
   ],
   output: {

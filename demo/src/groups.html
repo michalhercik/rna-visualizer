@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <header>
+            <h1>Groups Demo</h1>
+        </header>
+        <nav>
+            <a href="groups.html">Groups</a>
+            <a href="layers.html">Layers</a>
+            <a href="transformation.html">Transformation</a>
+            <a href="combination.html">Combination</a>
+        </nav>
+        <main>
+            <div id="layers" class="rna">
+                <canvas width="2000" height="3200" id="canvas-space"></canvas>
+                <div id="controls" class="controls">
+                    <label for="rna-selection">Template: </label>
+                    <select id="rna-selection" class="rna-selection"> </select>
+                    <div class="buttons">
+                        <input type="button" value="Reset position" id="reset-pos">
+                    </div>
+                    <h3>Alignment</h3>
+                    <div id="groups" class="groups"></div>
+                </div>
+            </div>
+            <span id='click-align'></span>
+        </main>
+    </body>
+</html>

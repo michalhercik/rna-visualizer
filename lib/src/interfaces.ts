@@ -36,15 +36,14 @@ export interface Line {
     isVisible(): boolean;
 }
 
-export interface DataResidue 
-{
+export interface DataResidue {
+    classes: Array<string>;
     x: number;
     y: number;
     residueName: string;
     residueIndex: number;
     templateResidueIndex: number;
     templateResidueName: string;
-    classes: Array<string>;
 }
 
 export interface DataBasePair 

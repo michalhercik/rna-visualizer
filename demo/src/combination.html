@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <header>
+            <h1>Combination Demo</h1>
+        </header>
+        <nav>
+            <a href="groups.html">Groups</a>
+            <a href="layers.html">Layers</a>
+            <a href="transformation.html">Transformation</a>
+            <a href="combination.html">Combination</a>
+        </nav>
+        <main>
+            <div id="layers" class="rna">
+                <canvas width="2000" height="3200" id="canvas-space"></canvas>
+                <div id="controls" class="controls">
+                    <label for="rna-selection">Template: </label>
+                    <select id="rna-selection" class="rna-selection"> </select>
+                    <div class="buttons">
+                        <input type="button" value="Reset position" id="reset-pos">
+                    </div>
+                    <h3>Alignment</h3>
+                    <div id="groups" class="groups"></div>
+                    <h3>Animation:</h3>
+                    <ul id="animation" class="visibility"></ul>
+                    <div class="buttons">
+                        <input type="range" name="anim-range" id="anim-range" min="0" max="1" step="0.05" value="0">
+                    </div>
+                    <div class="buttons">
+                        <label for="duration">duration (ms): </label>
+                        <input type="number" min="0" max="10000" value="1500" name="duration" id="duration">
+                    </div>
+                    <div class="buttons">
+                        <input type="button" value="Animate" id="animate-button">
+                    </div>
+                    <h3>Structures:</h3>
+                    <ul id="visibility" class="visibility"></ul>
+                </div>
+            </div>
+            <span id='click-align'></span>
+        </main>
+    </body>
+</html>
