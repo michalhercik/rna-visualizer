@@ -1,5 +1,5 @@
 import './style.css';
-import { addAnim, addAnimBtn, addAnimRange } from './animation';
+import { addAnim, addAnimBtn, addAnimRange, addAlpha } from './animation';
 import { RNAVis, RNAData, createGroups, Animation, AnimationState } from 'rna-visualizer';
 import { data } from './data';
 import { newCheckboxList } from './checkboxList';
@@ -39,7 +39,7 @@ function addVisibility(rnaVis: RNAVis): void {
     }
 }
 
-function addGroups(rnaVis: RNAVis): void {
+function addGroups(rnaVis: RNAVis, animation: Animation): void {
     const groups = document.getElementById('groups');
     if (groups) {
         groups.replaceChildren();
@@ -60,6 +60,7 @@ function addGroups(rnaVis: RNAVis): void {
                     targets.push(AnimationState.fromTranslation(containers[i + 1], shifts[i]));
                 }
 
+                animation.setFrom(targets);
                 const anim = new Animation(containers.slice(1), targets);
                 anim.animate(rnaVis, 1500);
             }
@@ -138,11 +139,12 @@ function load(): void {
 
 
     addVisibility(rnaVis);
-    addGroups(rnaVis);
+    addGroups(rnaVis, animation);
     addOnClickAlign(rnaVis, animation);
     addAnim(rnaVis, animation);
     addAnimBtn(rnaVis, animation);
     addAnimRange(rnaVis, animation);
     addResetBtn(rnaVis);
+    addAlpha(rnaVis);
 }
 

@@ -54,7 +54,6 @@ export class RNAVis {
     public draw(): void {
         const ctx = this.canvas.node().getContext('2d');
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        this.updateAlpha();
 
         this.layers.forEach((layer) => {
             if (layer.visible) {
@@ -100,6 +99,7 @@ export class RNAVis {
         } else {
             this.hideByIndex(index);
         }
+        this.updateAlpha();
     }
 
     public clear() {
@@ -167,7 +167,13 @@ export class RNAVis {
     public updateAlpha(): RNAVis {
         let visibleCount = this.layers.filter(l => l.visible).length
         visibleCount = visibleCount === 0 ? 1 : visibleCount;
-        this.canvas.node().getContext('2d').globalAlpha = 1 / visibleCount;
+        const alpha = 1 / visibleCount;
+        this.setAlpha(alpha);
+        return this;
+    }
+
+    public setAlpha(alpha: number): RNAVis {
+        this.canvas.node().getContext('2d').globalAlpha = alpha;
         return this;
     }
 

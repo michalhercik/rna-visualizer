@@ -73,3 +73,15 @@ export function addAnimRange(rnaVis: RNAVis, anim: Animation): void {
     }
 }
 
+export function addAlpha(rnaVis: RNAVis): void {
+    const bla = document.getElementById('alpha-value');
+    if (bla) {
+        bla.onchange = (event) => {
+            const value = +(event.target as HTMLInputElement).value;
+            console.log(value);
+            rnaVis.setAlpha(value);
+            rnaVis.draw();
+        };
+    }
+}
+

@@ -13,9 +13,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/groups.html',
-      title: 'Groups',
-      filename: 'groups.html',
+      template: './src/alignment.html',
+      title: 'Alignment',
+      filename: 'alignment.html',
     }),
     new HtmlWebpackPlugin({
       template: './src/transformation.html',
