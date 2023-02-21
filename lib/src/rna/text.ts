@@ -1,6 +1,12 @@
-import { Label, Vector2, Transformation, identity } from './data-structures';
+import { 
+    Label, 
+    Vector2, 
+    Transformation, 
+    identity,
+    IObject
+} from './data-structures';
 
-export class Text {
+export class Text implements IObject {
     text: string;
     coor: Vector2;
     classes: string[];

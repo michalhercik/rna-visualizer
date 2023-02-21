@@ -46,7 +46,7 @@ export class DoubleCoorTarget {
     }
 }
 
-export class AnimationState {
+export class RnaPositionRecord {
     public readonly labelLines: Map<string, DoubleCoorTarget>;
     public readonly labelTexts: Map<string, SingleCoorTarget>;
     public readonly residues: Map<string, SingleCoorTarget>;
@@ -59,7 +59,7 @@ export class AnimationState {
         this.residues = residues;
     }
 
-    public static fromDataContainer(container: DataContainer) : AnimationState {
+    public static fromDataContainer(container: DataContainer) : RnaPositionRecord {
         let labelLines = new Map<string, DoubleCoorTarget>();
         let labelTexts = new Map<string, SingleCoorTarget>();
         let residues = new Map<string, SingleCoorTarget>();
@@ -80,10 +80,10 @@ export class AnimationState {
             labelLines.set(key, lineTarget);
         });
 
-        return new AnimationState(labelLines, labelTexts, residues);
+        return new RnaPositionRecord(labelLines, labelTexts, residues);
     }
 
-    public static fromTemplate(container: DataContainer, template: DataContainer): AnimationState {
+    public static fromTemplate(container: DataContainer, template: DataContainer): RnaPositionRecord {
         let labelLines = new Map<string, DoubleCoorTarget>();
         let labelTexts = new Map<string, SingleCoorTarget>();
         let residues = new Map<string, SingleCoorTarget>();
@@ -115,7 +115,7 @@ export class AnimationState {
             }
         });
 
-        return new AnimationState(labelLines, labelTexts, residues);
+        return new RnaPositionRecord(labelLines, labelTexts, residues);
     }
 
     public static fromTranslation(container: DataContainer, shift: Vector2) {
@@ -143,17 +143,26 @@ export class AnimationState {
             labelLines.set(key, lineTarget);
         });
 
-        return new AnimationState(labelLines, labelTexts, residues);
+        return new RnaPositionRecord(labelLines, labelTexts, residues);
     }
 }
 
-export class Animation {
+type BasicFn = () => void;
+
+export interface IAnimation {
+    changeState(index: number, isActive: boolean): void;
+    do(elapsed: number): void;
+    reverse(): void;
+    animate(rna: RNAVis, duration: number, after: BasicFn): void;
+}
+
+export class Animation implements IAnimation {
     container: DataContainer[];
-    from: AnimationState[];
-    to: AnimationState[];
+    from: RnaPositionRecord[];
+    to: RnaPositionRecord[];
     isActive: boolean[];
 
-    constructor(container: DataContainer[], to: AnimationState[]) {
+    constructor(container: DataContainer[], to: RnaPositionRecord[]) {
         this.container = container;
         this.isActive = container.map(c => true);
         this.to = to;
@@ -166,10 +175,10 @@ export class Animation {
     }
 
     public updateFrom() {
-        this.from = this.container.map(c => AnimationState.fromDataContainer(c));
+        this.from = this.container.map(c => RnaPositionRecord.fromDataContainer(c));
     }
 
-    public setFrom(from: AnimationState[]): Animation {
+    public setFrom(from: RnaPositionRecord[]): Animation {
         if (from.length === this.to.length) {
             this.from = from;
         }
@@ -224,7 +233,7 @@ export class Animation {
         this.to = tmp;
     }
 
-    public animate(rna: RNAVis, duration: number, after: () => void = () => {}): void {
+    public animate(rna: RNAVis, duration: number, after: BasicFn = () => {}): void {
         if (this.isActive.indexOf(true) > -1) {
             const ease = d3.easeCubic;
             let timer = d3.timer((t) => {
@@ -239,14 +248,101 @@ export class Animation {
             });
         }
     }
+
+    public getActiveContainers(): DataContainer[] {
+        let active = [];
+        for (let i = 0; i < this.container.length; ++i) {
+            if (this.isActive[i]) {
+                active.push(this.container[i]);
+            }
+        }
+        return active;
+    }
 }
 
-export function remove(dataContainer: DataContainer): void {
-    dataContainer.residues.forEach(res => {
-        if (res.templateIndex === -1) {
-            res.setVisible(false);
+export class VisibilityRecord {
+    residues: Residue[];
+    to: boolean[];
+    active: boolean = true;
+
+    public constructor(residues: Residue[], to: boolean[]) {
+        if (residues.length !== to.length) {
+            throw new Error('residues.length !== to.length');
         }
-    })
+        this.residues = residues;
+        this.to = to;
+    }
+
+    public setActive(active: boolean): void {
+        this.active = active;
+    }
+
+    public isActive(): boolean {
+        return this.active;
+    }
+}
+
+export class VisibilityAnim implements IAnimation {
+    visibilityRecords: VisibilityRecord[];
+
+    public constructor(visibilityRecords: VisibilityRecord[]) {
+        this.visibilityRecords = visibilityRecords;
+    }
+
+    public changeState(index: number, active: boolean) {
+        this.visibilityRecords[index].setActive(active);
+    }
+
+    public do(elapsed: number) {
+        this.visibilityRecords.forEach(rec => {
+            if (rec.residues.length > elapsed) {
+                rec.residues[elapsed].setVisible(rec.to[elapsed]);
+            }
+        })
+    }
+
+    public reverse() {
+        this.visibilityRecords.forEach(rec => {
+            rec.setActive(!rec.isActive());
+        })
+    }
+
+    public animate(rna: RNAVis, duration: number, after: BasicFn = () => {}): void {
+        const max = Math.max(
+            ...this.visibilityRecords.map(rec => rec.residues.length)
+        );
+        let i = 0;
+        if (i < max) {
+            const interval = d3.interval(() => {
+                this.do(i);
+                rna.draw();
+                ++i;
+                if (i >= max) {
+                    interval.stop();
+                    after();
+                }
+            }, duration);
+        } else {
+            after();
+        }
+    }
+}
+
+export function AnimateVisibility(rnaVis: RNAVis, objects: Residue[], interval: number, after: BasicFn = () => {}): void {
+    let i = 0;
+    if (objects.length > 0) {
+        const animation = d3.interval(() => {
+            objects[i].setVisible(false);
+            rnaVis.draw();
+            ++i;
+            if (i === objects.length) {
+                animation.stop();
+                after();
+            } 
+        }, interval);
+    } else {
+        after();
+    }
 }
 
 export function add(dataContainer: DataContainer): void {

@@ -1,6 +1,13 @@
-import { Vector2, Residue, Line, Text, Transformation } from './data-structures';
+import { 
+    Vector2, 
+    Residue, 
+    Line, 
+    Text, 
+    Transformation,
+    IObject
+} from './data-structures';
 
-export class Label {
+export class Label implements IObject {
     public residue: Residue;
     public line: Line;
     public text: Text;
@@ -26,7 +33,7 @@ export class Label {
     }
 
     public isVisible(): boolean {
-        return this.visible;
+        return this.visible && this.residue.isVisible();
     }
 
     public translate(shift: Vector2): Label {

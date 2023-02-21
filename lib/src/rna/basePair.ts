@@ -2,7 +2,7 @@ import {
     Residue, 
     Transformation,
     identity,
-    ILine
+    ILine,
 } from './data-structures';
 
 export class BasePair implements ILine {

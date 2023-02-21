@@ -7,7 +7,7 @@ import TitlePresenter from './titlePresenter';
 import ContainerFactory from './containerFactory';
 import { getBestGroup, Group, createGroups} from './align';
 import { Vector2, Residue } from './rna/data-structures';
-import { Animation, AnimationState } from './animation';
+import { Animation, RnaPositionRecord } from './animation';
 
 export class Layer {
     public name;
@@ -144,17 +144,17 @@ export class RNAVis {
         return shifts;
     }
 
-    public getAlignmentToTempResidue(tempRes: Residue): AnimationState[] {
-        let animTargets: AnimationState[] = [];
+    public getAlignmentToTempResidue(tempRes: Residue): RnaPositionRecord[] {
+        let animTargets: RnaPositionRecord[] = [];
         const containers = this.getDataContainers();
 
         for (let i = 1; i < containers.length; ++i) {
             const residue = containers[i].residues.find(res => res.templateIndex === tempRes.index);
             if (residue) {
                 const shift = Vector2.subtraction(tempRes.getCoor(), residue.getCoor());
-                animTargets.push(AnimationState.fromTranslation(containers[i], shift));
+                animTargets.push(RnaPositionRecord.fromTranslation(containers[i], shift));
             } else {
-                animTargets.push(AnimationState.fromDataContainer(containers[i]));
+                animTargets.push(RnaPositionRecord.fromDataContainer(containers[i]));
             }
         }
         return animTargets;
@@ -176,7 +176,6 @@ export class RNAVis {
         this.canvas.node().getContext('2d').globalAlpha = alpha;
         return this;
     }
-
 
     public setVisibility(index: number, visibility: boolean): RNAVis {
         if (this.layers[index].visible !== visibility) {

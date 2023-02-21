@@ -1,4 +1,4 @@
-import { RNAVis, RNAData, remove, add, Animation, AnimationState, createGroups } from 'rna-visualizer';
+import { RNAVis, RNAData, Animation, createGroups, Residue, VisibilityAnim, VisibilityRecord } from 'rna-visualizer';
 import {data} from './data';
 import * as d3 from 'd3';
 
@@ -37,27 +37,29 @@ export function addAnimBtn(rnaVis: RNAVis, anim: Animation): void {
     if (animBtn) {
         let removed = false;
         animBtn.onclick = (event) => {
-            if (!removed) {
-                for (let i = 0; i < anim.container.length; ++i) {
-                    if (anim.isActive[i]) {
-                        remove(anim.container[i]);
-                    }
-                }
-                rnaVis.draw();
-            }
-
-            anim.animate(rnaVis, +duration.value, () => {
-                if (removed) {
-                    for (let i = 0; i < anim.container.length; ++i) {
-                        if (anim.isActive[i]) {
-                            add(anim.container[i]);
-                        }
-                    }
-                    rnaVis.draw();
-                }
-                anim.reverse();
-                removed = !removed;
+            const visRec = anim.getActiveContainers()
+            .map(cont => {
+                const unMappable = cont.getUnmappableResidues();
+                const to = unMappable.map(res => !res.isVisible());
+                return new VisibilityRecord(unMappable, to);
             });
+            const visAnim = new VisibilityAnim(visRec);
+            const interval = 300;
+
+            if (removed) {
+                anim.animate(rnaVis, +duration.value, () => {
+                    visAnim.animate(rnaVis, interval);
+                    anim.reverse();
+                    removed = !removed;
+                });
+            } else {
+                visAnim.animate(rnaVis, interval, () => {
+                    anim.animate(rnaVis, +duration.value, () => {
+                        anim.reverse();
+                        removed = !removed;
+                    });
+                });
+            }
         }
     }
 }
