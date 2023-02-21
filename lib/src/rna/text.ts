@@ -3,10 +3,9 @@ import {
     Vector2, 
     Transformation, 
     identity,
-    IObject
 } from './data-structures';
 
-export class Text implements IObject {
+export class Text {
     text: string;
     coor: Vector2;
     classes: string[];

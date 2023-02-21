@@ -4,10 +4,9 @@ import {
     Line, 
     Text, 
     Transformation,
-    IObject
 } from './data-structures';
 
-export class Label implements IObject {
+export class Label {
     public residue: Residue;
     public line: Line;
     public text: Text;

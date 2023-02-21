@@ -3,12 +3,11 @@ import {
     Transformation, 
     Text, 
     Circle,
-    IObject
 } from './data-structures';
 import { Styles } from '../classes';
 import { DataResidue } from '../interfaces';
 
-export class Residue implements IObject {
+export class Residue {
     public name: string;
     public index: number;
     public templateIndex: number;

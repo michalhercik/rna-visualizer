@@ -2,10 +2,9 @@ import {
     Vector2, 
     Transformation, 
     identity,
-    IObject
 } from './data-structures';
 
-export class Circle implements IObject {
+export class Circle {
     private coor: Vector2;
     private radius: number;
     private scale: number = 1;
