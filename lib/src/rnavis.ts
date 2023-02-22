@@ -8,15 +8,18 @@ import ContainerFactory from './containerFactory';
 import { getBestGroup, Group, createGroups} from './align';
 import { Vector2, Residue } from './rna/data-structures';
 import { Animation, RnaPositionRecord } from './animation';
+import { MappingLine } from './mappingLine';
 
 export class Layer {
-    public name;
-    public data;
-    public visible = true;
+    public name: string;
+    public data: DataContainer;
+    public mappingLines: MappingLine[];
+    public visible: boolean = true;
 
-    constructor(data: DataContainer, name: string, visible: boolean = true) {
+    constructor(data: DataContainer, name: string, mappingLines: MappingLine[], visible: boolean = true) {
         this.name = name;
         this.data = data;
+        this.mappingLines = mappingLines;
         this.visible = visible;
     }
 }
@@ -44,7 +47,7 @@ export class RNAVis {
         this.zoom
         .scaleExtent([0,10])
         .on('zoom', (event) => {
-            Array.from(this.layers.values()).forEach((layer) => layer.data.update(event));
+            this.layers.forEach(layer => layer.data.update(event));
             this.draw();
             this.titlePresenter.updateRes(null);
         });
@@ -58,6 +61,7 @@ export class RNAVis {
         this.layers.forEach((layer) => {
             if (layer.visible) {
                 drawLines(layer.data.getLines(), ctx, layer.data.styles);
+                drawLines(layer.mappingLines, ctx, this.styles);
             }
         });
 
@@ -91,14 +95,12 @@ export class RNAVis {
     public addData(data: RNAData, name: string, visible: boolean = true): void {
         this.styles.addFrom(data.classes);
         const cont = new ContainerFactory().create(data, this.styles);
-        const newLayer = new Layer(cont, name, !visible);
-        this.layers.push(newLayer);
-        const index = this.layers.length - 1;
-        if (visible) {
-            this.showByIndex(index);
-        } else {
-            this.hideByIndex(index);
+        let mappingLines: MappingLine[] = [];
+        if (this.layers.length > 0) {
+            mappingLines = MappingLine.createMappingLines(this.layers[0].data, cont);
         }
+        const newLayer = new Layer(cont, name, mappingLines, visible);
+        this.layers.push(newLayer);
         this.updateAlpha();
     }
 
@@ -225,4 +227,3 @@ export class RNAVis {
         return this.layers.map(layer => layer.data);
     }
 }
-

@@ -6,7 +6,6 @@ import {
 } from './data-structures';
 
 export interface ILine {
-    setTransform(transform: Transformation): ILine;
     getTransformedX1(): number;
     getTransformedY1(): number;
     getTransformedX2(): number;

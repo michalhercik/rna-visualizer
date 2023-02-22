@@ -51,7 +51,8 @@ export class Styles {
         [ 'template', { visibility: 'hidden' } ],
         [ 'bp-line', { stroke: BLACK } ],
         [ 'residue-circle', { fill: WHITE } ],
-        [ 'res-line', { stroke: GRAY } ]
+        [ 'res-line', { stroke: GRAY } ],
+        [ 'mapping-line', { stroke: 'yellow' } ]
     ])
     public styles: Map<string, any> = new Map(this.default);
 

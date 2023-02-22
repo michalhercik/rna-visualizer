@@ -78,7 +78,11 @@ export default class DataContainer {
     }
 
     public getUnmappableResidues(): Residue[] {
-        return this.residues.filter((res) => res.templateIndex === -1);
+        return this.residues.filter(res => res.templateIndex === -1);
+    }
+
+    public getMappableResidues(): Residue[] {
+        return this.residues.filter(res => res.templateIndex !== -1);
     }
 
     public translate(shift: Vector2) {
