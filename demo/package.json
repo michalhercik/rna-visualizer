@@ -1,25 +1,20 @@
 {
-  "name": "demo",
+  "name": "rnavis-demo",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack"
+    "copy": "copyfiles -u 1 \"./src/**/*.{html, css}\" \"./dist/\"",
+    "rm-dist": "del-cli --force ./dist",
+    "rm-modules": "del-cli --force ./node_modules",
+    "compile": "tsc --build && npm run copy",
+    "build": "npm install && npm link rna-visualizer && npm run compile",
+    "clean": "npm run rm-dist && npm run rm-modules"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@types/node": "^18.11.18",
-    "css-loader": "^6.7.1",
-    "d3": "^7.8.2",
-    "html-webpack-plugin": "^5.5.0",
-    "style-loader": "^3.3.1",
-    "ts-loader": "^9.3.1",
-    "typescript": "^4.7.4",
-    "webpack": "^5.74.0"
-  },
   "devDependencies": {
-    "@types/d3": "^7.4.0",
-    "webpack-cli": "^4.10.0"
+    "copyfiles": "^2.4.1",
+    "del-cli": "^5.0.0"
   }
 }
