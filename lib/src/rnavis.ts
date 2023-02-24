@@ -32,18 +32,18 @@ export class RNAVis {
     private styles: Styles;
     private zoom;
 
-    constructor(element: HTMLCanvasElement) {
+    constructor(canvas: HTMLCanvasElement) {
         this.styles = new Styles();
         this.layers = new Array<Layer>();
         this.zoom = d3.zoom();
 
-        this.canvas = d3.select(element)
+        this.canvas = d3.select(canvas)
 
         const ctx = this.canvas.node().getContext('2d');
         this.titlePresenter = new TitlePresenter(ctx, this.styles);
     }
 
-    public addZoom() {
+    public addZoom(): RNAVis {
         this.zoom
         .scaleExtent([0,10])
         .on('zoom', (event) => {
@@ -52,6 +52,7 @@ export class RNAVis {
             this.titlePresenter.updateRes(null);
         });
         this.canvas.call(this.zoom);
+        return this;
     }
 
     public draw(): void {
@@ -112,7 +113,7 @@ export class RNAVis {
     }
 
     public align(groupIndex: number = -1, minGroupSize: number = 5): Vector2[] {
-        let shifts: Vector2[] = [];
+        let shifts: Vector2[] = [new Vector2(0, 0)];
 
         if (this.layers.length < 2) {
             return shifts;
@@ -164,6 +165,15 @@ export class RNAVis {
 
     public getLayerIndex(name: string): number {
         return this.layers.map(layer => layer.name).indexOf(name);
+    }
+
+    public translate(translations: Vector2[]): RNAVis {
+        if (translations.length !== this.layers.length) {
+            throw new Error('translations.length !== this.layers.length');
+        } else {
+            this.layers.forEach((layer, index) => layer.data.translate(translations[index]))
+        }
+        return this;
     }
 
     public updateAlpha(): RNAVis {

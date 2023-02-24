@@ -5,12 +5,8 @@
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "module": "es6",
-    "target": "es5",
-    "lib": ["es2015", "dom"],
-    "outDir": "./dist/",
-    "sourceMap": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
 }

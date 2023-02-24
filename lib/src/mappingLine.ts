@@ -61,7 +61,7 @@ export class MappingLine implements ILine {
         let mappingLines: MappingLine[] = [];
         container.getMappableResidues().forEach(res => {
             const tempRes = template.residues[res.templateIndex];
-            const mp = new MappingLine(tempRes, res);
+            const mp = new MappingLine(tempRes, res, ['mapping-line']);
             mappingLines.push(mp);
         });
         return mappingLines;

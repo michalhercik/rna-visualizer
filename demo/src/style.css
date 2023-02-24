@@ -1,0 +1,60 @@
+body {
+    background-color: lightgrey;
+    margin: 0px;
+}
+
+main {
+    margin: 10px;
+}
+
+canvas {
+    border: 1px solid grey;
+    background-color: white;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    margin-left: 10px;
+    text-align: center;
+}
+
+nav > a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+nav > a:hover {
+    text-decoration: underline;
+}
+
+.controls {
+    background-color: wheat;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.rna {
+    display: flex;
+}
+
+.rna > div {
+    margin: 2px;
+    padding: 10px;
+}
+
+.visibility {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.groups > input {
+    margin: 2px;
+    padding: 4px;
+}
