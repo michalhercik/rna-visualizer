@@ -1,4 +1,4 @@
-import { initRnaVis, initStructsSelector, initVisList, reloadRnaVis } from './init.ts';
+import { initRnaVis, initStructsSelector, reloadRnaVis } from './init.ts';
 
 export { changeAlpha, centerStruct } from './events.ts';
 
@@ -14,7 +14,7 @@ export function init() {
 
 export function load(): void {
     const visList = document.getElementById('vis-list');
-    initVisList(visList);
+    // initVisList(visList);
 }
 
 export function clear() {

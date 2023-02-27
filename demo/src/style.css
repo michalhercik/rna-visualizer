@@ -5,6 +5,7 @@ body {
 
 main {
     margin: 10px;
+    display: flex;
 }
 
 canvas {
@@ -31,21 +32,18 @@ nav > a:hover {
     text-decoration: underline;
 }
 
+main > div {
+    margin: 2px;
+    padding: 10px;
+}
+
+
 .controls {
     background-color: wheat;
 }
 
 .buttons {
     margin-top: 10px;
-}
-
-.rna {
-    display: flex;
-}
-
-.rna > div {
-    margin: 2px;
-    padding: 10px;
 }
 
 .visibility {

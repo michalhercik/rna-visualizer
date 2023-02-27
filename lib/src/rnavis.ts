@@ -9,6 +9,7 @@ import { getBestGroup, Group, createGroups} from './align';
 import { Vector2, Residue } from './rna/data-structures';
 import { Animation, RnaPositionRecord } from './animation';
 import { MappingLine } from './mappingLine';
+import { ColorGenerator } from './colorGenerator';
 
 export class Layer {
     public name: string;
@@ -98,16 +99,21 @@ export class RNAVis {
         const cont = new ContainerFactory().create(data, this.styles);
         let mappingLines: MappingLine[] = [];
         if (this.layers.length > 0) {
-            mappingLines = MappingLine.createMappingLines(this.layers[0].data, cont);
+            const mappingName = name + 'mapping-line';
+            const color = ColorGenerator.newColor();
+            this.styles.set(mappingName, {stroke: color});
+            mappingLines = MappingLine.createMappingLines(this.layers[0].data, cont, [mappingName]);
         }
         const newLayer = new Layer(cont, name, mappingLines, visible);
         this.layers.push(newLayer);
-        this.updateAlpha();
+        const alpha = this.getDefaultAlpha();
+        this.setAlpha(alpha);
     }
 
     public clear() {
         this.styles.reset();
         this.layers.length = 0;
+        this.resetPositions();
         const ctx = this.canvas.node().getContext('2d', {alpha: false});
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     }
@@ -176,12 +182,11 @@ export class RNAVis {
         return this;
     }
 
-    public updateAlpha(): RNAVis {
+    public getDefaultAlpha(): number {
         let visibleCount = this.layers.filter(l => l.visible).length
         visibleCount = visibleCount === 0 ? 1 : visibleCount;
         const alpha = 1 / visibleCount;
-        this.setAlpha(alpha);
-        return this;
+        return alpha;
     }
 
     public setAlpha(alpha: number): RNAVis {
@@ -190,42 +195,20 @@ export class RNAVis {
     }
 
     public setVisibility(index: number, visibility: boolean): RNAVis {
-        if (this.layers[index].visible !== visibility) {
-            this.layers[index].visible = visibility;
-        }
+        this.layers[index].visible = visibility;
         return this;
     }
 
-    public showByName(name: string): RNAVis {
+    public setVisibilityByName(name: string, visible: boolean) {
         const index = this.getLayerIndex(name);
         if (index > -1) {
-            this.showByIndex(index);
+            this.setVisibility(index, visible);
         }
         return this;
     }
 
-    public hideByName(name: string): RNAVis {
-        const index = this.getLayerIndex(name);
-        if (index > -1) {
-            this.hideByIndex(index);
-        }
-        return this;
-    }
-
-    public showByIndex(index: number): RNAVis {
-        this.setVisibility(index, true);
-        return this;
-    }
-
-    public hideByIndex(index: number): RNAVis {
-        this.setVisibility(index, false);
-        return this;
-    }
-
-    public hideAll(): RNAVis {
-        for (let i = 0; i < this.layers.length; ++i) {
-            this.hideByIndex(i);
-        }
+    public setAllVisibility(visible: boolean): RNAVis {
+        this.layers.forEach(layer => layer.visible = visible);
         return this;
     }
 

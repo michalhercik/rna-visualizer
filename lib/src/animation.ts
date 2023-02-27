@@ -170,8 +170,12 @@ export class Animation implements IAnimation {
         
     }
 
-    public changeState(index: number, isActive: boolean) {
+    public changeState(index: number, isActive: boolean): void {
         this.isActive[index] = isActive;
+    }
+
+    public changeAllStates(isActive: boolean): void {
+        this.isActive = this.isActive.map(e => isActive);
     }
 
     public updateFrom() {
@@ -308,47 +312,34 @@ export class VisibilityAnim implements IAnimation {
     }
 
     public animate(rna: RNAVis, duration: number, after: BasicFn = () => {}): void {
+        if (duration <= 0) {
+            this.instant();
+            rna.draw();
+            after();
+            return;
+        }
+        const max = this.maxIndex();
+        let i = 0;
+        const interval = d3.interval(() => {
+            this.do(i);
+            rna.draw();
+            ++i;
+            if (i >= max) {
+                interval.stop();
+                after();
+            }
+        }, duration);
+    }
+
+    public instant() {
+        const max = this.maxIndex();
+        Array.from(Array(max).keys()).forEach(i => this.do(i));
+    }
+
+    private maxIndex(): number {
         const max = Math.max(
             ...this.visibilityRecords.map(rec => rec.residues.length)
         );
-        let i = 0;
-        if (i < max) {
-            const interval = d3.interval(() => {
-                this.do(i);
-                rna.draw();
-                ++i;
-                if (i >= max) {
-                    interval.stop();
-                    after();
-                }
-            }, duration);
-        } else {
-            after();
-        }
+        return max;
     }
-}
-
-export function AnimateVisibility(rnaVis: RNAVis, objects: Residue[], interval: number, after: BasicFn = () => {}): void {
-    let i = 0;
-    if (objects.length > 0) {
-        const animation = d3.interval(() => {
-            objects[i].setVisible(false);
-            rnaVis.draw();
-            ++i;
-            if (i === objects.length) {
-                animation.stop();
-                after();
-            } 
-        }, interval);
-    } else {
-        after();
-    }
-}
-
-export function add(dataContainer: DataContainer): void {
-    dataContainer.residues.forEach(res => {
-        if (res.templateIndex === -1) {
-            res.setVisible(true);
-        }
-    })
 }
