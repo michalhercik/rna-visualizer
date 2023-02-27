@@ -2,11 +2,18 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="layers.js"></script>
+        <script type="text/javascript" src="alignment.js"></script>
+        <script type="text/javascript">
+            function callAnimateToTemplate() {
+                const duration = +document.getElementById('duration').value;
+                const interval = +document.getElementById('interval').value;
+                main.animateToTemplate(duration, interval);
+            }
+        </script>
     </head>
     <body onload="main.init()">
         <header>
-            <h1>Layers Demo</h1>
+            <h1>Alignment Demo</h1>
         </header>
         <nav>
             <a href="alignment.html">Alignment</a>
@@ -17,15 +24,19 @@
         <main>
             <canvas width="1000" height="1600" id="rna-canvas" ></canvas>
             <div id="controls" class="controls">
-                <label for="structs-selector">Template: </label>
+                <label for="structs-selector">template: </label>
                 <select id="structs-selector" class="rna-selection" onchange="main.reload()"></select>
                 <div class="buttons">
                     <input type="button" value="Center" id="reset-pos" onclick="main.centerStruct()">
                 </div>
                 <div class="buttons">
-                    <label for="alpha-value">Alpha: </label>
+                    <label for="alpha-value">alpha: </label>
                     <input type="range" min"0" max="1" value="1" step="0.05" id="alpha-value" onchange="main.changeAlpha(event)">
+                    <br>
+                    <input type="button" value="Set default alpha" onclick="main.setDefaultAlpha(document.getElementById('alpha-value'))">
                 </div>
+                <h3>Groups:</h3>
+                <div id="groups" class="groups"></div>
                 <h3>Structures:</h3>
                 <ul id="vis-list" class="visibility"></ul>
             </div>

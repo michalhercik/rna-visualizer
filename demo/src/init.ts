@@ -94,10 +94,6 @@ export function initAnimation(): void {
     toTemplateAnim = new Animation(containers, targets);
 }
 
-export function initAnimationList(): void {
-
-}
-
 export function initList(list: HTMLUListElement): void {
     const topItem = document.createElement('li');
     list.append(topItem);
@@ -111,6 +107,7 @@ export function addVisibilityCheckboxes(list: HTMLUListElement): void {
     const topCallback = event => {
         const checked = (event.currentTarget as HTMLInputElement).checked;
         rnaVis.setAllVisibility(checked);
+        rnaVis.setAlpha(rnaVis.getDefaultAlpha());
         rnaVis.draw();
     };
     addCheckboxToList(list, 'visibility-checkbox', topCallback, event => {
@@ -118,6 +115,7 @@ export function addVisibilityCheckboxes(list: HTMLUListElement): void {
         const index = +currentTarget.value;
         const checked = currentTarget.checked;
         rnaVis.setVisibility(index, checked);
+        rnaVis.setAlpha(rnaVis.getDefaultAlpha());
         rnaVis.draw();
     });
 }
@@ -126,7 +124,6 @@ export function addAnimationCheckboxes(list: HTMLUListElement): void {
     const topCallback = event => {
         const checked = (event.currentTarget as HTMLInputElement).checked;
         toTemplateAnim.changeAllStates(checked);
-        console.log(toTemplateAnim);
     };
     addCheckboxToList(list, 'animation-checkbox', topCallback, event => {
         const currentTarget = event.currentTarget as HTMLInputElement;
@@ -135,18 +132,24 @@ export function addAnimationCheckboxes(list: HTMLUListElement): void {
             --index;
             const checked = currentTarget.checked;
             toTemplateAnim.changeState(index, checked);
-            console.log(index);
-            console.log(toTemplateAnim);
         }
     });
 }
 
 export function addMappingCheckboxes(list: HTMLUListElement): void {
     const topCallback = event => {
-
+        const checked = (event.currentTarget as HTMLInputElement).checked;
+        rnaVis.layers.forEach(layer => {
+            layer.mappingLines.forEach(ml => ml.setVisible(checked));
+        });
+        rnaVis.draw();
     };
     addCheckboxToList(list, 'mapping-checkbox', topCallback, event => {
-
+        const currentTarget = event.currentTarget as HTMLInputElement;
+        let index = +currentTarget.value;
+        const checked = currentTarget.checked;
+        rnaVis.layers[index].mappingLines.forEach(ml => ml.setVisible(checked));
+        rnaVis.draw();
     });
 }
 

@@ -1,6 +1,8 @@
 import { 
     initRnaVis,
     initStructsSelector, 
+    initGroupsAlign, 
+    initOnClickAlign, 
     reloadRnaVis, 
     initRange,
     initList,
@@ -19,6 +21,8 @@ export function init() {
     const canvas = document.getElementById('rna-canvas');
     initRnaVis(canvas, 0);
 
+    initOnClickAlign(canvas);
+
     const structsSelector = document.getElementById('structs-selector');
     initStructsSelector(structsSelector);
 
@@ -31,13 +35,16 @@ export function init() {
 export function load(): void {
     const list = document.getElementById('vis-list');
     initList(list);
-    addVisibilityCheckboxes(list);
     addMappingCheckboxes(list);
     addStructNamesToList(list);
+
+    const groups = document.getElementById('groups');
+    initGroupsAlign(groups);
 }
 
 export function clear() {
     document.getElementById('vis-list').replaceChildren();
+    document.getElementById('groups').replaceChildren();
 }
 
 export function reload(): void {

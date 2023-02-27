@@ -6,7 +6,7 @@
   "scripts": {
     "copy": "copyfiles -u 1 \"./src/**/*.html\" \"./dist/\" && copyfiles -u 1 \"./src/**/*.css\" \"./dist/\" && copyfiles -u 1 \"./src/**/*.js\" \"./dist/\"",
     "rm-dist": "del-cli --force ./dist",
-    "compile": "esbuild src/layers.ts src/combination.ts --bundle --sourcemap --outdir=dist --global-name=main",
+    "compile": "esbuild src/layers.ts src/combination.ts src/alignment.ts src/transformation.ts --bundle --sourcemap --outdir=dist --global-name=main",
     "build": "npm run compile && npm run copy",
     "clean": "npm run rm-dist",
     "rebuild": "npm run clean && npm run build"

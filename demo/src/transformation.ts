@@ -1,10 +1,11 @@
 import { 
     initRnaVis,
     initStructsSelector, 
+    initAnimation,
     reloadRnaVis, 
     initRange,
     initList,
-    addVisibilityCheckboxes,
+    addAnimationCheckboxes,
     addMappingCheckboxes,
     addStructNamesToList
 } from './init.ts';
@@ -13,6 +14,7 @@ export {
     changeAlpha, 
     setDefaultAlpha,
     centerStruct,
+    animateToTemplate
 } from './events.ts';
 
 export function init() {
@@ -29,9 +31,11 @@ export function init() {
 }
 
 export function load(): void {
+    initAnimation();
+
     const list = document.getElementById('vis-list');
     initList(list);
-    addVisibilityCheckboxes(list);
+    addAnimationCheckboxes(list);
     addMappingCheckboxes(list);
     addStructNamesToList(list);
 }
