@@ -56,6 +56,13 @@ export class Circle {
         return this.coor.copy();
     }
 
+    public getTransformedCoor(): Vector2 {
+        return new Vector2(
+            this.getTransformedX(),
+            this.getTransformedY()
+        );
+    }
+
     public getScaledRadius() {
         return this.scale * this.radius;
     }

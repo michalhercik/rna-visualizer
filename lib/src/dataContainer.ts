@@ -77,6 +77,25 @@ export default class DataContainer {
         return result;
     }
 
+    public getClosestResByCoor(x: number, y: number, maxDistance: number = 100): Residue {
+        let result: Residue = null;
+        let resultDistance = Number.MAX_SAFE_INTEGER;
+        const clickPosition = new Vector2(x, y);
+
+        this.residues.forEach((res: Residue) => {
+            const resCoor = res.getTransformedCoor();
+            const distance = Vector2.distance(clickPosition, resCoor);
+            if (distance < resultDistance) {
+                result = res;
+                resultDistance = distance;
+            }
+        });
+
+        result = resultDistance <= maxDistance ? result : null;
+
+        return result;
+    }
+
     public getUnmappableResidues(): Residue[] {
         return this.residues.filter(res => res.templateIndex === -1);
     }

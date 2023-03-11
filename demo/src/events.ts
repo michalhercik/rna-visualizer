@@ -20,7 +20,10 @@ export function centerStruct(): void {
 }
 
 let removed = false;
-export function animateToTemplate(duration: number, interval: number): void {
+export function animateToTemplate(event, duration: number, interval: number): void {
+    const button = event.target as HTMLInputElement;
+    button.disabled = true;
+
     if (!removed) {
         toTemplateAnim.updateFrom();
     }
@@ -38,12 +41,14 @@ export function animateToTemplate(duration: number, interval: number): void {
             visAnim.animate(rnaVis, interval);
             toTemplateAnim.reverse();
             removed = !removed;
+            button.disabled = false;
         });
     } else {
         visAnim.animate(rnaVis, interval, () => {
             toTemplateAnim.animate(rnaVis, duration, () => {
                 toTemplateAnim.reverse();
                 removed = !removed;
+                button.disabled = false;
             });
         });
     }

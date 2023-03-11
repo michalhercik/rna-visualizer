@@ -5,8 +5,6 @@ export let rnaVis;
 export let toTemplateAnim;
 
 export function initRnaVis(canvas: HTMLCanvasElement, structIndex: number): void {
-    // canvas.getContext('2d').scale(2, 2);
-
     rnaVis = new RNAVis(canvas);
     loadData(structIndex);
     rnaVis
@@ -76,11 +74,10 @@ export function initOnClickAlign(canvas): void {
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
         const containers = rnaVis.getDataContainers();
-        const residue = containers[0].getResByCoor(x, y); 
+        const residue = containers[0].getClosestResByCoor(x, y); 
 
         if (residue !== null) {
             const animTarget = rnaVis.getAlignmentToTempResidue(residue);
-            // animation.setFrom(animTarget);
             const anim = new Animation(containers.slice(1), animTarget);
             anim.animate(rnaVis, 1500);
         }

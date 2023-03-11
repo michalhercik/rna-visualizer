@@ -93,6 +93,10 @@ export class Residue {
        return this.circle.getCoor();
     }
 
+    public getTransformedCoor(): Vector2 {
+       return this.circle.getTransformedCoor();
+    }
+
     public setVisible(visible: boolean): Residue {
         this.circle.setVisible(visible);
         this.text.setVisible(visible);
