@@ -6,3 +6,4 @@ export { BasePair } from './basePair';
 export { Label } from './label';
 export { Circle } from './circle';
 export { Text } from './text';
+export { Rectangle } from './rectangle';

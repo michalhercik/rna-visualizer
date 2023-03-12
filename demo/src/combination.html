@@ -22,7 +22,7 @@
             <a href="combination.html">Combination</a>
         </nav>
         <main>
-            <canvas width="1000" height="1600" id="rna-canvas" ></canvas>
+            <canvas width="1000" height="1600" id="rna-canvas" onmousemove="main.showLabel(event)"></canvas>
             <div id="controls" class="controls">
                 <label for="structs-selector">template: </label>
                 <select id="structs-selector" class="rna-selection" onchange="main.reload()"></select>

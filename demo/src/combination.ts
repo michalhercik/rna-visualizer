@@ -17,7 +17,8 @@ export {
     changeAlpha, 
     setDefaultAlpha,
     centerStruct,
-    animateToTemplate
+    animateToTemplate,
+    showLabel
 } from './events.ts';
 
 export function init() {

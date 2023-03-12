@@ -101,6 +101,7 @@ export default class ContainerFactory {
 
             const coor = new Vector2(label.labelContent.x, label.labelContent.y);
             const textClasses = Object.assign([], label.labelContent.classes);
+            textClasses.push(Styles.TRANSFORMED_CLASS);
             const text = new Text(coor, label.labelContent.label, textClasses);
 
             const res = this.residues[label.residueIndex];

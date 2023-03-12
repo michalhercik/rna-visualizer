@@ -1,6 +1,14 @@
 import { VisibilityAnim, VisibilityRecord } from 'rna-visualizer';
 import { rnaVis, toTemplateAnim } from './init';
 
+export function showLabel(event: Event): void {
+    const rect = event.target.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    rnaVis.updateHoverLabel(x, y);
+    rnaVis.draw();
+}
+
 export function changeAlpha(event: Event): void {
     const value = +(event.target as HTMLInputElement).value;
     rnaVis.setAlpha(value);

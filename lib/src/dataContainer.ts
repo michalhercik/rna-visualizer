@@ -57,7 +57,7 @@ export default class DataContainer {
             bp.setTransform(transform);
         })
 
-        this.styles.set('transform', {k: event.transform.k});
+        this.styles.set(Styles.TRANSFORMED_CLASS, {k: event.transform.k});
     }
 
     public getResByCoor(x: number, y: number): Residue {

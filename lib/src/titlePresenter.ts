@@ -1,82 +1,75 @@
 import { Styles } from './classes'
+import { Vector2, Residue, Rectangle, Text } from './rna/data-structures';
+import { drawTexts, drawRectangle } from './draw';
 
-export default class TitlePresenter {
-    private res: any;
-    private styles;
-    private context;
-    private fontSize = 11;
+export class Title {
+    private texts: Text[];
+    private background: Rectangle;
+    private styles: Styles;
+    private visible: boolean = false;
 
-    public constructor(context: CanvasRenderingContext2D, styles: Styles) {
-        this.context = context;
+    public constructor(texts: Text[], background: Rectangle, styles: Styles) {
+        this.texts = texts;
+        this.background = background;
         this.styles = styles;
     }
-    public presentResTitle(): void {
-        if (!this.res)
-            return;
-        const resStyles = this.styles.get(this.res.getClasses());
-        const size = +resStyles['font-size'].slice(0,-2) * (+resStyles['k'] || 1); 
-        const margin = size/2;
-        const titleOverflow = this.doesTitleOverflow(margin);
-        this.context.save();
-        this.setBgContext();
-        this.drawBg(margin, titleOverflow);
-        this.setTextContext();
-        this.drawText(margin, titleOverflow);
-        this.context.restore();
+
+    public getTexts(): Text[] {
+        return this.texts;
     }
-    public updateRes(res: any): boolean {
-        const change = JSON.stringify(this.res) !== JSON.stringify(res);
-        if (change)
-            this.res = res;
-        return change;
+
+    public getBackground(): Rectangle {
+        return this.background;
     }
-    private doesTitleOverflow(margin: number): boolean {
-        const canvasWidth = this.context.canvas.clientWidth;
-        const titleWidth = this.getTitleWidth();
-        const titleEnd = this.res.getX() + margin + titleWidth;
-        return titleEnd >= canvasWidth;
+
+    public draw(ctx: CanvasRenderingContext2D) {
+        drawRectangle(this.background, ctx, this.styles);
+        drawTexts(this.texts, ctx, this.styles);
     }
-    private setBgContext(): void {
-        this.context.globalAlpha = 1;
-        this.context.strokeStyle = '#ccc';
-        this.context.lineWidth = 1;
-        this.context.fillStyle = '#eee';
-    }
-    private drawBg(margin: number, left: boolean): void {
-        this.setFont();
-        const titleWidth = this.getTitleWidth();
-        const padding = 5;
-        const x = left ? (this.res.getX() - margin - this.getTitleWidth()) : (this.res.getX() + margin)
-        this.context.fillRect(
-            x - padding, 
-            this.res.getY() - margin, 
-            titleWidth + 2 * padding, 
-            this.fontSize + padding);
-        this.context.strokeRect(
-            x - padding, 
-            this.res.getY() - margin, 
-            titleWidth + 2 * padding, 
-            this.fontSize + padding);
-    }
-    private getTitleWidth(): number {
-        this.setFont(); 
-        return this.context.measureText(this.res.getTitle()).width;
-    }
-    private setFont(): void {
-        this.context.font = `normal ${this.fontSize}px Helvetica`;
-    }
-    private setTextContext(): void {
-        this.setFont();
-        this.context.globalAlpha = 1;
-        this.context.fillStyle = 'black';
-        this.context.textAlign = 'left';
-        this.context.textBaseline = 'top';
-    }
-    private drawText(margin: number, left: boolean): void {
-        const x = left ? (this.res.getX() - margin - this.getTitleWidth()) : (this.res.getX() + margin)
-        this.context.fillText(
-            this.res.getTitle(), 
-            x, 
-            this.res.getY() - margin + 4);
+
+    public static fromResidues(residues: Residue[], canvasWidth: number, canvasHeight: number, styles: Styles) {
+        const rightMostRes = Math.max(...residues.map(res => res.getTransformedX()));
+        const topMostRes = Math.min(...residues.map(res => res.getTransformedY()));
+        const margin = residues[0].circle.getScaledRadius();
+        const padding = 3;
+        const textHeight = +styles.getProperty(['title-text'], 'font-size').slice(0, -2);
+
+        let x = rightMostRes + margin + padding;
+        let y = topMostRes - margin + padding;
+
+        const texts = residues
+        .map((res, i) => {
+            const text = `${res.index}.${res.name} (position.label in template: ${res.templateIndex}.${res.templateName})`;   
+            return new Text(new Vector2(x, y + (i * textHeight)), text, ['title-text']);
+        });
+
+        const textWidth = Math.max(...texts.map(t => t.width(styles)));
+        const titleWidth = textWidth + (2 * padding)
+        const titleHeight = texts.length * textHeight + (2 * padding);
+
+        let rectX = rightMostRes + margin;
+        let rectY = topMostRes - margin;
+
+        if (x + textWidth > canvasWidth) {
+            const leftMostRes = Math.min(...residues.map(res => res.getTransformedX()));
+            x = leftMostRes - margin - padding - textWidth;
+            texts.forEach(t => t.setX(x));
+            rectX = leftMostRes - margin - titleWidth;
+        }
+        if (y + titleHeight > canvasHeight) {
+            const bottomMostRes = Math.max(...residues.map(res => res.getTransformedY()));
+            y = bottomMostRes - margin - titleHeight + padding;
+            texts.forEach((t, i) => t.setY(y + (i * textHeight)));
+            rectY = bottomMostRes - margin - titleHeight;
+        }
+
+        const background = new Rectangle(
+            new Vector2(rectX, rectY), 
+            titleWidth, 
+            titleHeight, 
+            ['title-background']
+        );
+
+        return new Title(texts, background, styles);
     }
 }

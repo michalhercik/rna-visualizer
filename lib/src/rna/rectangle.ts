@@ -1,4 +1,3 @@
-import { Styles } from '../classes';
 import { 
     Label, 
     Vector2, 
@@ -6,20 +5,22 @@ import {
     identity,
 } from './data-structures';
 
-export class Text {
-    text: string;
+export class Rectangle {
     coor: Vector2;
+    width: number;
+    height: number;
     classes: string[];
     visible: boolean = true;
     transform: Transformation = identity;
 
-    public constructor(coor: Vector2, text: string, classes: string[]) {
+    public constructor(coor: Vector2, width: number, height: number, classes: string[]) {
         this.classes = classes;
         this.coor = coor;
-        this.text = text;
+        this.width = width;
+        this.height = height;
     }
 
-    public setTransform(transform: Transformation): Text {
+    public setTransform(transform: Transformation): Rectangle {
         this.transform = transform;
         return this;
     }
@@ -32,7 +33,7 @@ export class Text {
         return this.coor.x;
     }
 
-    public setX(x: number): Text {
+    public setX(x: number): Rectangle {
         this.coor.x = x;
         return this;
     }
@@ -45,12 +46,12 @@ export class Text {
         return this.coor.y;
     }
 
-    public setY(y: number): Text {
+    public setY(y: number): Rectangle {
         this.coor.y = y;
         return this;
     }
 
-    public setCoor(coor: Vector2): Text {
+    public setCoor(coor: Vector2): Rectangle {
         this.coor = coor;
         return this;
     }
@@ -59,7 +60,7 @@ export class Text {
         return this.coor.copy();
     }
 
-    public setVisible(visible: boolean): Text {
+    public setVisible(visible: boolean): Rectangle {
         this.visible = visible;
         return this;
     }
@@ -68,32 +69,19 @@ export class Text {
         return this.visible;
     }
 
-    public getText(): string {
-        return this.text;
+    public getWidth(): number {
+        return this.width;
+    }
+
+    public getHeight(): number {
+        return this.height;
     }
 
     public getClasses() {
         return this.classes;
     }
 
-    public width(styles: Styles): number {
-        const textStyles = styles.get(this.classes);
-
-        const fontSize = () => {
-            const k = textStyles['k'] || 1;
-            return textStyles['font-size'].slice(0,-2) * k + 'px';
-        }
-
-        const ctx = document.createElement('canvas').getContext('2d');
-        ctx.font = 
-            (textStyles['font-weight'] || 'normal') + ' ' + 
-            (fontSize() || '6px') + ' ' + 
-            (textStyles['font-family'] || 'Helvetica');
-
-        return ctx.measureText(this.text).width;
-    }
-
-    public translate(shift: Vector2): Text {
+    public translate(shift: Vector2): Rectangle {
         this.coor.add(shift);
         return this;
     }

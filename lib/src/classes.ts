@@ -9,6 +9,8 @@ const GRAY = 'rgb(204, 204, 204)';
 const BROWN = 'rgb(211.65, 104.55, 30.6)';
 
 export class Styles {
+    public static TRANSFORMED_CLASS = 'transform';
+
     private default: Map<string, any> = new Map([
         [ 'text-black', { fill: BLACK } ],
         [ 'text-red', { fill: RED } ],
@@ -18,7 +20,7 @@ export class Styles {
         [ 'text-brown', { fill: BROWN } ],
         [ 'text', {
             fill: BLACK,
-            textAnchor: 'middle',
+            'text-anchor': 'middle',
             baseline: 'middle'
         }],
         [ 'circle-black', {
@@ -52,7 +54,21 @@ export class Styles {
         [ 'bp-line', { stroke: BLACK } ],
         [ 'residue-circle', { fill: WHITE } ],
         [ 'res-line', { stroke: GRAY } ],
-        [ 'mapping-line', { stroke: 'yellow' } ]
+        [ 'mapping-line', { stroke: 'yellow' } ],
+        [ 'title-text', { 
+            fill: 'black',
+            baseline: 'top',
+            alpha: 1,
+            'text-anchor': 'start',
+            'font-size': '11px',
+            'font-weight': 'normal',
+            'font-family': 'Helvetica'
+        }],
+        [ 'title-background', {
+            stroke: WHITE,
+            fill: WHITE,
+            alpha: 1
+        } ]
     ])
     public styles: Map<string, any> = new Map(this.default);
 

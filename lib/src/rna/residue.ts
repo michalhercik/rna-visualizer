@@ -33,6 +33,7 @@ export class Residue {
     public static fromDataResidue(res: DataResidue, styles: Styles): Residue {
         const textCoor = new Vector2(res.x, res.y);
         const classes = Object.assign([], res.classes);
+        classes.push(Styles.TRANSFORMED_CLASS);
         const text = new Text(textCoor, res.residueName, classes);
 
         const circleCoor = new Vector2(res.x, res.y);

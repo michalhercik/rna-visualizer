@@ -3,7 +3,7 @@ import { RNAData } from './interfaces';
 import { Styles } from './classes';
 import { drawLines, drawTexts, drawCircles } from './draw';
 import DataContainer from './dataContainer'
-import TitlePresenter from './titlePresenter';
+import { Title } from './titlePresenter';
 import ContainerFactory from './containerFactory';
 import { getBestGroup, Group, createGroups} from './align';
 import { Vector2, Residue } from './rna/data-structures';
@@ -16,6 +16,7 @@ export class Layer {
     public data: DataContainer;
     public mappingLines: MappingLine[];
     public visible: boolean = true;
+    public titleVisible: boolean = true;
 
     constructor(data: DataContainer, name: string, mappingLines: MappingLine[], visible: boolean = true) {
         this.name = name;
@@ -29,7 +30,8 @@ export class RNAVis {
     private margin = 10;
     public canvas;    
     public readonly layers: Layer[];
-    private titlePresenter: TitlePresenter;
+    // private titlePresenter: TitlePresenter;
+    private title: Title = null; 
     private styles: Styles;
     private zoom;
 
@@ -41,7 +43,7 @@ export class RNAVis {
         this.canvas = d3.select(canvas)
 
         const ctx = this.canvas.node().getContext('2d');
-        this.titlePresenter = new TitlePresenter(ctx, this.styles);
+        // this.titlePresenter = new TitlePresenter(ctx, this.styles);
     }
 
     public addZoom(): RNAVis {
@@ -50,7 +52,7 @@ export class RNAVis {
         .on('zoom', (event) => {
             this.layers.forEach(layer => layer.data.update(event));
             this.draw();
-            this.titlePresenter.updateRes(null);
+            this.title = null;
         });
         this.canvas.call(this.zoom);
         return this;
@@ -78,20 +80,24 @@ export class RNAVis {
                 drawTexts(layer.data.getText(), ctx, layer.data.styles);
             }
         });
+
+        if (this.title) {
+            this.title.draw(ctx);
+        }
     }
 
-    public addHoverLabel() {
-        this.canvas.node().onmousemove = (event) => {
-            const rect = this.canvas.node().getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            const res = Array.from(this.layers.values())[0].data.getResByCoor(x, y); 
-            if (this.titlePresenter.updateRes(res)) {
-                this.draw();
-                if (res)
-                    this.titlePresenter.presentResTitle();
-            }
-        };
+    public updateHoverLabel(x: number, y: number) {
+        const residues = this.layers
+        .filter(layer => layer.titleVisible)
+        .map(layer => layer.data.getResByCoor(x, y))
+        .filter(res => res !== null);
+
+        if (residues.length > 0) {
+            const canvas = this.canvas.node();
+            this.title = Title.fromResidues(residues, canvas.width, canvas.height, this.styles);
+        } else {
+            this.title = null;
+        }
     }
 
     public addData(data: RNAData, name: string, visible: boolean = true): void {

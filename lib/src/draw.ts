@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { Styles } from './classes';
-import { ILine, Text, Circle } from './rna/data-structures';
+import { ILine, Text, Circle, Rectangle } from './rna/data-structures';
 import DataContainer from './dataContainer'
 
 export function drawLines(lines: Array<ILine>, ctx: CanvasRenderingContext2D, styles: Styles) {
@@ -19,10 +19,13 @@ export function drawLines(lines: Array<ILine>, ctx: CanvasRenderingContext2D, st
 }
 
 export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, styles: Styles) {
+    ctx.save();
     const translate = new Map([
-        ['start', 'left'],
+        ['left', 'left'],
+        ['right', 'right'],
         ['middle', 'center'],
-        ['end', 'right']
+        ['start', 'start'],
+        ['end', 'end']
     ]);
 
     for (let text of texts) {
@@ -41,9 +44,11 @@ export function drawTexts(texts: Array<Text>, ctx: CanvasRenderingContext2D, sty
         ctx.fillStyle = textStyles['fill'] || 'black';
         ctx.textAlign = translate.get(textStyles['text-anchor'] || 'middle') as CanvasTextAlign;
         ctx.textBaseline = textStyles['baseline'] || 'middle';
+        ctx.globalAlpha = textStyles['alpha'] || ctx.globalAlpha;
 
         ctx.fillText(text.getText(), text.getTransformedX(), text.getTransformedY());
     }
+    ctx.restore();
 }
 
 export function drawCircles(circles: Array<Circle>, ctx: CanvasRenderingContext2D, styles: Styles) {
@@ -61,5 +66,20 @@ export function drawCircles(circles: Array<Circle>, ctx: CanvasRenderingContext2
         ctx.arc(circle.getTransformedX(), circle.getTransformedY(), circle.getScaledRadius(), 0, 2 * Math.PI);
         ctx.fill();
     }
+    ctx.restore();
+}
+
+export function drawRectangle(rectangle: Rectangle, ctx: CanvasRenderingContext2D, styles: Styles) {
+    ctx.save();
+    const rectStyles = styles.get(rectangle.getClasses());
+    ctx.strokeStyle = rectStyles['stroke'] || 'black';
+    ctx.fillStyle = rectStyles['fill'] || 'white';
+    ctx.globalAlpha = rectStyles['alpha'] || ctx.globalAlpha;
+    ctx.fillRect(
+        rectangle.getTransformedX(), 
+        rectangle.getTransformedY(), 
+        rectangle.getWidth(), 
+        rectangle.getHeight()
+    );
     ctx.restore();
 }
