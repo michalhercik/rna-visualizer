@@ -30,8 +30,6 @@ export class RNAVis {
     private margin = 10;
     public canvas;    
     public readonly layers: Layer[];
-    // private titlePresenter: TitlePresenter;
-    private title: Title = null; 
     private styles: Styles;
     private zoom;
 
@@ -52,7 +50,6 @@ export class RNAVis {
         .on('zoom', (event) => {
             this.layers.forEach(layer => layer.data.update(event));
             this.draw();
-            this.title = null;
         });
         this.canvas.call(this.zoom);
         return this;
@@ -80,13 +77,9 @@ export class RNAVis {
                 drawTexts(layer.data.getText(), ctx, layer.data.styles);
             }
         });
-
-        if (this.title) {
-            this.title.draw(ctx);
-        }
     }
 
-    public updateHoverLabel(x: number, y: number) {
+    public drawHoverLabel(x: number, y: number) {
         const residues = this.layers
         .filter(layer => layer.titleVisible)
         .map(layer => layer.data.getResByCoor(x, y))
@@ -94,9 +87,9 @@ export class RNAVis {
 
         if (residues.length > 0) {
             const canvas = this.canvas.node();
-            this.title = Title.fromResidues(residues, canvas.width, canvas.height, this.styles);
-        } else {
-            this.title = null;
+            const title = Title.fromResidues(residues, canvas.width, canvas.height, this.styles);
+            const ctx = this.canvas.node().getContext('2d');
+            title.draw(ctx);
         }
     }
 

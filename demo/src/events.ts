@@ -5,8 +5,8 @@ export function showLabel(event: Event): void {
     const rect = event.target.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-    rnaVis.updateHoverLabel(x, y);
     rnaVis.draw();
+    rnaVis.drawHoverLabel(x, y);
 }
 
 export function changeAlpha(event: Event): void {
