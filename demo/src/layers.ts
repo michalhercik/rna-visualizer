@@ -8,15 +8,19 @@ import {
     addMappingCheckboxes,
     addStructNamesToList
 } from './init.ts';
+import { showLabel } from './events';
 
 export { 
     changeAlpha, 
     setDefaultAlpha,
     centerStruct,
+    showLabel,
+    hoverLabel,
 } from './events.ts';
 
 export function init() {
     const canvas = document.getElementById('rna-canvas');
+    canvas.addEventListener('mousemove', showLabel, true);
     initRnaVis(canvas, 0);
 
     const structsSelector = document.getElementById('structs-selector');

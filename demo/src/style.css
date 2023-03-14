@@ -56,3 +56,14 @@ main > div {
     margin: 2px;
     padding: 4px;
 }
+
+.vertical {
+    padding-left: 2px;
+}
+
+.rotate {
+    position: relative;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    padding-top: 2px;
+}

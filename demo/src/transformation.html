@@ -4,10 +4,10 @@
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="transformation.js"></script>
         <script type="text/javascript">
-            function callAnimateToTemplate() {
+            function callAnimateToTemplate(event) {
                 const duration = +document.getElementById('duration').value;
                 const interval = +document.getElementById('interval').value;
-                main.animateToTemplate(duration, interval);
+                main.animateToTemplate(event, duration, interval);
             }
         </script>
     </head>
@@ -35,6 +35,10 @@
                     <br>
                     <input type="button" value="Set default alpha" onclick="main.setDefaultAlpha(document.getElementById('alpha-value'))">
                 </div>
+                <div class="buttons">
+                    <input type="checkbox" id="hover-title" name="hover-title" onchange="main.hoverLabel(event, document.getElementById('rna-canvas'))" checked>
+                    <label for="hover-title">hover title</label>
+                </div>
                 <h3>Animation:</h3>
                 <div class="buttons">
                     <label for="duration">duration (ms):</label>
@@ -44,9 +48,10 @@
                     <input type="number" id="interval" name"interval" value="0" min="0" max="10000">
                 </div>
                 <div class="buttons">
-                    <input type="button" value="Animate to template" onclick="callAnimateToTemplate()">
+                    <input type="button" value="Animate to template" onclick="callAnimateToTemplate(event)">
                 </div>
                 <h3>Structures:</h3>
+                <div class="rotate"><div class='vertical'>mapping lines</div><div class='vertical'>animate</div></div>
                 <ul id="vis-list" class="visibility"></ul>
             </div>
         </main>

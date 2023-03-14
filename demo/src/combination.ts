@@ -12,17 +12,21 @@ import {
     addMappingCheckboxes,
     addStructNamesToList
 } from './init.ts';
+import { showLabel } from './events';
 
 export { 
     changeAlpha, 
     setDefaultAlpha,
     centerStruct,
     animateToTemplate,
-    showLabel
+    showLabel,
+    hoverLabel,
+    numberingLabel,
 } from './events.ts';
 
 export function init() {
     const canvas = document.getElementById('rna-canvas');
+    canvas.addEventListener('mousemove', showLabel, true);
     initRnaVis(canvas, 0);
 
     initOnClickAlign(canvas);

@@ -16,7 +16,6 @@ export class Layer {
     public data: DataContainer;
     public mappingLines: MappingLine[];
     public visible: boolean = true;
-    public titleVisible: boolean = true;
 
     constructor(data: DataContainer, name: string, mappingLines: MappingLine[], visible: boolean = true) {
         this.name = name;
@@ -81,7 +80,7 @@ export class RNAVis {
 
     public drawHoverLabel(x: number, y: number) {
         const residues = this.layers
-        .filter(layer => layer.titleVisible)
+        .filter(layer => layer.visible)
         .map(layer => layer.data.getResByCoor(x, y))
         .filter(res => res !== null);
 
@@ -198,17 +197,23 @@ export class RNAVis {
         return this;
     }
 
-    public setVisibilityByName(name: string, visible: boolean) {
+    public setVisibilityByName(name: string, visible: boolean): void {
         const index = this.getLayerIndex(name);
         if (index > -1) {
             this.setVisibility(index, visible);
         }
-        return this;
     }
 
     public setAllVisibility(visible: boolean): RNAVis {
         this.layers.forEach(layer => layer.visible = visible);
         return this;
+    }
+
+    public numberingLabelsVisibility(visible: boolean): void {
+        this.layers
+        .map(layer => layer.data.labels)
+        .flat(1)
+        .forEach(label => label.setVisible(visible));
     }
 
     public resetPositions() {

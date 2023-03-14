@@ -26,7 +26,12 @@
                     <label for="alpha-value">Alpha: </label>
                     <input type="range" min"0" max="1" value="1" step="0.05" id="alpha-value" onchange="main.changeAlpha(event)">
                 </div>
+                <div class="buttons">
+                    <input type="checkbox" id="hover-title" name="hover-title" onchange="main.hoverLabel(event, document.getElementById('rna-canvas'))" checked>
+                    <label for="hover-title">hover title</label>
+                </div>
                 <h3>Structures:</h3>
+                <div class="rotate"><div class='vertical'>mapping lines</div><div class='vertical'>visible</div></div>
                 <ul id="vis-list" class="visibility"></ul>
             </div>
         </main>

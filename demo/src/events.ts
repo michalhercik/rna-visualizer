@@ -1,12 +1,27 @@
 import { VisibilityAnim, VisibilityRecord } from 'rna-visualizer';
 import { rnaVis, toTemplateAnim } from './init';
 
+export function numberingLabel(event: Event) {
+    const checked = +(event.target as HTMLInputElement).checked;
+    rnaVis.numberingLabelsVisibility(checked);
+    rnaVis.draw();
+}
+
 export function showLabel(event: Event): void {
     const rect = event.target.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     rnaVis.draw();
     rnaVis.drawHoverLabel(x, y);
+}
+
+export function hoverLabel(event: Event, canvas: HTMLCanvasElement): void {
+    const checked = +(event.target as HTMLInputElement).checked;
+    if (checked) {
+        canvas.addEventListener('mousemove', showLabel, true);
+    } else {
+        canvas.removeEventListener('mousemove', showLabel, true);
+    }
 }
 
 export function changeAlpha(event: Event): void {
@@ -60,4 +75,5 @@ export function animateToTemplate(event, duration: number, interval: number): vo
             });
         });
     }
+
 }

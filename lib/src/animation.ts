@@ -250,6 +250,8 @@ export class Animation implements IAnimation {
                     after();
                 }
             });
+        } else {
+            after();
         }
     }
 
@@ -333,7 +335,9 @@ export class VisibilityAnim implements IAnimation {
 
     public instant() {
         const max = this.maxIndex();
-        Array.from(Array(max).keys()).forEach(i => this.do(i));
+        if (max > 0) {
+            Array.from(Array(max).keys()).forEach(i => this.do(i));
+        }
     }
 
     private maxIndex(): number {

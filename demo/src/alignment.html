@@ -35,9 +35,14 @@
                     <br>
                     <input type="button" value="Set default alpha" onclick="main.setDefaultAlpha(document.getElementById('alpha-value'))">
                 </div>
+                <div class="buttons">
+                    <input type="checkbox" id="hover-title" name="hover-title" onchange="main.hoverLabel(event, document.getElementById('rna-canvas'))" checked>
+                    <label for="hover-title">hover title</label>
+                </div>
                 <h3>Groups:</h3>
                 <div id="groups" class="groups"></div>
                 <h3>Structures:</h3>
+                <div class="rotate"><div class='vertical'>visible</div></div>
                 <ul id="vis-list" class="visibility"></ul>
             </div>
         </main>
