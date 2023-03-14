@@ -161,6 +161,7 @@ export class Animation implements IAnimation {
     from: RnaPositionRecord[];
     to: RnaPositionRecord[];
     isActive: boolean[];
+    private reversed: boolean = false;
 
     constructor(container: DataContainer[], to: RnaPositionRecord[]) {
         this.container = container;
@@ -179,7 +180,11 @@ export class Animation implements IAnimation {
     }
 
     public updateFrom() {
-        this.from = this.container.map(c => RnaPositionRecord.fromDataContainer(c));
+        if (this.reversed) {
+            this.to = this.container.map(c => RnaPositionRecord.fromDataContainer(c));
+        } else {
+            this.from = this.container.map(c => RnaPositionRecord.fromDataContainer(c));
+        }
     }
 
     public setFrom(from: RnaPositionRecord[]): Animation {
@@ -235,6 +240,7 @@ export class Animation implements IAnimation {
         const tmp = this.from;
         this.from = this.to;
         this.to = tmp;
+        this.reversed = !this.reversed;
     }
 
     public animate(rna: RNAVis, duration: number, after: BasicFn = () => {}): void {
@@ -253,6 +259,10 @@ export class Animation implements IAnimation {
         } else {
             after();
         }
+    }
+
+    public instant() {
+        this.do(1);
     }
 
     public getActiveContainers(): DataContainer[] {
@@ -309,7 +319,7 @@ export class VisibilityAnim implements IAnimation {
 
     public reverse() {
         this.visibilityRecords.forEach(rec => {
-            rec.setActive(!rec.isActive());
+            rec.to = rec.to.map(t => !t);
         })
     }
 

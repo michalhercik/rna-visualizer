@@ -47,17 +47,15 @@ export function animateToTemplate(event, duration: number, interval: number): vo
     const button = event.target as HTMLInputElement;
     button.disabled = true;
 
-    if (!removed) {
-        toTemplateAnim.updateFrom();
-    }
-
     const visRec = toTemplateAnim.getActiveContainers()
     .map(cont => {
         const unMappable = cont.getUnmappableResidues();
-        const to = unMappable.map(res => !res.isVisible());
+        const to = new Array(unMappable.length).fill(!removed);
         return new VisibilityRecord(unMappable, to);
     });
     const visAnim = new VisibilityAnim(visRec);
+    visAnim.instant();
+    visAnim.reverse();
 
     if (removed) {
         toTemplateAnim.animate(rnaVis, duration, () => {

@@ -18,6 +18,7 @@ export {
     animateToTemplate,
     showLabel,
     hoverLabel,
+    numberingLabel,
 } from './events.ts';
 
 export function init() {

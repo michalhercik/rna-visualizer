@@ -81,6 +81,8 @@ export function initOnClickAlign(canvas): void {
             const anim = new Animation(containers.slice(1), animTarget);
             anim.animate(rnaVis, 1500);
         }
+
+        toTemplateAnim.updateFrom();
     };
 }
 
