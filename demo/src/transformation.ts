@@ -1,11 +1,5 @@
 import { 
-    rnaVis,
-    resizeCanvas,
-    initRnaVis,
-    initStructsSelector, 
     initAnimation,
-    reloadRnaVis, 
-    initRange,
     initList,
     addAnimationCheckboxes,
     addMappingCheckboxes,
@@ -13,58 +7,20 @@ import {
 } from './init.ts';
 import { showLabel, windowResize } from './events';
 
-export { 
-    changeAlpha, 
-    setDefaultAlpha,
-    centerStruct,
-    animateToTemplate,
-    showLabel,
-    hoverLabel,
-    numberingLabel,
-} from './events.ts';
-
 export function init() {
-    const canvas = document.getElementById('rna-canvas');
-    const controls = document.getElementById('controls');
-
-    addEventListener("resize", event => windowResize(canvas, controls));
-    canvas.addEventListener('mousemove', showLabel, true);
-    initRnaVis(canvas, 0);
-
-    const structsSelector = document.getElementById('structs-selector');
-    initStructsSelector(structsSelector);
-
-    const range = document.getElementById('alpha-value');
-    initRange(range);
-
+    document.getElementById('alignment').style.display = 'none';
+    document.getElementById('transformation').style.display = 'block';
+    document.getElementById('transform-label').style.display = 'block';
+    document.getElementById('visible-label').style.display = 'none';
     load();
-    resizeCanvas(canvas, controls);
-    rnaVis.draw();
 }
 
 export function load(): void {
     initAnimation();
 
-    const list = document.getElementById('vis-list');
+    const list = document.getElementById('struct-list');
     initList(list);
     addAnimationCheckboxes(list);
     addMappingCheckboxes(list);
     addStructNamesToList(list);
-}
-
-export function clear() {
-    document.getElementById('vis-list').replaceChildren();
-}
-
-export function reload(): void {
-    clear();
-    const structIndex = (document.getElementById('structs-selector') as HTMLSelectElement).value;
-    reloadRnaVis(structIndex);
-    load();
-
-    const canvas = document.getElementById('rna-canvas');
-    const controls = document.getElementById('controls');
-    resizeCanvas(canvas, controls);
-
-    rnaVis.draw();
 }

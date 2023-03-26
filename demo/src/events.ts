@@ -1,4 +1,4 @@
-import { VisibilityAnim, VisibilityRecord } from 'rna-visualizer';
+import { VisibilityAnim, VisibilityRecord, Animation } from 'rna-visualizer';
 import { rnaVis, toTemplateAnim, resizeCanvas } from './init';
 
 export function windowResize(canvas: HTMLCanvasElement, controls: HTMLElement): void {
@@ -8,7 +8,23 @@ export function windowResize(canvas: HTMLCanvasElement, controls: HTMLElement): 
     }
 }
 
-export function numberingLabel(event: Event) {
+export function canvasClick(event: Event): void {
+    const rect = rnaVis.canvas.node().getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const containers = rnaVis.getDataContainers();
+    const residue = containers[0].getClosestResByCoor(x, y); 
+
+    if (residue !== null) {
+        const animTarget = rnaVis.getAlignmentToTempResidue(residue);
+        const anim = new Animation(containers.slice(1), animTarget);
+        anim.animate(rnaVis, 1500);
+    }
+
+    toTemplateAnim.updateFrom();
+}
+
+export function numberingLabel(event: Event): void {
     const checked = +(event.target as HTMLInputElement).checked;
     rnaVis.numberingLabelsVisibility(checked);
     rnaVis.draw();

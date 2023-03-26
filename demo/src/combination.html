@@ -12,22 +12,22 @@
       }
     </script>
   </head>
-  <body onload="main.page.init()">
+  <body onload="main.init()">
     <div class="mb-3">
       <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
         <div class="collapse navbar-collapse justify-content-md-center">
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" href="alignment.html">Alignment</a>
+              <a class="nav-link" href="#" onclick="main.navClick(event)">Alignment</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="layers.html">Layers</a>
+              <a class="nav-link" href="#" onclick="main.navClick(event)">Layers</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="transformation.html">Transformation</a>
+              <a class="nav-link" href="#" onclick="main.navClick(event)">Transformation</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="combination.html">Combination</a>
+              <a class="nav-link active" href="#" onclick="main.navClick(event)">Combination</a>
             </li>
           </ul>
         </div>
@@ -40,10 +40,10 @@
         </div>
 
         <div id="controls" class="col">
-          <div class="border-bottom border-2 mb-3">
+          <div id="general" class="border-bottom border-2 mb-3">
             <h6>General</h6>
             <div class="mb-3">
-              <select id="structs-selector" class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="main.page.reload()"></select>
+              <select id="structs-selector" class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="main.reload()"></select>
             </div>
             <div class="mb-3">
               <div>
@@ -64,11 +64,11 @@
               <input class="btn btn-primary btn-sm" type="button" value="Default" onclick="main.setDefaultAlpha(document.getElementById('alpha-value'))">
             </div>
           </div>
-          <div class="border-bottom border-2 mb-3">
+          <div id="alignment" class="border-bottom border-2 mb-3">
             <h6>Alignment groups</h6>
             <div id="groups" class="mb-3"></div>
           </div>
-          <div class="border-bottom border-2 mb-3">
+          <div id="transformation" class="border-bottom border-2 mb-3">
             <h6>Transformation</h6>
             <div class="mb-2">
               <label class="form-label" for="duration">duration (ms)</label>
@@ -82,10 +82,10 @@
               <input class="btn btn-primary btn-sm" type="button" value="Transform" onclick="callAnimateToTemplate(event)">
             </div>
           </div>
-          <div class="mb-3">
+          <div id="structures" class="mb-3">
             <h6>Structures</h6>
-            <div class="rotate"><div class='vertical'>mapping lines</div><div class='vertical'>transform</div><div class='vertical'>visible</div></div>
-            <ul id="vis-list" class="list-group-flush list"></ul>
+            <div class="rotate"><div class="vertical">mapping lines</div><div id="transform-label" class="vertical">transform</div><div id="visible-label" class="vertical">visible</div></div>
+            <ul id="struct-list" class="list-group-flush list"></ul>
           </div>
         </div>
       </div>

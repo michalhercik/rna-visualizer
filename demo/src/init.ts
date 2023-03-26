@@ -82,24 +82,6 @@ export function initGroupsAlign(groups: HTMLElement): void {
     })
 }
 
-export function initOnClickAlign(canvas): void {
-    canvas.onclick = (event) => {
-        const rect = rnaVis.canvas.node().getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const containers = rnaVis.getDataContainers();
-        const residue = containers[0].getClosestResByCoor(x, y); 
-
-        if (residue !== null) {
-            const animTarget = rnaVis.getAlignmentToTempResidue(residue);
-            const anim = new Animation(containers.slice(1), animTarget);
-            anim.animate(rnaVis, 1500);
-        }
-
-        toTemplateAnim.updateFrom();
-    };
-}
-
 export function initAnimation(): void {
     const template = rnaVis.layers[0].data;
     const containers = rnaVis.getDataContainers().slice(1);

@@ -1,10 +1,4 @@
 import { 
-    rnaVis,
-    resizeCanvas,
-    initRnaVis,
-    initStructsSelector, 
-    reloadRnaVis, 
-    initRange,
     initList,
     addVisibilityCheckboxes,
     addMappingCheckboxes,
@@ -12,55 +6,18 @@ import {
 } from './init.ts';
 import { showLabel, windowResize } from './events';
 
-export { 
-    changeAlpha, 
-    setDefaultAlpha,
-    centerStruct,
-    showLabel,
-    hoverLabel,
-    numberingLabel,
-} from './events.ts';
-
 export function init() {
-    const canvas = document.getElementById('rna-canvas');
-    const controls = document.getElementById('controls');
-
-    addEventListener("resize", event => windowResize(canvas, controls));
-    canvas.addEventListener('mousemove', showLabel, true);
-    initRnaVis(canvas, 0);
-
-    const structsSelector = document.getElementById('structs-selector');
-    initStructsSelector(structsSelector);
-
-    const range = document.getElementById('alpha-value');
-    initRange(range);
-
+    document.getElementById('alignment').style.display = 'none';
+    document.getElementById('transformation').style.display = 'none';
+    document.getElementById('transform-label').style.display = 'none';
+    document.getElementById('visible-label').style.display = 'block';
     load();
-    resizeCanvas(canvas, controls);
-    rnaVis.draw();
 }
 
 export function load(): void {
-    const list = document.getElementById('vis-list');
+    const list = document.getElementById('struct-list');
     initList(list);
     addVisibilityCheckboxes(list);
     addMappingCheckboxes(list);
     addStructNamesToList(list);
-}
-
-export function clear() {
-    document.getElementById('vis-list').replaceChildren();
-}
-
-export function reload(): void {
-    clear();
-    const structIndex = (document.getElementById('structs-selector') as HTMLSelectElement).value;
-    reloadRnaVis(structIndex);
-    load();
-
-    const canvas = document.getElementById('rna-canvas');
-    const controls = document.getElementById('controls');
-    resizeCanvas(canvas, controls);
-
-    rnaVis.draw();
 }

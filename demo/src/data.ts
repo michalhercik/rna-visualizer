@@ -174,30 +174,6 @@ export const data: DataBundle[] = [
         ]
     ),
     new DataBundle(
-        new Data('d.16.e.P.falciparum.S (20)', falciparum01),
-        [
-            new Data('URS00001CD9C1', falciparum02),
-            new Data('URS000083EEC8', falciparum03),
-            new Data('URS00008C69E7', falciparum04),
-            new Data('URS00008C9253', falciparum05),
-            new Data('URS00008CD9C3', falciparum06),
-            new Data('URS00008CF1A3', falciparum07),
-            new Data('URS00008CF319', falciparum08),
-            new Data('URS00009CCACB', falciparum09),
-            new Data('URS00009D62DE', falciparum10),
-            new Data('URS00009E5F99', falciparum11),
-            new Data('URS0000A13402', falciparum12),
-            new Data('URS0000A2A05C', falciparum13),
-            new Data('URS0000A6B241', falciparum14),
-            new Data('URS0000BFA975', falciparum15),
-            new Data('URS0000C6A379', falciparum16),
-            new Data('URS0000CE8C9B', falciparum17),
-            new Data('URS0000D14FF8', falciparum18),
-            new Data('URS0000D3965E', falciparum19),
-            new Data('URS0000D4B3B8', falciparum20),
-        ]
-    ),
-    new DataBundle(
         new Data('d.5.b.Thermus.sp (20)', thermus01),
         [
             new Data('URS000005A630', thermus02),
@@ -291,6 +267,30 @@ export const data: DataBundle[] = [
             new Data('URS0000D721AC', DM_LSU_3D20),
         ]
     ),
+    // new DataBundle(
+    //     new Data('d.16.e.P.falciparum.S (20)', falciparum01),
+    //     [
+    //         new Data('URS00001CD9C1', falciparum02),
+    //         new Data('URS000083EEC8', falciparum03),
+    //         new Data('URS00008C69E7', falciparum04),
+    //         new Data('URS00008C9253', falciparum05),
+    //         new Data('URS00008CD9C3', falciparum06),
+    //         new Data('URS00008CF1A3', falciparum07),
+    //         new Data('URS00008CF319', falciparum08),
+    //         new Data('URS00009CCACB', falciparum09),
+    //         new Data('URS00009D62DE', falciparum10),
+    //         new Data('URS00009E5F99', falciparum11),
+    //         new Data('URS0000A13402', falciparum12),
+    //         new Data('URS0000A2A05C', falciparum13),
+    //         new Data('URS0000A6B241', falciparum14),
+    //         new Data('URS0000BFA975', falciparum15),
+    //         new Data('URS0000C6A379', falciparum16),
+    //         new Data('URS0000CE8C9B', falciparum17),
+    //         new Data('URS0000D14FF8', falciparum18),
+    //         new Data('URS0000D3965E', falciparum19),
+    //         new Data('URS0000D4B3B8', falciparum20),
+    //     ]
+    // ),
     // new DataBundle(
     //     new Data('d.16.b.S.gougerotii (19)', gougerotii01),
     //     [
