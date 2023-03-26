@@ -1,4 +1,6 @@
 import { 
+    rnaVis,
+    resizeCanvas,
     initRnaVis,
     initStructsSelector, 
     initGroupsAlign, 
@@ -12,7 +14,7 @@ import {
     addMappingCheckboxes,
     addStructNamesToList
 } from './init.ts';
-import { showLabel } from './events';
+import { showLabel, windowResize } from './events';
 
 export { 
     changeAlpha, 
@@ -26,6 +28,9 @@ export {
 
 export function init() {
     const canvas = document.getElementById('rna-canvas');
+    const controls = document.getElementById('controls');
+
+    addEventListener("resize", event => windowResize(canvas, controls));
     canvas.addEventListener('mousemove', showLabel, true);
     initRnaVis(canvas, 0);
 
@@ -38,6 +43,8 @@ export function init() {
     initRange(range);
 
     load();
+    resizeCanvas(canvas, controls);
+    rnaVis.draw();
 }
 
 export function load(): void {
@@ -54,14 +61,14 @@ export function load(): void {
     initGroupsAlign(groups);
 }
 
-export function clear() {
-    document.getElementById('vis-list').replaceChildren();
-    document.getElementById('groups').replaceChildren();
-}
-
 export function reload(): void {
-    clear();
     const structIndex = (document.getElementById('structs-selector') as HTMLSelectElement).value;
     reloadRnaVis(structIndex);
     load();
+
+    const canvas = document.getElementById('rna-canvas');
+    const controls = document.getElementById('controls');
+    resizeCanvas(canvas, controls);
+
+    rnaVis.draw();
 }

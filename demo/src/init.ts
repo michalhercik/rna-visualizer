@@ -4,18 +4,31 @@ import { data } from './data';
 export let rnaVis;
 export let toTemplateAnim;
 
+export function resizeCanvas(canvas: HTMLCanvasElement, controls: HTMLElement): void {
+    const alpha = canvas.getContext('2d').globalAlpha;
+    canvas.height = 0;
+    const container = controls.parentElement;
+    const containerStyles = window.getComputedStyle(container);
+    const colStyles = window.getComputedStyle(canvas.parentElement);
+    canvas.height = Math.max(controls.offsetHeight, window.screen.height);
+    canvas.width = +container.offsetWidth 
+    - containerStyles.getPropertyValue('padding-left').slice(0, -2)
+    - containerStyles.getPropertyValue('padding-right').slice(0, -2)
+    - 2 * +colStyles.getPropertyValue('padding-left').slice(0, -2)
+    - 2 * +colStyles.getPropertyValue('padding-right').slice(0, -2)
+    - controls.offsetWidth;
+    canvas.getContext('2d').globalAlpha = alpha;
+}
+
 export function initRnaVis(canvas: HTMLCanvasElement, structIndex: number): void {
     rnaVis = new RNAVis(canvas);
     loadData(structIndex);
-    rnaVis
-    .addZoom()
-    .draw();
+    rnaVis.addZoom();
 }
 
 export function reloadRnaVis(structIndex: number) {
     rnaVis.clear();
     loadData(structIndex);
-    rnaVis.draw();
 }
 
 export function loadData(index: number): void {
@@ -51,6 +64,7 @@ export function initGroupsAlign(groups: HTMLElement): void {
     createGroups(ls[0], ls[1], null, minGroupSize).forEach(group => {
         let b = document.createElement('input');
         b.setAttribute('type', 'button');
+        b.setAttribute('class', 'btn btn-primary btn-sm m-1');
         b.setAttribute('value', group.size() + '');
         b.setAttribute('id', i + '');
         b.onclick = (event) => {
@@ -95,9 +109,11 @@ export function initAnimation(): void {
 
 export function initList(list: HTMLUListElement): void {
     const topItem = document.createElement('li');
+    topItem.setAttribute('class', 'list-group-item');
     list.append(topItem);
     rnaVis.layers.forEach(layer => {
         const listItem = document.createElement('li');
+        listItem.setAttribute('class', 'list-group-item');
         list.append(listItem);
     })
 }
@@ -154,12 +170,14 @@ export function addMappingCheckboxes(list: HTMLUListElement): void {
 
 export function addStructNamesToList(list: HTMLUListElement): void {
     const labels = rnaVis.layers.map(layer => layer.name);
+    labels.unshift('all');
     addLabelToList(list, labels);
 }
 
 function addCheckboxToList(list: HTMLUListElement, type: string, topCallback: () => void, callback: () => void): void {
+    const checkClasses = 'form-check-input me-1';
     const topItem = list.children[0];
-    topItem.append(newCheckbox(type + 'top', "None", event => {
+    topItem.append(newCheckbox(type + 'top' + ` ${checkClasses}`, "None", event => {
         const newState = (event.currentTarget as HTMLInputElement).checked;
         Array.from(document.getElementsByClassName(type))
         .forEach(el => {
@@ -169,12 +187,12 @@ function addCheckboxToList(list: HTMLUListElement, type: string, topCallback: ()
     }))
 
     Array.from(list.children).slice(1).forEach((li, index) => {
-        li.append(newCheckbox(type, index, callback));
+        li.append(newCheckbox(type + ` ${checkClasses}`, index, callback));
     });
 }
 
 function addLabelToList(list: HTMLUListElement, labels: string[]): void {
-    Array.from(list.children).slice(1).forEach((li, index) => {
+    Array.from(list.children).forEach((li, index) => {
         li.append(newLabel(labels[index]));
     });
 }

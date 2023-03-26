@@ -1,11 +1,5 @@
 body {
-    background-color: lightgrey;
-    margin: 0px;
-}
-
-main {
-    margin: 10px;
-    display: flex;
+  background-color: #F8F9FA;
 }
 
 canvas {
@@ -13,57 +7,22 @@ canvas {
     background-color: white;
 }
 
-header {
-    text-align: center;
+#controls {
+    -ms-flex: 0 0 270px;
+    flex: 0 0 270px;
 }
 
-nav {
-    margin-left: 10px;
-    text-align: center;
-}
-
-nav > a {
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-}
-
-nav > a:hover {
-    text-decoration: underline;
-}
-
-main > div {
-    margin: 2px;
-    padding: 10px;
-}
-
-
-.controls {
-    background-color: wheat;
-}
-
-.buttons {
-    margin-top: 10px;
-}
-
-.visibility {
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-}
-
-.groups > input {
-    margin: 2px;
-    padding: 4px;
+.list {
+    padding-left: 0px;
 }
 
 .vertical {
-    padding-left: 2px;
+    padding-left: 3px;
+    line-height: 17px;
 }
 
 .rotate {
     position: relative;
     writing-mode: vertical-lr;
     transform: rotate(-180deg);
-    padding-top: 2px;
 }

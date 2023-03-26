@@ -1,5 +1,12 @@
 import { VisibilityAnim, VisibilityRecord } from 'rna-visualizer';
-import { rnaVis, toTemplateAnim } from './init';
+import { rnaVis, toTemplateAnim, resizeCanvas } from './init';
+
+export function windowResize(canvas: HTMLCanvasElement, controls: HTMLElement): void {
+    resizeCanvas(canvas, controls);
+    if (rnaVis) {
+        centerStruct();
+    }
+}
 
 export function numberingLabel(event: Event) {
     const checked = +(event.target as HTMLInputElement).checked;
@@ -73,5 +80,4 @@ export function animateToTemplate(event, duration: number, interval: number): vo
             });
         });
     }
-
 }
