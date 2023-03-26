@@ -1,0 +1,28 @@
+body {
+  background-color: #F8F9FA;
+}
+
+canvas {
+    border: 1px solid grey;
+    background-color: white;
+}
+
+#controls {
+    -ms-flex: 0 0 270px;
+    flex: 0 0 270px;
+}
+
+.list {
+    padding-left: 0px;
+}
+
+.vertical {
+    padding-left: 3px;
+    line-height: 17px;
+}
+
+.rotate {
+    position: relative;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+}

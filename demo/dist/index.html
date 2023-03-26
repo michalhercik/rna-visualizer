@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+      function callAnimateToTemplate(event) {
+        const duration = +document.getElementById('duration').value;
+        const interval = +document.getElementById('interval').value;
+        main.animateToTemplate(event, duration, interval);
+      }
+    </script>
+  </head>
+  <body onload="main.init()">
+    <div class="mb-3">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+        <div class="collapse navbar-collapse justify-content-md-center">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="main.navClick(event)">Alignment</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="main.navClick(event)">Layers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="main.navClick(event)">Transformation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#" onclick="main.navClick(event)">Combination</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <main class="container">
+      <div class="row">
+        <div class="col">
+          <canvas id="rna-canvas"></canvas>
+        </div>
+
+        <div id="controls" class="col">
+          <div id="general" class="border-bottom border-2 mb-3">
+            <h6>General</h6>
+            <div class="mb-3">
+              <select id="structs-selector" class="form-select form-select-sm" aria-label=".form-select-sm example" onchange="main.reload()"></select>
+            </div>
+            <div class="mb-3">
+              <div>
+                <input class="form-check-input" type="checkbox" id="hover-title" name="hover-title" onchange="main.hoverLabel(event, document.getElementById('rna-canvas'))" checked>
+                <label class="form-check-label" for="hover-title">hover title</label>
+              </div>
+              <div>
+                <input class="form-check-input" type="checkbox" id="numbering-label" name="numbering-label" onchange="main.numberingLabel(event)" checked>
+                <label class="form-check-label" for="numbering-label">numbering labels</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input class="btn btn-primary btn-sm" type="button" value="Origin" id="reset-pos" onclick="main.centerStruct()">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="alpha-value">alpha</label><br>
+              <input class="form-range w-75" type="range" min"0" max="1" value="1" step="0.05" id="alpha-value" onchange="main.changeAlpha(event)">
+              <input class="btn btn-primary btn-sm" type="button" value="Default" onclick="main.setDefaultAlpha(document.getElementById('alpha-value'))">
+            </div>
+          </div>
+          <div id="alignment" class="border-bottom border-2 mb-3">
+            <h6>Alignment groups</h6>
+            <div id="groups" class="mb-3"></div>
+          </div>
+          <div id="transformation" class="border-bottom border-2 mb-3">
+            <h6>Transformation</h6>
+            <div class="mb-2">
+              <label class="form-label" for="duration">duration (ms)</label>
+              <input class="form-control form-control-sm" type="number" id="duration" name"duration" value="1500" min="0" max="10000">
+            </div>
+            <div class="mb-2">
+              <label class="form-label" for="interval">interval (ms)</label>
+              <input class="form-control form-control-sm" type="number" id="interval" name"interval" value="0" min="0" max="10000">
+            </div>
+            <div class="mb-2">
+              <input class="btn btn-primary btn-sm" type="button" value="Transform" onclick="callAnimateToTemplate(event)">
+            </div>
+          </div>
+          <div id="structures" class="mb-3">
+            <h6>Structures</h6>
+            <div class="rotate"><div class="vertical">mapping lines</div><div id="transform-label" class="vertical">transform</div><div id="visible-label" class="vertical">visible</div></div>
+            <ul id="struct-list" class="list-group-flush list"></ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
