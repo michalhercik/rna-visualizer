@@ -25,10 +25,9 @@ export {
 export let page = combination;
 
 export function init(): void {
-    const canvas = document.getElementById('rna-canvas');
+    const canvas = document.getElementById('rna-canvas') as HTMLCanvasElement;
     const controls = document.getElementById('controls');
-
-    addEventListener("resize", event => windowResize(canvas, controls));
+    addEventListener("resize", _ => windowResize(canvas, controls));
     canvas.addEventListener('mousemove', showLabel, true);
     initRnaVis(canvas, 0);
 
@@ -46,19 +45,22 @@ export function init(): void {
 export function reload(structIndex: number): void {
     clear();
     reloadRnaVis(structIndex);
-    rnaVis.draw();
     page.load();
+    const canvas = document.getElementById('rna-canvas') as HTMLCanvasElement;
+    const controls = document.getElementById('controls');
+    resizeCanvas(canvas, controls);
+    rnaVis.draw();
 }
 
 export function navClick(event: Event): void {
     clear();
-    const canvas = document.getElementById('rna-canvas');
+    const canvas = document.getElementById('rna-canvas') as HTMLCanvasElement;
+    const controls = document.getElementById('controls');
     canvas.removeEventListener('click', canvasClick, true);
     document.getElementsByClassName('active')[0].classList.remove('active');
     event.target.classList.add('active');
     changePage(event.target.innerHTML);
     page.init();
-    const controls = document.getElementById('controls');
     resizeCanvas(canvas, controls);
     rnaVis.draw();
 }
