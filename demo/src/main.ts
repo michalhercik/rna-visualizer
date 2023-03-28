@@ -2,24 +2,25 @@ import * as combination from './combination';
 import * as layers from './layers';
 import * as transformation from './transformation';
 import * as alignment from './alignment';
-import { 
+import {
     rnaVis,
     resizeCanvas,
     initRnaVis,
-    initStructsSelector, 
+    initStructsSelector,
     initRange,
-} from './init'
+} from './init';
 import { showLabel, windowResize, canvasClick } from './events';
+import { reloadRnaVis } from './init';
 
-export { 
-    changeAlpha, 
+export {
+    changeAlpha,
     setDefaultAlpha,
     centerStruct,
     animateToTemplate,
     showLabel,
     hoverLabel,
     numberingLabel,
-} from './events.ts';
+} from './events';
 
 export let page = combination;
 
@@ -42,9 +43,11 @@ export function init(): void {
     rnaVis.draw();
 }
 
-export function reload(): void {
+export function reload(structIndex: number): void {
     clear();
-    page.reload();
+    reloadRnaVis(structIndex);
+    rnaVis.draw();
+    page.load();
 }
 
 export function navClick(event: Event): void {
@@ -61,7 +64,7 @@ export function navClick(event: Event): void {
 }
 
 function changePage(newPageName: string): void {
-    switch(newPageName) {
+    switch (newPageName) {
         case 'Alignment': {
             page = alignment;
             break;

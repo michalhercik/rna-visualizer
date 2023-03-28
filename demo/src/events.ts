@@ -1,4 +1,4 @@
-import { VisibilityAnim, VisibilityRecord, Animation } from 'rna-visualizer';
+import { VisibilityAnim, VisibilityRecord, TranslationAnim } from 'rna-visualizer';
 import { rnaVis, toTemplateAnim, resizeCanvas } from './init';
 
 export function windowResize(canvas: HTMLCanvasElement, controls: HTMLElement): void {
@@ -8,16 +8,16 @@ export function windowResize(canvas: HTMLCanvasElement, controls: HTMLElement): 
     }
 }
 
-export function canvasClick(event: Event): void {
-    const rect = rnaVis.canvas.node().getBoundingClientRect();
+export function canvasClick(event: MouseEvent): void {
+    const rect = rnaVis.canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     const containers = rnaVis.getDataContainers();
-    const residue = containers[0].getClosestResByCoor(x, y); 
+    const residue = containers[0].getClosestResByCoor(x, y);
 
     if (residue !== null) {
         const animTarget = rnaVis.getAlignmentToTempResidue(residue);
-        const anim = new Animation(containers.slice(1), animTarget);
+        const anim = new TranslationAnim(containers.slice(1), animTarget);
         anim.animate(rnaVis, 1500);
     }
 
@@ -25,13 +25,13 @@ export function canvasClick(event: Event): void {
 }
 
 export function numberingLabel(event: Event): void {
-    const checked = +(event.target as HTMLInputElement).checked;
+    const checked = (event.target as HTMLInputElement).checked;
     rnaVis.numberingLabelsVisibility(checked);
     rnaVis.draw();
 }
 
-export function showLabel(event: Event): void {
-    const rect = event.target.getBoundingClientRect();
+export function showLabel(event: MouseEvent): void {
+    const rect = (event.target as HTMLElement).getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     rnaVis.draw();
@@ -55,7 +55,7 @@ export function changeAlpha(event: Event): void {
 
 export function setDefaultAlpha(range: HTMLInputElement): void {
     const alpha = rnaVis.getDefaultAlpha();
-    range.value = alpha;
+    range.value = alpha.toString();
     rnaVis.setAlpha(alpha);
     rnaVis.draw();
 }
@@ -66,16 +66,16 @@ export function centerStruct(): void {
 }
 
 let removed = false;
-export function animateToTemplate(event, duration: number, interval: number): void {
+export function animateToTemplate(event: Event, duration: number, interval: number): void {
     const button = event.target as HTMLInputElement;
     button.disabled = true;
 
     const visRec = toTemplateAnim.getActiveContainers()
-    .map(cont => {
-        const unMappable = cont.getUnmappableResidues();
-        const to = new Array(unMappable.length).fill(!removed);
-        return new VisibilityRecord(unMappable, to);
-    });
+        .map(cont => {
+            const unMappable = cont.getUnmappableResidues();
+            const to = new Array(unMappable.length).fill(!removed);
+            return new VisibilityRecord(unMappable, to);
+        });
     const visAnim = new VisibilityAnim(visRec);
     visAnim.instant();
     visAnim.reverse();
