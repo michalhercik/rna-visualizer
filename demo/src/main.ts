@@ -31,10 +31,10 @@ export function init(): void {
     canvas.addEventListener('mousemove', showLabel, true);
     initRnaVis(canvas, 0);
 
-    const structsSelector = document.getElementById('structs-selector');
+    const structsSelector = document.getElementById('structs-selector') as HTMLSelectElement;
     initStructsSelector(structsSelector);
 
-    const range = document.getElementById('alpha-value');
+    const range = document.getElementById('alpha-value') as HTMLInputElement;
     initRange(range);
 
     page.init();
@@ -58,8 +58,9 @@ export function navClick(event: Event): void {
     const controls = document.getElementById('controls');
     canvas.removeEventListener('click', canvasClick, true);
     document.getElementsByClassName('active')[0].classList.remove('active');
-    event.target.classList.add('active');
-    changePage(event.target.innerHTML);
+    const target = event.target as HTMLElement;
+    target.classList.add('active');
+    changePage(target.innerHTML);
     page.init();
     resizeCanvas(canvas, controls);
     rnaVis.draw();

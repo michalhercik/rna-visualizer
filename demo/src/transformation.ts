@@ -1,11 +1,10 @@
-import { 
+import {
     initAnimation,
     initList,
     addAnimationCheckboxes,
     addMappingCheckboxes,
     addStructNamesToList
-} from './init.ts';
-import { showLabel, windowResize } from './events';
+} from './init';
 
 export function init() {
     document.getElementById('alignment').style.display = 'none';
@@ -18,7 +17,7 @@ export function init() {
 export function load(): void {
     initAnimation();
 
-    const list = document.getElementById('struct-list');
+    const list = document.getElementById('struct-list') as HTMLUListElement;
     initList(list);
     addAnimationCheckboxes(list);
     addMappingCheckboxes(list);

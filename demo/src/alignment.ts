@@ -1,11 +1,9 @@
-import { 
-    initGroupsAlign, 
-    initOnClickAlign, 
+import {
+    initGroupsAlign,
     initList,
-    addVisibilityCheckboxes,
     addMappingCheckboxes,
     addStructNamesToList
-} from './init.ts';
+} from './init';
 import { canvasClick } from './events';
 
 export function init() {
@@ -18,7 +16,7 @@ export function init() {
 }
 
 export function load(): void {
-    const list = document.getElementById('struct-list');
+    const list = document.getElementById('struct-list') as HTMLUListElement;
     initList(list);
     addMappingCheckboxes(list);
     addStructNamesToList(list);

@@ -62,19 +62,18 @@ export function initGroupsAlign(groups: HTMLElement): void {
     const minGroupSize = 20;
     let i = 0;
     TranslationGroups.create(ls[0], ls[1], null, minGroupSize).forEach(group => {
-        let b = document.createElement('input');
+        const b = document.createElement('input');
         b.setAttribute('type', 'button');
-        b.setAttribute('class', 'btn btn-primary btn-sm m-1');
-        b.setAttribute('value', group.size() + '');
-        b.setAttribute('id', i + '');
+        b.setAttribute('class', 'group-btn btn btn-primary btn-sm m-1');
+        b.setAttribute('value', group.size().toString());
+        b.setAttribute('id', i.toString());
         b.onclick = (event) => {
-            const shifts = rnaVis.align(+(event.target as HTMLElement).id, minGroupSize);
+            const shifts = rnaVis.align(Number((event.target as HTMLElement).id), minGroupSize);
             const containers = rnaVis.getDataContainers();
             const targets = shifts
                 .map((shift, index) => PositionRecord.fromTranslation(containers[index], shift));
-
             new TranslationAnim(containers, targets)
-                .animate(rnaVis, 1500);
+                .animate(rnaVis, 1500, () => toTemplateAnim.updateFrom());
         };
         groups.append(b);
         ++i;

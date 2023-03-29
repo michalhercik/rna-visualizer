@@ -18,10 +18,8 @@ export function canvasClick(event: MouseEvent): void {
     if (residue !== null) {
         const animTarget = rnaVis.getAlignmentToTempResidue(residue);
         const anim = new TranslationAnim(containers.slice(1), animTarget);
-        anim.animate(rnaVis, 1500);
+        anim.animate(rnaVis, 1500, () => toTemplateAnim.updateFrom());
     }
-
-    toTemplateAnim.updateFrom();
 }
 
 export function numberingLabel(event: Event): void {
@@ -86,8 +84,12 @@ export function animateToTemplate(event: Event, duration: number, interval: numb
             toTemplateAnim.reverse();
             removed = !removed;
             button.disabled = false;
+            Array.from(document.getElementsByClassName('group-btn'))
+                .forEach(btn => btn.disabled = false);
         });
     } else {
+        Array.from(document.getElementsByClassName('group-btn'))
+            .forEach(btn => btn.disabled = true);
         visAnim.animate(rnaVis, interval, () => {
             toTemplateAnim.animate(rnaVis, duration, () => {
                 toTemplateAnim.reverse();
