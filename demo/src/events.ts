@@ -3,9 +3,7 @@ import { rnaVis, toTemplateAnim, resizeCanvas } from './init';
 
 export function windowResize(canvas: HTMLCanvasElement, controls: HTMLElement): void {
     resizeCanvas(canvas, controls);
-    if (rnaVis) {
-        centerStruct();
-    }
+    rnaVis.draw();
 }
 
 export function canvasClick(event: MouseEvent): void {
