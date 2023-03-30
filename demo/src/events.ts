@@ -16,9 +16,24 @@ export function canvasClick(event: MouseEvent): void {
     const residue = containers[0].getClosestResByCoor(x, y);
 
     if (residue !== null) {
+        const reversed = toTemplateAnim.isReversed();
+        if (reversed) {
+            toTemplateAnim.instant();
+        }
         const animTarget = rnaVis.getAlignmentToTempResidue(residue);
         const anim = new TranslationAnim(containers.slice(1), animTarget);
-        anim.animate(rnaVis, 1500, () => toTemplateAnim.updateFrom());
+        if (reversed) {
+            anim.setState(toTemplateAnim.getState());
+        }
+        anim.instant()
+        toTemplateAnim.updateFrom();
+        if (reversed) {
+            toTemplateAnim.reverse();
+            toTemplateAnim.instant();
+            toTemplateAnim.reverse();
+            anim.setState(toTemplateAnim.getState().map(s => !s));
+        }
+        anim.animate(rnaVis, 1500);
     }
 }
 

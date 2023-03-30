@@ -19,6 +19,21 @@ export class TranslationAnim implements IAnimation {
 
     }
 
+    public isReversed(): boolean {
+        return this.reversed;
+    }
+
+    public setState(isActive: boolean[]) {
+        if (this.isActive.length !== isActive.length) {
+            throw new Error('this.isActive.length !== isActive.length');
+        }
+        this.isActive = isActive;
+    }
+
+    public getState(isActive: boolean[]) {
+        return this.isActive;
+    }
+
     public changeState(index: number, isActive: boolean): void {
         this.isActive[index] = isActive;
     }
