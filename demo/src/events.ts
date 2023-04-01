@@ -23,7 +23,7 @@ export function canvasClick(event: MouseEvent): void {
         if (reversed) {
             anim.setState(toTemplateAnim.getState());
         }
-        anim.instant()
+        anim.instant();
         toTemplateAnim.updateFrom();
         if (reversed) {
             toTemplateAnim.reverse();
@@ -72,8 +72,9 @@ export function setDefaultAlpha(range: HTMLInputElement): void {
 }
 
 export function centerStruct(): void {
-    rnaVis.resetPositions();
-    rnaVis.draw();
+    rnaVis
+        .resetTransform()
+        .draw();
 }
 
 let removed = false;

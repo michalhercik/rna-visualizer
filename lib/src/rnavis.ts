@@ -78,7 +78,7 @@ export class RnaVis {
         }
     }
 
-    public addData(data: IRnaInput, name: string, visible: boolean = true): void {
+    public addLayer(data: IRnaInput, name: string, visible: boolean = true): RnaVis {
         this.styles.addFrom(data.classes);
         const cont = new ContainerFactory().create(data, this.styles);
         let mappingLines: MappingLine[] = [];
@@ -92,33 +92,43 @@ export class RnaVis {
         this.layers.push(newLayer);
         const alpha = this.getDefaultAlpha();
         this.setAlpha(alpha);
+        return this;
     }
 
+    /**
+     * Clears all layers and styles from the RnaVis instance, clears canvas and reset zoom.
+     */
     public clear() {
         this.styles.reset();
         this.layers.length = 0;
-        this.resetPositions();
+        this.resetTransform();
         const ctx = this.canvas.getContext('2d');
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     }
 
+    /**
+     * Creates translation vectors for aligning the RNA secondary structures to the template. 
+     * @param groupIndex - The index of the generated translation group to use for alignment.
+     * @param minGroupSize - The minimum size of a translation group.
+     * @returns An array of translation vectors for each RNA secondary structure.
+     */
     public align(groupIndex: number = -1, minGroupSize: number = 5): Vector2[] {
-        let shifts: Vector2[] = [new Vector2(0, 0)];
+        let translations: Vector2[] = [new Vector2(0, 0)];
 
         if (this.layers.length < 2) {
-            return shifts;
+            return translations;
         }
 
         const layers = this.layers;
         const containers = this.getDataContainers();
         let groups = TranslationGroups.create(containers[0], containers[1], null, minGroupSize);
         if (groupIndex >= groups.length) {
-            return shifts;
+            return translations;
         }
 
         let group = groupIndex == -1 ? TranslationGroups.getBest(groups) : groups[groupIndex];
         if (group) {
-            shifts.push(
+            translations.push(
                 new Vector2(group.xShift, group.yShift)
             );
 
@@ -193,11 +203,12 @@ export class RnaVis {
         return this;
     }
 
-    public setVisibilityByName(name: string, visible: boolean): void {
+    public setVisibilityByName(name: string, visible: boolean): RnaVis {
         const index = this.getLayerIndex(name);
         if (index > -1) {
             this.setVisibility(index, visible);
         }
+        return this;
     }
 
     public setAllVisibility(visible: boolean): RnaVis {
@@ -205,16 +216,18 @@ export class RnaVis {
         return this;
     }
 
-    public numberingLabelsVisibility(visible: boolean): void {
+    public numberingLabelsVisibility(visible: boolean): RnaVis {
         this.layers
             .map(layer => layer.data.labels)
             .flat(1)
             .forEach(label => label.setVisible(visible));
+        return this;
     }
 
-    public resetPositions() {
+    public resetTransform(): RnaVis {
         d3.select(this.canvas)
             .call(this.zoom.transform, d3.zoomIdentity);
+        return this;
     }
 
     public getDataContainers(): Array<DataContainer> {

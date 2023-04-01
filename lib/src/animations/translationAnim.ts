@@ -30,7 +30,7 @@ export class TranslationAnim implements IAnimation {
         this.isActive = isActive;
     }
 
-    public getState(isActive: boolean[]) {
+    public getState() {
         return this.isActive;
     }
 
