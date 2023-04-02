@@ -3,7 +3,6 @@ import { Styles } from '../styles';
 import {
     IDataBasePair,
     IDataLabel,
-    IDataStyle,
     IDataResidue,
     IRnaInput,
 } from '../rna-input';
@@ -16,6 +15,9 @@ import {
     Text,
 } from '../components';
 
+/**
+ * Factory class for creating a DataContainer object that displays RNA visualization.
+ */
 export class ContainerFactory {
     private readonly margin = 10;
     private container: DataContainer;
@@ -25,6 +27,12 @@ export class ContainerFactory {
     private basePairs: BasePair[] = [];
     private labels: Label[] = [];
 
+    /**
+    * Creates a DataContainer object for the RNA visualization.
+    * @param data - The RNA input data.
+    * @param styles - The styles to apply to the visualization.
+    * @returns A DataContainer object representing the IRnaInput data with given styles.
+    */
     public create(data: IRnaInput, styles: Styles): DataContainer {
         this.data = data;
         this.styles = styles;

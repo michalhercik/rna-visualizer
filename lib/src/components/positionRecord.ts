@@ -5,11 +5,32 @@ import {
     SingleCoorTarget,
 } from '../animations';
 
+/**
+ * A class representing a record of position targets for labels and residues.
+ */
 export class PositionRecord {
+    /**
+     * Map containing the target coordinates of the label lines, with the key being the residue index as a string.
+     * @param labelLines - The map of label line targets.
+     */
     public readonly labelLines: Map<string, DoubleCoorTarget>;
+    /**
+     * Map containing the target coordinates of the label texts, with the key being the residue index as a string.
+     * @param labelTexts - The map of label text targets.
+     */
     public readonly labelTexts: Map<string, SingleCoorTarget>;
+    /**
+     * Map containing the target coordinates of the residues, with the key being the residue index as a string.
+     * @param residues - The map of residue targets.
+     */
     public readonly residues: Map<string, SingleCoorTarget>;
 
+    /**
+     * Constructor for a PositionRecord object.
+     * @param labelLines - The map of label line targets.
+     * @param labelTexts - The map of label text targets.
+     * @param residues - The map of residue targets.
+     */
     constructor(labelLines: Map<string, DoubleCoorTarget>,
         labelTexts: Map<string, SingleCoorTarget>,
         residues: Map<string, SingleCoorTarget>) {
@@ -18,6 +39,11 @@ export class PositionRecord {
         this.residues = residues;
     }
 
+    /**
+     * Creates a new PositionRecord object from the given DataContainer object.
+     * @param container - The DataContainer object from which to create the PositionRecord object.
+     * @returns A new PositionRecord object.
+     */
     public static fromDataContainer(container: DataContainer): PositionRecord {
         let labelLines = new Map<string, DoubleCoorTarget>();
         let labelTexts = new Map<string, SingleCoorTarget>();
@@ -42,6 +68,12 @@ export class PositionRecord {
         return new PositionRecord(labelLines, labelTexts, residues);
     }
 
+    /**
+     * Creates a new PositionRecord object from the given DataContainer with coordinates from the given template DataContainer object. Residue is added to record only if it has template residue.
+     * @param container - The DataContainer object from which to create the PositionRecord object.
+     * @param template - The template DataContainer object from which are taken coordinates.
+     * @returns A new PositionRecord object.
+     */
     public static fromTemplate(container: DataContainer, template: DataContainer): PositionRecord {
         let labelLines = new Map<string, DoubleCoorTarget>();
         let labelTexts = new Map<string, SingleCoorTarget>();
@@ -77,6 +109,12 @@ export class PositionRecord {
         return new PositionRecord(labelLines, labelTexts, residues);
     }
 
+    /**
+     * Creates a new PositionRecord object from the given DataContainer object and all coordinates are transalted by a Vector2 shift.
+     * @param container - The DataContainer object from which to create the PositionRecord object.
+     * @param shift - The Vector2 shift to apply to the target coordinates.
+     * @returns A new PositionRecord object.
+     */
     public static fromTranslation(container: DataContainer, shift: Vector2) {
         let labelLines = new Map<string, DoubleCoorTarget>();
         let labelTexts = new Map<string, SingleCoorTarget>();

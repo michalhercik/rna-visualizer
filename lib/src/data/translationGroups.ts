@@ -3,7 +3,19 @@ import {
     TranslationGroup,
 } from '../data';
 
+/**
+ * A utility class for creating and manipulating TranslationGroups.
+ */
 export class TranslationGroups {
+
+    /**
+    * Creates TranslationGroups from two DataContainers, optionally filtered by a specific group and a minimum size.
+    * @param contA - The first DataContainer.
+    * @param contB - The second DataContainer.
+    * @param group - Optional TranslationGroup to filter by.
+    * @param filter - Minimum size for generated TranslationGroups.
+    * @returns An array of TranslationGroups.
+    */
     public static create(contA: DataContainer, contB: DataContainer, group: TranslationGroup = null, filter: number = 5): Array<TranslationGroup> {
         let tempRes = contA.residues;
         let shifts = new Map<string, TranslationGroup>();
@@ -24,6 +36,11 @@ export class TranslationGroups {
         return groups;
     }
 
+    /**
+    * Returns the largest TranslationGroup from an array of TranslationGroups.
+    * @param groups - The array of TranslationGroups to search.
+    * @returns The largest TranslationGroup.
+    */
     public static getBest(groups: TranslationGroup[]) {
         let bestGroup = groups[0];
         groups.forEach((group) => {

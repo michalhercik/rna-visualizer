@@ -4,6 +4,9 @@ import { DataContainer } from '../data';
 import { IAnimation, AfterFn } from '../animations';
 import { PositionRecord } from '../components';
 
+/**
+ * An implementation of the IAnimation interface for translation animations.
+ */
 export class TranslationAnim implements IAnimation {
     container: DataContainer[];
     from: PositionRecord[];
@@ -11,6 +14,11 @@ export class TranslationAnim implements IAnimation {
     isActive: boolean[];
     private reversed: boolean = false;
 
+    /**
+     * Creates an instance of TranslationAnim.
+     * @param container - An array of DataContainer instances to animate.
+     * @param to - An array of PositionRecord instances that represent the final position of the containers.
+     */
     constructor(container: DataContainer[], to: PositionRecord[]) {
         this.container = container;
         this.isActive = container.map(_ => true);
@@ -19,10 +27,18 @@ export class TranslationAnim implements IAnimation {
 
     }
 
+    /**
+     * Returns true if the animation is currently reversed, false otherwise.
+     * @returns True if the animation is currently reversed, false otherwise.
+     */
     public isReversed(): boolean {
         return this.reversed;
     }
 
+    /**
+     * Sets the active state of the containers.
+     * @param isActive - An array of boolean values that represent the active state of the containers.
+     */
     public setState(isActive: boolean[]) {
         if (this.isActive.length !== isActive.length) {
             throw new Error('this.isActive.length !== isActive.length');
@@ -30,18 +46,34 @@ export class TranslationAnim implements IAnimation {
         this.isActive = isActive;
     }
 
+    /**
+     * Returns an array of boolean values that represent the active state of the containers.
+     * @returns An array of boolean values that represent the active state of the containers.
+     */
     public getState() {
         return this.isActive;
     }
 
+    /**
+     * Changes the active state of a container at a specific index.
+     * @param index - The index of the container to change the active state of.
+     * @param isActive - The new active state of the container.
+     */
     public changeState(index: number, isActive: boolean): void {
         this.isActive[index] = isActive;
     }
 
+    /**
+     * Changes the active state of all containers to a specific value.
+     * @param isActive - The new active state of all containers.
+     */
     public changeAllStates(isActive: boolean): void {
         this.isActive = this.isActive.map(_ => isActive);
     }
 
+    /**
+     * Updates the to array if the animation is reversed otherwise it updates from array using container.
+     */
     public updateFrom() {
         if (this.reversed) {
             this.to = this.container.map(c => PositionRecord
@@ -52,12 +84,20 @@ export class TranslationAnim implements IAnimation {
         }
     }
 
+    /**
+     * Sets the from array to a new array of PositionRecord instances.
+     * @param from - An array of PositionRecord instances to set the from array to.
+     */
     public setFrom(from: PositionRecord[]): void {
         if (from.length === this.to.length) {
             this.from = from;
         }
     }
 
+    /**
+     * Perform a specified step of the animation
+     * @param elapsed - A part of the animation to preform
+     */
     public do(elapsed: number) {
         const update = (start: number, target: number) => start * (1 - elapsed) + (target) * elapsed;
 
@@ -100,6 +140,9 @@ export class TranslationAnim implements IAnimation {
         }
     }
 
+    /**
+     * Reverses the animation.
+     */
     public reverse() {
         const tmp = this.from;
         this.from = this.to;
@@ -107,6 +150,12 @@ export class TranslationAnim implements IAnimation {
         this.reversed = !this.reversed;
     }
 
+    /**
+     * Preforms the Animation
+     * @param rna - An instance of RnaVis to animate.
+     * @param duration - The duration of the animation in milliseconds.
+     * @param after - A callback function to execute after the animation has finished.
+     */
     public animate(rna: RnaVis, duration: number, after: AfterFn = () => { }): void {
         if (this.isActive.indexOf(true) > -1) {
             const ease = d3.easeCubic;
@@ -125,10 +174,17 @@ export class TranslationAnim implements IAnimation {
         }
     }
 
+    /**
+     * Instantly and synchronously completes the animation.
+     */
     public instant() {
         this.do(1);
     }
 
+    /**
+     * Returns an array of DataContainer instances that are currently active.
+     * @returns An array of DataContainer instances that are currently active.
+     */
     public getActiveContainers(): DataContainer[] {
         let active = [];
         for (let i = 0; i < this.container.length; ++i) {

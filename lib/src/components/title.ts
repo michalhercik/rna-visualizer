@@ -7,31 +7,59 @@ import {
 } from '../components';
 import { Draw } from '../draw';
 
+/**
+ * Class representing a Title with background.
+ */
 export class Title {
     private texts: Text[];
     private background: Rectangle;
     private styles: Styles;
-    private visible: boolean = false;
 
+    /**
+     * Creates a new Title object.
+     * @param texts - An array of Text objects to be displayed as the title text.
+     * @param background - The Rectangle object representing the background of the title.
+     * @param styles - The styles to be applied to the title.
+     */
     public constructor(texts: Text[], background: Rectangle, styles: Styles) {
         this.texts = texts;
         this.background = background;
         this.styles = styles;
     }
 
+    /**
+     * Gets the Text objects of the Title.
+     * @returns An array of Text objects.
+     */
     public getTexts(): Text[] {
         return this.texts;
     }
 
+    /**
+     * Gets the background Rectangle of the Title.
+     * @returns The background Rectangle object.
+     */
     public getBackground(): Rectangle {
         return this.background;
     }
 
+    /**
+     * Draws the Title using the given CanvasRenderingContext2D.
+     * @param ctx - The CanvasRenderingContext2D to use for drawing.
+     */
     public draw(ctx: CanvasRenderingContext2D) {
         Draw.Rectangle(this.background, ctx, this.styles);
         Draw.Texts(this.texts, ctx, this.styles);
     }
 
+    /**
+     * Creates a new Title object from an array of Residue objects.
+     * @param residues - An array of Residue objects to be used for creating the title.
+     * @param canvasWidth - The width of the canvas the title will be drawn on.
+     * @param canvasHeight - The height of the canvas the title will be drawn on.
+     * @param styles - The styles to be applied to the title.
+     * @returns A new Title object.
+     */
     public static fromResidues(residues: Residue[], canvasWidth: number, canvasHeight: number, styles: Styles) {
         const rightMostRes = Math.max(...residues.map(res => res.getTransformedX()));
         const topMostRes = Math.min(...residues.map(res => res.getTransformedY()));

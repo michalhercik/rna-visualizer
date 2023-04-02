@@ -10,10 +10,19 @@ export class VisibilityAnim implements IAnimation {
         this.visibilityRecords = visibilityRecords;
     }
 
-    public changeState(index: number, active: boolean) {
-        this.visibilityRecords[index].setActive(active);
+    /**
+     * Change the state of the animation to active or not at a given index
+     * @param index - Index to change the state of
+     * @param isActive - New state of the index
+     */
+    public changeState(index: number, isActive: boolean) {
+        this.visibilityRecords[index].setActive(isActive);
     }
 
+    /**
+     * Perform a specified step of the animation
+     * @param elapsed - A part of the animation to preform
+     */
     public do(elapsed: number) {
         this.visibilityRecords.forEach(rec => {
             if (rec.residues.length > elapsed) {
@@ -22,12 +31,21 @@ export class VisibilityAnim implements IAnimation {
         });
     }
 
+    /**
+     * Reverse the animation.
+     */
     public reverse() {
         this.visibilityRecords.forEach(rec => {
             rec.to = rec.to.map(t => !t);
         });
     }
 
+    /**
+     * Preforms the Animation
+     * @param rna - RnaVis object on which is preformed the animation
+     * @param duration - Duration of the animation
+     * @param after - Function to call after the animation completes
+     */
     public animate(rna: RnaVis, duration: number, after: AfterFn = () => { }): void {
         if (duration <= 0) {
             this.instant();
@@ -48,6 +66,9 @@ export class VisibilityAnim implements IAnimation {
         }, duration);
     }
 
+    /**
+     * Instantly and synchronously completes the animation.
+     */
     public instant() {
         const max = this.maxIndex();
         if (max > 0) {
