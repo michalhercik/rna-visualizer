@@ -6,7 +6,17 @@ import {
     Rectangle
 } from './components';
 
+/**
+ * A static class for drawing various shapes on a canvas.
+ */
 export class Draw {
+
+    /**
+     * Draws an array of lines on the canvas context.
+     * @param lines - An array of ILine objects to draw.
+     * @param ctx - The canvas rendering context to draw on.
+     * @param styles - An instance of the Styles class to use for styling the lines.
+     */
     public static Lines(lines: Array<ILine>, ctx: CanvasRenderingContext2D, styles: Styles) {
         ctx.save();
         ctx.beginPath();
@@ -24,6 +34,12 @@ export class Draw {
         ctx.restore();
     }
 
+    /**
+     * Draws an array of text objects on the canvas context.
+     * @param texts - An array of Text objects to draw.
+     * @param ctx - The canvas rendering context to draw on.
+     * @param styles - An instance of the Styles class to use for styling the text.
+     */
     public static Texts(texts: Array<Text>, ctx: CanvasRenderingContext2D, styles: Styles) {
         ctx.save();
         const translate = new Map([
@@ -57,6 +73,12 @@ export class Draw {
         ctx.restore();
     }
 
+    /**
+     * Draws an array of circles on the canvas context with alpha set to 1.
+     * @param circles - An array of Circle objects to draw.
+     * @param ctx - The canvas rendering context to draw on.
+     * @param styles - An instance of the Styles class to use for styling the circles.
+     */
     public static Circles(circles: Array<Circle>, ctx: CanvasRenderingContext2D, styles: Styles) {
         ctx.save();
         ctx.beginPath();
@@ -79,6 +101,12 @@ export class Draw {
         ctx.restore();
     }
 
+    /**
+     * Draws a rectangle on the canvas context.
+     * @param rectangle - The Rectangle object to draw.
+     * @param ctx - The canvas rendering context to draw on.
+     * @param styles - An instance of the Styles class to use for styling the rectangle.
+     */
     public static Rectangle(rectangle: Rectangle, ctx: CanvasRenderingContext2D, styles: Styles) {
         ctx.save();
         const rectStyles = styles.get(rectangle.getClasses());
