@@ -5,7 +5,7 @@ import {
     Circle,
 } from '../components';
 import { Styles } from '../styles';
-import { IDataResidue } from '../rnaInput';
+import { IDataResidue } from '../rna-input';
 
 export class Residue {
     public name: string;
@@ -37,7 +37,7 @@ export class Residue {
         const text = new Text(textCoor, res.residueName, classes);
 
         const circleCoor = new Vector2(res.x, res.y);
-        const radius = styles.getProperty(res.classes, 'font-size').slice(0, -2) * 0.75;
+        const radius = Number(styles.getProperty(res.classes, 'font-size').slice(0, -2)) * 0.75;
         const circle = new Circle(circleCoor, radius);
 
         return new Residue(

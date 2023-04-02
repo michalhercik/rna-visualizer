@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { RnaVis } from '../rnaVis';
+import { RnaVis } from '../rna-vis';
 import { VisibilityRecord } from '../components';
 import { IAnimation, AfterFn } from '../animations';
 

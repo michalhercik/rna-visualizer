@@ -1,4 +1,4 @@
-import { IRnaComplexes } from '../rnaInput';
+import { IRnaComplexes } from '../rna-input';
 
 export interface SingleCoorObject {
     getX(): number;

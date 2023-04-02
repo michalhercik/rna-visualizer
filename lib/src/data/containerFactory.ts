@@ -6,7 +6,7 @@ import {
     IDataStyle,
     IDataResidue,
     IRnaInput,
-} from '../rnaInput';
+} from '../rna-input';
 import {
     Residue,
     BasePair,

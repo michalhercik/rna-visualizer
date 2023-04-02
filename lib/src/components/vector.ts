@@ -2,6 +2,8 @@ export class Vector2 {
     x: number;
     y: number;
 
+    public static readonly zero = new Vector2(0, 0);
+
     public constructor(x: number, y: number) {
         this.x = x;
         this.y = y;

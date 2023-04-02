@@ -1,4 +1,4 @@
-import { RnaVis } from '../rnaVis';
+import { RnaVis } from '../rna-vis';
 
 export type AfterFn = () => void;
 

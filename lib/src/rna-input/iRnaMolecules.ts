@@ -1,6 +1,8 @@
-import { IDataBasePair } from '../rnaInput';
-import { IDataLabel } from '../rnaInput';
-import { IDataResidue } from '../rnaInput';
+import { 
+    IDataBasePair, 
+    IDataLabel, 
+    IDataResidue 
+} from '../rna-input';
 
 export interface IRnaMolecules {
     name: string;

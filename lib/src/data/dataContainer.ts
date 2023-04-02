@@ -5,7 +5,7 @@ import {
     IRnaInput,
     IDataLabelLine,
     IDataLabelContent
-} from '../rnaInput';
+} from '../rna-input';
 import {
     Label,
     BasePair,

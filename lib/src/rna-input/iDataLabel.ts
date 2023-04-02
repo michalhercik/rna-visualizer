@@ -1,5 +1,7 @@
-import { IDataLabelContent } from '../rnaInput';
-import { IDataLabelLine } from '../rnaInput';
+import { 
+    IDataLabelContent,
+    IDataLabelLine,
+} from '../rna-input';
 
 export interface IDataLabel {
     labelContent: IDataLabelContent;

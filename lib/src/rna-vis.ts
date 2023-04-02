@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { Styles } from './styles';
-import { IRnaInput } from './rnaInput';
+import { IRnaInput } from './rna-input';
 import { Draw } from './draw';
 import {
     DataContainer,
