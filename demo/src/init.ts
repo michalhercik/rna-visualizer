@@ -33,9 +33,9 @@ export function reloadRnaVis(structIndex: number) {
 
 export function loadData(index: number): void {
     const bundle = data[index];
-    rnaVis.addData(bundle.template.structure, bundle.template.name);
+    rnaVis.addLayer(bundle.template.structure, bundle.template.name);
     for (let d of bundle.data) {
-        rnaVis.addData(d.structure, d.name);
+        rnaVis.addLayer(d.structure, d.name);
     }
 
     rnaVis.translate(rnaVis.align());
