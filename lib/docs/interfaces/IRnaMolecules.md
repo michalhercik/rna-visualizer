@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[rna-input/iRnaMolecules.ts:9](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iRnaMolecules.ts#L9)
+[rna-input/iRnaMolecules.ts:9](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iRnaMolecules.ts#L9)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[rna-input/iRnaMolecules.ts:10](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iRnaMolecules.ts#L10)
+[rna-input/iRnaMolecules.ts:10](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iRnaMolecules.ts#L10)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[rna-input/iRnaMolecules.ts:8](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iRnaMolecules.ts#L8)
+[rna-input/iRnaMolecules.ts:8](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iRnaMolecules.ts#L8)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[rna-input/iRnaMolecules.ts:11](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iRnaMolecules.ts#L11)
+[rna-input/iRnaMolecules.ts:11](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iRnaMolecules.ts#L11)

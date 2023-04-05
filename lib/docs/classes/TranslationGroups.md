@@ -46,7 +46,7 @@ An array of TranslationGroups.
 
 #### Defined in
 
-[data/translationGroups.ts:19](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/data/translationGroups.ts#L19)
+[data/translationGroups.ts:19](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroups.ts#L19)
 
 ___
 
@@ -70,4 +70,4 @@ The largest TranslationGroup.
 
 #### Defined in
 
-[data/translationGroups.ts:44](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/data/translationGroups.ts#L44)
+[data/translationGroups.ts:44](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroups.ts#L44)

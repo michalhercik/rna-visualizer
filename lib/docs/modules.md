@@ -70,7 +70,7 @@ A type of function that is invoked after an animation completes.
 
 #### Defined in
 
-[animations/iAnimation.ts:6](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/animations/iAnimation.ts#L6)
+[animations/iAnimation.ts:6](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/iAnimation.ts#L6)
 
 ## Variables
 
@@ -82,4 +82,4 @@ Identity transformation object that does not modify its inputs.
 
 #### Defined in
 
-[components/transformation.ts:25](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/transformation.ts#L25)
+[components/transformation.ts:25](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/transformation.ts#L25)

@@ -39,6 +39,9 @@ export function loadData(index: number): void {
     }
 
     rnaVis.translate(rnaVis.align());
+    rnaVis.layers.forEach(layer => {
+        layer.mappingLines.forEach(ml => ml.setVisible(false));
+    });
 }
 
 export function initRange(range: HTMLInputElement): void {
@@ -145,7 +148,7 @@ export function addMappingCheckboxes(list: HTMLUListElement): void {
         const checked = currentTarget.checked;
         rnaVis.layers[index].mappingLines.forEach(ml => ml.setVisible(checked));
         rnaVis.draw();
-    });
+    }, false);
 }
 
 export function addStructNamesToList(list: HTMLUListElement): void {
@@ -154,7 +157,7 @@ export function addStructNamesToList(list: HTMLUListElement): void {
     addLabelToList(list, labels);
 }
 
-function addCheckboxToList(list: HTMLUListElement, type: string, topCallback: (event: Event) => void, callback: (event: Event) => void): void {
+function addCheckboxToList(list: HTMLUListElement, type: string, topCallback: (event: Event) => void, callback: (event: Event) => void, checked: bool = true): void {
     const checkClasses = 'form-check-input me-1';
     const topItem = list.children[0];
     topItem.append(newCheckbox(type + 'top' + ` ${checkClasses}`, "None", (event: Event) => {
@@ -164,10 +167,10 @@ function addCheckboxToList(list: HTMLUListElement, type: string, topCallback: (e
                 el.checked = newState;
             });
         topCallback(event);
-    }));
+    }, checked));
 
     Array.from(list.children).slice(1).forEach((li, index) => {
-        li.append(newCheckbox(type + ` ${checkClasses}`, index.toString(), callback));
+        li.append(newCheckbox(type + ` ${checkClasses}`, index.toString(), callback, checked));
     });
 }
 
@@ -177,12 +180,14 @@ function addLabelToList(list: HTMLUListElement, labels: string[]): void {
     });
 }
 
-function newCheckbox(type: string, value: string, callback: (event: Event) => void): HTMLInputElement {
+function newCheckbox(type: string, value: string, callback: (event: Event) => void, checked: boolean): HTMLInputElement {
     const checkbox = document.createElement('input');
     checkbox.setAttribute('class', type);
     checkbox.setAttribute('value', value);
     checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('checked', "checked");
+    if (checked) {
+        checkbox.setAttribute('checked', "checked");
+    }
     checkbox.addEventListener('change', callback);
     return checkbox;
 }

@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[rna-input/iDataBasePair.ts:5](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iDataBasePair.ts#L5)
+[rna-input/iDataBasePair.ts:5](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iDataBasePair.ts#L5)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataBasePair.ts:6](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iDataBasePair.ts#L6)
+[rna-input/iDataBasePair.ts:6](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iDataBasePair.ts#L6)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataBasePair.ts:3](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iDataBasePair.ts#L3)
+[rna-input/iDataBasePair.ts:3](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iDataBasePair.ts#L3)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[rna-input/iDataBasePair.ts:4](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iDataBasePair.ts#L4)
+[rna-input/iDataBasePair.ts:4](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iDataBasePair.ts#L4)

@@ -55,7 +55,7 @@ Creates a new instance of BasePair.
 
 #### Defined in
 
-[components/basePair.ts:24](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L24)
+[components/basePair.ts:24](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L24)
 
 ## Properties
 
@@ -65,7 +65,7 @@ Creates a new instance of BasePair.
 
 #### Defined in
 
-[components/basePair.ts:16](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L16)
+[components/basePair.ts:16](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L16)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[components/basePair.ts:13](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L13)
+[components/basePair.ts:13](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L13)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[components/basePair.ts:14](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L14)
+[components/basePair.ts:14](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L14)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[components/basePair.ts:15](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L15)
+[components/basePair.ts:15](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L15)
 
 ## Methods
 
@@ -117,7 +117,7 @@ The classes associated with the base pair.
 
 #### Defined in
 
-[components/basePair.ts:116](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L116)
+[components/basePair.ts:116](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L116)
 
 ___
 
@@ -139,7 +139,7 @@ The x coordinate of the first residue after transformation.
 
 #### Defined in
 
-[components/basePair.ts:44](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L44)
+[components/basePair.ts:44](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L44)
 
 ___
 
@@ -161,7 +161,7 @@ The x coordinate of the second residue after transformation.
 
 #### Defined in
 
-[components/basePair.ts:60](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L60)
+[components/basePair.ts:60](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L60)
 
 ___
 
@@ -183,7 +183,7 @@ The y coordinate of the first residue after transformation.
 
 #### Defined in
 
-[components/basePair.ts:52](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L52)
+[components/basePair.ts:52](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L52)
 
 ___
 
@@ -205,7 +205,7 @@ The y coordinate of the second residue after transformation.
 
 #### Defined in
 
-[components/basePair.ts:68](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L68)
+[components/basePair.ts:68](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L68)
 
 ___
 
@@ -227,7 +227,7 @@ The x coordinate of the first residue.
 
 #### Defined in
 
-[components/basePair.ts:76](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L76)
+[components/basePair.ts:76](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L76)
 
 ___
 
@@ -249,7 +249,7 @@ The x coordinate of the second residue.
 
 #### Defined in
 
-[components/basePair.ts:92](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L92)
+[components/basePair.ts:92](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L92)
 
 ___
 
@@ -271,7 +271,7 @@ The y coordinate of the first residue.
 
 #### Defined in
 
-[components/basePair.ts:84](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L84)
+[components/basePair.ts:84](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L84)
 
 ___
 
@@ -293,7 +293,7 @@ The y coordinate of the second residue.
 
 #### Defined in
 
-[components/basePair.ts:100](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L100)
+[components/basePair.ts:100](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L100)
 
 ___
 
@@ -315,7 +315,7 @@ Whether the base pair is visible.
 
 #### Defined in
 
-[components/basePair.ts:108](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L108)
+[components/basePair.ts:108](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L108)
 
 ___
 
@@ -339,4 +339,4 @@ The BasePair instance for method chaining.
 
 #### Defined in
 
-[components/basePair.ts:35](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/basePair.ts#L35)
+[components/basePair.ts:35](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/basePair.ts#L35)

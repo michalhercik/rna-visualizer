@@ -19,7 +19,7 @@ Interface for object representing input data for RnaVis.
 
 #### Defined in
 
-[rna-input/iRnaInput.ts:7](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iRnaInput.ts#L7)
+[rna-input/iRnaInput.ts:7](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iRnaInput.ts#L7)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[rna-input/iRnaInput.ts:8](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/rna-input/iRnaInput.ts#L8)
+[rna-input/iRnaInput.ts:8](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iRnaInput.ts#L8)

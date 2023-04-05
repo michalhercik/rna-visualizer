@@ -35,7 +35,7 @@ Initializes a new instance of the `SingleCoorTarget` class.
 
 #### Defined in
 
-[animations/singleCoorTarget.ts:13](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/animations/singleCoorTarget.ts#L13)
+[animations/singleCoorTarget.ts:13](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/singleCoorTarget.ts#L13)
 
 ## Properties
 
@@ -45,7 +45,7 @@ Initializes a new instance of the `SingleCoorTarget` class.
 
 #### Defined in
 
-[animations/singleCoorTarget.ts:7](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/animations/singleCoorTarget.ts#L7)
+[animations/singleCoorTarget.ts:7](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/singleCoorTarget.ts#L7)
 
 ## Methods
 
@@ -63,7 +63,7 @@ The x-coordinate of the target.
 
 #### Defined in
 
-[animations/singleCoorTarget.ts:21](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/animations/singleCoorTarget.ts#L21)
+[animations/singleCoorTarget.ts:21](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/singleCoorTarget.ts#L21)
 
 ___
 
@@ -81,4 +81,4 @@ The y-coordinate of the target.
 
 #### Defined in
 
-[animations/singleCoorTarget.ts:29](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/animations/singleCoorTarget.ts#L29)
+[animations/singleCoorTarget.ts:29](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/singleCoorTarget.ts#L29)

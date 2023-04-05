@@ -56,7 +56,7 @@ Creates a new rectangle with the given parameters.
 
 #### Defined in
 
-[components/rectangle.ts:25](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L25)
+[components/rectangle.ts:25](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L25)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Creates a new rectangle with the given parameters.
 
 #### Defined in
 
-[components/rectangle.ts:14](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L14)
+[components/rectangle.ts:14](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L14)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[components/rectangle.ts:11](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L11)
+[components/rectangle.ts:11](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L11)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[components/rectangle.ts:13](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L13)
+[components/rectangle.ts:13](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L13)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[components/rectangle.ts:16](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L16)
+[components/rectangle.ts:16](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L16)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[components/rectangle.ts:15](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L15)
+[components/rectangle.ts:15](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L15)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[components/rectangle.ts:12](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L12)
+[components/rectangle.ts:12](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L12)
 
 ## Methods
 
@@ -134,7 +134,7 @@ Gets the classes associated with the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:150](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L150)
+[components/rectangle.ts:150](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L150)
 
 ___
 
@@ -152,7 +152,7 @@ Gets the coordinates of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:108](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L108)
+[components/rectangle.ts:108](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L108)
 
 ___
 
@@ -170,7 +170,7 @@ Gets the height of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:142](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L142)
+[components/rectangle.ts:142](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L142)
 
 ___
 
@@ -188,7 +188,7 @@ The transformed X coordinate of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:46](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L46)
+[components/rectangle.ts:46](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L46)
 
 ___
 
@@ -206,7 +206,7 @@ The transformed Y coordinate of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:72](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L72)
+[components/rectangle.ts:72](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L72)
 
 ___
 
@@ -224,7 +224,7 @@ Gets the width of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:134](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L134)
+[components/rectangle.ts:134](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L134)
 
 ___
 
@@ -242,7 +242,7 @@ The X coordinate of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:54](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L54)
+[components/rectangle.ts:54](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L54)
 
 ___
 
@@ -260,7 +260,7 @@ The Y coordinate of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:80](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L80)
+[components/rectangle.ts:80](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L80)
 
 ___
 
@@ -278,7 +278,7 @@ Gets the visibility of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:126](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L126)
+[components/rectangle.ts:126](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L126)
 
 ___
 
@@ -302,7 +302,7 @@ The modified rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:99](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L99)
+[components/rectangle.ts:99](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L99)
 
 ___
 
@@ -326,7 +326,7 @@ The modified rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:37](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L37)
+[components/rectangle.ts:37](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L37)
 
 ___
 
@@ -350,7 +350,7 @@ Sets the visibility of the rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:117](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L117)
+[components/rectangle.ts:117](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L117)
 
 ___
 
@@ -374,7 +374,7 @@ The modified rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:63](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L63)
+[components/rectangle.ts:63](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L63)
 
 ___
 
@@ -398,7 +398,7 @@ The modified rectangle.
 
 #### Defined in
 
-[components/rectangle.ts:89](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L89)
+[components/rectangle.ts:89](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L89)
 
 ___
 
@@ -422,4 +422,4 @@ Translates the rectangle by the given vector.
 
 #### Defined in
 
-[components/rectangle.ts:159](https://github.com/michalhercik/rna-visualizer/blob/846fdd7/lib/src/components/rectangle.ts#L159)
+[components/rectangle.ts:159](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/rectangle.ts#L159)

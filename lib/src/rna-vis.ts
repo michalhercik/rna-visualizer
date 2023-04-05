@@ -275,7 +275,7 @@ export class RnaVis {
     /**
      * Set the visibility of a layer by its name.
      * @param name - The name of the layer to modify.
-     * @param visibility - A boolean indicating whether the layer should be visible.
+     * @param visible - A boolean indicating whether the layer should be visible.
      * @returns The RnaVis instance to allow for method chaining.
      */
     public setVisibilityByName(name: string, visible: boolean): RnaVis {
