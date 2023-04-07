@@ -1,6 +1,6 @@
 # RNA visualizer
 
-NPM library for visualizing and comparing multiple RNA secondary structures
+Typescript library for visualizing and comparing multiple RNA secondary structures
 using canvas.
  - [documentation](./lib/docs/README.md)
  - [demo](https://michalhercik.github.io/rna-visualizer/)
