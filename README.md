@@ -1,24 +1,24 @@
 # RNA visualizer
 
 Typescript library for visualizing and comparing multiple RNA secondary structures
-using canvas.
+on a canvas.
  - [documentation](./lib/docs/README.md)
  - [demo](https://michalhercik.github.io/rna-visualizer/)
 
-## Install
+## Installation
 
-### Requirements
- - Node ([download website](https://nodejs.org/en/download))
- - Git ([download website](https://git-scm.com/downloads))
-
-### In own project
-
-For use in your own npm project simply run the following command to install this
-library and save dependency to your package.json file.
+For use in your own npm project simply run the following command to install the
+library and save the dependency to your package.json file.
 
 ```
 npm install --save rna-visualizer
 ```
+
+## Build
+
+### Requirements
+ - Node ([download website](https://nodejs.org/en/download))
+ - Git ([download website](https://git-scm.com/downloads))
 
 ### Clone repository
 
@@ -44,7 +44,8 @@ npm run build
 
 ## Example
 
-For more complex example that demonstrate all functionality checkout demo [source code](./demo/src).
+For more complex example that demonstrate all functionality checkout the demo
+[source code](./demo/src).
 
 ```typescript
 import { RnaVis, IRnaInput } from 'rna-visualizer';
@@ -98,7 +99,7 @@ let template: IRnaInput = {
 let canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
 
-// creating RnaVis object with template. Adding zoom and panning functionality.
+// Creating RnaVis object with the template. Adding zoom and panning functionality.
 let rnaVis = new RnaVis(canvas);
 rnaVis
     .addLayer(template, "template")
