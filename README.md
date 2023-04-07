@@ -59,41 +59,39 @@ let template: IRnaInput = {
 	    "name": "bp-line",
 	    "stroke-width": 1.0418
 	}
-    ]
-    rnaComplexes: [
-    rnaMolecules: [
-	basePairs: [],
-    labels: [],
-    sequence: [
-	{
-	    "classes": [
-		"font"
-	    ],
-	    "info": "",
-	    "residueIndex": 0,
-	    "residueName": "5'",
-	    "templateNumberingLabel": "",
-	    "templateResidueIndex": 0,
-	    "templateResidueName": "5'",
-	    "x": 40.87118826578342,
-	    "y": 24.000074999171886
-	},
-	{
-	    "classes": [
-		"font"
-	    ],
-	    "info": "",
-	    "residueIndex": 1,
-	    "residueName": "C",
-	    "templateNumberingLabel": "",
-	    "templateResidueIndex": 1,
-	    "templateResidueName": "",
-	    "x": 40.87118826578342,
-	    "y": 32.00009999889585
-	},
-    ]
-]
-]
+    ],
+    rnaComplexes: [{
+	name: 'complex',
+	rnaMolecules: [{
+	    name: 'molecule',
+	    basePairs: [],
+	    labels: [],
+	    sequence: [ 
+		{
+		    classes: [
+			"font"
+		    ],
+		    residueIndex: 0,
+		    residueName: "5'",
+		    templateResidueIndex: 0,
+		    templateResidueName: "5'",
+		    x: 40.87118826578342,
+		    y: 24.000074999171886
+		},
+		{
+		    classes: [
+			'font'
+		    ],
+		    residueIndex: 1,
+		    residueName: 'C',
+		    templateResidueIndex: 1,
+		    templateResidueName: 'C',
+		    x: 40.87118826578342,
+		    y: 32.00009999889585
+		},
+	    ]
+	}]
+    }]
 };
 
 // Creating canvas on which will be rna secondary structure drawn.
@@ -103,7 +101,7 @@ document.body.appendChild(canvas);
 // creating RnaVis object with template. Adding zoom and panning functionality.
 let rnaVis = new RnaVis(canvas);
 rnaVis
-    .addLayer(template)
+    .addLayer(template, "template")
     .addZoom()
     .draw();
 ```
