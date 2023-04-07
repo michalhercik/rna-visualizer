@@ -1,8 +1,8 @@
 {
   "name": "rna-visualizer",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "version": "1.0.1",
+  "description": "Web plugin for multiple RNA secondary structure visualization in radial layout",
+  "private": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,8 +10,14 @@
     "mddocs": "npx typedoc --plugin typedoc-plugin-markdown --out docs ./src/",
     "htmldocs": "npx typedoc --out docs ./src/"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "bioinformatics",
+    "RNA",
+    "secondary structure",
+    "web",
+    "plugin"
+  ],
+  "author": "Michal Hercík",
   "license": "ISC",
   "devDependencies": {
     "@types/d3": "^7.1.0",

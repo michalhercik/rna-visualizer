@@ -17,5 +17,8 @@
     "copyfiles": "^2.4.1",
     "del-cli": "^5.0.0",
     "esbuild": "0.17.10"
+  },
+  "dependencies": {
+    "rna-visualizer": "^1.0.0"
   }
 }

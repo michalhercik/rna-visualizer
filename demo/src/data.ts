@@ -1,4 +1,4 @@
-import { RNAData } from 'rna-visualizer';
+import { IRnaInput } from 'rna-visualizer';
 
 import data04 from '../example_data/json/URS000000C6FF_36873-d.16.b.Burkholderia.sp.json';
 import data07 from '../example_data/json/URS00000AA4F3_76731-d.16.b.Burkholderia.sp.json';
@@ -141,9 +141,9 @@ import DM_LSU_3D20 from '../example_data/data/json/URS0000D721AC-DM_LSU_3D.color
 
 export class Data {
     name: string;
-    structure: RNAData;
+    structure: IRnaInput;
 
-    constructor(name: string, structure: RNAData) {
+    constructor(name: string, structure: IRnaInput) {
         this.name = name;
         this.structure = structure;
     }
