@@ -34,7 +34,7 @@ export function reloadRnaVis(structIndex: number) {
 export function loadData(index: number): void {
     const bundle = data[index];
     rnaVis.addLayer(bundle.template.structure, bundle.template.name);
-    for (let d of bundle.data) {
+    for (const d of bundle.data) {
         rnaVis.addLayer(d.structure, d.name);
     }
 
@@ -51,7 +51,7 @@ export function initRange(range: HTMLInputElement): void {
 
 export function initStructsSelector(select: HTMLSelectElement): void {
     let index = 0;
-    for (let bundle of data) {
+    for (const bundle of data) {
         const option = document.createElement('option');
         option.setAttribute('value', index.toString());
         option.innerHTML = bundle.template.name;
@@ -61,7 +61,7 @@ export function initStructsSelector(select: HTMLSelectElement): void {
 }
 
 export function initGroupsAlign(groups: HTMLElement): void {
-    let ls = rnaVis.getDataContainers();
+    const ls = rnaVis.getDataContainers();
     const minGroupSize = 20;
     let i = 0;
     TranslationGroups.create(ls[0], ls[1], null, minGroupSize).forEach(group => {
@@ -144,7 +144,7 @@ export function addMappingCheckboxes(list: HTMLUListElement): void {
     };
     addCheckboxToList(list, 'mapping-checkbox', topCallback, (event: Event) => {
         const currentTarget = event.currentTarget as HTMLInputElement;
-        let index = +currentTarget.value;
+        const index = +currentTarget.value;
         const checked = currentTarget.checked;
         rnaVis.layers[index].mappingLines.forEach(ml => ml.setVisible(checked));
         rnaVis.draw();
@@ -193,7 +193,7 @@ function newCheckbox(type: string, value: string, callback: (event: Event) => vo
 }
 
 function newLabel(text: string): HTMLElement {
-    let label = document.createElement('label');
+    const label = document.createElement('label');
     label.innerHTML = text;
     return label;
 }
