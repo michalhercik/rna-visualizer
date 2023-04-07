@@ -44,7 +44,7 @@ npm run build
 
 ## Example
 
-For more complex example that demonstrates all functionality checkout demo [source code](./demo/src).
+For more complex example that demonstrate all functionality checkout demo [source code](./demo/src).
 
 ```typescript
 import { RnaVis, IRnaInput } from 'rna-visualizer';
