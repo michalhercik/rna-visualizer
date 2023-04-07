@@ -8,7 +8,7 @@ export class Layer {
     public name: string;
     public data: DataContainer;
     public mappingLines: MappingLine[];
-    public visible: boolean = true;
+    public visible = true;
 
     /**
     * @param data - The data container for the layer
@@ -16,7 +16,7 @@ export class Layer {
     * @param mappingLines - The mapping lines for the layer
     * @param visible - Whether the layer is visible or not
     */
-    constructor(data: DataContainer, name: string, mappingLines: MappingLine[], visible: boolean = true) {
+    constructor(data: DataContainer, name: string, mappingLines: MappingLine[], visible = true) {
         this.name = name;
         this.data = data;
         this.mappingLines = mappingLines;

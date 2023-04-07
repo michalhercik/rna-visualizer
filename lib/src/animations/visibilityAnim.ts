@@ -46,7 +46,7 @@ export class VisibilityAnim implements IAnimation {
      * @param duration - Duration of the animation
      * @param after - Function to call after the animation completes
      */
-    public animate(rna: RnaVis, duration: number, after: AfterFn = () => { }): void {
+    public animate(rna: RnaVis, duration: number, after: AfterFn = () => {/* do nothing */}): void {
         if (duration <= 0) {
             this.instant();
             rna.draw();

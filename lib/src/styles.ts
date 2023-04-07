@@ -18,7 +18,7 @@ export class Styles {
     /**
      * The default map of styles for RNA visualization.
      */
-    private default: Map<string, Object> = new Map([
+    private default: Map<string, object> = new Map([
         ['text-black', { fill: BLACK }],
         ['text-red', { fill: RED }],
         ['text-green', { fill: GREEN }],
@@ -81,13 +81,13 @@ export class Styles {
     /**
      * The map of custom styles for RNA visualization.
      */
-    public styles: Map<string, Object> = new Map(this.default);
+    public styles: Map<string, object> = new Map(this.default);
 
     /**
      * Adds a set of styles to the custom styles map.
      * @param classes - An array of style objects to add to the map.
      */
-    public addFrom(classes: Array<Object>): void {
+    public addFrom(classes: Array<object>): void {
         classes.forEach((style: any) => {
             const name = style.name;
             this.styles.set(name, style);
@@ -99,7 +99,7 @@ export class Styles {
      * @param name - The name of the style to set.
      * @param value - The value to set for the style.
      */
-    public set(name: string, value: Object): void {
+    public set(name: string, value: object): void {
         const v = this.get([name]);
         if (v)
             Object.assign(v, value);

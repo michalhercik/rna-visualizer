@@ -124,7 +124,7 @@ export class DataContainer {
      * @param maxDistance - The maximum distance from the specified coordinates.
      * @returns The closest residue to the specified coordinates within the specified maximum distance, or null if no such residue exists.
      */
-    public getClosestResByCoor(x: number, y: number, maxDistance: number = 100): Residue {
+    public getClosestResByCoor(x: number, y: number, maxDistance = 100): Residue {
         let result: Residue = null;
         let resultDistance = Number.MAX_SAFE_INTEGER;
         const clickPosition = new Vector2(x, y);

@@ -16,15 +16,15 @@ export class TranslationGroups {
     * @param filter - Minimum size for generated TranslationGroups.
     * @returns An array of TranslationGroups.
     */
-    public static create(contA: DataContainer, contB: DataContainer, group: TranslationGroup = null, filter: number = 5): Array<TranslationGroup> {
-        let tempRes = contA.residues;
-        let shifts = new Map<string, TranslationGroup>();
+    public static create(contA: DataContainer, contB: DataContainer, group: TranslationGroup = null, filter = 5): Array<TranslationGroup> {
+        const tempRes = contA.residues;
+        const shifts = new Map<string, TranslationGroup>();
         contB.residues.forEach(res => {
             if (res.templateIndex !== -1 && (group === null || group.has(res.templateIndex))) {
                 const tRes = tempRes[res.templateIndex];
-                let x = Math.round(tRes.getX() - res.getX());
-                let y = Math.round(tRes.getY() - res.getY());
-                let key = x + "," + y;
+                const x = Math.round(tRes.getX() - res.getX());
+                const y = Math.round(tRes.getY() - res.getY());
+                const key = x + "," + y;
                 if (shifts.has(key)) {
                     shifts.get(key).push(tRes);
                 } else {
@@ -32,7 +32,7 @@ export class TranslationGroups {
                 }
             }
         });
-        let groups = Array.from(shifts.values()).filter(group => group.size() > filter);
+        const groups = Array.from(shifts.values()).filter(group => group.size() > filter);
         return groups;
     }
 

@@ -45,9 +45,9 @@ export class PositionRecord {
      * @returns A new PositionRecord object.
      */
     public static fromDataContainer(container: DataContainer): PositionRecord {
-        let labelLines = new Map<string, DoubleCoorTarget>();
-        let labelTexts = new Map<string, SingleCoorTarget>();
-        let residues = new Map<string, SingleCoorTarget>();
+        const labelLines = new Map<string, DoubleCoorTarget>();
+        const labelTexts = new Map<string, SingleCoorTarget>();
+        const residues = new Map<string, SingleCoorTarget>();
 
         container.residues.forEach(res => {
             const key = res.index.toString();
@@ -75,9 +75,9 @@ export class PositionRecord {
      * @returns A new PositionRecord object.
      */
     public static fromTemplate(container: DataContainer, template: DataContainer): PositionRecord {
-        let labelLines = new Map<string, DoubleCoorTarget>();
-        let labelTexts = new Map<string, SingleCoorTarget>();
-        let residues = new Map<string, SingleCoorTarget>();
+        const labelLines = new Map<string, DoubleCoorTarget>();
+        const labelTexts = new Map<string, SingleCoorTarget>();
+        const residues = new Map<string, SingleCoorTarget>();
 
         container.residues.forEach(res => {
             if (res.templateIndex > -1) {
@@ -116,9 +116,9 @@ export class PositionRecord {
      * @returns A new PositionRecord object.
      */
     public static fromTranslation(container: DataContainer, shift: Vector2) {
-        let labelLines = new Map<string, DoubleCoorTarget>();
-        let labelTexts = new Map<string, SingleCoorTarget>();
-        let residues = new Map<string, SingleCoorTarget>();
+        const labelLines = new Map<string, DoubleCoorTarget>();
+        const labelTexts = new Map<string, SingleCoorTarget>();
+        const residues = new Map<string, SingleCoorTarget>();
 
         container.residues.forEach(res => {
             const coor = Vector2.sum(res.getCoor(), shift);

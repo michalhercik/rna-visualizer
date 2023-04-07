@@ -12,7 +12,7 @@ export class VisibilityRecord {
     /**
      * Boolean indicating if this VisibilityRecord is used in animation.
      */
-    active: boolean = true;
+    active = true;
 
     /**
      * Creates a new VisibilityRecord.

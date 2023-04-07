@@ -20,7 +20,7 @@ export class Draw {
     public static Lines(lines: Array<ILine>, ctx: CanvasRenderingContext2D, styles: Styles) {
         ctx.save();
         ctx.beginPath();
-        for (let line of lines) {
+        for (const line of lines) {
             if (line.isVisible()) {
                 const lineStyles = styles.get(line.getClasses());
                 ctx.strokeStyle = lineStyles['stroke'] || 'black';
@@ -50,7 +50,7 @@ export class Draw {
             ['end', 'end']
         ]);
 
-        for (let text of texts) {
+        for (const text of texts) {
             if (!text.isVisible()) continue;
 
             const textStyles = styles.get(text.getClasses());
@@ -82,7 +82,7 @@ export class Draw {
     public static Circles(circles: Array<Circle>, ctx: CanvasRenderingContext2D, styles: Styles) {
         ctx.save();
         ctx.beginPath();
-        for (let circle of circles) {
+        for (const circle of circles) {
             if (!circle.isVisible()) continue;
 
             const circleStyles = styles.get(circle.getClasses());

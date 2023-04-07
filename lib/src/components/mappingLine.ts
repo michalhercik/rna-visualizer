@@ -8,7 +8,7 @@ export class MappingLine implements ILine {
     residue1: Residue;
     residue2: Residue;
     classes: string[];
-    visible: boolean = true;
+    visible = true;
 
     /**
      * Constructs a MappingLine object
@@ -118,7 +118,7 @@ export class MappingLine implements ILine {
     * @returns An array of MappingLine objects representing the residue mappings between template and derived container.
     */
     public static createMappingLines(template: DataContainer, container: DataContainer, classes: string[] = ['mapping-line']): MappingLine[] {
-        let mappingLines: MappingLine[] = [];
+        const mappingLines: MappingLine[] = [];
         container.getMappableResidues().forEach(res => {
             const tempRes = template.residues[res.templateIndex];
             const mp = new MappingLine(tempRes, res, classes);

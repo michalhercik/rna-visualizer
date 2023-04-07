@@ -17,7 +17,7 @@ export class Residue {
     public templateName: string;
     public circle: Circle;
     public text: Text;
-    private visible: boolean = true;
+    private visible = true;
 
     /**
      * Create a Residue.

@@ -12,7 +12,7 @@ export class Line implements ILine {
     private coor1: Vector2;
     private coor2: Vector2;
     private classes: string[];
-    private visible: boolean = true;
+    private visible = true;
     private transform: Transformation = identity;
 
     /**

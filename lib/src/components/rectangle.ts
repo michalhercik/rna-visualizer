@@ -12,7 +12,7 @@ export class Rectangle {
     width: number;
     height: number;
     classes: string[];
-    visible: boolean = true;
+    visible = true;
     transform: Transformation = identity;
 
     /**

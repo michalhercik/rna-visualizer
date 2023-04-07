@@ -10,8 +10,8 @@ import {
 export class Circle {
     private coor: Vector2;
     private radius: number;
-    private scale: number = 1;
-    private visible: boolean = true;
+    private scale = 1;
+    private visible = true;
     private transform: Transformation = identity;
 
     /**

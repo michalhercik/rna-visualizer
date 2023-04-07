@@ -115,7 +115,7 @@ export class RnaVis {
      * @param name - The name to use for the new layer.
      * @param visible - Whether the new layer should be visible.
      */
-    public addLayer(data: IRnaInput, name: string, visible: boolean = true): RnaVis {
+    public addLayer(data: IRnaInput, name: string, visible = true): RnaVis {
         this.styles.addFrom(data.classes);
         const cont = new ContainerFactory().create(data, this.styles);
         let mappingLines: MappingLine[] = [];
@@ -149,8 +149,8 @@ export class RnaVis {
      * @param minGroupSize - The minimum size of a translation group.
      * @returns An array of translation vectors for each RNA secondary structure.
      */
-    public align(groupIndex: number = -1, minGroupSize: number = 5): Vector2[] {
-        let translations: Vector2[] = [new Vector2(0, 0)];
+    public align(groupIndex = -1, minGroupSize = 5): Vector2[] {
+        const translations: Vector2[] = [new Vector2(0, 0)];
 
         if (this.layers.length < 2) {
             return translations;
@@ -163,7 +163,7 @@ export class RnaVis {
             return translations;
         }
 
-        let group = groupIndex == -1 ? TranslationGroups.getBest(groups) : groups[groupIndex];
+        const group = groupIndex == -1 ? TranslationGroups.getBest(groups) : groups[groupIndex];
         if (group) {
             translations.push(
                 new Vector2(group.xShift, group.yShift)
@@ -172,13 +172,13 @@ export class RnaVis {
             for (let i = 2; i < layers.length; ++i) {
                 groups = TranslationGroups.create(layers[0].data, layers[i].data, group);
                 if (groups.length > 0) {
-                    let bestGroup = TranslationGroups.getBest(groups);
+                    const bestGroup = TranslationGroups.getBest(groups);
                     translations.push(
                         new Vector2(bestGroup.xShift, bestGroup.yShift)
                     );
                 } else {
                     groups = TranslationGroups.create(layers[0].data, layers[i].data);
-                    let bestGroup = TranslationGroups.getBest(groups);
+                    const bestGroup = TranslationGroups.getBest(groups);
                     translations.push(
                         new Vector2(bestGroup.xShift, bestGroup.yShift)
                     );
@@ -195,7 +195,7 @@ export class RnaVis {
      * @returns An array of translation vectors for each RNA secondary structure.
      */
     public getAlignmentToTempResidue(tempRes: Residue): Vector2[] {
-        let translations: Vector2[] = [];
+        const translations: Vector2[] = [];
         const containers = this.getDataContainers();
 
         for (let i = 1; i < containers.length; ++i) {

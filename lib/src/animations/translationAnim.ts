@@ -12,7 +12,7 @@ export class TranslationAnim implements IAnimation {
     from: PositionRecord[];
     to: PositionRecord[];
     isActive: boolean[];
-    private reversed: boolean = false;
+    private reversed = false;
 
     /**
      * Creates an instance of TranslationAnim.
@@ -156,10 +156,10 @@ export class TranslationAnim implements IAnimation {
      * @param duration - The duration of the animation in milliseconds.
      * @param after - A callback function to execute after the animation has finished.
      */
-    public animate(rna: RnaVis, duration: number, after: AfterFn = () => { }): void {
+    public animate(rna: RnaVis, duration: number, after: AfterFn = () => {/* do nothing */}): void {
         if (this.isActive.indexOf(true) > -1) {
             const ease = d3.easeCubic;
-            let timer = d3.timer((t) => {
+            const timer = d3.timer((t) => {
                 const elapsed = Math.min(1, ease(t / duration));
                 this.do(elapsed);
                 rna.draw();
@@ -186,7 +186,7 @@ export class TranslationAnim implements IAnimation {
      * @returns An array of DataContainer instances that are currently active.
      */
     public getActiveContainers(): DataContainer[] {
-        let active = [];
+        const active = [];
         for (let i = 0; i < this.container.length; ++i) {
             if (this.isActive[i]) {
                 active.push(this.container[i]);

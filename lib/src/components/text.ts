@@ -12,7 +12,7 @@ export class Text {
     text: string;
     coor: Vector2;
     classes: string[];
-    visible: boolean = true;
+    visible = true;
     transform: Transformation = identity;
 
     /**
