@@ -1,4 +1,4 @@
-[rna-visualizer](../README.md) / [Exports](../modules.md) / IDataLabel
+[rna-visualizer](../README.md) / IDataLabel
 
 # Interface: IDataLabel
 
@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[rna-input/iDataLabel.ts:7](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iDataLabel.ts#L7)
+[rna-input/iDataLabel.ts:7](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/rna-input/iDataLabel.ts#L7)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataLabel.ts:8](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iDataLabel.ts#L8)
+[rna-input/iDataLabel.ts:8](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/rna-input/iDataLabel.ts#L8)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[rna-input/iDataLabel.ts:9](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iDataLabel.ts#L9)
+[rna-input/iDataLabel.ts:9](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/rna-input/iDataLabel.ts#L9)

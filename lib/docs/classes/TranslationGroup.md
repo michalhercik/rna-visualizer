@@ -1,4 +1,4 @@
-[rna-visualizer](../README.md) / [Exports](../modules.md) / TranslationGroup
+[rna-visualizer](../README.md) / TranslationGroup
 
 # Class: TranslationGroup
 
@@ -40,7 +40,7 @@ Creates a translation group.
 
 #### Defined in
 
-[data/translationGroup.ts:17](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroup.ts#L17)
+[data/translationGroup.ts:17](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/data/translationGroup.ts#L17)
 
 ## Properties
 
@@ -50,7 +50,7 @@ Creates a translation group.
 
 #### Defined in
 
-[data/translationGroup.ts:9](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroup.ts#L9)
+[data/translationGroup.ts:9](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/data/translationGroup.ts#L9)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[data/translationGroup.ts:7](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroup.ts#L7)
+[data/translationGroup.ts:7](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/data/translationGroup.ts#L7)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[data/translationGroup.ts:8](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroup.ts#L8)
+[data/translationGroup.ts:8](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/data/translationGroup.ts#L8)
 
 ## Methods
 
@@ -94,7 +94,7 @@ Whether the group has a member residue with the given index.
 
 #### Defined in
 
-[data/translationGroup.ts:44](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroup.ts#L44)
+[data/translationGroup.ts:44](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/data/translationGroup.ts#L44)
 
 ___
 
@@ -116,7 +116,7 @@ Adds a member residue to the group.
 
 #### Defined in
 
-[data/translationGroup.ts:27](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroup.ts#L27)
+[data/translationGroup.ts:27](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/data/translationGroup.ts#L27)
 
 ___
 
@@ -134,4 +134,4 @@ The number of members in the group.
 
 #### Defined in
 
-[data/translationGroup.ts:35](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/data/translationGroup.ts#L35)
+[data/translationGroup.ts:35](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/data/translationGroup.ts#L35)

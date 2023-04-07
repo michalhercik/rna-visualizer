@@ -1,4 +1,4 @@
-[rna-visualizer](../README.md) / [Exports](../modules.md) / PositionRecord
+[rna-visualizer](../README.md) / PositionRecord
 
 # Class: PositionRecord
 
@@ -40,7 +40,7 @@ Constructor for a PositionRecord object.
 
 #### Defined in
 
-[components/positionRecord.ts:34](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/positionRecord.ts#L34)
+[components/positionRecord.ts:34](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/positionRecord.ts#L34)
 
 ## Properties
 
@@ -56,7 +56,7 @@ The map of label line targets.
 
 #### Defined in
 
-[components/positionRecord.ts:16](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/positionRecord.ts#L16)
+[components/positionRecord.ts:16](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/positionRecord.ts#L16)
 
 ___
 
@@ -72,7 +72,7 @@ The map of label text targets.
 
 #### Defined in
 
-[components/positionRecord.ts:21](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/positionRecord.ts#L21)
+[components/positionRecord.ts:21](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/positionRecord.ts#L21)
 
 ___
 
@@ -88,7 +88,7 @@ The map of residue targets.
 
 #### Defined in
 
-[components/positionRecord.ts:26](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/positionRecord.ts#L26)
+[components/positionRecord.ts:26](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/positionRecord.ts#L26)
 
 ## Methods
 
@@ -112,7 +112,7 @@ A new PositionRecord object.
 
 #### Defined in
 
-[components/positionRecord.ts:47](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/positionRecord.ts#L47)
+[components/positionRecord.ts:47](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/positionRecord.ts#L47)
 
 ___
 
@@ -137,7 +137,7 @@ A new PositionRecord object.
 
 #### Defined in
 
-[components/positionRecord.ts:77](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/positionRecord.ts#L77)
+[components/positionRecord.ts:77](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/positionRecord.ts#L77)
 
 ___
 
@@ -162,4 +162,4 @@ A new PositionRecord object.
 
 #### Defined in
 
-[components/positionRecord.ts:118](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/positionRecord.ts#L118)
+[components/positionRecord.ts:118](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/positionRecord.ts#L118)

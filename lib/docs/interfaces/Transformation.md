@@ -1,4 +1,4 @@
-[rna-visualizer](../README.md) / [Exports](../modules.md) / Transformation
+[rna-visualizer](../README.md) / Transformation
 
 # Interface: Transformation
 
@@ -33,7 +33,7 @@ The transformed x-coordinate.
 
 #### Defined in
 
-[components/transformation.ts:11](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/transformation.ts#L11)
+[components/transformation.ts:11](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/transformation.ts#L11)
 
 ___
 
@@ -57,4 +57,4 @@ The transformed y-coordinate.
 
 #### Defined in
 
-[components/transformation.ts:19](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/transformation.ts#L19)
+[components/transformation.ts:19](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/transformation.ts#L19)

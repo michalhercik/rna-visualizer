@@ -1,4 +1,4 @@
-[rna-visualizer](../README.md) / [Exports](../modules.md) / TranslationAnim
+[rna-visualizer](../README.md) / TranslationAnim
 
 # Class: TranslationAnim
 
@@ -54,7 +54,7 @@ Creates an instance of TranslationAnim.
 
 #### Defined in
 
-[animations/translationAnim.ts:22](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L22)
+[animations/translationAnim.ts:22](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L22)
 
 ## Properties
 
@@ -64,7 +64,7 @@ Creates an instance of TranslationAnim.
 
 #### Defined in
 
-[animations/translationAnim.ts:11](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L11)
+[animations/translationAnim.ts:11](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L11)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[animations/translationAnim.ts:12](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L12)
+[animations/translationAnim.ts:12](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L12)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[animations/translationAnim.ts:14](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L14)
+[animations/translationAnim.ts:14](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L14)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[animations/translationAnim.ts:15](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L15)
+[animations/translationAnim.ts:15](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L15)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[animations/translationAnim.ts:13](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L13)
+[animations/translationAnim.ts:13](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L13)
 
 ## Methods
 
@@ -120,7 +120,7 @@ Preforms the Animation
 | :------ | :------ | :------ |
 | `rna` | [`RnaVis`](RnaVis.md) | An instance of RnaVis to animate. |
 | `duration` | `number` | The duration of the animation in milliseconds. |
-| `after` | [`AfterFn`](../modules.md#afterfn) | A callback function to execute after the animation has finished. |
+| `after` | [`AfterFn`](../README.md#afterfn) | A callback function to execute after the animation has finished. |
 
 #### Returns
 
@@ -132,7 +132,7 @@ Preforms the Animation
 
 #### Defined in
 
-[animations/translationAnim.ts:159](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L159)
+[animations/translationAnim.ts:159](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L159)
 
 ___
 
@@ -154,7 +154,7 @@ Changes the active state of all containers to a specific value.
 
 #### Defined in
 
-[animations/translationAnim.ts:70](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L70)
+[animations/translationAnim.ts:70](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L70)
 
 ___
 
@@ -181,7 +181,7 @@ Changes the active state of a container at a specific index.
 
 #### Defined in
 
-[animations/translationAnim.ts:62](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L62)
+[animations/translationAnim.ts:62](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L62)
 
 ___
 
@@ -207,7 +207,7 @@ Perform a specified step of the animation
 
 #### Defined in
 
-[animations/translationAnim.ts:101](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L101)
+[animations/translationAnim.ts:101](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L101)
 
 ___
 
@@ -225,7 +225,7 @@ An array of DataContainer instances that are currently active.
 
 #### Defined in
 
-[animations/translationAnim.ts:188](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L188)
+[animations/translationAnim.ts:188](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L188)
 
 ___
 
@@ -243,7 +243,7 @@ An array of boolean values that represent the active state of the containers.
 
 #### Defined in
 
-[animations/translationAnim.ts:53](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L53)
+[animations/translationAnim.ts:53](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L53)
 
 ___
 
@@ -259,7 +259,7 @@ Instantly and synchronously completes the animation.
 
 #### Defined in
 
-[animations/translationAnim.ts:180](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L180)
+[animations/translationAnim.ts:180](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L180)
 
 ___
 
@@ -277,7 +277,7 @@ True if the animation is currently reversed, false otherwise.
 
 #### Defined in
 
-[animations/translationAnim.ts:34](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L34)
+[animations/translationAnim.ts:34](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L34)
 
 ___
 
@@ -297,7 +297,7 @@ Reverses the animation.
 
 #### Defined in
 
-[animations/translationAnim.ts:146](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L146)
+[animations/translationAnim.ts:146](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L146)
 
 ___
 
@@ -319,7 +319,7 @@ Sets the from array to a new array of PositionRecord instances.
 
 #### Defined in
 
-[animations/translationAnim.ts:91](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L91)
+[animations/translationAnim.ts:91](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L91)
 
 ___
 
@@ -341,7 +341,7 @@ Sets the active state of the containers.
 
 #### Defined in
 
-[animations/translationAnim.ts:42](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L42)
+[animations/translationAnim.ts:42](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L42)
 
 ___
 
@@ -357,4 +357,4 @@ Updates the to array if the animation is reversed otherwise it updates from arra
 
 #### Defined in
 
-[animations/translationAnim.ts:77](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/animations/translationAnim.ts#L77)
+[animations/translationAnim.ts:77](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/animations/translationAnim.ts#L77)

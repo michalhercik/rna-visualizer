@@ -1,4 +1,4 @@
-[rna-visualizer](../README.md) / [Exports](../modules.md) / IDataStyle
+[rna-visualizer](../README.md) / IDataStyle
 
 # Interface: IDataStyle
 
@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[rna-input/iDataStyle.ts:2](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/rna-input/iDataStyle.ts#L2)
+[rna-input/iDataStyle.ts:2](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/rna-input/iDataStyle.ts#L2)

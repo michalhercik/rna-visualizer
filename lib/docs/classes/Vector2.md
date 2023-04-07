@@ -1,4 +1,4 @@
-[rna-visualizer](../README.md) / [Exports](../modules.md) / Vector2
+[rna-visualizer](../README.md) / Vector2
 
 # Class: Vector2
 
@@ -44,7 +44,7 @@ Creates a new Vector2 instance.
 
 #### Defined in
 
-[components/vector.ts:25](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L25)
+[components/vector.ts:25](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L25)
 
 ## Properties
 
@@ -56,7 +56,7 @@ The x component of the vector.
 
 #### Defined in
 
-[components/vector.ts:8](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L8)
+[components/vector.ts:8](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L8)
 
 ___
 
@@ -68,7 +68,7 @@ The y component of the vector.
 
 #### Defined in
 
-[components/vector.ts:13](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L13)
+[components/vector.ts:13](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L13)
 
 ___
 
@@ -80,7 +80,7 @@ The zero vector.
 
 #### Defined in
 
-[components/vector.ts:18](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L18)
+[components/vector.ts:18](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L18)
 
 ## Methods
 
@@ -104,7 +104,7 @@ The sum of this vector and the given vector.
 
 #### Defined in
 
-[components/vector.ts:35](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L35)
+[components/vector.ts:35](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L35)
 
 ___
 
@@ -122,7 +122,7 @@ A copy of this vector.
 
 #### Defined in
 
-[components/vector.ts:77](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L77)
+[components/vector.ts:77](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L77)
 
 ___
 
@@ -146,7 +146,7 @@ This vector multiplied by the given scalar.
 
 #### Defined in
 
-[components/vector.ts:57](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L57)
+[components/vector.ts:57](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L57)
 
 ___
 
@@ -164,7 +164,7 @@ The size of this vector.
 
 #### Defined in
 
-[components/vector.ts:67](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L67)
+[components/vector.ts:67](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L67)
 
 ___
 
@@ -188,7 +188,7 @@ The difference between this vector and the given vector.
 
 #### Defined in
 
-[components/vector.ts:46](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L46)
+[components/vector.ts:46](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L46)
 
 ___
 
@@ -213,7 +213,7 @@ The distance between the given vectors.
 
 #### Defined in
 
-[components/vector.ts:107](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L107)
+[components/vector.ts:107](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L107)
 
 ___
 
@@ -238,7 +238,7 @@ The difference between the given vectors.
 
 #### Defined in
 
-[components/vector.ts:97](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L97)
+[components/vector.ts:97](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L97)
 
 ___
 
@@ -263,4 +263,4 @@ The sum of the given vectors.
 
 #### Defined in
 
-[components/vector.ts:87](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/vector.ts#L87)
+[components/vector.ts:87](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/vector.ts#L87)

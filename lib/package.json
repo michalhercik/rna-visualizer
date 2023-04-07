@@ -8,7 +8,7 @@
   "scripts": {
     "eslintfix": "npx eslint ./src --fix",
     "build": "npm run eslintfix && npx tsc --build",
-    "mddocs": "npx typedoc --plugin typedoc-plugin-markdown --out docs ./src/",
+    "mddocs": "npx typedoc ./src/ --plugin typedoc-plugin-markdown --out docs --readme none",
     "htmldocs": "npx typedoc --out docs ./src/"
   },
   "keywords": [

@@ -1,4 +1,4 @@
-[rna-visualizer](../README.md) / [Exports](../modules.md) / Title
+[rna-visualizer](../README.md) / Title
 
 # Class: Title
 
@@ -41,7 +41,7 @@ Creates a new Title object.
 
 #### Defined in
 
-[components/title.ts:24](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/title.ts#L24)
+[components/title.ts:24](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/title.ts#L24)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Creates a new Title object.
 
 #### Defined in
 
-[components/title.ts:15](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/title.ts#L15)
+[components/title.ts:15](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/title.ts#L15)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[components/title.ts:16](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/title.ts#L16)
+[components/title.ts:16](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/title.ts#L16)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[components/title.ts:14](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/title.ts#L14)
+[components/title.ts:14](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/title.ts#L14)
 
 ## Methods
 
@@ -93,7 +93,7 @@ Draws the Title using the given CanvasRenderingContext2D.
 
 #### Defined in
 
-[components/title.ts:50](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/title.ts#L50)
+[components/title.ts:50](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/title.ts#L50)
 
 ___
 
@@ -111,7 +111,7 @@ The background Rectangle object.
 
 #### Defined in
 
-[components/title.ts:42](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/title.ts#L42)
+[components/title.ts:42](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/title.ts#L42)
 
 ___
 
@@ -129,7 +129,7 @@ An array of Text objects.
 
 #### Defined in
 
-[components/title.ts:34](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/title.ts#L34)
+[components/title.ts:34](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/title.ts#L34)
 
 ___
 
@@ -156,4 +156,4 @@ A new Title object.
 
 #### Defined in
 
-[components/title.ts:63](https://github.com/michalhercik/rna-visualizer/blob/7600d7b/lib/src/components/title.ts#L63)
+[components/title.ts:63](https://github.com/michalhercik/rna-visualizer/blob/a121084/lib/src/components/title.ts#L63)
