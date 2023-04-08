@@ -1,4 +1,4 @@
-import { VisibilityAnim, VisibilityRecord, TranslationAnim } from 'rna-visualizer';
+import { VisibilityAnim, VisibilityRecord, TranslationAnim, PositionRecord } from 'rna-visualizer';
 import { rnaVis, toTemplateAnim, resizeCanvas } from './init';
 
 export function windowResize(canvas: HTMLCanvasElement, controls: HTMLElement): void {
@@ -18,7 +18,11 @@ export function canvasClick(event: MouseEvent): void {
         if (reversed) {
             toTemplateAnim.instant();
         }
-        const animTarget = rnaVis.getAlignmentToTempResidue(residue);
+
+        const animTarget = 
+        rnaVis.getAlignmentToTempResidue(residue)
+        .map((translation, i) => PositionRecord.fromTranslation(containers[i+1], translation));
+
         const anim = new TranslationAnim(containers.slice(1), animTarget);
         if (reversed) {
             anim.setState(toTemplateAnim.getState());
@@ -99,11 +103,11 @@ export function animateToTemplate(event: Event, duration: number, interval: numb
             removed = !removed;
             button.disabled = false;
             Array.from(document.getElementsByClassName('group-btn'))
-                .forEach(btn => btn.disabled = false);
+                .forEach(btn => (btn as HTMLInputElement).disabled = false);
         });
     } else {
         Array.from(document.getElementsByClassName('group-btn'))
-            .forEach(btn => btn.disabled = true);
+            .forEach(btn => (btn as HTMLInputElement).disabled = true);
         visAnim.animate(rnaVis, interval, () => {
             toTemplateAnim.animate(rnaVis, duration, () => {
                 toTemplateAnim.reverse();

@@ -39,9 +39,6 @@ export function loadData(index: number): void {
     }
 
     rnaVis.translate(rnaVis.align());
-    rnaVis.layers.forEach(layer => {
-        layer.mappingLines.forEach(ml => ml.setVisible(false));
-    });
 }
 
 export function initRange(range: HTMLInputElement): void {
@@ -135,6 +132,9 @@ export function addAnimationCheckboxes(list: HTMLUListElement): void {
 }
 
 export function addMappingCheckboxes(list: HTMLUListElement): void {
+    rnaVis.layers.forEach(layer => {
+        layer.mappingLines.forEach(ml => ml.setVisible(false));
+    });
     const topCallback = (event: Event) => {
         const checked = (event.currentTarget as HTMLInputElement).checked;
         rnaVis.layers.forEach(layer => {
@@ -157,7 +157,7 @@ export function addStructNamesToList(list: HTMLUListElement): void {
     addLabelToList(list, labels);
 }
 
-function addCheckboxToList(list: HTMLUListElement, type: string, topCallback: (event: Event) => void, callback: (event: Event) => void, checked: bool = true): void {
+function addCheckboxToList(list: HTMLUListElement, type: string, topCallback: (event: Event) => void, callback: (event: Event) => void, checked = true): void {
     const checkClasses = 'form-check-input me-1';
     const topItem = list.children[0];
     topItem.append(newCheckbox(type + 'top' + ` ${checkClasses}`, "None", (event: Event) => {

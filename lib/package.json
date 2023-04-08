@@ -6,8 +6,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "eslintfix": "npx eslint ./src --fix",
-    "build": "npm run eslintfix && npx tsc --build",
+    "fix": "npx eslint ./src --fix",
+    "build": "npx eslint && npx tsc --build",
     "mddocs": "npx typedoc ./src/ --plugin typedoc-plugin-markdown --out docs --readme none",
     "htmldocs": "npx typedoc --out docs ./src/"
   },
