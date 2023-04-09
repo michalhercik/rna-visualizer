@@ -2,7 +2,7 @@
 
 Typescript library for visualizing and comparing multiple RNA secondary structures
 on a canvas.
- - [documentation](./lib/docs/README.md)
+ - [documentation](./lib/docs/docs/README.md)
  - [demo](https://michalhercik.github.io/rna-visualizer/)
 
 ## Installation

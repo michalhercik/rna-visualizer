@@ -35,4 +35,9 @@ export interface IAnimation {
      * @param after - Function to call after the animation completes
      */
     animate(rna: RnaVis, duration: number, after: AfterFn): void;
+
+    /**
+     * Instantly and synchronously completes the animation.
+     */
+    instant(): void;
 }

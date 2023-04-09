@@ -1,9 +1,9 @@
-import { IRnaComplexes } from '../rna-input';
+import { IRnaComplexes, IDataStyle } from '../rna-input';
 
 /**
  * Interface for object representing input data for RnaVis.
  */
 export interface IRnaInput {
-    classes: Array<any>;
-    rnaComplexes: Array<IRnaComplexes>;
+    classes: IDataStyle[];
+    rnaComplexes: IRnaComplexes[];
 }

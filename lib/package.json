@@ -8,8 +8,8 @@
   "scripts": {
     "fix": "npx eslint ./src --fix",
     "build": "npx eslint && npx tsc --build",
-    "mddocs": "npx typedoc ./src/ --plugin typedoc-plugin-markdown --out docs --readme none",
-    "htmldocs": "npx typedoc --out docs ./src/"
+    "mddocs": "npx typedoc ./src/ --plugin typedoc-plugin-markdown --out ./docs/docs --readme none",
+    "htmldocs": "npx typedoc --out ./docs/docs ./src/"
   },
   "keywords": [
     "bioinformatics",

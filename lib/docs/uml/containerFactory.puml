@@ -1,0 +1,18 @@
+@startuml
+class ContainerFactory {
+    -margin: 10
+    -container: DataContainer
+    -data: IRnaInput
+    -styles: Styles
+    -residues: Residue[]
+    -basePairs: BasePair[]
+    -labels: Label[]
+    +create(data: IRnaInput, styles: Styles): DataContainer
+    -addMargin(): void
+    -setDimensions(): void
+    -addClasses(): void
+    -addBasePairs(): void
+    -addResidues(): void
+    -addLabels(): void
+}
+@enduml

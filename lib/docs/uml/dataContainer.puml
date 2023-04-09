@@ -1,0 +1,99 @@
+@startuml
+class Residue {
+    +name: string
+    +index: number
+    +templateIndex: number
+    +templateName: string
+    +circle: Circle
+    +text: Text
+    -visible: boolean
+    +setTransform(transform: Transformation): Residue
+    +getTransformedX(): number
+    +getX(): number
+    +setX(x: number): Residue
+    +getTransformedY(): number
+    +getY(): number
+    +setY(y: number): Residue
+    +setCoor(coor: Vector2): Residue
+    +getCoor(): Vector2
+    +getTransformedCoor(): Vector2
+    +setVisible(visible: boolean): Residue
+    +isVisible(): boolean
+    +getClasses(): string[]
+    +translate(shift: Vector2): Residue
+    +{static} fromDataResidue(res: IDataResidue, styles: Styles): Residue
+}
+class BasePair {
+    -residue1: Residue
+    -residue2: Residue
+    -transform: Transformation
+    -classes: string[]
+    +setTransform(transform: Transformation): BasePair
+    +getTransformedX1(): number
+    +getTransformedY1(): number
+    +getTransformedX2(): number
+    +getTransformedY2(): number
+    +getX1(): number
+    +getY1(): number
+    +getX2(): number
+    +getY2(): number
+    +isVisible(): boolean
+    +getClasses(): string[]
+}
+class Label {
+    +residue: Residue
+    +line: Line
+    +text: Text
+    -visible: boolean
+    +setTransform(transform: Transformation): Label
+    +setVisible(visible: boolean): Label
+    +isVisible(): boolean
+    +translate(shift: Vector2): Label
+}
+class Text {
+    +text: string
+    +coor: Vector2
+    +classes: string[]
+    +visible: boolean
+    +transform: Transformation
+    +setTransform(transform: Transformation): Text
+    +getTransformedX(): number
+    +getX(): number
+    +setX(x: number): Text
+    +getTransformedY(): number
+    +getY(): number
+    +setY(y: number): Text
+    +setCoor(coor: Vector2): Text
+    +getCoor(): Vector2
+    +setVisible(visible: boolean): Text
+    +isVisible(): boolean
+    +getText(): string
+    +getClasses(): string[]
+    +width(styles: Styles): number
+    +translate(shift: Vector2): Text
+}
+class DataContainer {
+    +styles: Styles
+    +width: number
+    +height: number
+    +residues: Residue[]
+    +basePairs: BasePair[]
+    +labels: Label[]
+    +getLines(): ILine[]
+    +getText(): Text[]
+    +getCircles(): Circle[]
+    +update(event: any): void
+    +getResByCoor(x: number, y: number): Residue
+    +getClosestResByCoor(x: number, y: number, maxDistance?: number): Residue
+    +getUnmappableResidues(): Residue[]
+    +getMappableResidues(): Residue[]
+    +translate(shift: Vector2): void
+}
+Residue -d-> Text
+BasePair -r-> Residue
+Label -l-> Residue
+Label -d-> Text
+DataContainer --> Residue
+DataContainer --> BasePair
+DataContainer --> Label
+@enduml
