@@ -42,7 +42,7 @@ Error if the length of `residues` and `to` arrays differ.
 
 #### Defined in
 
-[components/visibilityRecord.ts:23](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/visibilityRecord.ts#L23)
+[components/visibilityRecord.ts:23](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/visibilityRecord.ts#L23)
 
 ## Properties
 
@@ -54,7 +54,7 @@ Boolean indicating if this VisibilityRecord is used in animation.
 
 #### Defined in
 
-[components/visibilityRecord.ts:15](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/visibilityRecord.ts#L15)
+[components/visibilityRecord.ts:15](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/visibilityRecord.ts#L15)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[components/visibilityRecord.ts:7](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/visibilityRecord.ts#L7)
+[components/visibilityRecord.ts:7](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/visibilityRecord.ts#L7)
 
 ___
 
@@ -76,7 +76,7 @@ Array of boolean values indicating whether a residue is visible or not at the en
 
 #### Defined in
 
-[components/visibilityRecord.ts:11](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/visibilityRecord.ts#L11)
+[components/visibilityRecord.ts:11](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/visibilityRecord.ts#L11)
 
 ## Methods
 
@@ -94,7 +94,7 @@ A boolean indicating if this VisibilityRecord is active or not.
 
 #### Defined in
 
-[components/visibilityRecord.ts:43](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/visibilityRecord.ts#L43)
+[components/visibilityRecord.ts:43](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/visibilityRecord.ts#L43)
 
 ___
 
@@ -116,4 +116,4 @@ Sets the `active` flag for this VisibilityRecord.
 
 #### Defined in
 
-[components/visibilityRecord.ts:35](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/visibilityRecord.ts#L35)
+[components/visibilityRecord.ts:35](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/visibilityRecord.ts#L35)

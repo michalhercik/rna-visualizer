@@ -59,7 +59,7 @@ Create a Residue.
 
 #### Defined in
 
-[components/residue.ts:31](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L31)
+[components/residue.ts:31](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L31)
 
 ## Properties
 
@@ -69,7 +69,7 @@ Create a Residue.
 
 #### Defined in
 
-[components/residue.ts:18](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L18)
+[components/residue.ts:18](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L18)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[components/residue.ts:15](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L15)
+[components/residue.ts:15](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L15)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[components/residue.ts:14](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L14)
+[components/residue.ts:14](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L14)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[components/residue.ts:16](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L16)
+[components/residue.ts:16](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L16)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[components/residue.ts:17](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L17)
+[components/residue.ts:17](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L17)
 
 ___
 
@@ -119,17 +119,17 @@ ___
 
 #### Defined in
 
-[components/residue.ts:19](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L19)
+[components/residue.ts:19](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L19)
 
 ___
 
 ### visible
 
-• `Private` **visible**: `boolean` = `true`
+• **visible**: `boolean` = `true`
 
 #### Defined in
 
-[components/residue.ts:20](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L20)
+[components/residue.ts:20](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L20)
 
 ## Methods
 
@@ -147,7 +147,7 @@ The array of strings representing the classes of the Residue text.
 
 #### Defined in
 
-[components/residue.ts:187](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L187)
+[components/residue.ts:187](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L187)
 
 ___
 
@@ -165,7 +165,7 @@ The Vector2 object representing the coordinate of the Residue.
 
 #### Defined in
 
-[components/residue.ts:151](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L151)
+[components/residue.ts:151](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L151)
 
 ___
 
@@ -183,7 +183,7 @@ The Vector2 object representing the transformed coordinate of the Residue.
 
 #### Defined in
 
-[components/residue.ts:159](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L159)
+[components/residue.ts:159](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L159)
 
 ___
 
@@ -201,7 +201,7 @@ The transformed X coordinate of the Residue.
 
 #### Defined in
 
-[components/residue.ts:86](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L86)
+[components/residue.ts:86](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L86)
 
 ___
 
@@ -219,7 +219,7 @@ The transformed Y coordinate of the Residue.
 
 #### Defined in
 
-[components/residue.ts:113](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L113)
+[components/residue.ts:113](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L113)
 
 ___
 
@@ -237,7 +237,7 @@ The X coordinate of the Residue.
 
 #### Defined in
 
-[components/residue.ts:94](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L94)
+[components/residue.ts:94](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L94)
 
 ___
 
@@ -255,7 +255,7 @@ The Y coordinate of the Residue.
 
 #### Defined in
 
-[components/residue.ts:121](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L121)
+[components/residue.ts:121](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L121)
 
 ___
 
@@ -273,7 +273,7 @@ The boolean value representing the visibility of the Residue.
 
 #### Defined in
 
-[components/residue.ts:179](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L179)
+[components/residue.ts:179](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L179)
 
 ___
 
@@ -297,7 +297,7 @@ The Residue object.
 
 #### Defined in
 
-[components/residue.ts:141](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L141)
+[components/residue.ts:141](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L141)
 
 ___
 
@@ -321,7 +321,7 @@ The Residue object.
 
 #### Defined in
 
-[components/residue.ts:76](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L76)
+[components/residue.ts:76](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L76)
 
 ___
 
@@ -345,7 +345,7 @@ The Residue object.
 
 #### Defined in
 
-[components/residue.ts:168](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L168)
+[components/residue.ts:168](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L168)
 
 ___
 
@@ -369,7 +369,7 @@ The Residue object.
 
 #### Defined in
 
-[components/residue.ts:103](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L103)
+[components/residue.ts:103](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L103)
 
 ___
 
@@ -393,7 +393,7 @@ The Residue object.
 
 #### Defined in
 
-[components/residue.ts:130](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L130)
+[components/residue.ts:130](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L130)
 
 ___
 
@@ -417,7 +417,7 @@ This Residue instance.
 
 #### Defined in
 
-[components/residue.ts:197](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L197)
+[components/residue.ts:197](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L197)
 
 ___
 
@@ -442,4 +442,4 @@ A Residue object created from the given IDataResidue object.
 
 #### Defined in
 
-[components/residue.ts:51](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/residue.ts#L51)
+[components/residue.ts:51](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/residue.ts#L51)

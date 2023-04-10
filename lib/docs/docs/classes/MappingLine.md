@@ -54,7 +54,7 @@ Constructs a MappingLine object
 
 #### Defined in
 
-[components/mappingLine.ts:19](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L19)
+[components/mappingLine.ts:19](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L19)
 
 ## Properties
 
@@ -64,7 +64,7 @@ Constructs a MappingLine object
 
 #### Defined in
 
-[components/mappingLine.ts:10](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L10)
+[components/mappingLine.ts:10](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L10)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[components/mappingLine.ts:8](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L8)
+[components/mappingLine.ts:8](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L8)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[components/mappingLine.ts:9](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L9)
+[components/mappingLine.ts:9](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L9)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[components/mappingLine.ts:11](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L11)
+[components/mappingLine.ts:11](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L11)
 
 ## Methods
 
@@ -116,7 +116,7 @@ an array of strings representing the classes of the MappingLine object
 
 #### Defined in
 
-[components/mappingLine.ts:109](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L109)
+[components/mappingLine.ts:109](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L109)
 
 ___
 
@@ -138,7 +138,7 @@ a number representing the transformed X coordinate of the first residue
 
 #### Defined in
 
-[components/mappingLine.ts:29](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L29)
+[components/mappingLine.ts:29](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L29)
 
 ___
 
@@ -160,7 +160,7 @@ a number representing the transformed X coordinate of the second residue
 
 #### Defined in
 
-[components/mappingLine.ts:45](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L45)
+[components/mappingLine.ts:45](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L45)
 
 ___
 
@@ -182,7 +182,7 @@ a number representing the transformed Y coordinate of the first residue
 
 #### Defined in
 
-[components/mappingLine.ts:37](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L37)
+[components/mappingLine.ts:37](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L37)
 
 ___
 
@@ -204,7 +204,7 @@ a number representing the transformed Y coordinate of the second residue
 
 #### Defined in
 
-[components/mappingLine.ts:53](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L53)
+[components/mappingLine.ts:53](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L53)
 
 ___
 
@@ -226,7 +226,7 @@ a number representing the X coordinate of the first residue
 
 #### Defined in
 
-[components/mappingLine.ts:61](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L61)
+[components/mappingLine.ts:61](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L61)
 
 ___
 
@@ -248,7 +248,7 @@ a number representing the X coordinate of the second residue
 
 #### Defined in
 
-[components/mappingLine.ts:77](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L77)
+[components/mappingLine.ts:77](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L77)
 
 ___
 
@@ -270,7 +270,7 @@ a number representing the Y coordinate of the first residue
 
 #### Defined in
 
-[components/mappingLine.ts:69](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L69)
+[components/mappingLine.ts:69](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L69)
 
 ___
 
@@ -292,7 +292,7 @@ a number representing the Y coordinate of the second residue
 
 #### Defined in
 
-[components/mappingLine.ts:85](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L85)
+[components/mappingLine.ts:85](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L85)
 
 ___
 
@@ -314,7 +314,7 @@ a boolean value representing the visibility of the MappingLine object
 
 #### Defined in
 
-[components/mappingLine.ts:101](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L101)
+[components/mappingLine.ts:101](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L101)
 
 ___
 
@@ -336,7 +336,7 @@ Sets the visibility of the MappingLine object
 
 #### Defined in
 
-[components/mappingLine.ts:93](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L93)
+[components/mappingLine.ts:93](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L93)
 
 ___
 
@@ -362,4 +362,4 @@ An array of MappingLine objects representing the residue mappings between templa
 
 #### Defined in
 
-[components/mappingLine.ts:120](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/mappingLine.ts#L120)
+[components/mappingLine.ts:120](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/mappingLine.ts#L120)

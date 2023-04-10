@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[rna-input/iRnaComplexes.ts:4](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/rna-input/iRnaComplexes.ts#L4)
+[rna-input/iRnaComplexes.ts:4](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iRnaComplexes.ts#L4)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[rna-input/iRnaComplexes.ts:5](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/rna-input/iRnaComplexes.ts#L5)
+[rna-input/iRnaComplexes.ts:5](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iRnaComplexes.ts#L5)

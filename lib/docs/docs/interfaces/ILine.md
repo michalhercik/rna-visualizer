@@ -37,7 +37,7 @@ The list of classes of the line.
 
 #### Defined in
 
-[components/iLine.ts:41](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L41)
+[components/iLine.ts:41](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L41)
 
 ___
 
@@ -53,7 +53,7 @@ The x coordinate of the first point of the line.
 
 #### Defined in
 
-[components/iLine.ts:5](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L5)
+[components/iLine.ts:5](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L5)
 
 ___
 
@@ -69,7 +69,7 @@ The x coordinate of the second point of the line.
 
 #### Defined in
 
-[components/iLine.ts:13](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L13)
+[components/iLine.ts:13](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L13)
 
 ___
 
@@ -85,7 +85,7 @@ The y coordinate of the first point of the line.
 
 #### Defined in
 
-[components/iLine.ts:9](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L9)
+[components/iLine.ts:9](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L9)
 
 ___
 
@@ -101,7 +101,7 @@ The y coordinate of the second point of the line.
 
 #### Defined in
 
-[components/iLine.ts:17](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L17)
+[components/iLine.ts:17](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L17)
 
 ___
 
@@ -117,7 +117,7 @@ The x coordinate of the first point of the line.
 
 #### Defined in
 
-[components/iLine.ts:21](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L21)
+[components/iLine.ts:21](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L21)
 
 ___
 
@@ -133,7 +133,7 @@ The x coordinate of the second point of the line.
 
 #### Defined in
 
-[components/iLine.ts:29](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L29)
+[components/iLine.ts:29](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L29)
 
 ___
 
@@ -149,7 +149,7 @@ The y coordinate of the first point of the line.
 
 #### Defined in
 
-[components/iLine.ts:25](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L25)
+[components/iLine.ts:25](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L25)
 
 ___
 
@@ -165,7 +165,7 @@ The y coordinate of the second point of the line.
 
 #### Defined in
 
-[components/iLine.ts:33](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L33)
+[components/iLine.ts:33](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L33)
 
 ___
 
@@ -181,4 +181,4 @@ True if the line is visible, false otherwise.
 
 #### Defined in
 
-[components/iLine.ts:37](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/iLine.ts#L37)
+[components/iLine.ts:37](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/iLine.ts#L37)

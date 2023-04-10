@@ -40,7 +40,7 @@ Label class.
 
 #### Defined in
 
-[components/label.ts:23](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L23)
+[components/label.ts:23](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L23)
 
 ## Properties
 
@@ -50,7 +50,7 @@ Label class.
 
 #### Defined in
 
-[components/label.ts:14](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L14)
+[components/label.ts:14](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L14)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[components/label.ts:13](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L13)
+[components/label.ts:13](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L13)
 
 ___
 
@@ -70,17 +70,17 @@ ___
 
 #### Defined in
 
-[components/label.ts:15](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L15)
+[components/label.ts:15](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L15)
 
 ___
 
 ### visible
 
-• `Private` **visible**: `boolean` = `true`
+• **visible**: `boolean` = `true`
 
 #### Defined in
 
-[components/label.ts:16](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L16)
+[components/label.ts:16](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L16)
 
 ## Methods
 
@@ -96,7 +96,7 @@ Whether the label is visible.
 
 #### Defined in
 
-[components/label.ts:51](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L51)
+[components/label.ts:51](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L51)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[components/label.ts:32](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L32)
+[components/label.ts:32](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L32)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[components/label.ts:41](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L41)
+[components/label.ts:41](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L41)
 
 ___
 
@@ -158,4 +158,4 @@ The label.
 
 #### Defined in
 
-[components/label.ts:59](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/label.ts#L59)
+[components/label.ts:59](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/label.ts#L59)

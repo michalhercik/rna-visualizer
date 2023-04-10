@@ -15,11 +15,11 @@ Interface for object representing input data for RnaVis.
 
 ### classes
 
-• **classes**: `any`[]
+• **classes**: [`IDataStyle`](IDataStyle.md)[]
 
 #### Defined in
 
-[rna-input/iRnaInput.ts:7](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/rna-input/iRnaInput.ts#L7)
+[rna-input/iRnaInput.ts:7](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iRnaInput.ts#L7)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[rna-input/iRnaInput.ts:8](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/rna-input/iRnaInput.ts#L8)
+[rna-input/iRnaInput.ts:8](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iRnaInput.ts#L8)

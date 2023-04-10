@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[rna-input/iDataLabel.ts:7](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/rna-input/iDataLabel.ts#L7)
+[rna-input/iDataLabel.ts:7](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataLabel.ts#L7)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataLabel.ts:8](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/rna-input/iDataLabel.ts#L8)
+[rna-input/iDataLabel.ts:8](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataLabel.ts#L8)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[rna-input/iDataLabel.ts:9](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/rna-input/iDataLabel.ts#L9)
+[rna-input/iDataLabel.ts:9](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataLabel.ts#L9)

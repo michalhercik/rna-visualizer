@@ -41,7 +41,7 @@ Interface for defining an animation
 
 #### Defined in
 
-[animations/visibilityAnim.ts:9](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/animations/visibilityAnim.ts#L9)
+[animations/visibilityAnim.ts:9](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/visibilityAnim.ts#L9)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Interface for defining an animation
 
 #### Defined in
 
-[animations/visibilityAnim.ts:7](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/animations/visibilityAnim.ts#L7)
+[animations/visibilityAnim.ts:7](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/visibilityAnim.ts#L7)
 
 ## Methods
 
@@ -79,7 +79,7 @@ Preforms the Animation
 
 #### Defined in
 
-[animations/visibilityAnim.ts:49](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/animations/visibilityAnim.ts#L49)
+[animations/visibilityAnim.ts:49](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/visibilityAnim.ts#L49)
 
 ___
 
@@ -106,7 +106,7 @@ Change the state of the animation to active or not at a given index
 
 #### Defined in
 
-[animations/visibilityAnim.ts:18](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/animations/visibilityAnim.ts#L18)
+[animations/visibilityAnim.ts:18](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/visibilityAnim.ts#L18)
 
 ___
 
@@ -132,7 +132,7 @@ Perform a specified step of the animation
 
 #### Defined in
 
-[animations/visibilityAnim.ts:26](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/animations/visibilityAnim.ts#L26)
+[animations/visibilityAnim.ts:26](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/visibilityAnim.ts#L26)
 
 ___
 
@@ -146,9 +146,13 @@ Instantly and synchronously completes the animation.
 
 `void`
 
+#### Implementation of
+
+[IAnimation](../interfaces/IAnimation.md).[instant](../interfaces/IAnimation.md#instant)
+
 #### Defined in
 
-[animations/visibilityAnim.ts:72](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/animations/visibilityAnim.ts#L72)
+[animations/visibilityAnim.ts:72](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/visibilityAnim.ts#L72)
 
 ___
 
@@ -162,7 +166,7 @@ ___
 
 #### Defined in
 
-[animations/visibilityAnim.ts:79](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/animations/visibilityAnim.ts#L79)
+[animations/visibilityAnim.ts:79](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/visibilityAnim.ts#L79)
 
 ___
 
@@ -182,4 +186,4 @@ Reverse the animation.
 
 #### Defined in
 
-[animations/visibilityAnim.ts:37](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/animations/visibilityAnim.ts#L37)
+[animations/visibilityAnim.ts:37](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/visibilityAnim.ts#L37)

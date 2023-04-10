@@ -64,17 +64,17 @@ Create a new Line object.
 
 #### Defined in
 
-[components/line.ts:24](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L24)
+[components/line.ts:24](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L24)
 
 ## Properties
 
 ### classes
 
-• `Private` **classes**: `string`[]
+• **classes**: `string`[]
 
 #### Defined in
 
-[components/line.ts:14](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L14)
+[components/line.ts:14](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L14)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[components/line.ts:12](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L12)
+[components/line.ts:12](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L12)
 
 ___
 
@@ -94,27 +94,27 @@ ___
 
 #### Defined in
 
-[components/line.ts:13](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L13)
+[components/line.ts:13](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L13)
 
 ___
 
 ### transform
 
-• `Private` **transform**: [`Transformation`](../interfaces/Transformation.md) = `identity`
+• **transform**: [`Transformation`](../interfaces/Transformation.md) = `identity`
 
 #### Defined in
 
-[components/line.ts:16](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L16)
+[components/line.ts:16](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L16)
 
 ___
 
 ### visible
 
-• `Private` **visible**: `boolean` = `true`
+• **visible**: `boolean` = `true`
 
 #### Defined in
 
-[components/line.ts:15](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L15)
+[components/line.ts:15](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L15)
 
 ## Methods
 
@@ -134,7 +134,7 @@ Gets the classes applied to the line.
 
 #### Defined in
 
-[components/line.ts:192](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L192)
+[components/line.ts:192](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L192)
 
 ___
 
@@ -150,7 +150,7 @@ Gets a copy of the first point of the line as a Vector2.
 
 #### Defined in
 
-[components/line.ts:153](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L153)
+[components/line.ts:153](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L153)
 
 ___
 
@@ -166,7 +166,7 @@ Gets a copy of the second point of the line as a Vector2.
 
 #### Defined in
 
-[components/line.ts:169](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L169)
+[components/line.ts:169](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L169)
 
 ___
 
@@ -188,7 +188,7 @@ The transformed X coordinate of the first point.
 
 #### Defined in
 
-[components/line.ts:44](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L44)
+[components/line.ts:44](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L44)
 
 ___
 
@@ -210,7 +210,7 @@ The transformed X coordinate of the second point.
 
 #### Defined in
 
-[components/line.ts:60](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L60)
+[components/line.ts:60](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L60)
 
 ___
 
@@ -232,7 +232,7 @@ The transformed Y coordinate of the first point.
 
 #### Defined in
 
-[components/line.ts:52](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L52)
+[components/line.ts:52](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L52)
 
 ___
 
@@ -254,7 +254,7 @@ The transformed Y coordinate of the second point.
 
 #### Defined in
 
-[components/line.ts:68](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L68)
+[components/line.ts:68](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L68)
 
 ___
 
@@ -276,7 +276,7 @@ The X coordinate of the first point.
 
 #### Defined in
 
-[components/line.ts:86](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L86)
+[components/line.ts:86](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L86)
 
 ___
 
@@ -296,7 +296,7 @@ Gets the x-coordinate of the second point of the line.
 
 #### Defined in
 
-[components/line.ts:121](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L121)
+[components/line.ts:121](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L121)
 
 ___
 
@@ -318,7 +318,7 @@ The Y coordinate of the first point.
 
 #### Defined in
 
-[components/line.ts:104](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L104)
+[components/line.ts:104](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L104)
 
 ___
 
@@ -338,7 +338,7 @@ Gets the Y coordinate of the second point of the line.
 
 #### Defined in
 
-[components/line.ts:137](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L137)
+[components/line.ts:137](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L137)
 
 ___
 
@@ -358,7 +358,7 @@ Gets the visibility of the line.
 
 #### Defined in
 
-[components/line.ts:185](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L185)
+[components/line.ts:185](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L185)
 
 ___
 
@@ -380,7 +380,7 @@ Sets the first point of the line to the given Vector2.
 
 #### Defined in
 
-[components/line.ts:145](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L145)
+[components/line.ts:145](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L145)
 
 ___
 
@@ -402,7 +402,7 @@ Sets the second point of the line to the given Vector2.
 
 #### Defined in
 
-[components/line.ts:161](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L161)
+[components/line.ts:161](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L161)
 
 ___
 
@@ -426,7 +426,7 @@ This line segment, for chaining.
 
 #### Defined in
 
-[components/line.ts:35](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L35)
+[components/line.ts:35](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L35)
 
 ___
 
@@ -448,7 +448,7 @@ Sets the visibility of the line.
 
 #### Defined in
 
-[components/line.ts:177](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L177)
+[components/line.ts:177](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L177)
 
 ___
 
@@ -472,7 +472,7 @@ This line segment, for chaining.
 
 #### Defined in
 
-[components/line.ts:77](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L77)
+[components/line.ts:77](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L77)
 
 ___
 
@@ -496,7 +496,7 @@ This line segment, for chaining.
 
 #### Defined in
 
-[components/line.ts:113](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L113)
+[components/line.ts:113](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L113)
 
 ___
 
@@ -520,7 +520,7 @@ This line segment, for chaining.
 
 #### Defined in
 
-[components/line.ts:95](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L95)
+[components/line.ts:95](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L95)
 
 ___
 
@@ -542,7 +542,7 @@ Sets the Y coordinate of the second point of the line.
 
 #### Defined in
 
-[components/line.ts:129](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L129)
+[components/line.ts:129](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L129)
 
 ___
 
@@ -564,4 +564,4 @@ Translates the line by the given Vector2.
 
 #### Defined in
 
-[components/line.ts:200](https://github.com/michalhercik/rna-visualizer/blob/f928c9f/lib/src/components/line.ts#L200)
+[components/line.ts:200](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/line.ts#L200)
