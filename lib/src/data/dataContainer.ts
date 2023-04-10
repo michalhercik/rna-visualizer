@@ -87,10 +87,6 @@ export class DataContainer {
             label.setTransform(transform);
         });
 
-        this.basePairs.forEach((bp: BasePair) => {
-            bp.setTransform(transform);
-        });
-
         this.styles.set(Styles.TRANSFORMED_CLASS, { k: event.transform.k });
     }
 

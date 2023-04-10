@@ -2,9 +2,9 @@
 class Line {
     -coor1: Vector2
     -coor2: Vector2
-    -classes: string[]
-    -visible: boolean
-    -transform: Transformation
+    +classes: string[]
+    +visible: boolean
+    +transform: Transformation
     +setTransform(transform: Transformation): Line
     +getTransformedX1(): number
     +getTransformedY1(): number
@@ -29,10 +29,10 @@ class Line {
 }
 class Circle {
     -coor: Vector2
-    -radius: number
-    -scale: number
-    -visible: boolean
-    -transform: Transformation
+    +radius: number
+    +scale: number
+    +visible: boolean
+    +transform: Transformation
     +setTransform(transform: Transformation): Circle
     +getTransformedX(): number
     +getX(): number
@@ -51,7 +51,7 @@ class Circle {
     +translate(shift: Vector2): Circle
 }
 class Rectangle {
-    +coor: Vector2
+    -coor: Vector2
     +width: number
     +height: number
     +classes: string[]
@@ -75,7 +75,7 @@ class Rectangle {
 }
 class Text {
     +text: string
-    +coor: Vector2
+    -coor: Vector2
     +classes: string[]
     +visible: boolean
     +transform: Transformation

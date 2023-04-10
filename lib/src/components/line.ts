@@ -11,9 +11,9 @@ import {
 export class Line implements ILine {
     private coor1: Vector2;
     private coor2: Vector2;
-    private classes: string[];
-    private visible = true;
-    private transform: Transformation = identity;
+    public classes: string[];
+    public visible = true;
+    public transform: Transformation = identity;
 
     /**
      * Create a new Line object.

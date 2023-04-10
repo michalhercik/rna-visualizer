@@ -2,15 +2,8 @@
  * Two-dimensional vector.
  */
 export class Vector2 {
-    /**
-     * The x component of the vector.
-     */
-    x: number;
-
-    /**
-     * The y component of the vector.
-     */
-    y: number;
+    public x: number;
+    public y: number;
 
     /**
      * The zero vector.

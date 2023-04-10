@@ -8,12 +8,12 @@ import {
  * Object representing a rectangle
  */
 export class Rectangle {
-    coor: Vector2;
-    width: number;
-    height: number;
-    classes: string[];
-    visible = true;
-    transform: Transformation = identity;
+    private coor: Vector2;
+    public width: number;
+    public height: number;
+    public classes: string[];
+    public visible = true;
+    public transform: Transformation = identity;
 
     /**
      * Creates a new rectangle with the given parameters.

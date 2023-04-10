@@ -9,10 +9,10 @@ import {
  */
 export class Circle {
     private coor: Vector2;
-    private radius: number;
-    private scale = 1;
-    private visible = true;
-    private transform: Transformation = identity;
+    public radius: number;
+    public scale = 1;
+    public visible = true;
+    public transform: Transformation = identity;
 
     /**
      * Creates a new circle.

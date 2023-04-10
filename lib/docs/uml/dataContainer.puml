@@ -6,7 +6,7 @@ class Residue {
     +templateName: string
     +circle: Circle
     +text: Text
-    -visible: boolean
+    +visible: boolean
     +setTransform(transform: Transformation): Residue
     +getTransformedX(): number
     +getX(): number
@@ -24,11 +24,9 @@ class Residue {
     +{static} fromDataResidue(res: IDataResidue, styles: Styles): Residue
 }
 class BasePair {
-    -residue1: Residue
-    -residue2: Residue
-    -transform: Transformation
-    -classes: string[]
-    +setTransform(transform: Transformation): BasePair
+    +residue1: Residue
+    +residue2: Residue
+    +classes: string[]
     +getTransformedX1(): number
     +getTransformedY1(): number
     +getTransformedX2(): number
@@ -44,33 +42,11 @@ class Label {
     +residue: Residue
     +line: Line
     +text: Text
-    -visible: boolean
+    +visible: boolean
     +setTransform(transform: Transformation): Label
     +setVisible(visible: boolean): Label
     +isVisible(): boolean
     +translate(shift: Vector2): Label
-}
-class Text {
-    +text: string
-    +coor: Vector2
-    +classes: string[]
-    +visible: boolean
-    +transform: Transformation
-    +setTransform(transform: Transformation): Text
-    +getTransformedX(): number
-    +getX(): number
-    +setX(x: number): Text
-    +getTransformedY(): number
-    +getY(): number
-    +setY(y: number): Text
-    +setCoor(coor: Vector2): Text
-    +getCoor(): Vector2
-    +setVisible(visible: boolean): Text
-    +isVisible(): boolean
-    +getText(): string
-    +getClasses(): string[]
-    +width(styles: Styles): number
-    +translate(shift: Vector2): Text
 }
 class DataContainer {
     +styles: Styles
@@ -89,10 +65,8 @@ class DataContainer {
     +getMappableResidues(): Residue[]
     +translate(shift: Vector2): void
 }
-Residue -d-> Text
 BasePair -r-> Residue
 Label -l-> Residue
-Label -d-> Text
 DataContainer --> Residue
 DataContainer --> BasePair
 DataContainer --> Label

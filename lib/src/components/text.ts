@@ -9,11 +9,11 @@ import {
  * Represents a Text object.
  */
 export class Text {
-    text: string;
-    coor: Vector2;
-    classes: string[];
-    visible = true;
-    transform: Transformation = identity;
+    public text: string;
+    private coor: Vector2;
+    public classes: string[];
+    public visible = true;
+    public transform: Transformation = identity;
 
     /**
      * Creates a new Text object.

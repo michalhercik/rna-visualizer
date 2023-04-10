@@ -10,10 +10,9 @@ import {
  * @implements {ILine}
  */
 export class BasePair implements ILine {
-    private residue1: Residue;
-    private residue2: Residue;
-    private transform: Transformation = identity;
-    private classes: string[];
+    public residue1: Residue;
+    public residue2: Residue;
+    public classes: string[];
 
     /**
      * Creates a new instance of BasePair.
@@ -28,21 +27,11 @@ export class BasePair implements ILine {
     }
 
     /**
-     * Sets the transformation to be applied to the base pair.
-     * @param transform - The transformation to apply to the base pair.
-     * @returns The BasePair instance for method chaining.
-     */
-    public setTransform(transform: Transformation): BasePair {
-        this.transform = transform;
-        return this;
-    }
-
-    /**
      * Gets the x coordinate of the first residue after transformation.
      * @returns The x coordinate of the first residue after transformation.
      */
     public getTransformedX1(): number {
-        return this.transform.applyX(this.residue1.getX());
+        return this.residue1.getTransformedX();
     }
 
     /**
@@ -50,7 +39,7 @@ export class BasePair implements ILine {
      * @returns The y coordinate of the first residue after transformation.
      */
     public getTransformedY1(): number {
-        return this.transform.applyY(this.residue1.getY());
+        return this.residue1.getTransformedY();
     }
 
     /**
@@ -58,7 +47,7 @@ export class BasePair implements ILine {
      * @returns The x coordinate of the second residue after transformation.
      */
     public getTransformedX2(): number {
-        return this.transform.applyX(this.residue2.getX());
+        return this.residue2.getTransformedX();
     }
 
     /**
@@ -66,7 +55,7 @@ export class BasePair implements ILine {
      * @returns The y coordinate of the second residue after transformation.
      */
     public getTransformedY2(): number {
-        return this.transform.applyY(this.residue2.getY());
+        return this.residue2.getTransformedY();
     }
 
     /**

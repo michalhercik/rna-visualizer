@@ -13,7 +13,7 @@ export class Label {
     public residue: Residue;
     public line: Line;
     public text: Text;
-    private visible = true;
+    public visible = true;
 
     /**
     * @param residue - Residue to which the label is attached.
