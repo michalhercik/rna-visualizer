@@ -117,7 +117,7 @@ export class RnaVis {
      */
     public addLayer(data: IRnaInput, name: string, visible = true): RnaVis {
         this.styles.addFrom(data.classes);
-        const cont = new ContainerFactory().create(data, this.styles);
+        const cont = ContainerFactory.create(data, this.styles);
         let mappingLines: MappingLine[] = [];
         if (this.layers.length > 0) {
             const mappingName = name + 'mapping-line';

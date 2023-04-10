@@ -19,13 +19,13 @@ import {
  * Factory class for creating a DataContainer object that displays RNA visualization.
  */
 export class ContainerFactory {
-    private readonly margin = 10;
-    private container: DataContainer;
-    private data: IRnaInput;
-    private styles: Styles;
-    private residues: Residue[] = [];
-    private basePairs: BasePair[] = [];
-    private labels: Label[] = [];
+    private static readonly margin = 10;
+    private static container: DataContainer;
+    private static data: IRnaInput;
+    private static styles: Styles;
+    private static residues: Residue[];
+    private static basePairs: BasePair[];
+    private static labels: Label[];
 
     /**
     * Creates a DataContainer object for the RNA visualization.
@@ -33,7 +33,10 @@ export class ContainerFactory {
     * @param styles - The styles to apply to the visualization.
     * @returns A DataContainer object representing the IRnaInput data with given styles.
     */
-    public create(data: IRnaInput, styles: Styles): DataContainer {
+    public static create(data: IRnaInput, styles: Styles): DataContainer {
+        this.basePairs = [];
+        this.labels = [];
+        this.residues = [];
         this.data = data;
         this.styles = styles;
         this.addResidues();
@@ -45,7 +48,7 @@ export class ContainerFactory {
         return this.container;
     }
 
-    private addMargin(): void {
+    private static addMargin(): void {
         const shift = new Vector2(this.margin, this.margin);
 
         this.residues.forEach((res: Residue) => {
@@ -57,7 +60,7 @@ export class ContainerFactory {
         });
     }
 
-    private setDimensions() {
+    private static setDimensions() {
         const residues = this.data.rnaComplexes[0].rnaMolecules[0].sequence;
         let width = Number.MIN_VALUE;
         let height = Number.MIN_VALUE;
@@ -71,15 +74,7 @@ export class ContainerFactory {
         this.container.height = Math.round(2 * this.margin + height);
     }
 
-    private addClasses(): void {
-        this.data.classes.forEach((style: any) => {
-            const name = style.name;
-            delete style.name;
-            this.container.styles.set(name, style);
-        });
-    }
-
-    private addBasePairs(): void {
+    private static addBasePairs(): void {
         const rna = this.data.rnaComplexes[0].rnaMolecules[0];
 
         rna.basePairs.forEach((bp: IDataBasePair) => {
@@ -102,7 +97,7 @@ export class ContainerFactory {
         }
     }
 
-    private addResidues(): void {
+    private static addResidues(): void {
         const sequenceData = this.data.rnaComplexes[0].rnaMolecules[0].sequence;
 
         sequenceData.forEach((res: IDataResidue) => {
@@ -111,7 +106,7 @@ export class ContainerFactory {
         });
     }
 
-    private addLabels(): void {
+    private static addLabels(): void {
         const labelData = this.data.rnaComplexes[0].rnaMolecules[0].labels;
 
         labelData.forEach((label: IDataLabel) => {
