@@ -4,4 +4,6 @@
 
 ## Class diagram
 
-![class diagram](./uml/overview.png)
+![class diagram](./uml/rnavis.png)
+![class diagram](./uml/animation.png)
+![class diagram](./uml/others.png)
