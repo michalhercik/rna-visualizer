@@ -1,6 +1,0 @@
-@startuml
-interface Transformation {
-    +applyX(x: number): number
-    +applyY(y: number): number
-}
-@enduml

@@ -1,0 +1,152 @@
+@startuml
+
+scale 5000 height
+
+class Styles {
+    +styles: Map<string, object>
+}
+class Residue {
+    +name: string
+    +index: number
+    +templateIndex: number
+    +templateName: string
+    +circle: Circle
+    +text: Text
+    +visible: boolean
+}
+class Vector2 {
+    +x: number
+    +y: number
+}
+interface Transformation {
+    +applyX(x: number): number
+    +applyY(y: number): number
+}
+class Line implements ILine {
+    +classes: string[]
+    +visible: boolean
+    +transform: Transformation
+}
+interface ILine {
+}
+class BasePair implements ILine {
+    +residue1: Residue
+    +residue2: Residue
+    +classes: string[]
+}
+class Label {
+    +residue: Residue
+    +line: Line
+    +text: Text
+    +visible: boolean
+}
+class Circle {
+    -coor: Vector2
+    +radius: number
+    +scale: number
+    +visible: boolean
+    +transform: Transformation
+}
+class Text {
+    -coor: Vector2
+    +text: string
+    +classes: string[]
+    +visible: boolean
+    +transform: Transformation
+}
+class Rectangle {
+    -coor: Vector2
+    +width: number
+    +height: number
+    +classes: string[]
+    +visible: boolean
+    +transform: Transformation
+}
+class DataContainer {
+    +styles: Styles
+    +width: number
+    +height: number
+    +residues: Residue[]
+    +basePairs: BasePair[]
+    +labels: Label[]
+}
+class ContainerFactory {
+}
+class TranslationGroup {
+    +xShift: number
+    +yShift: number
+    +members: Residue[]
+}
+class TranslationGroups {
+}
+class MappingLine implements ILine {
+    +residue1: Residue
+    +residue2: Residue
+    +classes: string[]
+    +visible: boolean
+}
+class Title {
+}
+class PositionRecord {
+    +labelLines: Map<string, DoubleCoorTarget>
+    +labelTexts: Map<string, SingleCoorTarget>
+    +residues: Map<string, SingleCoorTarget>
+}
+class VisibilityRecord {
+    +residues: Residue[]
+    +to: boolean[]
+    +active: boolean
+}
+class Layer {
+    +name: string
+    +data: DataContainer
+    +mappingLines: MappingLine[]
+    +visible: boolean
+}
+class Draw {
+}
+class RnaVis {
+    +canvas: HTMLCanvasElement
+    +layers: Layer[]
+}
+interface IAnimation {
+}
+class SingleCoorTarget {
+    +coor: Vector2
+}
+class DoubleCoorTarget {
+    +coor1: Vector2
+    +coor2: Vector2
+}
+class TranslationAnim implements IAnimation {
+    +container: DataContainer[]
+    +from: PositionRecord[]
+    +to: PositionRecord[]
+    +isActive: boolean[]
+}
+class VisibilityAnim implements IAnimation {
+    +visibilityRecords: VisibilityRecord[]
+}
+Residue --> "1" Circle
+Residue --> "1" Text
+Label --> "1" Line
+Label --> "1" Text
+DataContainer --> "*" BasePair
+DataContainer --> "*" Label
+TranslationGroups --> "*" TranslationGroup
+MappingLine --> "1" Residue
+Title --> "*" Text
+Title --> "1" Rectangle
+PositionRecord --> "1" DoubleCoorTarget
+PositionRecord --> "1" SingleCoorTarget
+Layer --> "1" DataContainer
+Layer --> "*" MappingLine
+RnaVis --> "*" Layer
+TranslationAnim --> "1" PositionRecord
+VisibilityAnim --> "*" VisibilityRecord
+
+Text -[hidden]r-> Circle
+IAnimation -[hidden]u-> Text
+RnaVis -[hidden]u-> ContainerFactory
+ContainerFactory -[hidden]u-> Transformation
+@enduml

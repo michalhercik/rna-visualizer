@@ -4,8 +4,7 @@ import {
     IDataResidue 
 } from '../rna-input';
 
-export interface IRnaMolecules {
-    name: string;
+export interface IRnaMolecule {
     basePairs: Array<IDataBasePair>;
     labels: Array<IDataLabel>;
     sequence: Array<IDataResidue>;
