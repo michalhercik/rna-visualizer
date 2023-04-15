@@ -9,7 +9,7 @@
     "fix": "npx eslint ./src --fix",
     "build": "npx eslint && npx tsc --build",
     "mddocs": "npx typedoc ./src/ --plugin typedoc-plugin-markdown --out ./docs/docs --readme none",
-    "htmldocs": "npx typedoc --out ./docs/docs ./src/"
+    "htmldocs": "npx typedoc ./src/ --plugin none --out ./docs/docs"
   },
   "keywords": [
     "bioinformatics",
@@ -25,7 +25,6 @@
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "eslint": "^8.37.0",
-    "typedoc": "^0.23.28",
     "typedoc-plugin-markdown": "^3.14.0",
     "typescript": "^4.9.5"
   },

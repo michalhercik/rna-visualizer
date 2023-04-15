@@ -20,6 +20,7 @@ rna-visualizer
 - [Residue](classes/Residue.md)
 - [RnaVis](classes/RnaVis.md)
 - [SingleCoorTarget](classes/SingleCoorTarget.md)
+- [Styles](classes/Styles.md)
 - [Text](classes/Text.md)
 - [Title](classes/Title.md)
 - [TranslationAnim](classes/TranslationAnim.md)
@@ -39,9 +40,9 @@ rna-visualizer
 - [IDataResidue](interfaces/IDataResidue.md)
 - [IDataStyle](interfaces/IDataStyle.md)
 - [ILine](interfaces/ILine.md)
-- [IRnaComplexes](interfaces/IRnaComplexes.md)
+- [IRnaComplex](interfaces/IRnaComplex.md)
 - [IRnaInput](interfaces/IRnaInput.md)
-- [IRnaMolecules](interfaces/IRnaMolecules.md)
+- [IRnaMolecule](interfaces/IRnaMolecule.md)
 - [Transformation](interfaces/Transformation.md)
 
 ### Type Aliases
@@ -70,7 +71,7 @@ A type of function that is invoked after an animation completes.
 
 #### Defined in
 
-[animations/iAnimation.ts:6](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/iAnimation.ts#L6)
+[animations/iAnimation.ts:6](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/iAnimation.ts#L6)
 
 ## Variables
 
@@ -82,4 +83,4 @@ Identity transformation object that does not modify its inputs.
 
 #### Defined in
 
-[components/transformation.ts:25](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/transformation.ts#L25)
+[components/transformation.ts:25](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/transformation.ts#L25)

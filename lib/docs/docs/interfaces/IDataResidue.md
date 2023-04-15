@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[rna-input/iDataResidue.ts:2](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataResidue.ts#L2)
+[rna-input/iDataResidue.ts:2](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iDataResidue.ts#L2)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataResidue.ts:6](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataResidue.ts#L6)
+[rna-input/iDataResidue.ts:6](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iDataResidue.ts#L6)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataResidue.ts:5](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataResidue.ts#L5)
+[rna-input/iDataResidue.ts:5](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iDataResidue.ts#L5)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataResidue.ts:7](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataResidue.ts#L7)
+[rna-input/iDataResidue.ts:7](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iDataResidue.ts#L7)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataResidue.ts:8](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataResidue.ts#L8)
+[rna-input/iDataResidue.ts:8](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iDataResidue.ts#L8)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[rna-input/iDataResidue.ts:3](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataResidue.ts#L3)
+[rna-input/iDataResidue.ts:3](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iDataResidue.ts#L3)
 
 ___
 
@@ -82,4 +82,4 @@ ___
 
 #### Defined in
 
-[rna-input/iDataResidue.ts:4](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iDataResidue.ts#L4)
+[rna-input/iDataResidue.ts:4](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iDataResidue.ts#L4)

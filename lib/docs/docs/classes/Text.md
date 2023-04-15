@@ -54,7 +54,7 @@ Creates a new Text object.
 
 #### Defined in
 
-[components/text.ts:24](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L24)
+[components/text.ts:24](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L24)
 
 ## Properties
 
@@ -64,7 +64,7 @@ Creates a new Text object.
 
 #### Defined in
 
-[components/text.ts:14](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L14)
+[components/text.ts:14](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L14)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[components/text.ts:13](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L13)
+[components/text.ts:13](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L13)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[components/text.ts:12](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L12)
+[components/text.ts:12](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L12)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[components/text.ts:16](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L16)
+[components/text.ts:16](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L16)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[components/text.ts:15](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L15)
+[components/text.ts:15](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L15)
 
 ## Methods
 
@@ -122,7 +122,7 @@ The classes.
 
 #### Defined in
 
-[components/text.ts:140](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L140)
+[components/text.ts:140](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L140)
 
 ___
 
@@ -140,7 +140,7 @@ The position vector.
 
 #### Defined in
 
-[components/text.ts:106](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L106)
+[components/text.ts:106](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L106)
 
 ___
 
@@ -158,7 +158,7 @@ The text content.
 
 #### Defined in
 
-[components/text.ts:132](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L132)
+[components/text.ts:132](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L132)
 
 ___
 
@@ -176,7 +176,7 @@ The transformed x-coordinate.
 
 #### Defined in
 
-[components/text.ts:44](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L44)
+[components/text.ts:44](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L44)
 
 ___
 
@@ -194,7 +194,7 @@ The transformed y-coordinate.
 
 #### Defined in
 
-[components/text.ts:70](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L70)
+[components/text.ts:70](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L70)
 
 ___
 
@@ -212,7 +212,7 @@ The x-coordinate.
 
 #### Defined in
 
-[components/text.ts:52](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L52)
+[components/text.ts:52](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L52)
 
 ___
 
@@ -230,7 +230,7 @@ The y-coordinate.
 
 #### Defined in
 
-[components/text.ts:78](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L78)
+[components/text.ts:78](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L78)
 
 ___
 
@@ -248,7 +248,7 @@ Whether the object is visible.
 
 #### Defined in
 
-[components/text.ts:124](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L124)
+[components/text.ts:124](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L124)
 
 ___
 
@@ -272,7 +272,7 @@ The Text object.
 
 #### Defined in
 
-[components/text.ts:97](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L97)
+[components/text.ts:97](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L97)
 
 ___
 
@@ -296,7 +296,7 @@ The Text object.
 
 #### Defined in
 
-[components/text.ts:35](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L35)
+[components/text.ts:35](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L35)
 
 ___
 
@@ -320,7 +320,7 @@ The Text object.
 
 #### Defined in
 
-[components/text.ts:115](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L115)
+[components/text.ts:115](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L115)
 
 ___
 
@@ -344,7 +344,7 @@ The Text object.
 
 #### Defined in
 
-[components/text.ts:61](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L61)
+[components/text.ts:61](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L61)
 
 ___
 
@@ -368,7 +368,7 @@ The Text object.
 
 #### Defined in
 
-[components/text.ts:87](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L87)
+[components/text.ts:87](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L87)
 
 ___
 
@@ -392,7 +392,7 @@ The Text object.
 
 #### Defined in
 
-[components/text.ts:171](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L171)
+[components/text.ts:171](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L171)
 
 ___
 
@@ -406,7 +406,7 @@ Returns the width of the text in pixels, given a set of styles.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `styles` | `Styles` | The styles to use. |
+| `styles` | [`Styles`](Styles.md) | The styles to use. |
 
 #### Returns
 
@@ -416,4 +416,4 @@ The width of the text in pixels.
 
 #### Defined in
 
-[components/text.ts:149](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/text.ts#L149)
+[components/text.ts:149](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/text.ts#L149)

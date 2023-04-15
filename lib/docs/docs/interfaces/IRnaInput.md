@@ -19,14 +19,14 @@ Interface for object representing input data for RnaVis.
 
 #### Defined in
 
-[rna-input/iRnaInput.ts:7](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iRnaInput.ts#L7)
+[rna-input/iRnaInput.ts:7](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iRnaInput.ts#L7)
 
 ___
 
 ### rnaComplexes
 
-• **rnaComplexes**: [`IRnaComplexes`](IRnaComplexes.md)[]
+• **rnaComplexes**: [`IRnaComplex`](IRnaComplex.md)[]
 
 #### Defined in
 
-[rna-input/iRnaInput.ts:8](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/rna-input/iRnaInput.ts#L8)
+[rna-input/iRnaInput.ts:8](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iRnaInput.ts#L8)

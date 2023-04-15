@@ -33,7 +33,7 @@ The transformed x-coordinate.
 
 #### Defined in
 
-[components/transformation.ts:11](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/transformation.ts#L11)
+[components/transformation.ts:11](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/transformation.ts#L11)
 
 ___
 
@@ -57,4 +57,4 @@ The transformed y-coordinate.
 
 #### Defined in
 
-[components/transformation.ts:19](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/transformation.ts#L19)
+[components/transformation.ts:19](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/transformation.ts#L19)

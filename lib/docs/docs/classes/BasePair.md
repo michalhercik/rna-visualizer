@@ -53,7 +53,7 @@ Creates a new instance of BasePair.
 
 #### Defined in
 
-[components/basePair.ts:23](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L23)
+[components/basePair.ts:23](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L23)
 
 ## Properties
 
@@ -63,7 +63,7 @@ Creates a new instance of BasePair.
 
 #### Defined in
 
-[components/basePair.ts:15](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L15)
+[components/basePair.ts:15](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L15)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[components/basePair.ts:13](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L13)
+[components/basePair.ts:13](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L13)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[components/basePair.ts:14](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L14)
+[components/basePair.ts:14](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L14)
 
 ## Methods
 
@@ -105,7 +105,7 @@ The classes associated with the base pair.
 
 #### Defined in
 
-[components/basePair.ts:105](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L105)
+[components/basePair.ts:105](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L105)
 
 ___
 
@@ -127,7 +127,7 @@ The x coordinate of the first residue after transformation.
 
 #### Defined in
 
-[components/basePair.ts:33](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L33)
+[components/basePair.ts:33](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L33)
 
 ___
 
@@ -149,7 +149,7 @@ The x coordinate of the second residue after transformation.
 
 #### Defined in
 
-[components/basePair.ts:49](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L49)
+[components/basePair.ts:49](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L49)
 
 ___
 
@@ -171,7 +171,7 @@ The y coordinate of the first residue after transformation.
 
 #### Defined in
 
-[components/basePair.ts:41](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L41)
+[components/basePair.ts:41](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L41)
 
 ___
 
@@ -193,7 +193,7 @@ The y coordinate of the second residue after transformation.
 
 #### Defined in
 
-[components/basePair.ts:57](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L57)
+[components/basePair.ts:57](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L57)
 
 ___
 
@@ -215,7 +215,7 @@ The x coordinate of the first residue.
 
 #### Defined in
 
-[components/basePair.ts:65](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L65)
+[components/basePair.ts:65](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L65)
 
 ___
 
@@ -237,7 +237,7 @@ The x coordinate of the second residue.
 
 #### Defined in
 
-[components/basePair.ts:81](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L81)
+[components/basePair.ts:81](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L81)
 
 ___
 
@@ -259,7 +259,7 @@ The y coordinate of the first residue.
 
 #### Defined in
 
-[components/basePair.ts:73](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L73)
+[components/basePair.ts:73](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L73)
 
 ___
 
@@ -281,7 +281,7 @@ The y coordinate of the second residue.
 
 #### Defined in
 
-[components/basePair.ts:89](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L89)
+[components/basePair.ts:89](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L89)
 
 ___
 
@@ -303,4 +303,4 @@ Whether the base pair is visible.
 
 #### Defined in
 
-[components/basePair.ts:97](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/basePair.ts#L97)
+[components/basePair.ts:97](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/basePair.ts#L97)

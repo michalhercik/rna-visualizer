@@ -41,7 +41,7 @@ Preforms the Animation
 
 #### Defined in
 
-[animations/iAnimation.ts:37](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/iAnimation.ts#L37)
+[animations/iAnimation.ts:37](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/iAnimation.ts#L37)
 
 ___
 
@@ -64,7 +64,7 @@ Change the state of the animation to active or not at a given index
 
 #### Defined in
 
-[animations/iAnimation.ts:18](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/iAnimation.ts#L18)
+[animations/iAnimation.ts:18](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/iAnimation.ts#L18)
 
 ___
 
@@ -86,7 +86,7 @@ Perform a specified step of the animation
 
 #### Defined in
 
-[animations/iAnimation.ts:24](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/iAnimation.ts#L24)
+[animations/iAnimation.ts:24](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/iAnimation.ts#L24)
 
 ___
 
@@ -102,7 +102,7 @@ Instantly and synchronously completes the animation.
 
 #### Defined in
 
-[animations/iAnimation.ts:42](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/iAnimation.ts#L42)
+[animations/iAnimation.ts:42](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/iAnimation.ts#L42)
 
 ___
 
@@ -118,4 +118,4 @@ Reverse the animation.
 
 #### Defined in
 
-[animations/iAnimation.ts:29](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/animations/iAnimation.ts#L29)
+[animations/iAnimation.ts:29](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/iAnimation.ts#L29)

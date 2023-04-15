@@ -37,11 +37,11 @@ Creates a new Title object.
 | :------ | :------ | :------ |
 | `texts` | [`Text`](Text.md)[] | An array of Text objects to be displayed as the title text. |
 | `background` | [`Rectangle`](Rectangle.md) | The Rectangle object representing the background of the title. |
-| `styles` | `Styles` | The styles to be applied to the title. |
+| `styles` | [`Styles`](Styles.md) | The styles to be applied to the title. |
 
 #### Defined in
 
-[components/title.ts:24](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/title.ts#L24)
+[components/title.ts:24](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/title.ts#L24)
 
 ## Properties
 
@@ -51,17 +51,17 @@ Creates a new Title object.
 
 #### Defined in
 
-[components/title.ts:15](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/title.ts#L15)
+[components/title.ts:15](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/title.ts#L15)
 
 ___
 
 ### styles
 
-• `Private` **styles**: `Styles`
+• `Private` **styles**: [`Styles`](Styles.md)
 
 #### Defined in
 
-[components/title.ts:16](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/title.ts#L16)
+[components/title.ts:16](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/title.ts#L16)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[components/title.ts:14](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/title.ts#L14)
+[components/title.ts:14](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/title.ts#L14)
 
 ## Methods
 
@@ -93,7 +93,7 @@ Draws the Title using the given CanvasRenderingContext2D.
 
 #### Defined in
 
-[components/title.ts:50](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/title.ts#L50)
+[components/title.ts:50](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/title.ts#L50)
 
 ___
 
@@ -111,7 +111,7 @@ The background Rectangle object.
 
 #### Defined in
 
-[components/title.ts:42](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/title.ts#L42)
+[components/title.ts:42](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/title.ts#L42)
 
 ___
 
@@ -129,7 +129,7 @@ An array of Text objects.
 
 #### Defined in
 
-[components/title.ts:34](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/title.ts#L34)
+[components/title.ts:34](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/title.ts#L34)
 
 ___
 
@@ -146,7 +146,7 @@ Creates a new Title object from an array of Residue objects.
 | `residues` | [`Residue`](Residue.md)[] | An array of Residue objects to be used for creating the title. |
 | `canvasWidth` | `number` | The width of the canvas the title will be drawn on. |
 | `canvasHeight` | `number` | The height of the canvas the title will be drawn on. |
-| `styles` | `Styles` | The styles to be applied to the title. |
+| `styles` | [`Styles`](Styles.md) | The styles to be applied to the title. |
 
 #### Returns
 
@@ -156,4 +156,4 @@ A new Title object.
 
 #### Defined in
 
-[components/title.ts:63](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/components/title.ts#L63)
+[components/title.ts:63](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/title.ts#L63)

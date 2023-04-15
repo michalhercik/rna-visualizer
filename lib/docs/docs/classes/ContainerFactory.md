@@ -23,7 +23,6 @@ Factory class for creating a DataContainer object that displays RNA visualizatio
 ### Methods
 
 - [addBasePairs](ContainerFactory.md#addbasepairs)
-- [addClasses](ContainerFactory.md#addclasses)
 - [addLabels](ContainerFactory.md#addlabels)
 - [addMargin](ContainerFactory.md#addmargin)
 - [addResidues](ContainerFactory.md#addresidues)
@@ -40,77 +39,77 @@ Factory class for creating a DataContainer object that displays RNA visualizatio
 
 ### basePairs
 
-• `Private` **basePairs**: [`BasePair`](BasePair.md)[] = `[]`
+▪ `Static` `Private` **basePairs**: [`BasePair`](BasePair.md)[]
 
 #### Defined in
 
-[data/containerFactory.ts:27](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L27)
+[data/containerFactory.ts:27](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L27)
 
 ___
 
 ### container
 
-• `Private` **container**: [`DataContainer`](DataContainer.md)
+▪ `Static` `Private` **container**: [`DataContainer`](DataContainer.md)
 
 #### Defined in
 
-[data/containerFactory.ts:23](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L23)
+[data/containerFactory.ts:23](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L23)
 
 ___
 
 ### data
 
-• `Private` **data**: [`IRnaInput`](../interfaces/IRnaInput.md)
+▪ `Static` `Private` **data**: [`IRnaInput`](../interfaces/IRnaInput.md)
 
 #### Defined in
 
-[data/containerFactory.ts:24](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L24)
+[data/containerFactory.ts:24](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L24)
 
 ___
 
 ### labels
 
-• `Private` **labels**: [`Label`](Label.md)[] = `[]`
+▪ `Static` `Private` **labels**: [`Label`](Label.md)[]
 
 #### Defined in
 
-[data/containerFactory.ts:28](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L28)
+[data/containerFactory.ts:28](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L28)
 
 ___
 
 ### margin
 
-• `Private` `Readonly` **margin**: ``10``
+▪ `Static` `Private` `Readonly` **margin**: ``10``
 
 #### Defined in
 
-[data/containerFactory.ts:22](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L22)
+[data/containerFactory.ts:22](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L22)
 
 ___
 
 ### residues
 
-• `Private` **residues**: [`Residue`](Residue.md)[] = `[]`
+▪ `Static` `Private` **residues**: [`Residue`](Residue.md)[]
 
 #### Defined in
 
-[data/containerFactory.ts:26](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L26)
+[data/containerFactory.ts:26](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L26)
 
 ___
 
 ### styles
 
-• `Private` **styles**: `Styles`
+▪ `Static` `Private` **styles**: [`Styles`](Styles.md)
 
 #### Defined in
 
-[data/containerFactory.ts:25](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L25)
+[data/containerFactory.ts:25](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L25)
 
 ## Methods
 
 ### addBasePairs
 
-▸ `Private` **addBasePairs**(): `void`
+▸ `Static` `Private` **addBasePairs**(): `void`
 
 #### Returns
 
@@ -118,27 +117,13 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:82](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L82)
-
-___
-
-### addClasses
-
-▸ `Private` **addClasses**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[data/containerFactory.ts:74](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L74)
+[data/containerFactory.ts:77](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L77)
 
 ___
 
 ### addLabels
 
-▸ `Private` **addLabels**(): `void`
+▸ `Static` `Private` **addLabels**(): `void`
 
 #### Returns
 
@@ -146,13 +131,13 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:114](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L114)
+[data/containerFactory.ts:109](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L109)
 
 ___
 
 ### addMargin
 
-▸ `Private` **addMargin**(): `void`
+▸ `Static` `Private` **addMargin**(): `void`
 
 #### Returns
 
@@ -160,13 +145,13 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:48](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L48)
+[data/containerFactory.ts:51](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L51)
 
 ___
 
 ### addResidues
 
-▸ `Private` **addResidues**(): `void`
+▸ `Static` `Private` **addResidues**(): `void`
 
 #### Returns
 
@@ -174,13 +159,13 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:105](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L105)
+[data/containerFactory.ts:100](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L100)
 
 ___
 
 ### create
 
-▸ **create**(`data`, `styles`): [`DataContainer`](DataContainer.md)
+▸ `Static` **create**(`data`, `styles`): [`DataContainer`](DataContainer.md)
 
 Creates a DataContainer object for the RNA visualization.
 
@@ -189,7 +174,7 @@ Creates a DataContainer object for the RNA visualization.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `data` | [`IRnaInput`](../interfaces/IRnaInput.md) | The RNA input data. |
-| `styles` | `Styles` | The styles to apply to the visualization. |
+| `styles` | [`Styles`](Styles.md) | The styles to apply to the visualization. |
 
 #### Returns
 
@@ -199,13 +184,13 @@ A DataContainer object representing the IRnaInput data with given styles.
 
 #### Defined in
 
-[data/containerFactory.ts:36](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L36)
+[data/containerFactory.ts:36](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L36)
 
 ___
 
 ### setDimensions
 
-▸ `Private` **setDimensions**(): `void`
+▸ `Static` `Private` **setDimensions**(): `void`
 
 #### Returns
 
@@ -213,4 +198,4 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:60](https://github.com/michalhercik/rna-visualizer/blob/476cd69/lib/src/data/containerFactory.ts#L60)
+[data/containerFactory.ts:63](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L63)
