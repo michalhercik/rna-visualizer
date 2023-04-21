@@ -8,7 +8,7 @@ export class MappingLine implements ILine {
     residue1: Residue;
     residue2: Residue;
     classes: string[];
-    visible = true;
+    visible = false;
 
     /**
      * Constructs a MappingLine object
