@@ -21,9 +21,9 @@ export function canvasClick(event: MouseEvent): void {
 
         const animTarget = 
         rnaVis.getAlignmentToTempResidue(residue)
-        .map((translation, i) => PositionRecord.fromTranslation(containers[i+1], translation));
+        .map((translation, i) => PositionRecord.fromTranslation(containers[i], translation));
 
-        const anim = new TranslationAnim(containers.slice(1), animTarget);
+        const anim = new TranslationAnim(containers, animTarget);
         if (reversed) {
             anim.setState(toTemplateAnim.getState());
         }

@@ -148,6 +148,7 @@ export class RnaVis {
      * @param groupIndex - The index of the generated translation group to use for alignment.
      * @param minGroupSize - The minimum size of a translation group.
      * @returns An array of translation vectors for each RNA secondary structure.
+     * @throws An error if the groupIndex is greater than a number of groups.
      */
     public align(groupIndex = -1, minGroupSize = 5): Vector2[] {
         const translations: Vector2[] = [new Vector2(0, 0)];
@@ -160,10 +161,10 @@ export class RnaVis {
         const containers = this.getDataContainers();
         let groups = TranslationGroups.create(containers[0], containers[1], null, minGroupSize);
         if (groupIndex >= groups.length) {
-            return translations;
+            throw new Error('groupIndex >= groups.length');
         }
 
-        const group = groupIndex == -1 ? TranslationGroups.getBest(groups) : groups[groupIndex];
+        const group = groupIndex < 0 ? TranslationGroups.getBest(groups) : groups[groupIndex];
         if (group) {
             translations.push(
                 new Vector2(group.xShift, group.yShift)
@@ -195,7 +196,7 @@ export class RnaVis {
      * @returns An array of translation vectors for each RNA secondary structure.
      */
     public getAlignmentToTempResidue(tempRes: Residue): Vector2[] {
-        const translations: Vector2[] = [];
+        const translations: Vector2[] = [Vector2.zero];
         const containers = this.getDataContainers();
 
         for (let i = 1; i < containers.length; ++i) {
