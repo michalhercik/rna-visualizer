@@ -54,7 +54,7 @@ Creates a new circle.
 
 #### Defined in
 
-[components/circle.ts:22](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L22)
+[components/circle.ts:22](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L22)
 
 ## Properties
 
@@ -64,7 +64,7 @@ Creates a new circle.
 
 #### Defined in
 
-[components/circle.ts:11](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L11)
+[components/circle.ts:11](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L11)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[components/circle.ts:12](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L12)
+[components/circle.ts:12](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L12)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[components/circle.ts:13](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L13)
+[components/circle.ts:13](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L13)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[components/circle.ts:15](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L15)
+[components/circle.ts:15](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L15)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[components/circle.ts:14](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L14)
+[components/circle.ts:14](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L14)
 
 ## Methods
 
@@ -122,7 +122,7 @@ The classes associated with the circle.
 
 #### Defined in
 
-[components/circle.ts:158](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L158)
+[components/circle.ts:158](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L158)
 
 ___
 
@@ -140,7 +140,7 @@ A copy of the center coordinates as a Vector2 object.
 
 #### Defined in
 
-[components/circle.ts:103](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L103)
+[components/circle.ts:103](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L103)
 
 ___
 
@@ -158,7 +158,7 @@ The scaled radius.
 
 #### Defined in
 
-[components/circle.ts:122](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L122)
+[components/circle.ts:122](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L122)
 
 ___
 
@@ -176,7 +176,7 @@ The transformed center coordinates as a Vector2 object.
 
 #### Defined in
 
-[components/circle.ts:111](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L111)
+[components/circle.ts:111](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L111)
 
 ___
 
@@ -194,7 +194,7 @@ The transformed X coordinate.
 
 #### Defined in
 
-[components/circle.ts:41](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L41)
+[components/circle.ts:41](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L41)
 
 ___
 
@@ -212,7 +212,7 @@ The transformed Y coordinate.
 
 #### Defined in
 
-[components/circle.ts:67](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L67)
+[components/circle.ts:67](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L67)
 
 ___
 
@@ -230,7 +230,7 @@ The X coordinate.
 
 #### Defined in
 
-[components/circle.ts:49](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L49)
+[components/circle.ts:49](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L49)
 
 ___
 
@@ -248,7 +248,7 @@ The Y coordinate.
 
 #### Defined in
 
-[components/circle.ts:75](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L75)
+[components/circle.ts:75](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L75)
 
 ___
 
@@ -266,7 +266,7 @@ Whether the circle is visible.
 
 #### Defined in
 
-[components/circle.ts:150](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L150)
+[components/circle.ts:150](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L150)
 
 ___
 
@@ -290,7 +290,7 @@ The circle object.
 
 #### Defined in
 
-[components/circle.ts:94](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L94)
+[components/circle.ts:94](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L94)
 
 ___
 
@@ -314,7 +314,7 @@ The circle object.
 
 #### Defined in
 
-[components/circle.ts:131](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L131)
+[components/circle.ts:131](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L131)
 
 ___
 
@@ -338,7 +338,7 @@ The circle object.
 
 #### Defined in
 
-[components/circle.ts:32](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L32)
+[components/circle.ts:32](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L32)
 
 ___
 
@@ -362,7 +362,7 @@ The circle object.
 
 #### Defined in
 
-[components/circle.ts:141](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L141)
+[components/circle.ts:141](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L141)
 
 ___
 
@@ -386,7 +386,7 @@ The circle object.
 
 #### Defined in
 
-[components/circle.ts:58](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L58)
+[components/circle.ts:58](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L58)
 
 ___
 
@@ -410,7 +410,7 @@ The circle object.
 
 #### Defined in
 
-[components/circle.ts:84](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L84)
+[components/circle.ts:84](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L84)
 
 ___
 
@@ -434,4 +434,4 @@ The circle object.
 
 #### Defined in
 
-[components/circle.ts:167](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/components/circle.ts#L167)
+[components/circle.ts:167](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/components/circle.ts#L167)

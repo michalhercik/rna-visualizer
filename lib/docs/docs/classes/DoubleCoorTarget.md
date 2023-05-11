@@ -39,7 +39,7 @@ Constructs a DoubleCoorTarget object with the given coordinates.
 
 #### Defined in
 
-[animations/doubleCoorTarget.ts:15](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/doubleCoorTarget.ts#L15)
+[animations/doubleCoorTarget.ts:15](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/animations/doubleCoorTarget.ts#L15)
 
 ## Properties
 
@@ -49,7 +49,7 @@ Constructs a DoubleCoorTarget object with the given coordinates.
 
 #### Defined in
 
-[animations/doubleCoorTarget.ts:7](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/doubleCoorTarget.ts#L7)
+[animations/doubleCoorTarget.ts:7](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/animations/doubleCoorTarget.ts#L7)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[animations/doubleCoorTarget.ts:8](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/doubleCoorTarget.ts#L8)
+[animations/doubleCoorTarget.ts:8](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/animations/doubleCoorTarget.ts#L8)
 
 ## Methods
 
@@ -75,7 +75,7 @@ Returns the x value of the first coordinate.
 
 #### Defined in
 
-[animations/doubleCoorTarget.ts:23](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/doubleCoorTarget.ts#L23)
+[animations/doubleCoorTarget.ts:23](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/animations/doubleCoorTarget.ts#L23)
 
 ___
 
@@ -91,7 +91,7 @@ Returns the x value of the second coordinate.
 
 #### Defined in
 
-[animations/doubleCoorTarget.ts:37](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/doubleCoorTarget.ts#L37)
+[animations/doubleCoorTarget.ts:37](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/animations/doubleCoorTarget.ts#L37)
 
 ___
 
@@ -107,7 +107,7 @@ Returns the y value of the first coordinate.
 
 #### Defined in
 
-[animations/doubleCoorTarget.ts:30](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/doubleCoorTarget.ts#L30)
+[animations/doubleCoorTarget.ts:30](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/animations/doubleCoorTarget.ts#L30)
 
 ___
 
@@ -123,4 +123,4 @@ Returns the y value of the second coordinate.
 
 #### Defined in
 
-[animations/doubleCoorTarget.ts:44](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/animations/doubleCoorTarget.ts#L44)
+[animations/doubleCoorTarget.ts:44](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/animations/doubleCoorTarget.ts#L44)

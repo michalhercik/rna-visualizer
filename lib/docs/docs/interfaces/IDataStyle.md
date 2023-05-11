@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[rna-input/iDataStyle.ts:2](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iDataStyle.ts#L2)
+[rna-input/iDataStyle.ts:2](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-input/iDataStyle.ts#L2)

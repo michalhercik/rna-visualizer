@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[rna-input/iRnaComplex.ts:4](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iRnaComplex.ts#L4)
+[rna-input/iRnaComplex.ts:4](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-input/iRnaComplex.ts#L4)

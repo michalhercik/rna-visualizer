@@ -43,7 +43,7 @@ Factory class for creating a DataContainer object that displays RNA visualizatio
 
 #### Defined in
 
-[data/containerFactory.ts:27](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L27)
+[data/containerFactory.ts:27](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L27)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:23](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L23)
+[data/containerFactory.ts:23](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L23)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:24](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L24)
+[data/containerFactory.ts:24](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L24)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:28](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L28)
+[data/containerFactory.ts:28](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L28)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:22](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L22)
+[data/containerFactory.ts:22](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L22)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:26](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L26)
+[data/containerFactory.ts:26](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L26)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:25](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L25)
+[data/containerFactory.ts:25](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L25)
 
 ## Methods
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:77](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L77)
+[data/containerFactory.ts:77](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L77)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:109](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L109)
+[data/containerFactory.ts:109](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L109)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:51](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L51)
+[data/containerFactory.ts:51](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L51)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:100](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L100)
+[data/containerFactory.ts:100](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L100)
 
 ___
 
@@ -184,7 +184,7 @@ A DataContainer object representing the IRnaInput data with given styles.
 
 #### Defined in
 
-[data/containerFactory.ts:36](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L36)
+[data/containerFactory.ts:36](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L36)
 
 ___
 
@@ -198,4 +198,4 @@ ___
 
 #### Defined in
 
-[data/containerFactory.ts:63](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/containerFactory.ts#L63)
+[data/containerFactory.ts:63](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/containerFactory.ts#L63)

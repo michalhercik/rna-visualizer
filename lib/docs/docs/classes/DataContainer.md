@@ -50,7 +50,7 @@ Initializes a new instance of the DataContainer class.
 
 #### Defined in
 
-[data/dataContainer.ts:33](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L33)
+[data/dataContainer.ts:33](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L33)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Initializes a new instance of the DataContainer class.
 
 #### Defined in
 
-[data/dataContainer.ts:23](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L23)
+[data/dataContainer.ts:23](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L23)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[data/dataContainer.ts:20](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L20)
+[data/dataContainer.ts:20](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L20)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[data/dataContainer.ts:24](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L24)
+[data/dataContainer.ts:24](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L24)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[data/dataContainer.ts:22](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L22)
+[data/dataContainer.ts:22](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L22)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[data/dataContainer.ts:18](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L18)
+[data/dataContainer.ts:18](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L18)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[data/dataContainer.ts:19](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L19)
+[data/dataContainer.ts:19](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L19)
 
 ## Methods
 
@@ -128,7 +128,7 @@ An array of Circle objects.
 
 #### Defined in
 
-[data/dataContainer.ts:62](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L62)
+[data/dataContainer.ts:62](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L62)
 
 ___
 
@@ -154,7 +154,7 @@ The closest residue to the specified coordinates within the specified maximum di
 
 #### Defined in
 
-[data/dataContainer.ts:123](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L123)
+[data/dataContainer.ts:123](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L123)
 
 ___
 
@@ -172,7 +172,7 @@ An array of ILine objects.
 
 #### Defined in
 
-[data/dataContainer.ts:44](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L44)
+[data/dataContainer.ts:44](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L44)
 
 ___
 
@@ -190,7 +190,7 @@ An array of mappable residues.
 
 #### Defined in
 
-[data/dataContainer.ts:154](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L154)
+[data/dataContainer.ts:154](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L154)
 
 ___
 
@@ -215,7 +215,7 @@ The residue at the specified coordinates, or null if no such residue exists.
 
 #### Defined in
 
-[data/dataContainer.ts:99](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L99)
+[data/dataContainer.ts:99](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L99)
 
 ___
 
@@ -233,7 +233,7 @@ An array of Text objects.
 
 #### Defined in
 
-[data/dataContainer.ts:53](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L53)
+[data/dataContainer.ts:53](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L53)
 
 ___
 
@@ -251,7 +251,7 @@ An array of unmappable residues.
 
 #### Defined in
 
-[data/dataContainer.ts:146](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L146)
+[data/dataContainer.ts:146](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L146)
 
 ___
 
@@ -273,7 +273,7 @@ Translates the objects by the specified amount.
 
 #### Defined in
 
-[data/dataContainer.ts:162](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L162)
+[data/dataContainer.ts:162](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L162)
 
 ___
 
@@ -295,4 +295,4 @@ Updates the visualization with the specified event.
 
 #### Defined in
 
-[data/dataContainer.ts:70](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/data/dataContainer.ts#L70)
+[data/dataContainer.ts:70](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/data/dataContainer.ts#L70)

@@ -54,7 +54,7 @@ Constructs a new RnaVis instance with the specified canvas element.
 
 #### Defined in
 
-[rna-vis.ts:44](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L44)
+[rna-vis.ts:44](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L44)
 
 ## Properties
 
@@ -66,7 +66,7 @@ The canvas element to render the RNA secondary structures on.
 
 #### Defined in
 
-[rna-vis.ts:26](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L26)
+[rna-vis.ts:26](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L26)
 
 ___
 
@@ -78,7 +78,7 @@ An array of layers for each RNA secondary structure.
 
 #### Defined in
 
-[rna-vis.ts:30](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L30)
+[rna-vis.ts:30](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L30)
 
 ___
 
@@ -90,7 +90,7 @@ The styles to use for rendering the RNA secondary structures.
 
 #### Defined in
 
-[rna-vis.ts:34](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L34)
+[rna-vis.ts:34](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L34)
 
 ___
 
@@ -102,7 +102,7 @@ The zoom behavior for the canvas element.
 
 #### Defined in
 
-[rna-vis.ts:38](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L38)
+[rna-vis.ts:38](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L38)
 
 ## Methods
 
@@ -126,7 +126,7 @@ Adds a new layer for the specified RNA secondary structure
 
 #### Defined in
 
-[rna-vis.ts:118](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L118)
+[rna-vis.ts:118](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L118)
 
 ___
 
@@ -144,7 +144,7 @@ This RnaVis instance.
 
 #### Defined in
 
-[rna-vis.ts:56](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L56)
+[rna-vis.ts:56](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L56)
 
 ___
 
@@ -153,6 +153,10 @@ ___
 ▸ **align**(`groupIndex?`, `minGroupSize?`): [`Vector2`](Vector2.md)[]
 
 Creates translation vectors for aligning the RNA secondary structures to the template.
+
+**`Throws`**
+
+An error if the groupIndex is greater than a number of groups.
 
 #### Parameters
 
@@ -169,7 +173,7 @@ An array of translation vectors for each RNA secondary structure.
 
 #### Defined in
 
-[rna-vis.ts:152](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L152)
+[rna-vis.ts:153](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L153)
 
 ___
 
@@ -185,7 +189,7 @@ Clears all layers and styles from the RnaVis instance, clears canvas and reset z
 
 #### Defined in
 
-[rna-vis.ts:138](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L138)
+[rna-vis.ts:138](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L138)
 
 ___
 
@@ -201,7 +205,7 @@ Renders the RNA secondary structures on the canvas element.
 
 #### Defined in
 
-[rna-vis.ts:70](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L70)
+[rna-vis.ts:70](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L70)
 
 ___
 
@@ -224,7 +228,7 @@ Draws the hover label for the specified coordinates.
 
 #### Defined in
 
-[rna-vis.ts:99](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L99)
+[rna-vis.ts:99](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L99)
 
 ___
 
@@ -249,7 +253,7 @@ An array of translation vectors for each RNA secondary structure.
 
 #### Defined in
 
-[rna-vis.ts:197](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L197)
+[rna-vis.ts:198](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L198)
 
 ___
 
@@ -268,7 +272,7 @@ An array of DataContainer instances.
 
 #### Defined in
 
-[rna-vis.ts:328](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L328)
+[rna-vis.ts:329](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L329)
 
 ___
 
@@ -287,7 +291,7 @@ The calculated alpha value.
 
 #### Defined in
 
-[rna-vis.ts:247](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L247)
+[rna-vis.ts:248](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L248)
 
 ___
 
@@ -311,7 +315,7 @@ The index of the layer, or -1 if the layer was not found.
 
 #### Defined in
 
-[rna-vis.ts:219](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L219)
+[rna-vis.ts:220](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L220)
 
 ___
 
@@ -335,7 +339,7 @@ The RnaVis instance to allow for method chaining.
 
 #### Defined in
 
-[rna-vis.ts:305](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L305)
+[rna-vis.ts:306](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L306)
 
 ___
 
@@ -353,7 +357,7 @@ The RnaVis instance to allow for method chaining.
 
 #### Defined in
 
-[rna-vis.ts:317](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L317)
+[rna-vis.ts:318](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L318)
 
 ___
 
@@ -377,7 +381,7 @@ The RnaVis instance to allow for method chaining.
 
 #### Defined in
 
-[rna-vis.ts:294](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L294)
+[rna-vis.ts:295](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L295)
 
 ___
 
@@ -401,7 +405,7 @@ The RnaVis instance to allow for method chaining.
 
 #### Defined in
 
-[rna-vis.ts:259](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L259)
+[rna-vis.ts:260](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L260)
 
 ___
 
@@ -426,7 +430,7 @@ The RnaVis instance to allow for method chaining.
 
 #### Defined in
 
-[rna-vis.ts:270](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L270)
+[rna-vis.ts:271](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L271)
 
 ___
 
@@ -451,7 +455,7 @@ The RnaVis instance to allow for method chaining.
 
 #### Defined in
 
-[rna-vis.ts:281](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L281)
+[rna-vis.ts:282](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L282)
 
 ___
 
@@ -480,4 +484,4 @@ This RnaVis instance.
 
 #### Defined in
 
-[rna-vis.ts:233](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-vis.ts#L233)
+[rna-vis.ts:234](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-vis.ts#L234)

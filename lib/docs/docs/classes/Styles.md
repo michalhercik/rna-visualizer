@@ -41,7 +41,7 @@ The default map of styles for RNA visualization.
 
 #### Defined in
 
-[styles.ts:21](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L21)
+[styles.ts:21](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L21)
 
 ___
 
@@ -53,7 +53,7 @@ The map of custom styles for RNA visualization.
 
 #### Defined in
 
-[styles.ts:84](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L84)
+[styles.ts:84](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L84)
 
 ___
 
@@ -65,7 +65,7 @@ The name of the class to add to transformed structure.
 
 #### Defined in
 
-[styles.ts:16](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L16)
+[styles.ts:16](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L16)
 
 ## Methods
 
@@ -87,7 +87,7 @@ Adds a set of styles to the custom styles map.
 
 #### Defined in
 
-[styles.ts:90](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L90)
+[styles.ts:90](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L90)
 
 ___
 
@@ -111,7 +111,7 @@ An object containing the style values.
 
 #### Defined in
 
-[styles.ts:114](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L114)
+[styles.ts:114](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L114)
 
 ___
 
@@ -136,7 +136,7 @@ The value of the specified property.
 
 #### Defined in
 
-[styles.ts:126](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L126)
+[styles.ts:126](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L126)
 
 ___
 
@@ -152,7 +152,7 @@ Resets the custom styles map to its default values.
 
 #### Defined in
 
-[styles.ts:135](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L135)
+[styles.ts:135](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L135)
 
 ___
 
@@ -175,7 +175,7 @@ Sets a style value in the custom styles map.
 
 #### Defined in
 
-[styles.ts:102](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L102)
+[styles.ts:102](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L102)
 
 ___
 
@@ -193,4 +193,4 @@ A randomly generated hexadecimal color code.
 
 #### Defined in
 
-[styles.ts:143](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/styles.ts#L143)
+[styles.ts:143](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/styles.ts#L143)

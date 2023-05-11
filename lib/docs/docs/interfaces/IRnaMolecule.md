@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[rna-input/iRnaMolecule.ts:8](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iRnaMolecule.ts#L8)
+[rna-input/iRnaMolecule.ts:8](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-input/iRnaMolecule.ts#L8)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[rna-input/iRnaMolecule.ts:9](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iRnaMolecule.ts#L9)
+[rna-input/iRnaMolecule.ts:9](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-input/iRnaMolecule.ts#L9)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[rna-input/iRnaMolecule.ts:10](https://github.com/michalhercik/rna-visualizer/blob/febfa3b/lib/src/rna-input/iRnaMolecule.ts#L10)
+[rna-input/iRnaMolecule.ts:10](https://github.com/michalhercik/rna-visualizer/blob/43166fe/lib/src/rna-input/iRnaMolecule.ts#L10)
