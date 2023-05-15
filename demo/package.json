@@ -4,7 +4,7 @@
   "description": "A demo for rna-visualizer package.",
   "main": "dist/index.js",
   "scripts": {
-    "copy": "copyfiles -u 1 \"./src/**/*.html\" \"./dist/\" && copyfiles -u 1 \"./src/**/*.css\" \"./dist/\" && copyfiles -u 1 \"./src/**/*.js\" \"./dist/\"",
+    "copy": "copyfiles -u 1 \"./src/**/*.html\" \"./dist/\" && copyfiles -u 1 \"./src/**/*.css\" \"./dist/\" && copyfiles -u 1 \"./src/**/*.js\" \"./dist/\" && copyfiles -u 1 \"./help/*.png\" \"./dist\"",
     "rm-dist": "del-cli --force ./dist",
     "transpile": "esbuild src/main.ts --bundle --sourcemap --outdir=dist --global-name=main",
     "build": "npx eslint ./src && npm run transpile && npm run copy",
